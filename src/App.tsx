@@ -133,13 +133,6 @@ export default function App() {
             Details
           </button>
           <button 
-            className={`hsr-menu-item ${activeTab === "skill" ? "active" : ""}`}
-            disabled={!selectedCharacter}
-            onClick={() => setActiveTab("skill")}
-          >
-            Skill
-          </button>
-          <button 
             className={`hsr-menu-item ${activeTab === "traces" ? "active" : ""}`}
             disabled={!selectedCharacter}
             onClick={() => setActiveTab("traces")}
@@ -152,6 +145,11 @@ export default function App() {
             onClick={() => setActiveTab("eidolons")}
           >
             Eidolons
+          </button>
+          <button 
+            className={`hsr-menu-item ${activeTab === "eidolons" ? "active" : ""}`}
+          >
+            Calculator
           </button>
         </nav>
       </aside>
