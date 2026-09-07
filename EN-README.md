@@ -1,24 +1,18 @@
-# ⚔️ Cipher Calculator
+# ⚔️ Cipher Project
 
 **Honkai: Star Rail — Damage Calculator**
 
-A **Honkai: Star Rail** damage calculator developed as a personal project using **React + TypeScript + Vite**.
+A page where you can find data about all the **Honkai: Star Rail** characters.
 
-> [!WARNING]
+> [!NOTE]
 >
-> ## 🚧 ALPHA — WORK IN PROGRESS
->
-> This application is currently in a **very early Alpha stage**.
->
-> It may contain bugs, unexpected behavior, incorrect calculations, and incomplete features. **Errors are expected during this stage of development.**
->
-> If you encounter any issues, please report them through the **Issues** section of this repository.
+> This project is in its 1st Release it might have errors.
 
 ---
 
 ## 🌐 Official Website
 
-You can try the currently deployed version here:
+You can use the page here:
 
 **https://cipher-calculator.reyzer.org/**
 
@@ -26,31 +20,15 @@ You can try the currently deployed version here:
 
 ## 📊 Current Status
 
-The project is currently in a very early stage of development.
+The project is in its 1st Release
 
 ### Characters
 
-There are currently only **12 characters available**.
+There are currently **all characters available up to 4.5 version**.
 
 ### Light Cones
 
-There are **all the Light Cones implemented**.
-
----
-
-## ❌ Features Not Yet Available
-
-The following features **in development (X = Implemented)**:
-
-* [X] Eidolons (Recently implemented)
-* [ ] DMG Calculation
-* [ ] Skills
-* [ ] Complete stat system
-* [ ] Other damage calculation-related systems
-
-Therefore, **the application currently does not function as a complete damage calculator**.
-
-These features will be implemented progressively as development continues.
+There are **all the Light Cones implemented up to 4.5 version**.
 
 ---
 
@@ -68,10 +46,7 @@ The experience may vary on other resolutions or aspect ratios.
 ### 📱 Mobile & Tablets
 
 > [!NOTE]
->
 > Mobile and tablet compatibility **has just been added, if errors are found, please create an github issue**.
-
-Support for these devices is currently **under development and testing**, so the interface may not work correctly on smaller screens.
 
 ---
 
@@ -156,16 +131,6 @@ This project is an **unofficial fan-made application** and is not affiliated wit
 
 ---
 
-## 📜 Project Status
-
-This project is under **active development**.
-
-The structure, interface, characters, Light Cones, and available features may change at any time.
-
-Features that are currently unavailable will be implemented progressively as development continues.
-
----
-
 ## ⭐ Contributions & Feedback
 
 Although the project is currently in an Alpha stage, bug reports and suggestions are welcome.
@@ -176,10 +141,10 @@ If you encounter any problems, please use the **Issues** section of this reposit
 
 <div align="center">
 
-### ⚔️ Cipher Calculator
+### ⚔️ Cipher Project
 
-*Honkai: Star Rail Damage Calculator*
+*Honkai: Star Rail db*
 
-**Alpha — Work in Progress**
+**--- 1st Release ---**
 
 </div>

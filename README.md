@@ -1,24 +1,18 @@
 # ⚔️ Cipher Calculator
 
-**Honkai: Star Rail — Damage Calculator**
+**Cipher Project**
 
-Una calculadora de daño para **Honkai: Star Rail**, desarrollada como proyecto personal con **React + TypeScript + Vite**.
+Una pagina donde se podran consultar datos de los personajes para **Honkai: Star Rail**.
 
-> [!WARNING]
+> [!NOTE]
 >
-> ## 🚧 ALPHA — PROYECTO EN DESARROLLO
->
-> Esta aplicación se encuentra actualmente en una **versión Alpha muy temprana**.
->
-> Puede contener errores, comportamientos inesperados, cálculos incorrectos y funciones incompletas. **Se espera que existan errores durante esta etapa de desarrollo.**
->
-> Si encuentras cualquier problema, por favor repórtalo mediante el apartado **Issues** de este repositorio.
+> El projecto acutalmente se encuentra en **su primera release** puede que haya fallos, se pide que los reporten en caso de encontrarlos
 
 ---
 
 ## 🌐 Página oficial
 
-Puedes probar la versión actualmente desplegada aquí:
+Puedes acceder a la pagina mediante este enlace:
 
 **https://cipher-calculator.reyzer.org/**
 
@@ -26,31 +20,15 @@ Puedes probar la versión actualmente desplegada aquí:
 
 ## 📊 Estado actual
 
-El proyecto se encuentra en una fase muy temprana de desarrollo.
+El proyecto se encuentra en su primera release.
 
 ### Personajes
 
-Actualmente solamente hay **12 personajes disponibles**.
+Actualmente estan **todos los personages hasta la version 4.5**.
 
 ### Conos de Luz
 
-Actualmente estan **todos los Conos de Luz implementados**.
-
----
-
-## ❌ Funciones todavía no disponibles
-
-Las siguientes funcionalidades **estan en desarrollo (X = Implementada)**:
-
-* [X] Eidolones (Recien implementada)
-* [ ] Cálculo de DMG
-* [ ] Habilidades / Skills
-* [ ] Sistema completo de estadísticas
-* [ ] Otros sistemas relacionados con el cálculo de daño
-
-Por lo tanto, **la aplicación actualmente no funciona como una calculadora de daño completa**.
-
-Estas funciones serán implementadas progresivamente durante el desarrollo.
+Actualmente estan **todos los Conos de Luz implementados hasta la version 4.5**.
 
 ---
 
@@ -153,16 +131,6 @@ Este proyecto es una aplicación **no oficial y creada por un fan**, y no está 
 
 ---
 
-## 📜 Estado del proyecto
-
-Este proyecto se encuentra en **desarrollo activo**.
-
-La estructura, interfaz, personajes, Conos de Luz y funcionalidades disponibles pueden cambiar en cualquier momento.
-
-Las características actualmente ausentes serán implementadas progresivamente a medida que avance el desarrollo.
-
----
-
 ## ⭐ Contribuciones y feedback
 
 Aunque el proyecto se encuentra en una fase Alpha, los reportes de errores y sugerencias son bienvenidos.
@@ -173,11 +141,11 @@ Si encuentras algún problema, utiliza el sistema de **Issues** del repositorio 
 
 <div align="center">
 
-### ⚔️ Cipher Calculator
+### Cipher Project
 
-*Honkai: Star Rail Damage Calculator*
+*Honkai: Star Rail db*
 
-**Alpha — Work in Progress**
+**--- 1st Release ---**
 
 </div>
 

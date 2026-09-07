@@ -52,7 +52,7 @@ export default function App() {
     return null;
   });
 
-  const [activeTab, setActiveTab] = useState<"details" | "skill" | "traces" | "eidolons">("details");
+  const [activeTab, setActiveTab] = useState<"details" | "calculator" | "traces" | "eidolons">("details");
 
   // Estados para el Cono de Luz
   const [superimposition, setSuperimposition] = useState<number>(1);
@@ -145,11 +145,6 @@ export default function App() {
             onClick={() => setActiveTab("eidolons")}
           >
             Eidolons
-          </button>
-          <button 
-            className={`hsr-menu-item ${activeTab === "eidolons" ? "active" : ""}`}
-          >
-            Calculator
           </button>
         </nav>
       </aside>
