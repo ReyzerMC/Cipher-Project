@@ -425,7 +425,6 @@ export default function App() {
         </Modal>
       )}
 
-      // Chlogs modal
       {isChLogsModalOpen && (
         <Modal title="Changelogs" onClose={() => setIsChLogsModalOpen(false)}>
           <div className="hsr-changelog">
