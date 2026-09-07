@@ -11911,7 +11911,7 @@ const Castorice: Character = {
             name: "Where the West Wind Dwells",
             type: "bonus",
             level: "1/1",
-            icon: charIcon("Castorice", "WheretheWestWindDwells"),
+            icon: charIcon("Castorice", "WhereTheWestWindDwells"),
             description: (i) => `
         Each time Netherwing uses "Breath Scorches the Shadow," the DMG dealt increases by ${scaleValue(S.CastoriceScaling.b1.main, i)}. This effect stacks up to ${scaleValue(S.CastoriceScaling.b1.adjacent, i, "")} time(s) and lasts until the end of this turn.
       `,
@@ -11938,10 +11938,10 @@ const Castorice: Character = {
         },
         b4: {
             id: "b4",
-            name: "Breath Scorches the Shadow",
+            name: "Mooncocoon Shrouds the Form",
             type: "bonus",
             level: "1/1",
-            icon: charIcon("Castorice", "BreathScorchestheShadow"),
+            icon: charIcon("Castorice", "MooncocoonShroudstheForm"),
             description: (i) => `
         <b>Mooncocoon Shrouds the Form</b><br>When Netherwing is on the field, it acts as <u>backup</u> for allies. When allies take DMG or consume HP, their current HP can be reduced down to a minimum of 1, after which Netherwing will bear the HP loss. But Netherwing consumes HP equal to ${scaleValue(S.CastoriceScaling.b4.MooncocoonShroudstheForm, i)} of the original value. This lasts until Netherwing disappears.
 <br>
@@ -13242,7 +13242,7 @@ const Cyrene: Character = {
         },
         b5: {
             id: "b5",
-            name: "This Ode, to All Lives",
+            name: "Minuet of Blooms and Plumes",
             type: "bonus",
             level: "1/1",
             icon: charIcon("Cyrene", "ThisOdetoAllLives"),
