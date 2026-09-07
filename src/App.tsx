@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo } from "react";
-import type { Character, LightCone } from "./types/hsr";
+import type { Character, LightCone, Log } from "./types/hsr";
 import { Characters } from "./items/characters/CharacterList";
 import { LightCones } from "./items/lightCones/LightConesList";
 import "./App.css";
@@ -9,6 +9,7 @@ import { Paths } from "./items/item/ResourcesLists";
 import { EidolonsMenu } from "./EidolonsMenu";
 import { Modal } from "./components/Modal";
 import { useCookies } from "react-cookie";
+import { changes } from "./components/changelog";
 
 const useTraceScale = () => {
   const [scale, setScale] = useState(1.0);
@@ -67,6 +68,18 @@ export default function App() {
   const [isLcModalOpen, setIsLcModalOpen] = useState<boolean>(false);
   const [lcSearchQuery, setLcSearchQuery] = useState<string>("");
   const [selectedLcPathFilter, setSelectedLcPathFilter] = useState<string>("ALL");
+
+  // Estados para el Modal de Changelogs
+  const [isChLogsModalOpen, setIsChLogsModalOpen] = useState<boolean>(false);
+  const [selectedLog, setSelectedLog] = useState<Log>(changes[0]);
+
+  const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const versionSelected = event.target.value;
+    const foundLog = changes.find((log) => log.version === versionSelected);
+    if (foundLog) {
+      setSelectedLog(foundLog);
+    }
+  };
 
   const availableLightCones = selectedCharacter
     ? LightCones.filter(lc => lc.path === selectedCharacter.path)
@@ -147,8 +160,15 @@ export default function App() {
             Eidolons
           </button>
         </nav>
+        <div className="hsr-changelogs-button-container hsr-menu">
+          <button 
+            className="hsr-menu-item hsr-changelogs"
+            onClick={() => setIsChLogsModalOpen(true)}
+          >
+            📋️ Changelogs
+          </button>
+        </div>
       </aside>
-
       {/* Columna Central */}
       <main className="hsr-center-art">
         {activeTab === "details" && (
@@ -402,6 +422,39 @@ export default function App() {
                 <div className="hsr-no-results">No Light Cones found</div>
               )}
             </div>
+        </Modal>
+      )}
+
+      // Chlogs modal
+      {isChLogsModalOpen && (
+        <Modal title="Changelogs" onClose={() => setIsChLogsModalOpen(false)}>
+          <div className="hsr-changelog">
+            <label htmlFor="changelog-select" className="hsr-changelog-select">
+              Select version:
+            </label>
+            <br/>
+            <select 
+              id="changelog-select"
+              value={selectedLog.version}
+              onChange={handleChange}
+              className="hsr-changelog-select"
+            >
+              {changes.map((log) => (
+                <option key={log.version} value={log.version}>
+                  v{log.version} - {log.title}
+                </option>
+              ))}
+            </select>
+
+            <div className="hsr-changelog-text">
+              <h3> {selectedLog.title} </h3>
+              <ul>
+                {selectedLog.changes.map((change, index) => (
+                  <li key={index}>{change}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
         </Modal>
       )}
     </div>

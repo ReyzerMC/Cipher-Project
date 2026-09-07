@@ -95,6 +95,7 @@ body {
 
 /* Panel Izquierdo */
 .hsr-left-panel {
+    position: relative;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -789,6 +790,128 @@ body {
 .hsr-lc-card-item .hsr-char-stars {
     margin-top: 4px;
     font-size: 0.75rem;
+}
+
+.hsr-changelogs-button-container {
+    position: absolute;
+    bottom: 1px;
+}
+
+.hsr-changelogs {
+    font-size: 1.2rem;
+    font-weight: 500;
+    font-family: system-ui, -apple-system;
+}
+
+.hsr-changelog {
+    background: var(--hsr-bg-card);
+    border: 1px solid var(--hsr-border);
+    border-radius: 16px;
+    padding: 20px;
+    backdrop-filter: blur(10px);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+label.hsr-changelog-select {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--hsr-text-dim);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+select.hsr-changelog-select {
+    width: 100%;
+    padding: 10px 14px;
+    background: rgba(15, 18, 32, 0.75);
+    border: 1px solid var(--hsr-border);
+    border-radius: 8px;
+    color: #fff;
+    font-size: 0.95rem;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+    font-family: inherit;
+}
+
+select.hsr-changelog-text {
+    width: 100%;
+    padding: 10px 14px;
+    background: rgba(15, 18, 32, 0.75);
+    border: 1px solid var(--hsr-border);
+    border-radius: 8px;
+    color: #fff;
+    font-size: 0.95rem;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+    font-family: inherit;
+}
+
+select.hsr-changelog-select:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+select.hsr-changelog-select:focus {
+    border-color: #ffc700;
+    box-shadow: 0 0 8px rgba(255, 199, 0, 0.25);
+}
+
+/* Opciones desplegables del selector */
+select.hsr-changelog-select option {
+    background-color: #0d1021;
+    color: #fff;
+    padding: 8px;
+}
+
+/* Bloque contenedor de contenido de texto del log */
+.hsr-changelog-text {
+    margin-top: 8px;
+    padding-top: 14px;
+    border-top: 1px solid var(--hsr-border);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* Título de la versión seleccionada */
+.hsr-changelog-text h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #fff;
+    line-height: 1.3;
+}
+
+/* Lista de cambios */
+.hsr-changelog-text ul {
+    margin: 0;
+    padding-left: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.hsr-changelog-text li {
+    color: var(--hsr-text-dim);
+    font-size: 0.9rem;
+    line-height: 1.4;
+    transition: color 0.2s ease;
+}
+
+.hsr-changelog-text li:hover {
+    color: var(--hsr-acent);
+}
+
+.hsr-changelog-text li::marker {
+    color: #ffc700;
 }
 
 @keyframes fadeIn {

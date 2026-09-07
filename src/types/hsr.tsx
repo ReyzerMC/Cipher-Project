@@ -68,6 +68,12 @@ export interface Eidolon {
   };
 }
 
+export interface Log {
+  version: string;
+  title: string;
+  changes: string[];
+}
+
 export interface TraceNodeData {
     id: string;
     name: string;
