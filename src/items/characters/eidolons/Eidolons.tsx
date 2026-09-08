@@ -5895,7 +5895,7 @@ export const PearlEidolons: Eidolon = {
 
         title: "Nestle That Pearl in Uninked Tides",
 
-        desc: "When there are 2/3/4 or more Elation characters in the team, increases all allies' Elation stat by an amount equal to 10%/20%/80% of Pearl's Elation, up to a max increase of 60% Elation.",
+        desc: "When the number of Elation Path characters on the team equals 2/3/4 or more, increases Elation for all allies by 10%/20%/60%. When an ally target is struck with fatal damage, instead of becoming knocked down, their HP immediately restores to 50% of their Max HP. This effect can trigger 2 time(s) per battle",
 
         image: charEidolon("Pearl", 1),
 
