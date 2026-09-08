@@ -5927,7 +5927,7 @@ export const PearlEidolons: Eidolon = {
 
         desc: "In the Talent \"Grow Grace from Grit,\" Repellency provided by each point of \"Certified Banger\" increases by 40, and the percentage of DMG it can block increases by 5%.",
 
-        image: charEidolon("ElationTrailblazer", 4),
+        image: charEidolon("Pearl", 4),
 
     },
 
@@ -5937,7 +5937,7 @@ export const PearlEidolons: Eidolon = {
 
         desc: "Skill Lv. +2, up to a maximum of Lv. 15. Talent Lv. +2, up to a maximum of Lv. 15. Elation Skill Lv. +1, up to a maximum of Lv. 15.",
 
-        image: charEidolon("ElationTrailblazer", 5),
+        image: charEidolon("Pearl", 5),
 
     },
 
@@ -5947,7 +5947,7 @@ export const PearlEidolons: Eidolon = {
 
         desc: "While in \"Deep Learning,\" all allies' All-Type RES PEN increases by 20%. Pearl's Enhanced Basic ATK additionally deals Ice Elation DMG equal to 240% of the stats of \"Aesthetic Archetype.\"",
 
-        image: charEidolon("ElationTrailblazer", 6),
+        image: charEidolon("Pearl", 6),
 
     },
 
