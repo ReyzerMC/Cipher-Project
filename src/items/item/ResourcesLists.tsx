@@ -2242,6 +2242,13 @@ export const Texts = {
         return `Increases the wearer's ATK by ${atk}%. After the wearer uses Skill or Ultimate on one ally character, increases the target's Elation stat by ${value2}% for ${value3} turn(s).`;
     },
 
+    ColorsforTomorrowENG: (rank: number): string => {
+
+        const index = Math.max(0, Math.min(rank - 1, 4));
+
+        return `<h3><b>Ligth Cone in beta</b></h3>`;
+    },
+
 } as const;
 
 export type Text = typeof Texts[keyof typeof Texts];

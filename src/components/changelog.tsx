@@ -13,7 +13,8 @@ const v4_5_2: Log = {
     version: "4.5 / 2",
     title: "To Roll the Stars in Astropolis / 2",
     changes: [
-        `Added Pearl Beta Character`
+        `Added Pearl Beta Character`,
+        `Added Colors for Tomorrow Beta Light Cone`
     ]
 }
 

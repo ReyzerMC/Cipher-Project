@@ -3889,3 +3889,25 @@ const ElationBrimmingWithBlessings: LightCone = {
 };
 
 LightCones.push(ElationBrimmingWithBlessings);
+
+const ColorsforTomorrow: LightCone = {
+
+    name: "Colors for Tomorrow",
+
+    path: Paths.Elation,
+
+    description: Texts.ColorsforTomorrowENG,
+
+    image: lightConeImg("ColorsforTomorrow"),
+
+    baseHP: 1058,
+
+    baseATK: 476,
+
+    baseDEF: 595,
+
+    dupe: 1,
+
+};
+
+LightCones.push(ColorsforTomorrow);
