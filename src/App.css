@@ -968,6 +968,8 @@ select.hsr-changelog-select option {
     }
 
     .hsr-left-panel {
+        display: flex;
+        flex-direction: column;
         width: 100%;
         transform: none !important;
 
@@ -1067,5 +1069,13 @@ select.hsr-changelog-select option {
         overflow-x: hidden;
 
         box-sizing: border-box;
+    }
+
+    .hsr-changelogs-button-container {
+        position: relative;
+        bottom: auto;
+        order: 99;
+        margin-top: 12px;
+        width: 100%;
     }
 }
