@@ -15184,7 +15184,7 @@ const Pearl: Character = {
             level: "1/7",
             icon: charIcon("Pearl", "BasicATK"),
             description: (i) => `
-        <h3><b>Character in beta</b></h3>
+        <h3><b>Character in beta ${i}</b></h3>
       `,
         },
         skill: {
@@ -15194,7 +15194,7 @@ const Pearl: Character = {
             level: "1/12",
             icon: charIcon("Pearl", "Skill"),
             description: (i) => `
-        <h3><b>Character in beta</b></h3>
+        <h3><b>Character in beta ${i}</b></h3>
       `,
         },
         ultimate: {
@@ -15204,7 +15204,7 @@ const Pearl: Character = {
             level: "1/12",
             icon: charIcon("Pearl", "Ultimate"),
             description: (i) => `
-        <h3><b>Character in beta</b></h3>
+        <h3><b>Character in beta ${i}</b></h3>
       `,
         },
         talent: {
@@ -15214,7 +15214,7 @@ const Pearl: Character = {
             level: "1/12",
             icon: charIcon("Pearl", "Talent"),
             description: (i) => `
-        <h3><b>Character in beta</b></h3>
+        <h3><b>Character in beta ${i}</b></h3>
       `,
         },
         technique: {
@@ -15224,7 +15224,7 @@ const Pearl: Character = {
             level: "1/1",
             icon: charIcon("Pearl", "Technique"),
             description: (i) => `
-        <h3><b>Character in beta</b></h3>
+        <h3><b>Character in beta ${i}</b></h3>
       `,
         },
         // --- Pasivas ---
@@ -15235,7 +15235,7 @@ const Pearl: Character = {
             level: "1/1",
             icon: charIcon("Pearl", "DissolveReasonintoElation"),
             description: (i) => `
-        <h3><b>Character in beta</b></h3>
+        <h3><b>Character in beta ${i}</b></h3>
       `,
         },
         b2: {
@@ -15245,7 +15245,7 @@ const Pearl: Character = {
             level: "1/1",
             icon: charIcon("Pearl", "SensoryLatitude"),
             description: (i) => `
-        <h3><b>Character in beta</b></h3>
+        <h3><b>Character in beta ${i}</b></h3>
       `,
         },
         b3: {
@@ -15255,7 +15255,7 @@ const Pearl: Character = {
             level: "1/1",
             icon: charIcon("Pearl", "AestheticFirewall"),
             description: (i) => `
-        <h3><b>Character in beta</b></h3>
+        <h3><b>Character in beta ${i}</b></h3>
       `,
         },
         b4: {
@@ -15265,7 +15265,7 @@ const Pearl: Character = {
             level: "1/1",
             icon: charIcon("Pearl", "PanopticVision"),
             description: (i) => `
-        <h3><b>Character in beta</b></h3>
+        <h3><b>Character in beta ${i}</b></h3>
       `,
         },
         // --- Stats Nodes ---

@@ -2246,7 +2246,7 @@ export const Texts = {
 
         const index = Math.max(0, Math.min(rank - 1, 4));
 
-        return `<h3><b>Ligth Cone in beta</b></h3>`;
+        return `<h3><b>Ligth Cone in beta ${index}</b></h3>`;
     },
 
 } as const;
