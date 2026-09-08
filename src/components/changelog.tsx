@@ -18,4 +18,4 @@ const v4_5_2: Log = {
     ]
 }
 
-export const changes: Log[] = [v4_5, v4_5_2];
+export const changes: Log[] = [v4_5_2, v4_5];
