@@ -9,4 +9,12 @@ const v4_5: Log = {
     ]
 }
 
-export const changes: Log[] = [v4_5];
+const v4_5_2: Log = {
+    version: "4.5",
+    title: "To Roll the Stars in Astropolis / 2",
+    changes: [
+        `Added Pearl Beta Character`
+    ]
+}
+
+export const changes: Log[] = [v4_5, v4_5_2];

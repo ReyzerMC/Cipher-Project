@@ -15160,6 +15160,190 @@ const RobinSummeretto: Character = {
 
 Characters.push(RobinSummeretto);
 
+const Pearl: Character = {
+  name: "Pearl",
+  path: Paths.Elation,
+  element: Elements.Ice,
+  world: Worlds.Planacardia,
+  image: charSplash("Pearl"),
+  pfp: charPfp("Pearl"),
+  eidolons: Eidolons.PearlEidolons,
+
+  baseATK: 465,
+  baseDEF: 727,
+  baseHP: 1203,
+  baseSPD: 99,
+  aggro: 100,
+  dupe: 0,
+
+  traces: {
+        attack: {
+            id: "attack",
+            name: "Basic ATK: Brushstroke: Trace the Severed Stream",
+            type: "basic",
+            level: "1/7",
+            icon: charIcon("Pearl", "BasicATK"),
+            description: (i) => `
+        <h3><b>Character in beta</b></h3>
+      `,
+        },
+        skill: {
+            id: "skill",
+            name: "Skill: Relume Life's Light",
+            type: "skill",
+            level: "1/12",
+            icon: charIcon("Pearl", "Skill"),
+            description: (i) => `
+        <h3><b>Character in beta</b></h3>
+      `,
+        },
+        ultimate: {
+            id: "ultimate",
+            name: "Ultimate: Appraise Soul's Ground",
+            type: "ultimate",
+            level: "1/12",
+            icon: charIcon("Pearl", "Ultimate"),
+            description: (i) => `
+        <h3><b>Character in beta</b></h3>
+      `,
+        },
+        talent: {
+            id: "talent",
+            name: "Talent: That Smile Hits Different",
+            type: "talent",
+            level: "1/12",
+            icon: charIcon("Pearl", "Talent"),
+            description: (i) => `
+        <h3><b>Character in beta</b></h3>
+      `,
+        },
+        technique: {
+            id: "technique",
+            name: "Technique: We Are So Back!",
+            type: "technique",
+            level: "1/1",
+            icon: charIcon("Pearl", "Technique"),
+            description: (i) => `
+        <h3><b>Character in beta</b></h3>
+      `,
+        },
+        // --- Pasivas ---
+        b1: {
+            id: "b1",
+            name: "Dissolve Reason into Elation",
+            type: "bonus",
+            level: "1/1",
+            icon: charIcon("Pearl", "DissolveReasonintoElation"),
+            description: (i) => `
+        <h3><b>Character in beta</b></h3>
+      `,
+        },
+        b2: {
+            id: "b2",
+            name: "Sensory Latitude",
+            type: "bonus",
+            level: "1/1",
+            icon: charIcon("Pearl", "SensoryLatitude"),
+            description: (i) => `
+        <h3><b>Character in beta</b></h3>
+      `,
+        },
+        b3: {
+            id: "b3",
+            name: "Aesthetic Firewall",
+            type: "bonus",
+            level: "1/1",
+            icon: charIcon("Pearl", "AestheticFirewall"),
+            description: (i) => `
+        <h3><b>Character in beta</b></h3>
+      `,
+        },
+        b4: {
+            id: "b4",
+            name: "Panoptic Vision",
+            type: "bonus",
+            level: "1/1",
+            icon: charIcon("Pearl", "PanopticVision"),
+            description: (i) => `
+        <h3><b>Character in beta</b></h3>
+      `,
+        },
+        // --- Stats Nodes ---
+        s1: {
+                id: "s1",
+                name: "ATK Boost",
+                type: "stat",
+                icon: statIcon("ATK"),
+                description: "<h3><b>Character in beta</b></h3>",
+            },
+        s2: {
+                id: "s2",
+                name: "ATK Boost",
+                type: "stat",
+                icon: statIcon("ATK"),
+                description: "<h3><b>Character in beta</b></h3>",
+            },
+        s3: {
+                id: "s3",
+                name: "CRIT Rate Boost",
+                type: "stat",
+                icon: statIcon("CritRate"),
+                description: "<h3><b>Character in beta</b></h3>",
+            },
+        s4: {
+                id: "s4",
+                name: "CRIT Rate Boost",
+                type: "stat",
+                icon: statIcon("CritRate"),
+                description: "<h3><b>Character in beta</b></h3>",
+            },
+        s5: {
+                id: "s5",
+                name: "ATK Boost",
+                type: "stat",
+                icon: statIcon("ATK"),
+                description: "<h3><b>Character in beta</b></h3>",
+            },
+        s6: {
+                id: "s6",
+                name: "CRIT Rate Boost",
+                type: "stat",
+                icon: statIcon("CritRate"),
+                description: "<h3><b>Character in beta</b></h3>",
+            },
+        s7: {
+                id: "s7",
+                name: "ATK Boost",
+                type: "stat",
+                icon: statIcon("ATK"),
+                description: "<h3><b>Character in beta</b></h3>",
+            },
+        s8: {
+                id: "s8",
+                name: "CRIT DMG Boost",
+                type: "stat",
+                icon: statIcon("CritDMG"),
+                description: "<h3><b>Character in beta</b></h3>",
+            },
+        s9: {
+                id: "s9",
+                name: "ATK Boost",
+                type: "stat",
+                icon: statIcon("ATK"),
+                description: "<h3><b>Character in beta</b></h3>",
+            },
+        s10: {
+                id: "s10",
+                name: "CRIT DMG Boost",
+                type: "stat",
+                icon: statIcon("CritDMG"),
+                description: "<h3><b>Character in beta</b></h3>",
+            },
+  },
+};
+
+Characters.push(Pearl);
+
 const Trailblazer: Character = {
   name: "Trailblazer Destruction",
   path: Paths.Destruction,

@@ -5888,3 +5888,67 @@ export const ElationTrailblazerEidolons: Eidolon = {
     },
 
 };
+
+export const PearlEidolons: Eidolon = {
+
+    e1: {
+
+        title: "Nestle That Pearl in Uninked Tides",
+
+        desc: "When there are 2/3/4 or more Elation characters in the team, increases all allies' Elation stat by an amount equal to 10%/20%/80% of Pearl's Elation, up to a max increase of 60% Elation.",
+
+        image: charEidolon("Pearl", 1),
+
+    },
+
+    e2: {
+
+        title: "Crop That Dappled Dawn",
+
+        desc: "Merrymakes all ally targets' Elation DMG by 15%. When using Ultimate, causes other ally Elation characters (excluding Pearl and \"Aesthetic Archetype\") to also trigger the action advance effect, and increases the \"Certified Banger\" and Punchline gained at the start of the extra turn provided by the Ultimate by 100%.",
+
+        image: charEidolon("Pearl", 2),
+
+    },
+
+    e3: {
+
+        title: "Sketch That Suspended Wave",
+
+        desc: "Ultimate Lv. +2, up to a maximum of Lv. 15. Basic ATK Lv. +1, up to a maximum of Lv. 10. Elation Skill Lv. +1, up to a maximum of Lv. 15.",
+
+        image: charEidolon("Pearl", 3),
+
+    },
+
+    e4: {
+
+        title: "Study That Veiled Smile",
+
+        desc: "In the Talent \"Grow Grace from Grit,\" Repellency provided by each point of \"Certified Banger\" increases by 40, and the percentage of DMG it can block increases by 5%.",
+
+        image: charEidolon("ElationTrailblazer", 4),
+
+    },
+
+    e5: {
+
+        title: "Render Those Starlit Swirls",
+
+        desc: "Skill Lv. +2, up to a maximum of Lv. 15. Talent Lv. +2, up to a maximum of Lv. 15. Elation Skill Lv. +1, up to a maximum of Lv. 15.",
+
+        image: charEidolon("ElationTrailblazer", 5),
+
+    },
+
+    e6: {
+
+        title: "Compute Life From One Shell",
+
+        desc: "While in \"Deep Learning,\" all allies' All-Type RES PEN increases by 20%. Pearl's Enhanced Basic ATK additionally deals Ice Elation DMG equal to 240% of the stats of \"Aesthetic Archetype.\"",
+
+        image: charEidolon("ElationTrailblazer", 6),
+
+    },
+
+};
