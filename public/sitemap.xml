@@ -1,27 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
   <url>
     <loc>https://cipher-project.reyzer.org/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
-
-  <!--
-    Añade aquí el resto de rutas reales de tu SPA (una por cada página
-    indexable: personajes, conos de luz, calculadora, etc.). Ejemplos:
-
+  <!-- 
+      Rutas secundarias de tu SPA (ejemplos):
   <url>
     <loc>https://cipher-project.reyzer.org/characters</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
-
   <url>
     <loc>https://cipher-project.reyzer.org/light-cones</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   -->
-
 </urlset>
