@@ -14,7 +14,7 @@ Una pagina donde se podran consultar datos de los personajes para **Honkai: Star
 
 Puedes acceder a la pagina mediante este enlace:
 
-**https://cipher-calculator.reyzer.org/**
+**https://cipher-project.reyzer.org/**
 
 ---
 
