@@ -14,7 +14,7 @@ A page where you can find data about all the **Honkai: Star Rail** characters.
 
 You can use the page here:
 
-**https://cipher-calculator.reyzer.org/**
+**https://cipher-project.reyzer.org/**
 
 ---
 
