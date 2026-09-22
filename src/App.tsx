@@ -373,7 +373,6 @@ export default function App() {
                     </div>
                     <div className="hsr-char-info-bar">
                       <div className="hsr-char-name">{char.name}</div>
-                      <div className="hsr-char-stars">★★★★★</div>
                     </div>
                   </div>
                 ))
