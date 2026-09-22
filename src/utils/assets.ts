@@ -15,6 +15,12 @@ const asset = (path: string) => `${import.meta.env.BASE_URL}assets/${path}`;
 export const charSplash = (character: string) =>
     asset(`characters/${character}/splash.webp`);
 
+export const charSplashTrailblazer = (element: string) =>
+    asset(`characters/NICKNAME/splash${element}.webp`);
+
+export const charPfpTrailblazer = (element: string) =>
+    asset(`characters/NICKNAME/pfp${element}.webp`);
+
 export const charPfp = (character: string) =>
     asset(`characters/${character}/pfp.webp`);
 

@@ -1,6 +1,6 @@
 import type { Character } from '../../types/hsr';
 import { Paths, Elements, Worlds } from "../item/ResourcesLists";
-import { charSplash, charPfp, charIcon, statIcon } from '../../utils/assets';
+import { charSplash, charPfp, charIcon, statIcon, charSplashTrailblazer, charPfpTrailblazer } from '../../utils/assets';
 import * as S from './scalingData';
 import * as Eidolons from './eidolons/Eidolons';
 
@@ -13428,7 +13428,7 @@ const Sparxie: Character = {
             id: "b1",
             name: "Signal Overflow: The Great Encore!",
             type: "bonus",
-            level: "1/1",
+            level: "1/10",
             icon: charIcon("Sparxie", "SignalOverflowTheGreatEncore"),
             description: (i) => `
         Deals ${scaleValue(S.SparxieScaling.b1.main, i)} Fire <u>Elation DMG</u> to all enemies and deals ${scaleValue(S.SparxieScaling.b1.adjacent, i, "")} additional instance(s) of DMG. Each instance deals ${scaleValue(S.SparxieScaling.b1.adjacent2, i)} Fire <u>Elation DMG</u> to one random enemy. Grants ${scaleValue(S.SparxieScaling.b1.adjacent3, i, "")} "Thrill" point(s) to Sparxie, which can be used to offset Sparxie's Skill Point consumption. Consuming "Thrill" is considered as consuming Skill Points.
@@ -13469,14 +13469,14 @@ const Sparxie: Character = {
                 id: "s1",
                 name: "Elation Boost",
                 type: "stat",
-                icon: statIcon("Elation"),
+                icon: statIcon("ElationStat"),
                 description: "Elation Increases by: <b><u>4%</u></b>",
             },
         s2: {
                 id: "s2",
                 name: "Elation Boost",
                 type: "stat",
-                icon: statIcon("Elation"),
+                icon: statIcon("ElationStat"),
                 description: "Elation Increases by: <b><u>6%</u></b>",
             },
         s3: {
@@ -13497,7 +13497,7 @@ const Sparxie: Character = {
                 id: "s5",
                 name: "Elation Boost",
                 type: "stat",
-                icon: statIcon("Elation"),
+                icon: statIcon("ElationStat"),
                 description: "Elation Increases by: <b><u>8%</u></b>",
             },
         s6: {
@@ -13511,7 +13511,7 @@ const Sparxie: Character = {
                 id: "s7",
                 name: "Elation Boost",
                 type: "stat",
-                icon: statIcon("Elation"),
+                icon: statIcon("ElationStat"),
                 description: "Elation Increases by: <b><u>4%</u></b>",
             },
         s8: {
@@ -13525,7 +13525,7 @@ const Sparxie: Character = {
                 id: "s9",
                 name: "Elation Boost",
                 type: "stat",
-                icon: statIcon("Elation"),
+                icon: statIcon("ElationStat"),
                 description: "Elation Increases by: <b><u>6%</u></b>",
             },
         s10: {
@@ -13702,7 +13702,7 @@ const YaoGuang: Character = {
                 id: "s8",
                 name: "Elation Boost",
                 type: "stat",
-                icon: statIcon("Elation"),
+                icon: statIcon("ElationStat"),
                 description: "Elation Increases by: <b><u>4%</u></b>",
             },
         s9: {
@@ -13716,7 +13716,7 @@ const YaoGuang: Character = {
                 id: "s10",
                 name: "Elation Boost",
                 type: "stat",
-                icon: statIcon("Elation"),
+                icon: statIcon("ElationStat"),
                 description: "Elation Increases by: <b><u>6%</u></b>",
             },
   },
@@ -14025,14 +14025,14 @@ const Evanescia: Character = {
                 id: "s3",
                 name: "Elation Boost",
                 type: "stat",
-                icon: statIcon("Elation"),
+                icon: statIcon("ElationStat"),
                 description: "Elation Increases by: <b><u>6%</u></b>",
             },
         s4: {
                 id: "s4",
                 name: "Elation Boost",
                 type: "stat",
-                icon: statIcon("Elation"),
+                icon: statIcon("ElationStat"),
                 description: "Elation Increases by: <b><u>4%</u></b>",
             },
         s5: {
@@ -14046,7 +14046,7 @@ const Evanescia: Character = {
                 id: "s6",
                 name: "Elation Boost",
                 type: "stat",
-                icon: statIcon("Elation"),
+                icon: statIcon("ElationStat"),
                 description: "Elation Increases by: <b><u>8%</u></b>",
             },
         s7: {
@@ -14246,7 +14246,7 @@ const SilverWolfLV999: Character = {
                 id: "s8",
                 name: "Elation Boost",
                 type: "stat",
-                icon: statIcon("Elation"),
+                icon: statIcon("ElationStat"),
                 description: "Elation Increases by: <b><u>4%</u></b>",
             },
         s9: {
@@ -14260,7 +14260,7 @@ const SilverWolfLV999: Character = {
                 id: "s10",
                 name: "Elation Boost",
                 type: "stat",
-                icon: statIcon("Elation"),
+                icon: statIcon("ElationStat"),
                 description: "Elation Increases by: <b><u>6%</u></b>",
             },
   },
@@ -15418,7 +15418,7 @@ const Pearl: Character = {
             id: "b1",
             name: "Dissolve Reason into Elation",
             type: "bonus",
-            level: "1/1",
+            level: "1/10",
             icon: charIcon("Pearl", "DissolveReasonintoElation"),
             description: (i) => `
         <h3><b>Character in beta ${i}</b></h3>
@@ -15535,8 +15535,8 @@ const Trailblazer: Character = {
   path: Paths.Destruction,
   element: Elements.Physical,
   world: Worlds.AstralExpress, // TODO: Trailblazer
-  image: charSplash("NICKNAME"),
-  pfp: charPfp("NICKNAME"),
+  image: charSplashTrailblazer("Destruction"),
+  pfp: charPfpTrailblazer("Destruction"),
   eidolons: Eidolons.DestructionTrailblazerEidolons,
 
   baseATK: 620,
@@ -15552,7 +15552,7 @@ const Trailblazer: Character = {
             name: "Basic ATK: Farewell Hit",
             type: "basic",
             level: "1/7",
-            icon: charIcon("Trailblazer", "BasicATK"),
+            icon: charIcon("NICKNAME", "BasicATK"),
             description: (i) => `
         Deals Physical DMG equal to ${scaleValue(S.TrailblazerScaling.attack, i)} of the Trailblazer's ATK to one designated enemy.
       `,
@@ -15562,7 +15562,7 @@ const Trailblazer: Character = {
             name: "Skill: RIP Home Run",
             type: "skill",
             level: "1/12",
-            icon: charIcon("Trailblazer", "Skill"),
+            icon: charIcon("NICKNAME", "Skill"),
             description: (i) => `
         Deals Physical DMG equal to ${scaleValue(S.TrailblazerScaling.skill, i)} of the Trailblazer's ATK to one designated enemy and enemies adjacent to it.
       `,
@@ -15572,7 +15572,7 @@ const Trailblazer: Character = {
             name: "Ultimate: Stardust Ace",
             type: "ultimate",
             level: "1/12",
-            icon: charIcon("Trailblazer", "Ultimate"),
+            icon: charIcon("NICKNAME", "Ultimate"),
             description: (i) => `
         Choose between two attack modes to deliver a full strike.\\n"Blowout: Farewell Hit" deals Physical DMG equal to ${scaleValue(S.TrailblazerScaling.ultimate.main, i)} of the Trailblazer's ATK to one designated enemy.\\n"Blowout: RIP Home Run" deals Physical DMG equal to ${scaleValue(S.TrailblazerScaling.ultimate.adjacent, i)} of the Trailblazer's ATK to one designated enemy, and Physical DMG equal to ${scaleValue(S.TrailblazerScaling.ultimate.adjacent2, i)} of the Trailblazer's ATK to enemies adjacent to it.
       `,
@@ -15582,7 +15582,7 @@ const Trailblazer: Character = {
             name: "Talent: Perfect Pickoff",
             type: "talent",
             level: "1/12",
-            icon: charIcon("Trailblazer", "Talent"),
+            icon: charIcon("NICKNAME", "Talent"),
             description: (i) => `
         Each time after this character inflicts Weakness Break on an enemy, ATK increases by ${scaleValue(S.TrailblazerScaling.talent.main, i)}. This effect stacks up to ${scaleValue(S.TrailblazerScaling.talent.adjacent, i, "")} time(s).
       `,
@@ -15592,7 +15592,7 @@ const Trailblazer: Character = {
             name: "Technique: Immortal Third Strike",
             type: "technique",
             level: "1/1",
-            icon: charIcon("Trailblazer", "Technique"),
+            icon: charIcon("NICKNAME", "Technique"),
             description: (i) => `
         Immediately heals all allies for ${scaleValue(S.TrailblazerScaling.technique, i)} of their respective Max HP after using this Technique.
       `,
@@ -15603,7 +15603,7 @@ const Trailblazer: Character = {
             name: "Fighting Will",
             type: "bonus",
             level: "1/1",
-            icon: charIcon("Trailblazer", "FightingWill"),
+            icon: charIcon("NICKNAME", "FightingWill"),
             description: (i) => `
         When using Skill or Ultimate "Blowout: RIP Home Run," DMG dealt to the target enemy is increased by ${scaleValue(S.TrailblazerScaling.b1, i)}.
       `,
@@ -15613,7 +15613,7 @@ const Trailblazer: Character = {
             name: "Ready for Battle",
             type: "bonus",
             level: "1/1",
-            icon: charIcon("Trailblazer", "ReadyforBattle"),
+            icon: charIcon("NICKNAME", "ReadyforBattle"),
             description: (i) => `
         At the start of the battle, immediately regenerates ${scaleValue(S.TrailblazerScaling.b2, i, "")} Energy.
       `,
@@ -15623,7 +15623,7 @@ const Trailblazer: Character = {
             name: "Tenacity",
             type: "bonus",
             level: "1/1",
-            icon: charIcon("Trailblazer", "Tenacity"),
+            icon: charIcon("NICKNAME", "Tenacity"),
             description: (i) => `
         Each Talent stack increases the Trailblazer's DEF by ${scaleValue(S.TrailblazerScaling.b3, i)}.
       `,
@@ -15709,8 +15709,8 @@ const TrailblazerPreservation: Character = {
   path: Paths.Preservation,
   element: Elements.Fire,
   world: Worlds.AstralExpress, // TODO: Trailblazer
-  image: charSplash("NICKNAME"),
-  pfp: charPfp("NICKNAME"),
+  image: charSplashTrailblazer("Preservation"),
+  pfp: charPfpTrailblazer("Preservation"),
   eidolons: Eidolons.PreservationTrailblazerEidolons,
 
   baseATK: 601,
@@ -15726,7 +15726,7 @@ const TrailblazerPreservation: Character = {
             name: "Basic ATK: Ice-Breaking Light",
             type: "basic",
             level: "1/7",
-            icon: charIcon("Trailblazer", "BasicATK"),
+            icon: charIcon("NICKNAME", "BasicATK"),
             description: (i) => `
         Deals Fire DMG equal to ${scaleValue(S.TrailblazerPreservationScaling.attack, i)} of the Trailblazer's ATK to one designated enemy and gains 1 stack of "Magma Will."
       `,
@@ -15736,7 +15736,7 @@ const TrailblazerPreservation: Character = {
             name: "Skill: Ever-Burning Amber",
             type: "skill",
             level: "1/12",
-            icon: charIcon("Trailblazer", "Skill"),
+            icon: charIcon("NICKNAME", "Skill"),
             description: (i) => `
         Increases the Trailblazer's DMG Reduction by ${scaleValue(S.TrailblazerPreservationScaling.skill.main, i)} and gains 1 stack of Magma Will, with a ${scaleValue(S.TrailblazerPreservationScaling.skill.adjacent, i)} <u>base chance</u> to Taunt all enemies for ${scaleValue(S.TrailblazerPreservationScaling.skill.adjacent2, i, "")} turn(s).
       `,
@@ -15746,7 +15746,7 @@ const TrailblazerPreservation: Character = {
             name: "Ultimate: War-Flaming Lance",
             type: "ultimate",
             level: "1/12",
-            icon: charIcon("Trailblazer", "Ultimate"),
+            icon: charIcon("NICKNAME", "Ultimate"),
             description: (i) => `
         Deals Fire DMG equal to ${scaleValue(S.TrailblazerPreservationScaling.ultimate.main, i)} of the Trailblazer's ATK plus ${scaleValue(S.TrailblazerPreservationScaling.ultimate.adjacent, i)} of the Trailblazer's DEF to all enemies. The next Basic ATK will be automatically enhanced and does not cost Magma Will.
       `,
@@ -15756,7 +15756,7 @@ const TrailblazerPreservation: Character = {
             name: "Talent: Treasure of the Architects",
             type: "talent",
             level: "1/12",
-            icon: charIcon("Trailblazer", "Talent"),
+            icon: charIcon("NICKNAME", "Talent"),
             description: (i) => `
         Each time the Trailblazer is hit, they gain 1 stack of "Magma Will" for a max of ${scaleValue(S.TrailblazerPreservationScaling.talent.main, i, "")} stack(s).\\nWhen "Magma Will" has no fewer than 4 stacks, the Trailblazer's Basic ATK becomes enhanced, dealing DMG to one designated enemy and enemies adjacent to it.\\nWhen the Trailblazer uses Basic ATK, Skill, or Ultimate, apply a Shield to all allies that absorbs DMG equal to ${scaleValue(S.TrailblazerPreservationScaling.talent.adjacent, i)} of the Trailblazer's DEF plus ${scaleValue(S.TrailblazerPreservationScaling.talent.adjacent2, i, "")}. The Shield lasts for ${scaleValue(S.TrailblazerPreservationScaling.talent.adjacent3, i, "")} turn(s).
       `,
@@ -15766,7 +15766,7 @@ const TrailblazerPreservation: Character = {
             name: "Technique: Call of the Guardian",
             type: "technique",
             level: "1/1",
-            icon: charIcon("Trailblazer", "Technique"),
+            icon: charIcon("NICKNAME", "Technique"),
             description: (i) => `
         After using Technique, at the start of the next battle, gains a Shield that absorbs DMG equal to ${scaleValue(S.TrailblazerPreservationScaling.technique.main, i)} of the Trailblazer's DEF plus ${scaleValue(S.TrailblazerPreservationScaling.technique.adjacent, i, "")} for ${scaleValue(S.TrailblazerPreservationScaling.technique.adjacent2, i, "")} turn(s).
       `,
@@ -15777,7 +15777,7 @@ const TrailblazerPreservation: Character = {
             name: "Action Beats Overthinking",
             type: "bonus",
             level: "1/1",
-            icon: charIcon("Trailblazer", "ActionBeatsOverthinking"),
+            icon: charIcon("NICKNAME", "ActionBeatsOverthinking"),
             description: (i) => `
         When the Trailblazer is protected by a Shield at the beginning of the turn, increases their ATK by ${scaleValue(S.TrailblazerPreservationScaling.b1.main, i)} and regenerates ${scaleValue(S.TrailblazerPreservationScaling.b1.adjacent, i, "")} Energy until the action is over.
       `,
@@ -15787,7 +15787,7 @@ const TrailblazerPreservation: Character = {
             name: "The Strong Defend the Weak",
             type: "bonus",
             level: "1/1",
-            icon: charIcon("Trailblazer", "TheStrongDefendtheWeak"),
+            icon: charIcon("NICKNAME", "TheStrongDefendtheWeak"),
             description: (i) => `
         After using the Skill, the DMG taken by all allies decreases by ${scaleValue(S.TrailblazerPreservationScaling.b2.main, i)} for ${scaleValue(S.TrailblazerPreservationScaling.b2.adjacent, i, "")} turn(s).
       `,
@@ -15797,7 +15797,7 @@ const TrailblazerPreservation: Character = {
             name: "Unwavering Gallantry",
             type: "bonus",
             level: "1/1",
-            icon: charIcon("Trailblazer", "UnwaveringGallantry"),
+            icon: charIcon("NICKNAME", "UnwaveringGallantry"),
             description: (i) => `
         Using Enhanced Basic ATK restores the Trailblazer's HP by ${scaleValue(S.TrailblazerScaling.b3, i)} of their Max HP.
       `,
@@ -15883,8 +15883,8 @@ const TrailblazerHarmony: Character = {
   path: Paths.Harmony,
   element: Elements.Imaginary,
   world: Worlds.AstralExpress, // TODO: Trailblazer
-  image: charSplash("NICKNAME"),
-  pfp: charPfp("NICKNAME"),
+  image: charSplashTrailblazer("Harmony"),
+  pfp: charPfpTrailblazer("Harmony"),
   eidolons: Eidolons.HarmonyTrailblazerEidolons,
 
   baseATK: 446,
@@ -15900,7 +15900,7 @@ const TrailblazerHarmony: Character = {
             name: "Basic ATK: Swing Dance Etiquette",
             type: "basic",
             level: "1/7",
-            icon: charIcon("Trailblazer", "BasicATK"),
+            icon: charIcon("NICKNAME", "BasicATK"),
             description: (i) => `
         Deals Imaginary DMG equal to ${scaleValue(S.TrailblazerHarmonyScaling.attack, i)} of the Trailblazer's ATK to one designated enemy target.
       `,
@@ -15910,7 +15910,7 @@ const TrailblazerHarmony: Character = {
             name: "Skill: Halftime to Make It Rain",
             type: "skill",
             level: "1/12",
-            icon: charIcon("Trailblazer", "Skill"),
+            icon: charIcon("NICKNAME", "Skill"),
             description: (i) => `
         Deals Imaginary DMG equal to ${scaleValue(S.TrailblazerHarmonyScaling.skill, i)} of the Trailblazer's ATK to one designated enemy target and additionally deals DMG for 4 times, with each time dealing Imaginary DMG equal to ${scaleValue(S.TrailblazerHarmonyScaling.skill, i)} of the Trailblazer's ATK to a random enemy.
       `,
@@ -15920,7 +15920,7 @@ const TrailblazerHarmony: Character = {
             name: "Ultimate: All-Out Footlight Parade",
             type: "ultimate",
             level: "1/12",
-            icon: charIcon("Trailblazer", "Ultimate"),
+            icon: charIcon("NICKNAME", "Ultimate"),
             description: (i) => `
         Grants all allies the Backup Dancer effect, lasting for ${scaleValue(S.TrailblazerHarmonyScaling.ultimate.main, i, "")} turn(s). This duration decreases by 1 at the start of Trailblazer's every turn. Allies with the Backup Dancer effect have their Break Effect increased by ${scaleValue(S.TrailblazerHarmonyScaling.ultimate.adjacent, i)}. And when they attack enemy targets that are in the <u>Weakness Broken state</u>, the Toughness Reduction of the attack will be converted into 1 instance of <u>Super Break DMG</u>.
       `,
@@ -15930,7 +15930,7 @@ const TrailblazerHarmony: Character = {
             name: "Talent: Full-on Aerial Dance",
             type: "talent",
             level: "1/12",
-            icon: charIcon("Trailblazer", "Talent"),
+            icon: charIcon("NICKNAME", "Talent"),
             description: (i) => `
         The Trailblazer immediately regenerates ${scaleValue(S.TrailblazerHarmonyScaling.talent, i, "")} Energy when an enemy target's Weakness is Broken.
       `,
@@ -15940,7 +15940,7 @@ const TrailblazerHarmony: Character = {
             name: "Technique: Now! I'm the Band!",
             type: "technique",
             level: "1/1",
-            icon: charIcon("Trailblazer", "Technique"),
+            icon: charIcon("NICKNAME", "Technique"),
             description: (i) => `
         After the Technique is used, at the start of the next battle, all allies' Break Effect increases by ${scaleValue(S.TrailblazerHarmonyScaling.technique.main, i)}, lasting for ${scaleValue(S.TrailblazerHarmonyScaling.technique.adjacent, i, "")} turn(s).
       `,
@@ -15951,7 +15951,7 @@ const TrailblazerHarmony: Character = {
             name: "Hat of the Theater",
             type: "bonus",
             level: "1/1",
-            icon: charIcon("Trailblazer", "HatoftheTheater"),
+            icon: charIcon("NICKNAME", "HatoftheTheater"),
             description: (i) => `
         After ally targets break weakness, additionally <u>delays the action</u> of the enemy target by ${scaleValue(S.TrailblazerScaling.b1, i)}.
       `,
@@ -15961,7 +15961,7 @@ const TrailblazerHarmony: Character = {
             name: "Dance With the One",
             type: "bonus",
             level: "1/1",
-            icon: charIcon("Trailblazer", "DanceWiththeOne"),
+            icon: charIcon("NICKNAME", "DanceWiththeOne"),
             description: (i) => `
         When the number of enemy targets on the field is (≥5)/4/3/2/1, the <u>Super Break DMG</u> triggered by the Backup Dancer effect increases by ${scaleValue(S.TrailblazerHarmonyScaling.b2.main, i)}/${scaleValue(S.TrailblazerHarmonyScaling.b2.adjacent, i)}/${scaleValue(S.TrailblazerHarmonyScaling.b2.adjacent2, i)}/${scaleValue(S.TrailblazerHarmonyScaling.b2.adjacent3, i)}/${scaleValue(S.TrailblazerHarmonyScaling.b2.adjacent4, i)}.
       `,
@@ -15971,7 +15971,7 @@ const TrailblazerHarmony: Character = {
             name: "Shuffle Along",
             type: "bonus",
             level: "1/1",
-            icon: charIcon("Trailblazer", "ShuffleAlong"),
+            icon: charIcon("NICKNAME", "ShuffleAlong"),
             description: (i) => `
         When using Skill, additionally increases the Toughness Reduction of the first instance of DMG by ${scaleValue(S.TrailblazerHarmonyScaling.b3, i)}.
       `,
@@ -16057,8 +16057,8 @@ const TrailblazerRemembrance: Character = {
   path: Paths.Remembrance,
   element: Elements.Ice,
   world: Worlds.AstralExpress, // TODO: Trailblazer
-  image: charSplash("NICKNAME"),
-  pfp: charPfp("NICKNAME"),
+  image: charSplashTrailblazer("Remembrance"),
+  pfp: charPfpTrailblazer("Remembrance"),
   eidolons: Eidolons.RemembranceTrailblazerEidolons,
 
   baseATK: 543,
@@ -16074,7 +16074,7 @@ const TrailblazerRemembrance: Character = {
             name: "Basic ATK: Leave It to Me!",
             type: "basic",
             level: "1/7",
-            icon: charIcon("Trailblazer", "BasicATK"),
+            icon: charIcon("NICKNAME", "BasicATKRemembrance"),
             description: (i) => `
         Deals Ice DMG equal to ${scaleValue(S.TrailblazerScaling.attack, i)} of Trailblazer's ATK to one designated enemy.
       `,
@@ -16084,7 +16084,7 @@ const TrailblazerRemembrance: Character = {
             name: "Skill: I Choose You!",
             type: "skill",
             level: "1/12",
-            icon: charIcon("Trailblazer", "Skill"),
+            icon: charIcon("NICKNAME", "SkillRemembrance"),
             description: (i) => `
         <u>Summons the memosprite</u> Mem. If Mem is already on the field, restores Mem's HP by an amount equal to ${scaleValue(S.TrailblazerRemembranceScaling.skill.main, i)} of Mem's Max HP, and grants Mem ${scaleValue(S.TrailblazerRemembranceScaling.skill.adjacent, i)} Charge.
       `,
@@ -16094,7 +16094,7 @@ const TrailblazerRemembrance: Character = {
             name: "Ultimate: Together, Mem!",
             type: "ultimate",
             level: "1/12",
-            icon: charIcon("Trailblazer", "Ultimate"),
+            icon: charIcon("NICKNAME", "UltimateRemembrance"),
             description: (i) => `
         <u>Summons memosprite</u> Mem. Grants Mem ${scaleValue(S.TrailblazerScaling.ultimate.main, i)} Charge, then makes Mem deal Ice DMG equal to ${scaleValue(S.TrailblazerScaling.ultimate.adjacent, i)} of Mem's ATK to all enemies.
       `,
@@ -16104,7 +16104,7 @@ const TrailblazerRemembrance: Character = {
             name: "Talent: Almighty Companion",
             type: "talent",
             level: "1/12",
-            icon: charIcon("Trailblazer", "Talent"),
+            icon: charIcon("NICKNAME", "TalentRemembrance"),
             description: (i) => `
         Memosprite Mem has an initial SPD of ${scaleValue(S.TrailblazerScaling.talent.main, i, "")} and a Max HP equal to ${scaleValue(S.TrailblazerScaling.talent.adjacent, i)} of Trailblazer's Max HP plus ${scaleValue(S.TrailblazerRemembranceScaling.talent.adjacent2, i, "")}. For every ${scaleValue(S.TrailblazerRemembranceScaling.talent.adjacent3, i, "")} Energy regenerated by all allies in total, Mem gains 1% Charge.
       `,
@@ -16114,7 +16114,7 @@ const TrailblazerRemembrance: Character = {
             name: "Technique: Memories Back as Echoes",
             type: "technique",
             level: "1/1",
-            icon: charIcon("Trailblazer", "Technique"),
+            icon: charIcon("NICKNAME", "TechniqueRemembrance"),
             description: (i) => `
         After using Technique, creates a Special Dimension that lasts for ${scaleValue(S.TrailblazerRemembranceScaling.technique.main, i, "")} second(s). Enemies within the Special Dimension are placed in a Time Stop state, halting all their actions.\\nAfter entering battle against enemies afflicted with the Time Stop state, <u>delays the action</u> of all enemies by ${scaleValue(S.TrailblazerRemembranceScaling.technique.adjacent, i)}, and then deals Ice DMG to all enemies equal to ${scaleValue(S.TrailblazerRemembranceScaling.technique.adjacent2, i)} of Trailblazer's ATK.\\nOnly 1 Dimension Effect created by allies can exist at the same time.
       `,
@@ -16125,7 +16125,7 @@ const TrailblazerRemembrance: Character = {
             name: "Magnets and Long Chains",
             type: "bonus",
             level: "1/1",
-            icon: charIcon("Trailblazer", "MagnetsandLongChains"),
+            icon: charIcon("NICKNAME", "MagnetsandLongChains"),
             description: (i) => `
         When the Max Energy of an ally target that has "Mem's Support" exceeds ${scaleValue(S.TrailblazerRemembranceScaling.b1.main, i, "")}, for every ${scaleValue(S.TrailblazerRemembranceScaling.b1.adjacent, i, "")} excess Energy, additionally increases the multiplier of the <u>True DMG</u> dealt via "Mem's Support" by ${scaleValue(S.TrailblazerRemembranceScaling.b1.adjacent2, i)}, up to a max increase of ${scaleValue(S.TrailblazerRemembranceScaling.b1.adjacent3, i)}.
       `,
@@ -16135,7 +16135,7 @@ const TrailblazerRemembrance: Character = {
             name: "Rhapsode's Scepter",
             type: "bonus",
             level: "1/1",
-            icon: charIcon("Trailblazer", "RhapsodesScepter"),
+            icon: charIcon("NICKNAME", "RhapsodesScepter"),
             description: (i) => `
         When the battle starts, Trailblazer's <u>action advances</u> by ${scaleValue(S.TrailblazerRemembranceScaling.b2.main, i)}. When Mem is first summoned, grants Mem ${scaleValue(S.TrailblazerRemembranceScaling.b2.adjacent, i)} Charge.
       `,
@@ -16145,7 +16145,7 @@ const TrailblazerRemembrance: Character = {
             name: "Petite Parable",
             type: "bonus",
             level: "1/1",
-            icon: charIcon("Trailblazer", "PetiteParable"),
+            icon: charIcon("NICKNAME", "PetiteParable"),
             description: (i) => `
         When using "Baddies! Trouble!," Mem immediately gains ${scaleValue(S.TrailblazerRemembranceScaling.b3, i)} Charge.
       `,
@@ -16154,8 +16154,8 @@ const TrailblazerRemembrance: Character = {
             id: "b4",
             name: "Friends! Together!",
             type: "bonus",
-            level: "1/1",
-            icon: charIcon("Trailblazer", "FriendsTogether"),
+            level: "1/10",
+            icon: charIcon("NICKNAME", "MemoTalent"),
             description: (i) => `
         <b>Friends! Together!</b><br>Increases all allies' CRIT DMG by an amount equal to ${scaleValue(S.TrailblazerRemembranceScaling.b4.FriendsTogether.main, i)} of Mem's CRIT DMG plus ${scaleValue(S.TrailblazerRemembranceScaling.b4.FriendsTogether.adjacent, i)}.\\nIf the Charge has yet to reach 100%, Mem automatically uses "Baddies! Trouble!" when taking action. When the Charge reaches 100%, Mem immediately takes action. In the next action, can select one ally and use "Lemme! Help You!".
 <br>
@@ -16168,8 +16168,8 @@ const TrailblazerRemembrance: Character = {
             id: "b5",
             name: "Baddies! Trouble!",
             type: "bonus",
-            level: "1/1",
-            icon: charIcon("Trailblazer", "BaddiesTrouble"),
+            level: "1/10",
+            icon: charIcon("NICKNAME", "MemoSkill"),
             description: (i) => `
         <b>Baddies! Trouble!</b><br>Deals ${scaleValue(S.TrailblazerRemembranceScaling.b5.BaddiesTrouble.main, i, "")} instance(s) of DMG, with each instance dealing Ice DMG equal to ${scaleValue(S.TrailblazerRemembranceScaling.b5.BaddiesTrouble.adjacent, i)} of Mem's ATK to one random enemy. At the end, deals Ice DMG equal to ${scaleValue(S.TrailblazerRemembranceScaling.b5.BaddiesTrouble.adjacent2, i)} of Mem's ATK to all enemies.
 <br>
@@ -16274,7 +16274,7 @@ const TrailblazerElation: Character = {
             name: "Basic ATK: Make Some Noise",
             type: "basic",
             level: "1/7",
-            icon: charIcon("Trailblazer", "BasicATK"),
+            icon: charIcon("NICKNAME", "BasicATKElation"),
             description: (i) => `
         Deals Lightning DMG equal to ${scaleValue(S.TrailblazerScaling.attack, i)} of Trailblazer's ATK to one designated enemy.
       `,
@@ -16284,7 +16284,7 @@ const TrailblazerElation: Character = {
             name: "Skill: Let the Storm Rage On",
             type: "skill",
             level: "1/12",
-            icon: charIcon("Trailblazer", "Skill"),
+            icon: charIcon("NICKNAME", "SkillElation"),
             description: (i) => `
         Deals Lightning DMG equal to ${scaleValue(S.TrailblazerElationScaling.skill.main, i)} of the Trailblazer's ATK to all enemies and gains ${scaleValue(S.TrailblazerElationScaling.skill.adjacent, i, "")} point(s) of "<u>Certified Banger</u>."
       `,
@@ -16294,7 +16294,7 @@ const TrailblazerElation: Character = {
             name: "Ultimate: May the Trailblaze Fly You Starward",
             type: "ultimate",
             level: "1/12",
-            icon: charIcon("Trailblazer", "Ultimate"),
+            icon: charIcon("NICKNAME", "UltimateElation"),
             description: (i) => `
         Gains ${scaleValue(S.TrailblazerElationScaling.ultimate.main, i, "")} <u>Punchline</u> point(s). Increases the CRIT DMG of one designated ally by ${scaleValue(S.TrailblazerElationScaling.ultimate.adjacent, i)} for ${scaleValue(S.TrailblazerElationScaling.ultimate.adjacent2, i, "")} turn(s), and dispels <u>Crowd Control debuffs</u> on them.\\nIf the target has Elation Skill, they additionally gain ${scaleValue(S.TrailblazerElationScaling.ultimate.adjacent3, i, "")} point(s) of "<u>Certified Banger</u>" and immediately use their Elation Skill 1 time, taking into account a fixed amount of ${scaleValue(S.TrailblazerElationScaling.ultimate.adjacent4, i, "")} <u>Punchline</u> point(s). If the enemy target is defeated before the Elation Skill is unleashed, then the Elation Skill is instead launched on a newly entering enemy target.\\nIf the target does not have Elation Skill, their <u>action advances</u> by ${scaleValue(S.TrailblazerElationScaling.ultimate.adjacent5, i)}.
       `,
@@ -16304,7 +16304,7 @@ const TrailblazerElation: Character = {
             name: "Talent: That Smile Hits Different",
             type: "talent",
             level: "1/12",
-            icon: charIcon("Trailblazer", "Talent"),
+            icon: charIcon("NICKNAME", "TalentElation"),
             description: (i) => `
         After using an attack, regenerates a fixed amount of ${scaleValue(S.TrailblazerElationScaling.talent.main, i, "")} Energy and gains ${scaleValue(S.TrailblazerElationScaling.talent.adjacent, i, "")} <u>Punchline</u> point(s).\\nWhen the Trailblazer holds "<u>Certified Banger</u>," their Skill additionally deals ${scaleValue(S.TrailblazerElationScaling.talent.adjacent2, i)} Lightning <u>Elation DMG</u> to all enemies. This DMG is calculated using the highest "<u>Certified Banger</u>" value among all allies.
       `,
@@ -16314,7 +16314,7 @@ const TrailblazerElation: Character = {
             name: "Technique: We Are So Back!",
             type: "technique",
             level: "1/1",
-            icon: charIcon("Trailblazer", "Technique"),
+            icon: charIcon("NICKNAME", "TechniqueElation"),
             description: (i) => `
         After using Technique, randomly gains 1 of the following effects:\\nA low chance to gain "Hearty Laughter": Increases Elation by ${scaleValue(S.TrailblazerElationScaling.technique.main, i)}.\\nA high chance to gain "Irrepressible Laughter": Increases Elation by ${scaleValue(S.TrailblazerElationScaling.technique.adjacent, i)}.\\nWhen the next battle begins, increases all allies' Elation stat by the corresponding amount for ${scaleValue(S.TrailblazerElationScaling.technique.adjacent2, i, "")} turn(s).
       `,
@@ -16324,8 +16324,8 @@ const TrailblazerElation: Character = {
             id: "b1",
             name: "I Said \"Elation,\" Did I Stutter?",
             type: "bonus",
-            level: "1/1",
-            icon: charIcon("Trailblazer", "ISaidElationDidIStutter"),
+            level: "1/10",
+            icon: charIcon("NICKNAME", "ISaidElationDidIStutter"),
             description: (i) => `
         Deals ${scaleValue(S.TrailblazerElationScaling.b1.main, i, "")} instances of DMG, with each instance dealing ${scaleValue(S.TrailblazerElationScaling.b1.adjacent, i)} Lightning <u>Elation DMG</u> to one random enemy. At last, deals ${scaleValue(S.TrailblazerElationScaling.b1.adjacent2, i)} Lightning <u>Elation DMG</u>, which is split evenly among all enemies.
       `,
@@ -16335,7 +16335,7 @@ const TrailblazerElation: Character = {
             name: "On Cloud Nine",
             type: "bonus",
             level: "1/1",
-            icon: charIcon("Trailblazer", "OnCloudNine"),
+            icon: charIcon("NICKNAME", "OnCloudNine"),
             description: (i) => `
         For every ${scaleValue(S.TrailblazerElationScaling.b2.main, i, "")} point(s) of Trailblazer's ATK that exceeds ${scaleValue(S.TrailblazerElationScaling.b2.adjacent, i, "")}, increases this unit's Elation stat by ${scaleValue(S.TrailblazerElationScaling.b2.adjacent2, i)}, up to a maximum increase of ${scaleValue(S.TrailblazerElationScaling.b2.adjacent3, i)}.
       `,
@@ -16345,7 +16345,7 @@ const TrailblazerElation: Character = {
             name: "Screw It, We Ball",
             type: "bonus",
             level: "1/1",
-            icon: charIcon("Trailblazer", "ScrewItWeBall"),
+            icon: charIcon("NICKNAME", "ScrewItWeBall"),
             description: (i) => `
         Increases this unit's CRIT Rate by ${scaleValue(S.TrailblazerElationScaling.b3.main, i)}. After using Ultimate, recovers ${scaleValue(S.TrailblazerElationScaling.b3.adjacent, i, "")} Skill Point(s) for the team.
       `,
@@ -16355,7 +16355,7 @@ const TrailblazerElation: Character = {
             name: "Aha, Sic 'Em!",
             type: "bonus",
             level: "1/1",
-            icon: charIcon("Trailblazer", "AhaSicEm"),
+            icon: charIcon("NICKNAME", "AhaSicEm"),
             description: (i) => `
         After an ally target uses Elation Skill, Trailblazer additionally gains ${scaleValue(S.TrailblazerElationScaling.b4, i, "")} point(s) of "<u>Certified Banger</u>" the next time they use their Skill.
       `,

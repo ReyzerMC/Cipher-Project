@@ -5577,7 +5577,7 @@ export const DestructionTrailblazerEidolons: Eidolon = {
 
         desc: "When enemies are defeated due to the Trailblazer's Ultimate, the Trailblazer regenerates 10 extra Energy. This effect can only be triggered once per attack.",
 
-        image: charEidolon("DestructionTrailblazer", 1),
+        image: charEidolon("NICKNAME", 1),
 
     },
 
@@ -5587,7 +5587,7 @@ export const DestructionTrailblazerEidolons: Eidolon = {
 
         desc: "Attacking enemies with Physical Weakness restores the Trailblazer's HP equal to 5% of the Trailblazer's ATK.",
 
-        image: charEidolon("DestructionTrailblazer", 2),
+        image: charEidolon("NICKNAME", 2),
 
     },
 
@@ -5597,7 +5597,7 @@ export const DestructionTrailblazerEidolons: Eidolon = {
 
         desc: "Skill Lv. +2, up to a maximum of Lv. 15. Talent Lv. +2, up to a maximum of Lv. 15.",
 
-        image: charEidolon("DestructionTrailblazer", 3),
+        image: charEidolon("NICKNAME", 3),
 
     },
 
@@ -5607,7 +5607,7 @@ export const DestructionTrailblazerEidolons: Eidolon = {
 
         desc: "When attacking an enemy that is Weakness Broken, increases CRIT Rate by 25%.",
 
-        image: charEidolon("DestructionTrailblazer", 4),
+        image: charEidolon("NICKNAME", 4),
 
     },
 
@@ -5617,7 +5617,7 @@ export const DestructionTrailblazerEidolons: Eidolon = {
 
         desc: "Ultimate Lv. +2, up to a maximum of Lv. 15. Basic ATK Lv. +1, up to a maximum of Lv. 10.",
 
-        image: charEidolon("DestructionTrailblazer", 5),
+        image: charEidolon("NICKNAME", 5),
 
     },
 
@@ -5627,7 +5627,7 @@ export const DestructionTrailblazerEidolons: Eidolon = {
 
         desc: "The Trailblazer's Talent is also triggered when they defeat an enemy.",
 
-        image: charEidolon("DestructionTrailblazer", 6),
+        image: charEidolon("NICKNAME", 6),
 
     },
 
@@ -5641,7 +5641,7 @@ export const PreservationTrailblazerEidolons: Eidolon = {
 
         desc: "When the Trailblazer uses their Basic ATK, additionally deals Fire DMG equal to 25% of the Trailblazer's DEF. When the Trailblazer uses their enhanced Basic ATK, additionally deals Fire DMG equal to 50% of the Trailblazer's DEF.",
 
-        image: charEidolon("PreservationTrailblazer", 1),
+        image: charEidolon("NICKNAME", 1),
 
     },
 
@@ -5651,7 +5651,7 @@ export const PreservationTrailblazerEidolons: Eidolon = {
 
         desc: "The Shield applied to all allies from the Trailblazer's Talent will block extra DMG equal to 2% of the Trailblazer's DEF plus 27.",
 
-        image: charEidolon("PreservationTrailblazer", 2),
+        image: charEidolon("NICKNAME", 2),
 
     },
 
@@ -5661,7 +5661,7 @@ export const PreservationTrailblazerEidolons: Eidolon = {
 
         desc: "Skill Lv. +2, up to a maximum of Lv. 15. Talent Lv. +2, up to a maximum of Lv. 15.",
 
-        image: charEidolon("PreservationTrailblazer", 3),
+        image: charEidolon("NICKNAME", 3),
 
     },
 
@@ -5671,7 +5671,7 @@ export const PreservationTrailblazerEidolons: Eidolon = {
 
         desc: "At the start of the battle, immediately gains 4 stack(s) of Magma Will.",
 
-        image: charEidolon("PreservationTrailblazer", 4),
+        image: charEidolon("NICKNAME", 4),
 
     },
 
@@ -5681,7 +5681,7 @@ export const PreservationTrailblazerEidolons: Eidolon = {
 
         desc: "Ultimate Lv. +2, up to a maximum of Lv. 15. Basic ATK Lv. +1, up to a maximum of Lv. 10.",
 
-        image: charEidolon("PreservationTrailblazer", 5),
+        image: charEidolon("NICKNAME", 5),
 
     },
 
@@ -5691,7 +5691,7 @@ export const PreservationTrailblazerEidolons: Eidolon = {
 
         desc: "After the Trailblazer uses enhanced Basic ATK or Ultimate, their DEF increases by 10%. Stacks up to 3 time(s).",
 
-        image: charEidolon("PreservationTrailblazer", 6),
+        image: charEidolon("NICKNAME", 6),
 
     },
 
@@ -5705,7 +5705,7 @@ export const HarmonyTrailblazerEidolons: Eidolon = {
 
         desc: "After using Skill for the first time, immediately recovers 1 Skill Point(s).",
 
-        image: charEidolon("HarmonyTrailblazer", 1),
+        image: charEidolon("NICKNAME", 1),
 
     },
 
@@ -5715,7 +5715,7 @@ export const HarmonyTrailblazerEidolons: Eidolon = {
 
         desc: "When the battle starts, the Trailblazer's Energy Regeneration Rate increases by 25%, lasting for 3 turn(s).",
 
-        image: charEidolon("HarmonyTrailblazer", 2),
+        image: charEidolon("NICKNAME", 2),
 
     },
 
@@ -5725,7 +5725,7 @@ export const HarmonyTrailblazerEidolons: Eidolon = {
 
         desc: "Skill Lv. +2, up to a maximum of Lv. 15. Talent Lv. +2, up to a maximum of Lv. 15.",
 
-        image: charEidolon("HarmonyTrailblazer", 3),
+        image: charEidolon("NICKNAME", 3),
 
     },
 
@@ -5735,7 +5735,7 @@ export const HarmonyTrailblazerEidolons: Eidolon = {
 
         desc: "While the Trailblazer is on the field, increases the Break Effect of all teammates (excluding the Trailblazer), by an amount equal to 15% of the Trailblazer's Break Effect.",
 
-        image: charEidolon("HarmonyTrailblazer", 4),
+        image: charEidolon("NICKNAME", 4),
 
     },
 
@@ -5745,7 +5745,7 @@ export const HarmonyTrailblazerEidolons: Eidolon = {
 
         desc: "Ultimate Lv. +2, up to a maximum of Lv. 15. Basic ATK Lv. +1, up to a maximum of Lv. 10.",
 
-        image: charEidolon("HarmonyTrailblazer", 5),
+        image: charEidolon("NICKNAME", 5),
 
     },
 
@@ -5755,7 +5755,7 @@ export const HarmonyTrailblazerEidolons: Eidolon = {
 
         desc: "The number of additional DMG applications by the Skill increases by 2.",
 
-        image: charEidolon("HarmonyTrailblazer", 6),
+        image: charEidolon("NICKNAME", 6),
 
     },
 
@@ -5769,7 +5769,7 @@ export const RemembranceTrailblazerEidolons: Eidolon = {
 
         desc: "Increases the CRIT Rate of ally targets with \"Mem's Support\" by 10%. When an ally target has \"Mem's Support,\" the effect of \"Mem's Support\" also applies to the target's memosprite/memomaster. This effect cannot stack.",
 
-        image: charEidolon("RemembranceTrailblazer", 1),
+        image: charEidolon("NICKNAME", 1),
 
     },
 
@@ -5779,7 +5779,7 @@ export const RemembranceTrailblazerEidolons: Eidolon = {
 
         desc: "When ally memosprites (aside from Mem) take action, Trailblazer regenerates 8 Energy. This effect can trigger a max of 1 time(s) per turn. The trigger count resets at the start of Trailblazer's turn.",
 
-        image: charEidolon("RemembranceTrailblazer", 2),
+        image: charEidolon("NICKNAME", 2),
 
     },
 
@@ -5789,7 +5789,7 @@ export const RemembranceTrailblazerEidolons: Eidolon = {
 
         desc: "Skill Lv. +2, up to a maximum of Lv. 15. Talent Lv. +2, up to a maximum of Lv. 15. Memosprite Talent Lv. +1, up to a maximum of Lv. 10.",
 
-        image: charEidolon("RemembranceTrailblazer", 3),
+        image: charEidolon("NICKNAME", 3),
 
     },
 
@@ -5799,7 +5799,7 @@ export const RemembranceTrailblazerEidolons: Eidolon = {
 
         desc: "When an ally target with 0 Max Energy actively uses an ability, Mem can also gain 3% Charge, and the multiplier of the True DMG dealt by this target via \"Mem's Support\" additionally increases by 6%.",
 
-        image: charEidolon("RemembranceTrailblazer", 4),
+        image: charEidolon("NICKNAME", 4),
 
     },
 
@@ -5809,7 +5809,7 @@ export const RemembranceTrailblazerEidolons: Eidolon = {
 
         desc: "Ultimate Lv. +2, up to a maximum of Lv. 15. Basic ATK Lv. +1, up to a maximum of Lv. 10. Memosprite Skill Lv. +1, up to a maximum of Lv. 10.",
 
-        image: charEidolon("RemembranceTrailblazer", 5),
+        image: charEidolon("NICKNAME", 5),
 
     },
 
@@ -5819,7 +5819,7 @@ export const RemembranceTrailblazerEidolons: Eidolon = {
 
         desc: "Ultimate's CRIT Rate is set at 100%.",
 
-        image: charEidolon("RemembranceTrailblazer", 6),
+        image: charEidolon("NICKNAME", 6),
 
     },
 
@@ -5833,7 +5833,7 @@ export const ElationTrailblazerEidolons: Eidolon = {
 
         desc: "After using Skill, the next Ultimate increases the amount of \"Certified Banger\" gained by ally targets by 2. This effect can stack up to 3 time(s).",
 
-        image: charEidolon("ElationTrailblazer", 1),
+        image: charEidolon("NICKNAME", 1),
 
     },
 
@@ -5843,7 +5843,7 @@ export const ElationTrailblazerEidolons: Eidolon = {
 
         desc: "Ultimate additionally increases the Elation of one designated ally by 12%, lasting for 2 turn(s).",
 
-        image: charEidolon("ElationTrailblazer", 2),
+        image: charEidolon("NICKNAME", 2),
 
     },
 
@@ -5853,7 +5853,7 @@ export const ElationTrailblazerEidolons: Eidolon = {
 
         desc: "Skill Lv. +2, up to a maximum of Lv. 15. Talent Lv. +2, up to a maximum of Lv. 15. Elation Skill Lv. +1, up to a maximum of Lv. 15.",
 
-        image: charEidolon("ElationTrailblazer", 3),
+        image: charEidolon("NICKNAME", 3),
 
     },
 
@@ -5863,7 +5863,7 @@ export const ElationTrailblazerEidolons: Eidolon = {
 
         desc: "When using Elation Skill, increases the DMG taken by enemy targets by 10%, lasting for 2 turn(s).",
 
-        image: charEidolon("ElationTrailblazer", 4),
+        image: charEidolon("NICKNAME", 4),
 
     },
 
@@ -5873,7 +5873,7 @@ export const ElationTrailblazerEidolons: Eidolon = {
 
         desc: "Ultimate Lv. +2, up to a maximum of Lv. 15. Basic ATK Lv. +1, up to a maximum of Lv. 10. Elation Skill Lv. +1, up to a maximum of Lv. 15.",
 
-        image: charEidolon("ElationTrailblazer", 5),
+        image: charEidolon("NICKNAME", 5),
 
     },
 
@@ -5883,7 +5883,7 @@ export const ElationTrailblazerEidolons: Eidolon = {
 
         desc: "When using Elation Skill, increases this unit's CRIT DMG by 100% for 3 turns.",
 
-        image: charEidolon("ElationTrailblazer", 6),
+        image: charEidolon("NICKNAME", 6),
 
     },
 
