@@ -1,21 +1,7 @@
 import react from '@vitejs/plugin-react'
-import { defineConfig, type Plugin } from 'vite'
-import prerenderPkg from 'vite-plugin-prerender'
-
-const prerender = prerenderPkg as unknown as (options: {
-  staticDir: string
-  routes: string[]
-}) => Plugin
+import { defineConfig } from 'vite'
 
 export default defineConfig({
-  plugins: [
-    react(),
-    prerender({
-      staticDir: 'dist',
-      routes: [
-        '/',
-      ],
-    }),
-  ],
+  plugins: [react()],
   base: '/',
 })
