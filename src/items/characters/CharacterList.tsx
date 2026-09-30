@@ -15414,7 +15414,7 @@ When an ally target's current HP percentage is 50% or lower, their DMG taken get
             type: "technique",
             level: "1/1",
             icon: charIcon("Pearl", "Technique"),
-            description: (i) => `
+            description: `
         After using Technique, gains "Aesthetic Archetype." When switching active characters, "Aesthetic Archetype" transfers to the currently active character. At the start of the next battle, Pearl gains 20 "Certified Banger" and applies "Deep Learning" on the character with "Aesthetic Archetype." This "Deep Learning" has 2 Charge. Pearl can only apply "Deep Learning" on characters other than herself.
       `,
         },
