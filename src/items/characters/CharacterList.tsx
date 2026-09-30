@@ -15435,7 +15435,7 @@ When an ally target's current HP percentage is 50% or lower, their DMG taken get
             type: "bonus",
             level: "1/1",
             icon: charIcon("Pearl", "SensoryLatitude"),
-            description: (i) => `
+            description: `
         While holding "Certified Banger," increases all ally targets' Effect RES by 50%. When an ally target's turn begins, Pearl gains 5 point(s) of "Certified Banger," up to a max of 50 point(s) of "Certified Banger." The obtainable amount of "Certified Banger" resets at the start of Pearl's turn. When using Enhanced Basic ATK or Skill, dispels 1 debuff(s) from all ally targets.
       `,
         },
@@ -15445,7 +15445,7 @@ When an ally target's current HP percentage is 50% or lower, their DMG taken get
             type: "bonus",
             level: "1/1",
             icon: charIcon("Pearl", "AestheticFirewall"),
-            description: (i) => `
+            description: `
         After entering combat or using Ultimate, if the "Aesthetic Archetype" is an Elation character, their next use of Ultimate regenerates a fixed 90 Energy for Pearl. This effect cannot stack.
       `,
         },
@@ -15455,7 +15455,7 @@ When an ally target's current HP percentage is 50% or lower, their DMG taken get
             type: "bonus",
             level: "1/1",
             icon: charIcon("Pearl", "PanopticVision"),
-            description: (i) => `
+            description: `
         When Pearl's DEF is 2400 or higher, increases this unit's Elation by 32%. For every 100 DEF exceeding that threshold, increases this unit's Elation by 3%. Up to a max of 3600 excess DEF can be taken into account for this effect. Pearl gains Outgoing Healing Boost, equal to 20% of this unit's Elation.
       `,
         },
