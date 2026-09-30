@@ -1,8 +1,8 @@
 import type { Character } from '../../types/hsr';
-import { Paths, Elements, Worlds } from "../item/ResourcesLists";
-import { charSplash, charPfp, charIcon, statIcon, charSplashTrailblazer, charPfpTrailblazer } from '../../utils/assets';
-import * as S from './scalingData';
+import { charIcon, charPfp, charPfpTrailblazer, charSplash, charSplashTrailblazer, statIcon } from '../../utils/assets';
+import { Elements, Paths, Worlds } from "../item/ResourcesLists";
 import * as Eidolons from './eidolons/Eidolons';
+import * as S from './scalingData';
 
 export const scaleValue = (
     values: number[],
@@ -48,7 +48,7 @@ const March7th: Character = {
             level: "1/12",
             icon: charIcon("March", "Skill"),
             description: (i) => `
-        Provides a single ally with a Shield that can absorb DMG equal to ${scaleValue(S.March7thScaling.skill.main, i)} of March 7th's DEF plus ${scaleValue(S.March7thScaling.skill.adjacent, i, "")} for ${scaleValue(S.March7thScaling.skill.adjacent2, i, "")} turn(s).\\nIf the ally's current HP percentage is ${scaleValue(S.March7thScaling.skill.adjacent3, i)} or higher, greatly increases the chance of enemies attacking that ally.
+        Provides a single ally with a Shield that can absorb DMG equal to ${scaleValue(S.March7thScaling.skill.main, i)} of March 7th's DEF plus ${scaleValue(S.March7thScaling.skill.adjacent, i, "")} for ${scaleValue(S.March7thScaling.skill.adjacent2, i, "")} turn(s).<br>If the ally's current HP percentage is ${scaleValue(S.March7thScaling.skill.adjacent3, i)} or higher, greatly increases the chance of enemies attacking that ally.
       `,
         },
         ultimate: {
@@ -58,7 +58,7 @@ const March7th: Character = {
             level: "1/12",
             icon: charIcon("March", "Ultimate"),
             description: (i) => `
-        Deals Ice DMG equal to ${scaleValue(S.March7thScaling.ultimate.main, i)} of March 7th's ATK to all enemies. Hit enemies have a ${scaleValue(S.March7thScaling.ultimate.adjacent, i)} <u>base chance</u> to be Frozen for ${scaleValue(S.March7thScaling.ultimate.adjacent2, i, "")} turn(s).\\nWhile Frozen, enemies cannot take action and will receive Ice <u>Additional DMG</u> equal to ${scaleValue(S.March7thScaling.ultimate.adjacent3, i)} of March 7th's ATK at the beginning of each turn.
+        Deals Ice DMG equal to ${scaleValue(S.March7thScaling.ultimate.main, i)} of March 7th's ATK to all enemies. Hit enemies have a ${scaleValue(S.March7thScaling.ultimate.adjacent, i)} <u>base chance</u> to be Frozen for ${scaleValue(S.March7thScaling.ultimate.adjacent2, i, "")} turn(s).<br>While Frozen, enemies cannot take action and will receive Ice <u>Additional DMG</u> equal to ${scaleValue(S.March7thScaling.ultimate.adjacent3, i)} of March 7th's ATK at the beginning of each turn.
       `,
         },
         talent: {
@@ -78,7 +78,7 @@ const March7th: Character = {
             level: "1/1",
             icon: charIcon("March", "Technique"),
             description: (i) => `
-        Immediately attacks the enemy. After entering battle, there is a ${scaleValue(S.March7thScaling.technique.main, i)} <u>base chance</u> to Freeze a random enemy for ${scaleValue(S.March7thScaling.technique.adjacent, i, "")} turn(s).\\nWhile Frozen, the enemy cannot take action and will take Ice <u>Additional DMG</u> equal to ${scaleValue(S.March7thScaling.technique.adjacent2, i)} of March 7th's ATK at the beginning of each turn.
+        Immediately attacks the enemy. After entering battle, there is a ${scaleValue(S.March7thScaling.technique.main, i)} <u>base chance</u> to Freeze a random enemy for ${scaleValue(S.March7thScaling.technique.adjacent, i, "")} turn(s).<br>While Frozen, the enemy cannot take action and will take Ice <u>Additional DMG</u> equal to ${scaleValue(S.March7thScaling.technique.adjacent2, i)} of March 7th's ATK at the beginning of each turn.
       `,
         },
         // --- Pasivas ---
@@ -220,7 +220,7 @@ const DanHeng: Character = {
             level: "1/12",
             icon: charIcon("DanHeng", "Skill"),
             description: (i) => `
-        Deals Wind DMG equal to ${scaleValue(S.DanHengScaling.skill.main, i)} of Dan Heng's ATK to one designated enemy.\\nWhen DMG dealt by Skill triggers CRIT Hit, there is a ${scaleValue(S.DanHengScaling.skill.adjacent, i)} <u>base chance</u> to reduce the target's SPD by ${scaleValue(S.DanHengScaling.skill.adjacent2, i)}, lasting for ${scaleValue(S.DanHengScaling.skill.adjacent3, i, "")} turn(s).
+        Deals Wind DMG equal to ${scaleValue(S.DanHengScaling.skill.main, i)} of Dan Heng's ATK to one designated enemy.<br>When DMG dealt by Skill triggers CRIT Hit, there is a ${scaleValue(S.DanHengScaling.skill.adjacent, i)} <u>base chance</u> to reduce the target's SPD by ${scaleValue(S.DanHengScaling.skill.adjacent2, i)}, lasting for ${scaleValue(S.DanHengScaling.skill.adjacent3, i, "")} turn(s).
       `,
         },
         ultimate: {
@@ -414,7 +414,7 @@ const Himeko: Character = {
             level: "1/12",
             icon: charIcon("Himeko", "Talent"),
             description: (i) => `
-        When an enemy target is inflicted with Weakness Break, Himeko gains 1 point of Charge (max ${scaleValue(S.HimekoScaling.talent.main, i, "")} points).\\nIf Himeko is fully Charged when an ally target performs an attack, Himeko immediately performs 1 <u>Follow-Up ATK</u> and deals Fire DMG equal to ${scaleValue(S.HimekoScaling.talent.adjacent, i)} of her ATK to all enemies, consuming all Charge points.\\nAt the start of the battle, Himeko gains 1 point of Charge.
+        When an enemy target is inflicted with Weakness Break, Himeko gains 1 point of Charge (max ${scaleValue(S.HimekoScaling.talent.main, i, "")} points).<br>If Himeko is fully Charged when an ally target performs an attack, Himeko immediately performs 1 <u>Follow-Up ATK</u> and deals Fire DMG equal to ${scaleValue(S.HimekoScaling.talent.adjacent, i)} of her ATK to all enemies, consuming all Charge points.<br>At the start of the battle, Himeko gains 1 point of Charge.
       `,
         },
         technique: {
@@ -445,7 +445,7 @@ const Himeko: Character = {
             level: "1/1",
             icon: charIcon("Himeko", "Starfire"),
             description: (i) => `
-        After using an attack, there is a ${scaleValue(S.HimekoScaling.b2.main, i)} <u>base chance</u> to inflict Burn on enemies, lasting for ${scaleValue(S.HimekoScaling.b2.adjacent, i, "")} turn(s).\\nWhen afflicted with Burn, enemies take Fire DoT equal to ${scaleValue(S.HimekoScaling.b2.adjacent2, i)} of Himeko's ATK at the start of each turn.
+        After using an attack, there is a ${scaleValue(S.HimekoScaling.b2.main, i)} <u>base chance</u> to inflict Burn on enemies, lasting for ${scaleValue(S.HimekoScaling.b2.adjacent, i, "")} turn(s).<br>When afflicted with Burn, enemies take Fire DoT equal to ${scaleValue(S.HimekoScaling.b2.adjacent2, i)} of Himeko's ATK at the start of each turn.
       `,
         },
         b3: {
@@ -578,7 +578,7 @@ const Welt: Character = {
             level: "1/12",
             icon: charIcon("Welt", "Ultimate"),
             description: (i) => `
-        Deals Imaginary DMG equal to ${scaleValue(S.WeltScaling.ultimate.main, i)} of Welt's ATK to all enemies, with a ${scaleValue(S.WeltScaling.ultimate.adjacent, i)} <u>base chance</u> for enemies hit by this ability to be Imprisoned for 1 turn.\\nImprisoned enemies have their <u>actions delayed</u> by ${scaleValue(S.WeltScaling.ultimate.adjacent2, i)} and SPD reduced by ${scaleValue(S.WeltScaling.ultimate.adjacent3, i)}.
+        Deals Imaginary DMG equal to ${scaleValue(S.WeltScaling.ultimate.main, i)} of Welt's ATK to all enemies, with a ${scaleValue(S.WeltScaling.ultimate.adjacent, i)} <u>base chance</u> for enemies hit by this ability to be Imprisoned for 1 turn.<br>Imprisoned enemies have their <u>actions delayed</u> by ${scaleValue(S.WeltScaling.ultimate.adjacent2, i)} and SPD reduced by ${scaleValue(S.WeltScaling.ultimate.adjacent3, i)}.
       `,
         },
         talent: {
@@ -598,7 +598,7 @@ const Welt: Character = {
             level: "1/1",
             icon: charIcon("Welt", "Technique"),
             description: (i) => `
-        After using Welt's Technique, create a Special Dimension that lasts for ${scaleValue(S.WeltScaling.technique.main, i, "")} second(s). Enemies in this Special Dimension have their movement speed reduced by ${scaleValue(S.WeltScaling.technique.adjacent, i)}. After entering battle with enemies in the Special Dimension, there is a ${scaleValue(S.WeltScaling.technique.adjacent2, i)} <u>base chance</u> to Imprison the enemies for 1 turn.\\nImprisoned enemies have their <u>actions delayed</u> by ${scaleValue(S.WeltScaling.technique.adjacent3, i)} and SPD reduced by ${scaleValue(S.WeltScaling.technique.adjacent4, i)}. Only 1 Dimension Effect created by allies can exist at the same time.
+        After using Welt's Technique, create a Special Dimension that lasts for ${scaleValue(S.WeltScaling.technique.main, i, "")} second(s). Enemies in this Special Dimension have their movement speed reduced by ${scaleValue(S.WeltScaling.technique.adjacent, i)}. After entering battle with enemies in the Special Dimension, there is a ${scaleValue(S.WeltScaling.technique.adjacent2, i)} <u>base chance</u> to Imprison the enemies for 1 turn.<br>Imprisoned enemies have their <u>actions delayed</u> by ${scaleValue(S.WeltScaling.technique.adjacent3, i)} and SPD reduced by ${scaleValue(S.WeltScaling.technique.adjacent4, i)}. Only 1 Dimension Effect created by allies can exist at the same time.
       `,
         },
         // --- Pasivas ---
@@ -742,7 +742,7 @@ const Kafka: Character = {
             level: "1/12",
             icon: charIcon("Kafka", "Skill"),
             description: (i) => `
-        Deals Lightning DMG equal to ${scaleValue(S.KafkaScaling.skill.main, i)} of Kafka's ATK to a target enemy and Lightning DMG equal to ${scaleValue(S.KafkaScaling.skill.adjacent, i)} of Kafka's ATK to enemies adjacent to it.\\nIf the target enemy is currently receiving DoT, all DoTs currently placed on that enemy immediately produce DMG equal to ${scaleValue(S.KafkaScaling.skill.adjacent2, i)} of their original DMG.
+        Deals Lightning DMG equal to ${scaleValue(S.KafkaScaling.skill.main, i)} of Kafka's ATK to a target enemy and Lightning DMG equal to ${scaleValue(S.KafkaScaling.skill.adjacent, i)} of Kafka's ATK to enemies adjacent to it.<br>If the target enemy is currently receiving DoT, all DoTs currently placed on that enemy immediately produce DMG equal to ${scaleValue(S.KafkaScaling.skill.adjacent2, i)} of their original DMG.
       `,
         },
         ultimate: {
@@ -752,7 +752,7 @@ const Kafka: Character = {
             level: "1/12",
             icon: charIcon("Kafka", "Ultimate"),
             description: (i) => `
-        Deals Lightning DMG equal to ${scaleValue(S.KafkaScaling.ultimate.main, i)} of Kafka's ATK to all enemies, with a ${scaleValue(S.KafkaScaling.ultimate.adjacent, i)} <u>base chance</u> for enemies hit to become Shocked and immediately take DMG from their current Shock state, equal to ${scaleValue(S.KafkaScaling.ultimate.adjacent2, i)} of its original DMG. Shock lasts for ${scaleValue(S.KafkaScaling.ultimate.adjacent3, i, "")} turn(s).\\nWhile Shocked, enemies receive Lightning DoT equal to ${scaleValue(S.KafkaScaling.ultimate.adjacent4, i)} of Kafka's ATK at the beginning of each turn.
+        Deals Lightning DMG equal to ${scaleValue(S.KafkaScaling.ultimate.main, i)} of Kafka's ATK to all enemies, with a ${scaleValue(S.KafkaScaling.ultimate.adjacent, i)} <u>base chance</u> for enemies hit to become Shocked and immediately take DMG from their current Shock state, equal to ${scaleValue(S.KafkaScaling.ultimate.adjacent2, i)} of its original DMG. Shock lasts for ${scaleValue(S.KafkaScaling.ultimate.adjacent3, i, "")} turn(s).<br>While Shocked, enemies receive Lightning DoT equal to ${scaleValue(S.KafkaScaling.ultimate.adjacent4, i)} of Kafka's ATK at the beginning of each turn.
       `,
         },
         talent: {
@@ -914,7 +914,7 @@ const SilverWolf: Character = {
             level: "1/12",
             icon: charIcon("SilverWolf", "Skill"),
             description: (i) => `
-        There is a ${scaleValue(S.SilverWolfScaling.skill.main, i)} <u>base chance</u> to add 1 Weakness of an on-field character's Type to the target enemy. This also reduces the enemy's DMG RES to that Weakness Type by ${scaleValue(S.SilverWolfScaling.skill.adjacent, i)} for ${scaleValue(S.SilverWolfScaling.skill.adjacent2, i, "")} turn(s). If the enemy already has that Type Weakness, the effect of DMG RES reduction to that Weakness Type will not be triggered.\\nEach enemy can only have 1 Weakness implanted by Silver Wolf. When Silver Wolf implants another Weakness to the target, only the most recent implanted Weakness will be kept.\\nIn addition, there is a ${scaleValue(S.SilverWolfScaling.skill.adjacent3, i)} <u>base chance</u> to further reduce the All-Type RES of the enemy by ${scaleValue(S.SilverWolfScaling.skill.adjacent4, i)} for ${scaleValue(S.SilverWolfScaling.skill.adjacent5, i, "")} turn(s).\\nDeals Quantum DMG equal to ${scaleValue(S.SilverWolfScaling.skill.adjacent6, i)} of Silver Wolf's ATK to this enemy.
+        There is a ${scaleValue(S.SilverWolfScaling.skill.main, i)} <u>base chance</u> to add 1 Weakness of an on-field character's Type to the target enemy. This also reduces the enemy's DMG RES to that Weakness Type by ${scaleValue(S.SilverWolfScaling.skill.adjacent, i)} for ${scaleValue(S.SilverWolfScaling.skill.adjacent2, i, "")} turn(s). If the enemy already has that Type Weakness, the effect of DMG RES reduction to that Weakness Type will not be triggered.<br>Each enemy can only have 1 Weakness implanted by Silver Wolf. When Silver Wolf implants another Weakness to the target, only the most recent implanted Weakness will be kept.<br>In addition, there is a ${scaleValue(S.SilverWolfScaling.skill.adjacent3, i)} <u>base chance</u> to further reduce the All-Type RES of the enemy by ${scaleValue(S.SilverWolfScaling.skill.adjacent4, i)} for ${scaleValue(S.SilverWolfScaling.skill.adjacent5, i, "")} turn(s).<br>Deals Quantum DMG equal to ${scaleValue(S.SilverWolfScaling.skill.adjacent6, i)} of Silver Wolf's ATK to this enemy.
       `,
         },
         ultimate: {
@@ -934,7 +934,7 @@ const SilverWolf: Character = {
             level: "1/12",
             icon: charIcon("SilverWolf", "Talent"),
             description: (i) => `
-        Silver Wolf can create three types of Bugs: Reduce ATK by ${scaleValue(S.SilverWolfScaling.talent.main, i)}, reduce DEF by ${scaleValue(S.SilverWolfScaling.talent.adjacent, i)}, and reduce SPD by ${scaleValue(S.SilverWolfScaling.talent.adjacent2, i)}.\\nEvery time Silver Wolf attacks, she has a ${scaleValue(S.SilverWolfScaling.talent.adjacent3, i)} <u>base chance</u> to implant a random Bug that lasts for ${scaleValue(S.SilverWolfScaling.talent.adjacent4, i, "")} turn(s) in an enemy target.
+        Silver Wolf can create three types of Bugs: Reduce ATK by ${scaleValue(S.SilverWolfScaling.talent.main, i)}, reduce DEF by ${scaleValue(S.SilverWolfScaling.talent.adjacent, i)}, and reduce SPD by ${scaleValue(S.SilverWolfScaling.talent.adjacent2, i)}.<br>Every time Silver Wolf attacks, she has a ${scaleValue(S.SilverWolfScaling.talent.adjacent3, i)} <u>base chance</u> to implant a random Bug that lasts for ${scaleValue(S.SilverWolfScaling.talent.adjacent4, i, "")} turn(s) in an enemy target.
       `,
         },
         technique: {
@@ -1282,7 +1282,7 @@ const Asta: Character = {
             level: "1/12",
             icon: charIcon("Asta", "Talent"),
             description: (i) => `
-        Gains 1 stack of Charging for every different enemy hit by Asta plus an extra stack if the enemy hit has Fire Weakness.\\nFor every stack of Charging Asta has, all allies' ATK increases by ${scaleValue(S.AstaScaling.talent.main, i)}, up to ${scaleValue(S.AstaScaling.talent.adjacent, i, "")} time(s).\\nStarting from her second turn, Asta's Charging stack count is reduced by ${scaleValue(S.AstaScaling.talent.adjacent2, i, "")} at the beginning of every turn.
+        Gains 1 stack of Charging for every different enemy hit by Asta plus an extra stack if the enemy hit has Fire Weakness.<br>For every stack of Charging Asta has, all allies' ATK increases by ${scaleValue(S.AstaScaling.talent.main, i)}, up to ${scaleValue(S.AstaScaling.talent.adjacent, i, "")} time(s).<br>Starting from her second turn, Asta's Charging stack count is reduced by ${scaleValue(S.AstaScaling.talent.adjacent2, i, "")} at the beginning of every turn.
       `,
         },
         technique: {
@@ -1313,7 +1313,7 @@ const Asta: Character = {
             level: "1/1",
             icon: charIcon("Asta", "Sparks"),
             description: (i) => `
-        Asta's Basic ATK has a ${scaleValue(S.AstaScaling.b2.main, i)} <u>base chance</u> to Burn the enemy target for ${scaleValue(S.AstaScaling.b2.adjacent, i, "")} turn(s).\\nBurned enemies take Fire DoT equal to ${scaleValue(S.AstaScaling.b2.adjacent2, i)} of DMG dealt by Asta's Basic ATK at the start of each turn.
+        Asta's Basic ATK has a ${scaleValue(S.AstaScaling.b2.main, i)} <u>base chance</u> to Burn the enemy target for ${scaleValue(S.AstaScaling.b2.adjacent, i, "")} turn(s).<br>Burned enemies take Fire DoT equal to ${scaleValue(S.AstaScaling.b2.adjacent2, i)} of DMG dealt by Asta's Basic ATK at the start of each turn.
       `,
         },
         b3: {
@@ -1958,7 +1958,7 @@ const Bronya: Character = {
             level: "1/12",
             icon: charIcon("Bronya", "Skill"),
             description: (i) => `
-        Dispels a <u>debuff</u> from a single ally, allows them to immediately take action, and increases their DMG by ${scaleValue(S.BronyaScaling.skill.main, i)} for ${scaleValue(S.BronyaScaling.skill.adjacent, i, "")} turn(s).\\nWhen this Skill is used on Bronya herself, she cannot immediately take action again.
+        Dispels a <u>debuff</u> from a single ally, allows them to immediately take action, and increases their DMG by ${scaleValue(S.BronyaScaling.skill.main, i)} for ${scaleValue(S.BronyaScaling.skill.adjacent, i, "")} turn(s).<br>When this Skill is used on Bronya herself, she cannot immediately take action again.
       `,
         },
         ultimate: {
@@ -2150,7 +2150,7 @@ const Seele: Character = {
             level: "1/12",
             icon: charIcon("Seele", "Talent"),
             description: (i) => `
-        Enters the Amplification state upon defeating an enemy with Basic ATK, Skill, or Ultimate, and receives an <u>extra turn</u>. While in the Amplification state, increases the DMG of Seele's attacks by ${scaleValue(S.SeeleScaling.talent.main, i)} for ${scaleValue(S.SeeleScaling.talent.adjacent, i, "")} turn(s).\\nEnemies defeated in the <u>extra turn</u> provided by "Resurgence" will not trigger another "Resurgence."
+        Enters the Amplification state upon defeating an enemy with Basic ATK, Skill, or Ultimate, and receives an <u>extra turn</u>. While in the Amplification state, increases the DMG of Seele's attacks by ${scaleValue(S.SeeleScaling.talent.main, i)} for ${scaleValue(S.SeeleScaling.talent.adjacent, i, "")} turn(s).<br>Enemies defeated in the <u>extra turn</u> provided by "Resurgence" will not trigger another "Resurgence."
       `,
         },
         technique: {
@@ -2304,7 +2304,7 @@ const Serval: Character = {
             level: "1/12",
             icon: charIcon("Serval", "Skill"),
             description: (i) => `
-        Deals Lightning DMG equal to ${scaleValue(S.ServalScaling.skill.main, i)} of Serval's ATK to one designated enemy and Lightning DMG equal to ${scaleValue(S.ServalScaling.skill.adjacent, i)} of Serval's ATK to enemies adjacent to it, with a ${scaleValue(S.ServalScaling.skill.adjacent2, i)} <u>base chance</u> for enemies hit to become Shocked for ${scaleValue(S.ServalScaling.skill.adjacent3, i, "")} turn(s).\\nWhile Shocked, enemies take Lightning DoT equal to ${scaleValue(S.ServalScaling.skill.adjacent4, i)} of Serval's ATK at the beginning of each turn.
+        Deals Lightning DMG equal to ${scaleValue(S.ServalScaling.skill.main, i)} of Serval's ATK to one designated enemy and Lightning DMG equal to ${scaleValue(S.ServalScaling.skill.adjacent, i)} of Serval's ATK to enemies adjacent to it, with a ${scaleValue(S.ServalScaling.skill.adjacent2, i)} <u>base chance</u> for enemies hit to become Shocked for ${scaleValue(S.ServalScaling.skill.adjacent3, i, "")} turn(s).<br>While Shocked, enemies take Lightning DoT equal to ${scaleValue(S.ServalScaling.skill.adjacent4, i)} of Serval's ATK at the beginning of each turn.
       `,
         },
         ultimate: {
@@ -2334,7 +2334,7 @@ const Serval: Character = {
             level: "1/1",
             icon: charIcon("Serval", "Technique"),
             description: (i) => `
-        Immediately attacks the enemy. After entering battle, deals Lightning DMG equal to ${scaleValue(S.ServalScaling.technique.main, i)} of Serval's ATK to a random enemy, with a ${scaleValue(S.ServalScaling.technique.adjacent, i)} <u>base chance</u> for all enemies to become Shocked for ${scaleValue(S.ServalScaling.technique.adjacent2, i, "")} turn(s).\\nWhile Shocked, enemies will take Lightning DoT equal to ${scaleValue(S.ServalScaling.technique.adjacent3, i)} of Serval's ATK at the beginning of each turn.
+        Immediately attacks the enemy. After entering battle, deals Lightning DMG equal to ${scaleValue(S.ServalScaling.technique.main, i)} of Serval's ATK to a random enemy, with a ${scaleValue(S.ServalScaling.technique.adjacent, i)} <u>base chance</u> for all enemies to become Shocked for ${scaleValue(S.ServalScaling.technique.adjacent2, i, "")} turn(s).<br>While Shocked, enemies will take Lightning DoT equal to ${scaleValue(S.ServalScaling.technique.adjacent3, i)} of Serval's ATK at the beginning of each turn.
       `,
         },
         // --- Pasivas ---
@@ -2478,7 +2478,7 @@ const Gepard: Character = {
             level: "1/12",
             icon: charIcon("Gepard", "Skill"),
             description: (i) => `
-        Deals Ice DMG equal to ${scaleValue(S.GepardScaling.skill.main, i)} of Gepard's ATK to one designated enemy, with a ${scaleValue(S.GepardScaling.skill.adjacent, i)} <u>base chance</u> to Freeze the enemy for ${scaleValue(S.GepardScaling.skill.adjacent2, i, "")} turn(s).\\nWhile Frozen, the enemy cannot take action and will take Ice <u>Additional DMG</u> equal to ${scaleValue(S.GepardScaling.skill.adjacent3, i)} of Gepard's ATK at the beginning of each turn.
+        Deals Ice DMG equal to ${scaleValue(S.GepardScaling.skill.main, i)} of Gepard's ATK to one designated enemy, with a ${scaleValue(S.GepardScaling.skill.adjacent, i)} <u>base chance</u> to Freeze the enemy for ${scaleValue(S.GepardScaling.skill.adjacent2, i, "")} turn(s).<br>While Frozen, the enemy cannot take action and will take Ice <u>Additional DMG</u> equal to ${scaleValue(S.GepardScaling.skill.adjacent3, i)} of Gepard's ATK at the beginning of each turn.
       `,
         },
         ultimate: {
@@ -2678,7 +2678,7 @@ const Natasha: Character = {
             level: "1/1",
             icon: charIcon("Natasha", "Technique"),
             description: (i) => `
-        Immediately attacks the enemy. After entering battle, deals Physical DMG equal to ${scaleValue(S.NatashaScaling.technique.main, i)} of Natasha's ATK to a random enemy, with a ${scaleValue(S.NatashaScaling.technique.adjacent, i)} <u>base chance</u> to Weaken all enemies.\\nWhile Weakened, enemies deal ${scaleValue(S.NatashaScaling.technique.adjacent2, i)} less DMG to allies for ${scaleValue(S.NatashaScaling.technique.adjacent3, i, "")} turn(s).
+        Immediately attacks the enemy. After entering battle, deals Physical DMG equal to ${scaleValue(S.NatashaScaling.technique.main, i)} of Natasha's ATK to a random enemy, with a ${scaleValue(S.NatashaScaling.technique.adjacent, i)} <u>base chance</u> to Weaken all enemies.<br>While Weakened, enemies deal ${scaleValue(S.NatashaScaling.technique.adjacent2, i)} less DMG to allies for ${scaleValue(S.NatashaScaling.technique.adjacent3, i, "")} turn(s).
       `,
         },
         // --- Pasivas ---
@@ -2832,7 +2832,7 @@ const Pela: Character = {
             level: "1/12",
             icon: charIcon("Pela", "Ultimate"),
             description: (i) => `
-        Deals Ice DMG equal to ${scaleValue(S.PelaScaling.ultimate.main, i)} of Pela's ATK to all enemies, with a ${scaleValue(S.PelaScaling.ultimate.adjacent, i)} <u>base chance</u> to inflict Exposed on all enemies.\\nWhen Exposed, enemies' DEF is reduced by ${scaleValue(S.PelaScaling.ultimate.adjacent2, i)} for ${scaleValue(S.PelaScaling.ultimate.adjacent3, i, "")} turn(s).
+        Deals Ice DMG equal to ${scaleValue(S.PelaScaling.ultimate.main, i)} of Pela's ATK to all enemies, with a ${scaleValue(S.PelaScaling.ultimate.adjacent, i)} <u>base chance</u> to inflict Exposed on all enemies.<br>When Exposed, enemies' DEF is reduced by ${scaleValue(S.PelaScaling.ultimate.adjacent2, i)} for ${scaleValue(S.PelaScaling.ultimate.adjacent3, i, "")} turn(s).
       `,
         },
         talent: {
@@ -2996,7 +2996,7 @@ const Clara: Character = {
             level: "1/12",
             icon: charIcon("Clara", "Skill"),
             description: (i) => `
-        Deals Physical DMG equal to ${scaleValue(S.ClaraScaling.skill.main, i)} of Clara's ATK to all enemies, and additionally deals Physical DMG equal to ${scaleValue(S.ClaraScaling.skill.adjacent, i)} of Clara's ATK to enemies marked by Svarog with a Mark of Counter.\\nAll Marks of Counter will be removed after this Skill is used.
+        Deals Physical DMG equal to ${scaleValue(S.ClaraScaling.skill.main, i)} of Clara's ATK to all enemies, and additionally deals Physical DMG equal to ${scaleValue(S.ClaraScaling.skill.adjacent, i)} of Clara's ATK to enemies marked by Svarog with a Mark of Counter.<br>All Marks of Counter will be removed after this Skill is used.
       `,
         },
         ultimate: {
@@ -3006,7 +3006,7 @@ const Clara: Character = {
             level: "1/12",
             icon: charIcon("Clara", "Ultimate"),
             description: (i) => `
-        After Clara uses Ultimate, DMG dealt to her is reduced by an extra ${scaleValue(S.ClaraScaling.ultimate.main, i)}, and she has greatly increased chances of being attacked by enemies for ${scaleValue(S.ClaraScaling.ultimate.adjacent, i, "")} turn(s).\\nIn addition, Svarog's <u>Counter</u> is enhanced. When an ally is attacked, Svarog immediately launches a <u>Counter</u>, and its DMG multiplier against the enemy increases by ${scaleValue(S.ClaraScaling.ultimate.adjacent2, i)}. Enemies adjacent to it take 50% of the DMG dealt to the primary target enemy. Enhanced <u>Counter(s)</u> can take effect ${scaleValue(S.ClaraScaling.ultimate.adjacent3, i, "")} time(s).
+        After Clara uses Ultimate, DMG dealt to her is reduced by an extra ${scaleValue(S.ClaraScaling.ultimate.main, i)}, and she has greatly increased chances of being attacked by enemies for ${scaleValue(S.ClaraScaling.ultimate.adjacent, i, "")} turn(s).<br>In addition, Svarog's <u>Counter</u> is enhanced. When an ally is attacked, Svarog immediately launches a <u>Counter</u>, and its DMG multiplier against the enemy increases by ${scaleValue(S.ClaraScaling.ultimate.adjacent2, i)}. Enemies adjacent to it take 50% of the DMG dealt to the primary target enemy. Enhanced <u>Counter(s)</u> can take effect ${scaleValue(S.ClaraScaling.ultimate.adjacent3, i, "")} time(s).
       `,
         },
         talent: {
@@ -3190,7 +3190,7 @@ const Sampo: Character = {
             level: "1/12",
             icon: charIcon("Sampo", "Talent"),
             description: (i) => `
-        Sampo's attacks have a ${scaleValue(S.SampoScaling.talent.main, i)} <u>base chance</u> to inflict Wind Shear for ${scaleValue(S.SampoScaling.talent.adjacent, i, "")} turn(s).\\nEnemies inflicted with Wind Shear will take Wind DoT equal to ${scaleValue(S.SampoScaling.talent.adjacent2, i)} of Sampo's ATK at the beginning of each turn. Wind Shear can stack up to ${scaleValue(S.SampoScaling.talent.adjacent3, i, "")} time(s).
+        Sampo's attacks have a ${scaleValue(S.SampoScaling.talent.main, i)} <u>base chance</u> to inflict Wind Shear for ${scaleValue(S.SampoScaling.talent.adjacent, i, "")} turn(s).<br>Enemies inflicted with Wind Shear will take Wind DoT equal to ${scaleValue(S.SampoScaling.talent.adjacent2, i)} of Sampo's ATK at the beginning of each turn. Wind Shear can stack up to ${scaleValue(S.SampoScaling.talent.adjacent3, i, "")} time(s).
       `,
         },
         technique: {
@@ -3200,7 +3200,7 @@ const Sampo: Character = {
             level: "1/1",
             icon: charIcon("Sampo", "Technique"),
             description: (i) => `
-        After Sampo uses his Technique, enemies in a set area are afflicted with Blind for ${scaleValue(S.SampoScaling.technique.main, i, "")} second(s). Blinded enemies cannot detect ally targets.\\nWhen initiating combat against a Blinded enemy, there is a ${scaleValue(S.SampoScaling.technique.adjacent, i)} <u>fixed chance</u> to <u>delay all enemies' action</u> by ${scaleValue(S.SampoScaling.technique.adjacent2, i)}.
+        After Sampo uses his Technique, enemies in a set area are afflicted with Blind for ${scaleValue(S.SampoScaling.technique.main, i, "")} second(s). Blinded enemies cannot detect ally targets.<br>When initiating combat against a Blinded enemy, there is a ${scaleValue(S.SampoScaling.technique.adjacent, i)} <u>fixed chance</u> to <u>delay all enemies' action</u> by ${scaleValue(S.SampoScaling.technique.adjacent2, i)}.
       `,
         },
         // --- Pasivas ---
@@ -3344,7 +3344,7 @@ const Hook: Character = {
             level: "1/12",
             icon: charIcon("Hook", "Skill"),
             description: (i) => `
-        Deals Fire DMG equal to ${scaleValue(S.HookScaling.skill.main, i)} of Hook's ATK to one designated enemy. In addition, there is a ${scaleValue(S.HookScaling.skill.adjacent, i)} <u>base chance</u> to inflict Burn for ${scaleValue(S.HookScaling.skill.adjacent2, i, "")} turn(s).\\nWhen afflicted with Burn, enemies will take Fire DoT equal to ${scaleValue(S.HookScaling.skill.adjacent3, i)} of Hook's ATK at the beginning of each turn.
+        Deals Fire DMG equal to ${scaleValue(S.HookScaling.skill.main, i)} of Hook's ATK to one designated enemy. In addition, there is a ${scaleValue(S.HookScaling.skill.adjacent, i)} <u>base chance</u> to inflict Burn for ${scaleValue(S.HookScaling.skill.adjacent2, i, "")} turn(s).<br>When afflicted with Burn, enemies will take Fire DoT equal to ${scaleValue(S.HookScaling.skill.adjacent3, i)} of Hook's ATK at the beginning of each turn.
       `,
         },
         ultimate: {
@@ -3354,7 +3354,7 @@ const Hook: Character = {
             level: "1/12",
             icon: charIcon("Hook", "Ultimate"),
             description: (i) => `
-        Deals Fire DMG equal to ${scaleValue(S.HookScaling.ultimate, i)} of Hook's ATK to one designated enemy.\\nAfter using Ultimate, the next Skill to be used is Enhanced, which deals DMG to one designated enemy and enemies adjacent to it.
+        Deals Fire DMG equal to ${scaleValue(S.HookScaling.ultimate, i)} of Hook's ATK to one designated enemy.<br>After using Ultimate, the next Skill to be used is Enhanced, which deals DMG to one designated enemy and enemies adjacent to it.
       `,
         },
         talent: {
@@ -3374,7 +3374,7 @@ const Hook: Character = {
             level: "1/1",
             icon: charIcon("Hook", "Technique"),
             description: (i) => `
-        Immediately attacks the enemy. Upon entering battle, Hook deals Fire DMG equal to ${scaleValue(S.HookScaling.technique.main, i)} of her ATK to a random enemy. In addition, there is a ${scaleValue(S.HookScaling.technique.adjacent, i)} <u>base chance</u> to inflict Burn on every enemy for ${scaleValue(S.HookScaling.technique.adjacent2, i, "")} turn(s).\\nWhen afflicted with Burn, enemies will take Fire DoT equal to ${scaleValue(S.HookScaling.technique.adjacent3, i)} of Hook's ATK at the beginning of each turn.
+        Immediately attacks the enemy. Upon entering battle, Hook deals Fire DMG equal to ${scaleValue(S.HookScaling.technique.main, i)} of her ATK to a random enemy. In addition, there is a ${scaleValue(S.HookScaling.technique.adjacent, i)} <u>base chance</u> to inflict Burn on every enemy for ${scaleValue(S.HookScaling.technique.adjacent2, i, "")} turn(s).<br>When afflicted with Burn, enemies will take Fire DoT equal to ${scaleValue(S.HookScaling.technique.adjacent3, i)} of Hook's ATK at the beginning of each turn.
       `,
         },
         // --- Pasivas ---
@@ -3518,7 +3518,7 @@ const Lynx: Character = {
             level: "1/12",
             icon: charIcon("Lynx", "Skill"),
             description: (i) => `
-        Applies "Survival Response" to a single target ally and increases their Max HP by ${scaleValue(S.LynxScaling.skill.main, i)} of Lynx's Max HP plus ${scaleValue(S.LynxScaling.skill.adjacent, i, "")}. If the target ally is a character on the Path of Destruction or Preservation, the chance of them being attacked by enemies will greatly increase. "Survival Response" lasts for ${scaleValue(S.LynxScaling.skill.adjacent2, i, "")} turn(s).\\nRestores the target's HP by ${scaleValue(S.LynxScaling.skill.adjacent3, i)} of Lynx's Max HP plus ${scaleValue(S.LynxScaling.skill.adjacent4, i, "")}.
+        Applies "Survival Response" to a single target ally and increases their Max HP by ${scaleValue(S.LynxScaling.skill.main, i)} of Lynx's Max HP plus ${scaleValue(S.LynxScaling.skill.adjacent, i, "")}. If the target ally is a character on the Path of Destruction or Preservation, the chance of them being attacked by enemies will greatly increase. "Survival Response" lasts for ${scaleValue(S.LynxScaling.skill.adjacent2, i, "")} turn(s).<br>Restores the target's HP by ${scaleValue(S.LynxScaling.skill.adjacent3, i)} of Lynx's Max HP plus ${scaleValue(S.LynxScaling.skill.adjacent4, i, "")}.
       `,
         },
         ultimate: {
@@ -3692,7 +3692,7 @@ const Luka: Character = {
             level: "1/12",
             icon: charIcon("Luka", "Skill"),
             description: (i) => `
-        Deals Physical DMG equal to ${scaleValue(S.LukaScaling.skill.main, i)} of Luka's ATK to one designated enemy target. In addition, there is a ${scaleValue(S.LukaScaling.skill.adjacent, i)} <u>base chance</u> to inflict Bleed on them, lasting for ${scaleValue(S.LukaScaling.skill.adjacent2, i, "")} turn(s).\\nWhile Bleeding, the enemy will take ${scaleValue(S.LukaScaling.skill.adjacent3, i)} of their Max HP as Physical DoT at the start of each turn. This DMG will not exceed more than ${scaleValue(S.LukaScaling.skill.adjacent4, i)} of Luka's ATK.
+        Deals Physical DMG equal to ${scaleValue(S.LukaScaling.skill.main, i)} of Luka's ATK to one designated enemy target. In addition, there is a ${scaleValue(S.LukaScaling.skill.adjacent, i)} <u>base chance</u> to inflict Bleed on them, lasting for ${scaleValue(S.LukaScaling.skill.adjacent2, i, "")} turn(s).<br>While Bleeding, the enemy will take ${scaleValue(S.LukaScaling.skill.adjacent3, i)} of their Max HP as Physical DoT at the start of each turn. This DMG will not exceed more than ${scaleValue(S.LukaScaling.skill.adjacent4, i)} of Luka's ATK.
       `,
         },
         ultimate: {
@@ -3866,7 +3866,7 @@ const TopazNumby: Character = {
             level: "1/12",
             icon: charIcon("TopazNumby", "Skill"),
             description: (i) => `
-        Inflicts one designated enemy target with a "Proof of Debt" state, increasing the <u>Follow-Up ATK</u> DMG it receives by ${scaleValue(S.TopazNumbyScaling.skill.main, i)}. "Proof of Debt" only takes effect on the most recent target it is applied to. If there are no enemies inflicted with "Proof of Debt" on the field when an ally's turn starts or when an ally takes action, Topaz will inflict a random enemy with "Proof of Debt."\\nNumby deals Fire DMG equal to ${scaleValue(S.TopazNumbyScaling.skill.adjacent, i)} of Topaz's ATK to this target. Using this Skill to deal DMG is considered as launching a <u>Follow-Up ATK</u>.
+        Inflicts one designated enemy target with a "Proof of Debt" state, increasing the <u>Follow-Up ATK</u> DMG it receives by ${scaleValue(S.TopazNumbyScaling.skill.main, i)}. "Proof of Debt" only takes effect on the most recent target it is applied to. If there are no enemies inflicted with "Proof of Debt" on the field when an ally's turn starts or when an ally takes action, Topaz will inflict a random enemy with "Proof of Debt."<br>Numby deals Fire DMG equal to ${scaleValue(S.TopazNumbyScaling.skill.adjacent, i)} of Topaz's ATK to this target. Using this Skill to deal DMG is considered as launching a <u>Follow-Up ATK</u>.
       `,
         },
         ultimate: {
@@ -3886,7 +3886,7 @@ const TopazNumby: Character = {
             level: "1/12",
             icon: charIcon("TopazNumby", "Talent"),
             description: (i) => `
-        Summons Numby at the start of battle. Numby has ${scaleValue(S.TopazNumbyScaling.talent.main, i, "")} SPD by default. When taking action, Numby launches <u>Follow-Up ATKs</u> on one enemy target afflicted with "Proof of Debt," dealing Fire DMG equal to ${scaleValue(S.TopazNumbyScaling.talent.adjacent, i)} of Topaz's ATK.\\nWhen enemies afflicted with "Proof of Debt" receive an ally's Follow-Up ATKs, Numby's action is Advanced Forward by ${scaleValue(S.TopazNumbyScaling.talent.adjacent2, i)}. The action Advance Forward effect cannot be triggered during Numby's own turn.\\nWhen Topaz is <u>downed</u>, Numby disappears.
+        Summons Numby at the start of battle. Numby has ${scaleValue(S.TopazNumbyScaling.talent.main, i, "")} SPD by default. When taking action, Numby launches <u>Follow-Up ATKs</u> on one enemy target afflicted with "Proof of Debt," dealing Fire DMG equal to ${scaleValue(S.TopazNumbyScaling.talent.adjacent, i)} of Topaz's ATK.<br>When enemies afflicted with "Proof of Debt" receive an ally's Follow-Up ATKs, Numby's action is Advanced Forward by ${scaleValue(S.TopazNumbyScaling.talent.adjacent2, i)}. The action Advance Forward effect cannot be triggered during Numby's own turn.<br>When Topaz is <u>downed</u>, Numby disappears.
       `,
         },
         technique: {
@@ -3896,7 +3896,7 @@ const TopazNumby: Character = {
             level: "1/1",
             icon: charIcon("TopazNumby", "Technique"),
             description: (i) => `
-        Summons Numby when Topaz enters the overworld. Numby will automatically search for Basic Treasures and Trotters within a set radius.\\nUsing her Technique will regenerate ${scaleValue(S.TopazNumbyScaling.technique.main, i, "")} Energy for Topaz after Numby's first attack in the next battle.\\nIf Topaz is still in the team after using her Technique and defeating overworld enemies, a small bonus amount of credits will be added to the earned credits. A maximum of ${scaleValue(S.TopazNumbyScaling.technique.adjacent, i, "")} bonus credits can be received per calendar day.\\nAfter using her Technique and defeating enemies in Simulated Universe or Divergent Universe, additionally receive a small amount of Cosmic Fragments with a small chance to obtain 1 random Curio.
+        Summons Numby when Topaz enters the overworld. Numby will automatically search for Basic Treasures and Trotters within a set radius.<br>Using her Technique will regenerate ${scaleValue(S.TopazNumbyScaling.technique.main, i, "")} Energy for Topaz after Numby's first attack in the next battle.<br>If Topaz is still in the team after using her Technique and defeating overworld enemies, a small bonus amount of credits will be added to the earned credits. A maximum of ${scaleValue(S.TopazNumbyScaling.technique.adjacent, i, "")} bonus credits can be received per calendar day.<br>After using her Technique and defeating enemies in Simulated Universe or Divergent Universe, additionally receive a small amount of Cosmic Fragments with a small chance to obtain 1 random Curio.
       `,
         },
         // --- Pasivas ---
@@ -4058,7 +4058,7 @@ const Qingque: Character = {
             level: "1/12",
             icon: charIcon("Qingque", "Talent"),
             description: (i) => `
-        When an ally's turn starts, Qingque randomly draws 1 tile from 3 different suits and can hold up to 4 tiles at one time.\\nIf Qingque starts her turn with 4 tiles of the same suit, she consumes all tiles to enter the "Hidden Hand" state.\\nWhile in this state, Qingque cannot use her Skill again. At the same time, Qingque's ATK increases by ${scaleValue(S.QingqueScaling.talent, i)}, and her Basic ATK "Flower Pick" is enhanced, becoming "Cherry on Top!" The "Hidden Hand" state ends after using "Cherry on Top!".
+        When an ally's turn starts, Qingque randomly draws 1 tile from 3 different suits and can hold up to 4 tiles at one time.<br>If Qingque starts her turn with 4 tiles of the same suit, she consumes all tiles to enter the "Hidden Hand" state.<br>While in this state, Qingque cannot use her Skill again. At the same time, Qingque's ATK increases by ${scaleValue(S.QingqueScaling.talent, i)}, and her Basic ATK "Flower Pick" is enhanced, becoming "Cherry on Top!" The "Hidden Hand" state ends after using "Cherry on Top!".
       `,
         },
         technique: {
@@ -4210,7 +4210,7 @@ const Tingyun: Character = {
             level: "1/12",
             icon: charIcon("Tingyun", "Skill"),
             description: (i) => `
-        Grants a single ally with Benediction to increase their ATK by ${scaleValue(S.TingyunScaling.skill.main, i)}, up to ${scaleValue(S.TingyunScaling.skill.adjacent, i)} of Tingyun's current ATK.\\nWhen the ally with Benediction attacks, they will deal Lightning <u>Additional DMG</u> equal to ${scaleValue(S.TingyunScaling.skill.adjacent2, i)} of that ally's ATK for 1 time.\\nBenediction lasts for ${scaleValue(S.TingyunScaling.skill.adjacent3, i, "")} turn(s) and is only effective on the most recent receiver of Tingyun's Skill.
+        Grants a single ally with Benediction to increase their ATK by ${scaleValue(S.TingyunScaling.skill.main, i)}, up to ${scaleValue(S.TingyunScaling.skill.adjacent, i)} of Tingyun's current ATK.<br>When the ally with Benediction attacks, they will deal Lightning <u>Additional DMG</u> equal to ${scaleValue(S.TingyunScaling.skill.adjacent2, i)} of that ally's ATK for 1 time.<br>Benediction lasts for ${scaleValue(S.TingyunScaling.skill.adjacent3, i, "")} turn(s) and is only effective on the most recent receiver of Tingyun's Skill.
       `,
         },
         ultimate: {
@@ -4384,7 +4384,7 @@ const Luocha: Character = {
             level: "1/12",
             icon: charIcon("Luocha", "Skill"),
             description: (i) => `
-        After using his Skill, Luocha immediately restores the target ally's HP equal to ${scaleValue(S.LuochaScaling.skill.main, i)} of Luocha's ATK plus ${scaleValue(S.LuochaScaling.skill.adjacent, i, "")}. Meanwhile, Luocha gains 1 stack of Abyss Flower.\\nWhen any ally's HP percentage drops to ${scaleValue(S.LuochaScaling.skill.adjacent2, i)} or lower, an effect equivalent to Luocha's Skill will immediately be triggered and applied to this ally for one time (without consuming Skill Points). This effect can be triggered again after ${scaleValue(S.LuochaScaling.skill.adjacent3, i, "")} turn(s).
+        After using his Skill, Luocha immediately restores the target ally's HP equal to ${scaleValue(S.LuochaScaling.skill.main, i)} of Luocha's ATK plus ${scaleValue(S.LuochaScaling.skill.adjacent, i, "")}. Meanwhile, Luocha gains 1 stack of Abyss Flower.<br>When any ally's HP percentage drops to ${scaleValue(S.LuochaScaling.skill.adjacent2, i)} or lower, an effect equivalent to Luocha's Skill will immediately be triggered and applied to this ally for one time (without consuming Skill Points). This effect can be triggered again after ${scaleValue(S.LuochaScaling.skill.adjacent3, i, "")} turn(s).
       `,
         },
         ultimate: {
@@ -4404,7 +4404,7 @@ const Luocha: Character = {
             level: "1/12",
             icon: charIcon("Luocha", "Talent"),
             description: (i) => `
-        When Abyss Flower reaches ${scaleValue(S.LuochaScaling.talent.main, i, "")} stacks, Luocha consumes all stacks of Abyss Flower to deploy a Zone against the enemy.\\nWhen any enemy in the Zone is attacked by an ally, the attacking ally's HP is immediately restored by an amount equal to ${scaleValue(S.LuochaScaling.talent.adjacent, i)} of Luocha's ATK plus ${scaleValue(S.LuochaScaling.talent.adjacent2, i, "")}.\\nThe Zone's effect lasts for ${scaleValue(S.LuochaScaling.talent.adjacent3, i, "")} turns. When Luocha is <u>knocked down</u>, the Zone will be dispelled.
+        When Abyss Flower reaches ${scaleValue(S.LuochaScaling.talent.main, i, "")} stacks, Luocha consumes all stacks of Abyss Flower to deploy a Zone against the enemy.<br>When any enemy in the Zone is attacked by an ally, the attacking ally's HP is immediately restored by an amount equal to ${scaleValue(S.LuochaScaling.talent.adjacent, i)} of Luocha's ATK plus ${scaleValue(S.LuochaScaling.talent.adjacent2, i, "")}.<br>The Zone's effect lasts for ${scaleValue(S.LuochaScaling.talent.adjacent3, i, "")} turns. When Luocha is <u>knocked down</u>, the Zone will be dispelled.
       `,
         },
         technique: {
@@ -4576,7 +4576,7 @@ const JingYuan: Character = {
             level: "1/12",
             icon: charIcon("JingYuan", "Talent"),
             description: (i) => `
-        Summons "Lightning-Lord" at the start of the battle. "Lightning-Lord" has ${scaleValue(S.JingYuanScaling.talent.main, i, "")} base SPD and ${scaleValue(S.JingYuanScaling.talent.adjacent, i, "")} base Hits Per Action. When the Lightning-Lord takes action, its hits are considered as <u>Follow-Up ATKs</u>, with each hit dealing Lightning DMG equal to ${scaleValue(S.JingYuanScaling.talent.adjacent2, i)} of Jing Yuan's ATK to a random single enemy, and enemies adjacent to it also receive Lightning DMG equal to ${scaleValue(S.JingYuanScaling.talent.adjacent3, i)} of the DMG dealt to the primary target enemy.\\nThe Lightning-Lord's Hits Per Action can reach a max of ${scaleValue(S.JingYuanScaling.talent.adjacent4, i, "")}. Every time "Lightning-Lord's" Hits Per Action increases by 1, its SPD increases by ${scaleValue(S.JingYuanScaling.talent.adjacent5, i, "")}. After the "Lightning-Lord's" action ends, its SPD and Hits Per Action return to their base values.\\nWhen Jing Yuan is <u>knocked down</u>, the "Lightning-Lord" will disappear.\\nWhen Jing Yuan is affected by <u>Crowd Control debuff</u>, the "Lightning-Lord" is unable to take action.
+        Summons "Lightning-Lord" at the start of the battle. "Lightning-Lord" has ${scaleValue(S.JingYuanScaling.talent.main, i, "")} base SPD and ${scaleValue(S.JingYuanScaling.talent.adjacent, i, "")} base Hits Per Action. When the Lightning-Lord takes action, its hits are considered as <u>Follow-Up ATKs</u>, with each hit dealing Lightning DMG equal to ${scaleValue(S.JingYuanScaling.talent.adjacent2, i)} of Jing Yuan's ATK to a random single enemy, and enemies adjacent to it also receive Lightning DMG equal to ${scaleValue(S.JingYuanScaling.talent.adjacent3, i)} of the DMG dealt to the primary target enemy.<br>The Lightning-Lord's Hits Per Action can reach a max of ${scaleValue(S.JingYuanScaling.talent.adjacent4, i, "")}. Every time "Lightning-Lord's" Hits Per Action increases by 1, its SPD increases by ${scaleValue(S.JingYuanScaling.talent.adjacent5, i, "")}. After the "Lightning-Lord's" action ends, its SPD and Hits Per Action return to their base values.<br>When Jing Yuan is <u>knocked down</u>, the "Lightning-Lord" will disappear.<br>When Jing Yuan is affected by <u>Crowd Control debuff</u>, the "Lightning-Lord" is unable to take action.
       `,
         },
         technique: {
@@ -4730,7 +4730,7 @@ const Blade: Character = {
             level: "1/12",
             icon: charIcon("Blade", "Skill"),
             description: (i) => `
-        Consumes HP equal to ${scaleValue(S.BladeScaling.skill.main, i)} of Blade's Max HP to enter the Hellscape state.\\nWhen Hellscape is active, his Skill cannot be used, his DMG dealt increases by ${scaleValue(S.BladeScaling.skill.adjacent, i)}, and his Basic ATK Shard Sword is enhanced to Forest of Swords for ${scaleValue(S.BladeScaling.skill.adjacent2, i, "")} turn(s).\\nIf Blade's current HP is insufficient, his HP will be reduced to 1 when he uses his Skill.\\nThis Skill does not regenerate Energy. Using this Skill does not end the current turn.
+        Consumes HP equal to ${scaleValue(S.BladeScaling.skill.main, i)} of Blade's Max HP to enter the Hellscape state.<br>When Hellscape is active, his Skill cannot be used, his DMG dealt increases by ${scaleValue(S.BladeScaling.skill.adjacent, i)}, and his Basic ATK Shard Sword is enhanced to Forest of Swords for ${scaleValue(S.BladeScaling.skill.adjacent2, i, "")} turn(s).<br>If Blade's current HP is insufficient, his HP will be reduced to 1 when he uses his Skill.<br>This Skill does not regenerate Energy. Using this Skill does not end the current turn.
       `,
         },
         ultimate: {
@@ -4740,7 +4740,7 @@ const Blade: Character = {
             level: "1/12",
             icon: charIcon("Blade", "Ultimate"),
             description: (i) => `
-        Sets Blade's current HP to 50% of his Max HP and deals Wind DMG to one enemy equal to the sum of ${scaleValue(S.BladeScaling.ultimate.main, i)} of his ATK, ${scaleValue(S.BladeScaling.ultimate.adjacent, i)} of his Max HP, and ${scaleValue(S.BladeScaling.ultimate.adjacent2, i)} of the tally of Blade's HP loss in the current battle. At the same time, deals Wind DMG to adjacent targets equal to the sum of ${scaleValue(S.BladeScaling.ultimate.adjacent3, i)} of his ATK, ${scaleValue(S.BladeScaling.ultimate.adjacent4, i)} of his Max HP, and ${scaleValue(S.BladeScaling.ultimate.adjacent5, i)} of the tally of his HP loss in the current battle.\\nThe tally of Blade's HP loss in the current battle is capped at ${scaleValue(S.BladeScaling.ultimate.adjacent6, i)} of his Max HP. This value will be reset and re-accumulated after his Ultimate has been used.
+        Sets Blade's current HP to 50% of his Max HP and deals Wind DMG to one enemy equal to the sum of ${scaleValue(S.BladeScaling.ultimate.main, i)} of his ATK, ${scaleValue(S.BladeScaling.ultimate.adjacent, i)} of his Max HP, and ${scaleValue(S.BladeScaling.ultimate.adjacent2, i)} of the tally of Blade's HP loss in the current battle. At the same time, deals Wind DMG to adjacent targets equal to the sum of ${scaleValue(S.BladeScaling.ultimate.adjacent3, i)} of his ATK, ${scaleValue(S.BladeScaling.ultimate.adjacent4, i)} of his Max HP, and ${scaleValue(S.BladeScaling.ultimate.adjacent5, i)} of the tally of his HP loss in the current battle.<br>The tally of Blade's HP loss in the current battle is capped at ${scaleValue(S.BladeScaling.ultimate.adjacent6, i)} of his Max HP. This value will be reset and re-accumulated after his Ultimate has been used.
       `,
         },
         talent: {
@@ -4750,7 +4750,7 @@ const Blade: Character = {
             level: "1/12",
             icon: charIcon("Blade", "Talent"),
             description: (i) => `
-        When Blade sustains DMG or consumes his HP, he gains 1 stack of Charge, stacking up to 5 times. A max of 1 Charge stack can be gained every time he is attacked.\\nWhen Charge stack reaches maximum, immediately launches a <u>Follow-Up ATK</u> on all enemies, dealing Wind DMG equal to ${scaleValue(S.BladeScaling.talent.main, i)} of Blade's ATK plus ${scaleValue(S.BladeScaling.talent.adjacent, i)} of his Max HP. At the same time, restores Blade's HP by ${scaleValue(S.BladeScaling.talent.adjacent2, i)} of his Max HP. After the Follow-Up ATK, all Charges are consumed.
+        When Blade sustains DMG or consumes his HP, he gains 1 stack of Charge, stacking up to 5 times. A max of 1 Charge stack can be gained every time he is attacked.<br>When Charge stack reaches maximum, immediately launches a <u>Follow-Up ATK</u> on all enemies, dealing Wind DMG equal to ${scaleValue(S.BladeScaling.talent.main, i)} of Blade's ATK plus ${scaleValue(S.BladeScaling.talent.adjacent, i)} of his Max HP. At the same time, restores Blade's HP by ${scaleValue(S.BladeScaling.talent.adjacent2, i)} of his Max HP. After the Follow-Up ATK, all Charges are consumed.
       `,
         },
         technique: {
@@ -4760,7 +4760,7 @@ const Blade: Character = {
             level: "1/1",
             icon: charIcon("Blade", "Technique"),
             description: (i) => `
-        Immediately attacks the enemy. After entering combat, consumes ${scaleValue(S.BladeScaling.technique.main, i)} of Blade's Max HP while dealing Wind DMG equal to ${scaleValue(S.BladeScaling.technique.adjacent, i)} of his Max HP to all enemies.\\nIf Blade's current HP is insufficient, his HP will be reduced to 1 when this Technique is used.
+        Immediately attacks the enemy. After entering combat, consumes ${scaleValue(S.BladeScaling.technique.main, i)} of Blade's Max HP while dealing Wind DMG equal to ${scaleValue(S.BladeScaling.technique.adjacent, i)} of his Max HP to all enemies.<br>If Blade's current HP is insufficient, his HP will be reduced to 1 when this Technique is used.
       `,
         },
         // --- Pasivas ---
@@ -4904,7 +4904,7 @@ const Sushang: Character = {
             level: "1/12",
             icon: charIcon("Sushang", "Skill"),
             description: (i) => `
-        Deals Physical DMG equal to ${scaleValue(S.SushangScaling.skill.main, i)} of Sushang's ATK to one designated enemy. In addition, there is a ${scaleValue(S.SushangScaling.skill.adjacent, i)} chance to trigger "Sword Stance" on the final hit, dealing Physical <u>Additional DMG</u> equal to ${scaleValue(S.SushangScaling.skill.adjacent2, i)} of Sushang's ATK to the enemy.\\nIf the enemy is inflicted with <u>Weakness Break</u>, "Sword Stance" is guaranteed to trigger.
+        Deals Physical DMG equal to ${scaleValue(S.SushangScaling.skill.main, i)} of Sushang's ATK to one designated enemy. In addition, there is a ${scaleValue(S.SushangScaling.skill.adjacent, i)} chance to trigger "Sword Stance" on the final hit, dealing Physical <u>Additional DMG</u> equal to ${scaleValue(S.SushangScaling.skill.adjacent2, i)} of Sushang's ATK to the enemy.<br>If the enemy is inflicted with <u>Weakness Break</u>, "Sword Stance" is guaranteed to trigger.
       `,
         },
         ultimate: {
@@ -4914,7 +4914,7 @@ const Sushang: Character = {
             level: "1/12",
             icon: charIcon("Sushang", "Ultimate"),
             description: (i) => `
-        Deals Physical DMG equal to ${scaleValue(S.SushangScaling.ultimate.main, i)} of Sushang's ATK to one designated enemy target, and she immediately takes action. In addition, Sushang's ATK increases by ${scaleValue(S.SushangScaling.ultimate.adjacent, i)} and using her Skill has 2 extra chances to trigger "Sword Stance" for ${scaleValue(S.SushangScaling.ultimate.adjacent2, i, "")} turn(s).\\n"Sword Stance" triggered from the extra chances deals ${scaleValue(S.SushangScaling.ultimate.adjacent3, i)} of the original DMG.
+        Deals Physical DMG equal to ${scaleValue(S.SushangScaling.ultimate.main, i)} of Sushang's ATK to one designated enemy target, and she immediately takes action. In addition, Sushang's ATK increases by ${scaleValue(S.SushangScaling.ultimate.adjacent, i)} and using her Skill has 2 extra chances to trigger "Sword Stance" for ${scaleValue(S.SushangScaling.ultimate.adjacent2, i, "")} turn(s).<br>"Sword Stance" triggered from the extra chances deals ${scaleValue(S.SushangScaling.ultimate.adjacent3, i)} of the original DMG.
       `,
         },
         talent: {
@@ -5078,7 +5078,7 @@ const Yukong: Character = {
             level: "1/12",
             icon: charIcon("Yukong", "Skill"),
             description: (i) => `
-        Obtains ${scaleValue(S.YukongScaling.skill.main, i, "")} stack(s) of "Roaring Bowstrings" (to a maximum of 2 stacks). When "Roaring Bowstrings" is active, the ATK of all allies increases by ${scaleValue(S.YukongScaling.skill.adjacent, i)}, and every time an ally's turn (including Yukong's) ends, Yukong loses 1 stack of "Roaring Bowstrings."\\nWhen it's the turn where Yukong gains "Roaring Bowstrings" by using Skill, "Roaring Bowstrings" will not be removed.
+        Obtains ${scaleValue(S.YukongScaling.skill.main, i, "")} stack(s) of "Roaring Bowstrings" (to a maximum of 2 stacks). When "Roaring Bowstrings" is active, the ATK of all allies increases by ${scaleValue(S.YukongScaling.skill.adjacent, i)}, and every time an ally's turn (including Yukong's) ends, Yukong loses 1 stack of "Roaring Bowstrings."<br>When it's the turn where Yukong gains "Roaring Bowstrings" by using Skill, "Roaring Bowstrings" will not be removed.
       `,
         },
         ultimate: {
@@ -5252,7 +5252,7 @@ const FuXuan: Character = {
             level: "1/12",
             icon: charIcon("FuXuan", "Skill"),
             description: (i) => `
-        Activates Matrix of Prescience, via which Fu Xuan's teammates will <u>Distribute</u> ${scaleValue(S.FuXuanScaling.skill.main, i)} of the DMG they receive (before this DMG is mitigated by any Shields) to Fu Xuan for ${scaleValue(S.FuXuanScaling.skill.adjacent, i, "")} turn(s).\\nWhile affected by Matrix of Prescience, all ally targets gain the Knowledge effect, which increases their respective Max HP by ${scaleValue(S.FuXuanScaling.skill.adjacent2, i)} of Fu Xuan's Max HP, and increases CRIT Rate by ${scaleValue(S.FuXuanScaling.skill.adjacent3, i)}.\\nWhen Fu Xuan is <u>knocked down</u>, the Matrix of Prescience will be dispelled.
+        Activates Matrix of Prescience, via which Fu Xuan's teammates will <u>Distribute</u> ${scaleValue(S.FuXuanScaling.skill.main, i)} of the DMG they receive (before this DMG is mitigated by any Shields) to Fu Xuan for ${scaleValue(S.FuXuanScaling.skill.adjacent, i, "")} turn(s).<br>While affected by Matrix of Prescience, all ally targets gain the Knowledge effect, which increases their respective Max HP by ${scaleValue(S.FuXuanScaling.skill.adjacent2, i)} of Fu Xuan's Max HP, and increases CRIT Rate by ${scaleValue(S.FuXuanScaling.skill.adjacent3, i)}.<br>When Fu Xuan is <u>knocked down</u>, the Matrix of Prescience will be dispelled.
       `,
         },
         ultimate: {
@@ -5272,7 +5272,7 @@ const FuXuan: Character = {
             level: "1/12",
             icon: charIcon("FuXuan", "Talent"),
             description: (i) => `
-        While Fu Xuan is still active in combat, Misfortune Avoidance is applied to the entire team. With Misfortune Avoidance, allies take ${scaleValue(S.FuXuanScaling.talent.main, i)} less DMG.\\nWhen Fu Xuan's current HP percentage falls to ${scaleValue(S.FuXuanScaling.talent.adjacent, i)} of her Max HP or less, HP Restore will be triggered for Fu Xuan, restoring her HP by ${scaleValue(S.FuXuanScaling.talent.adjacent2, i)} of the amount of HP she is currently missing. This effect cannot be triggered if she receives a killing blow. This effect has 1 trigger count by default and can hold up to a maximum of 2 trigger counts.
+        While Fu Xuan is still active in combat, Misfortune Avoidance is applied to the entire team. With Misfortune Avoidance, allies take ${scaleValue(S.FuXuanScaling.talent.main, i)} less DMG.<br>When Fu Xuan's current HP percentage falls to ${scaleValue(S.FuXuanScaling.talent.adjacent, i)} of her Max HP or less, HP Restore will be triggered for Fu Xuan, restoring her HP by ${scaleValue(S.FuXuanScaling.talent.adjacent2, i)} of the amount of HP she is currently missing. This effect cannot be triggered if she receives a killing blow. This effect has 1 trigger count by default and can hold up to a maximum of 2 trigger counts.
       `,
         },
         technique: {
@@ -5444,7 +5444,7 @@ const Yanqing: Character = {
             level: "1/12",
             icon: charIcon("Yanqing", "Talent"),
             description: (i) => `
-        When "Soulsteel Sync" is active, Yanqing is less likely to be attacked by enemies. Yanqing's CRIT Rate increases by ${scaleValue(S.YanqingScaling.talent.main, i)} and his CRIT DMG increases by ${scaleValue(S.YanqingScaling.talent.adjacent, i)}. After Yanqing attacks an enemy, there is a ${scaleValue(S.YanqingScaling.talent.adjacent2, i)} <u>fixed chance</u> to launch <u>Follow-Up ATK</u>, dealing Ice DMG equal to ${scaleValue(S.YanqingScaling.talent.adjacent3, i)} of Yanqing's ATK to the enemy, which has a ${scaleValue(S.YanqingScaling.talent.adjacent4, i)} <u>base chance</u> to Freeze the enemy for 1 turn.\\nThe Frozen target cannot take action and receives Ice <u>Additional DMG</u> equal to ${scaleValue(S.YanqingScaling.talent.adjacent5, i)} of Yanqing's ATK at the beginning of each turn.\\nWhen Yanqing receives DMG, the "Soulsteel Sync" effect will disappear.
+        When "Soulsteel Sync" is active, Yanqing is less likely to be attacked by enemies. Yanqing's CRIT Rate increases by ${scaleValue(S.YanqingScaling.talent.main, i)} and his CRIT DMG increases by ${scaleValue(S.YanqingScaling.talent.adjacent, i)}. After Yanqing attacks an enemy, there is a ${scaleValue(S.YanqingScaling.talent.adjacent2, i)} <u>fixed chance</u> to launch <u>Follow-Up ATK</u>, dealing Ice DMG equal to ${scaleValue(S.YanqingScaling.talent.adjacent3, i)} of Yanqing's ATK to the enemy, which has a ${scaleValue(S.YanqingScaling.talent.adjacent4, i)} <u>base chance</u> to Freeze the enemy for 1 turn.<br>The Frozen target cannot take action and receives Ice <u>Additional DMG</u> equal to ${scaleValue(S.YanqingScaling.talent.adjacent5, i)} of Yanqing's ATK at the beginning of each turn.<br>When Yanqing receives DMG, the "Soulsteel Sync" effect will disappear.
       `,
         },
         technique: {
@@ -5782,7 +5782,7 @@ const Bailu: Character = {
             level: "1/12",
             icon: charIcon("Bailu", "Ultimate"),
             description: (i) => `
-        Heals all allies for ${scaleValue(S.BailuScaling.ultimate.main, i)} of Bailu's Max HP plus ${scaleValue(S.BailuScaling.ultimate.adjacent, i, "")}.\\nBailu applies Invigoration to allies that are not already Invigorated. For those already Invigorated, Bailu extends the duration of their Invigoration by 1 turn.\\nThe effect of Invigoration can last for ${scaleValue(S.BailuScaling.ultimate.adjacent2, i, "")} turn(s). This effect cannot stack.
+        Heals all allies for ${scaleValue(S.BailuScaling.ultimate.main, i)} of Bailu's Max HP plus ${scaleValue(S.BailuScaling.ultimate.adjacent, i, "")}.<br>Bailu applies Invigoration to allies that are not already Invigorated. For those already Invigorated, Bailu extends the duration of their Invigoration by 1 turn.<br>The effect of Invigoration can last for ${scaleValue(S.BailuScaling.ultimate.adjacent2, i, "")} turn(s). This effect cannot stack.
       `,
         },
         talent: {
@@ -5792,7 +5792,7 @@ const Bailu: Character = {
             level: "1/12",
             icon: charIcon("Bailu", "Talent"),
             description: (i) => `
-        After an ally target with Invigoration is hit, restores the ally's HP for ${scaleValue(S.BailuScaling.talent.main, i)} of Bailu's Max HP plus ${scaleValue(S.BailuScaling.talent.adjacent, i, "")}. This effect can trigger ${scaleValue(S.BailuScaling.talent.adjacent2, i, "")} time(s).\\nWhen Bailu's teammate receives a killing blow, they will not be <u>knocked down</u>. Bailu immediately heals the ally for ${scaleValue(S.BailuScaling.talent.adjacent3, i)} of Bailu's Max HP plus ${scaleValue(S.BailuScaling.talent.adjacent4, i, "")} HP. This effect can be triggered 1 time per battle.
+        After an ally target with Invigoration is hit, restores the ally's HP for ${scaleValue(S.BailuScaling.talent.main, i)} of Bailu's Max HP plus ${scaleValue(S.BailuScaling.talent.adjacent, i, "")}. This effect can trigger ${scaleValue(S.BailuScaling.talent.adjacent2, i, "")} time(s).<br>When Bailu's teammate receives a killing blow, they will not be <u>knocked down</u>. Bailu immediately heals the ally for ${scaleValue(S.BailuScaling.talent.adjacent3, i)} of Bailu's Max HP plus ${scaleValue(S.BailuScaling.talent.adjacent4, i, "")} HP. This effect can be triggered 1 time per battle.
       `,
         },
         technique: {
@@ -6120,7 +6120,7 @@ const DanHengImbibitorLunae: Character = {
             level: "1/12",
             icon: charIcon("DanHengImbibitorLunae", "Skill"),
             description: (i) => `
-        Enhances Basic ATK. Enhancements may be applied up to 3 times consecutively. Using this ability does not consume Skill Points and is not considered as using a Skill.\\nEnhanced once, Beneficent Lotus becomes Transcendence.\\nEnhanced twice, Beneficent Lotus becomes Divine Spear.\\nEnhanced thrice, Beneficent Lotus becomes Fulgurant Leap.\\nWhen using Divine Spear or Fulgurant Leap, starting from the fourth hit, 1 stack of Outroar is gained before every hit. Each stack of Outroar increases Dan Heng • Imbibitor Lunae's CRIT DMG by ${scaleValue(S.DanHengImbibitorLunaeScaling.skill.main, i)}, for a max of ${scaleValue(S.DanHengImbibitorLunaeScaling.skill.adjacent, i, "")} stacks. These stacks last until the end of his turn.
+        Enhances Basic ATK. Enhancements may be applied up to 3 times consecutively. Using this ability does not consume Skill Points and is not considered as using a Skill.<br>Enhanced once, Beneficent Lotus becomes Transcendence.<br>Enhanced twice, Beneficent Lotus becomes Divine Spear.<br>Enhanced thrice, Beneficent Lotus becomes Fulgurant Leap.<br>When using Divine Spear or Fulgurant Leap, starting from the fourth hit, 1 stack of Outroar is gained before every hit. Each stack of Outroar increases Dan Heng • Imbibitor Lunae's CRIT DMG by ${scaleValue(S.DanHengImbibitorLunaeScaling.skill.main, i)}, for a max of ${scaleValue(S.DanHengImbibitorLunaeScaling.skill.adjacent, i, "")} stacks. These stacks last until the end of his turn.
       `,
         },
         ultimate: {
@@ -6130,7 +6130,7 @@ const DanHengImbibitorLunae: Character = {
             level: "1/12",
             icon: charIcon("DanHengImbibitorLunae", "Ultimate"),
             description: (i) => `
-        Uses a 3-hit attack and deals Imaginary DMG equal to ${scaleValue(S.DanHengImbibitorLunaeScaling.ultimate.main, i)} of Dan Heng • Imbibitor Lunae's ATK to one designated enemy target. At the same time, deals Imaginary DMG equal to ${scaleValue(S.DanHengImbibitorLunaeScaling.ultimate.adjacent, i)} of Dan Heng • Imbibitor Lunae's ATK to adjacent targets. Then, obtains ${scaleValue(S.DanHengImbibitorLunaeScaling.ultimate.adjacent2, i, "")} "Squama Sacrosancta."\\nIt's possible to hold up to ${scaleValue(S.DanHengImbibitorLunaeScaling.ultimate.adjacent3, i, "")} "Squama Sacrosancta," which can be used to offset Dan Heng • Imbibitor Lunae's consumption of skill points. Consuming "Squama Sacrosancta" is considered equivalent to consuming skill points.
+        Uses a 3-hit attack and deals Imaginary DMG equal to ${scaleValue(S.DanHengImbibitorLunaeScaling.ultimate.main, i)} of Dan Heng • Imbibitor Lunae's ATK to one designated enemy target. At the same time, deals Imaginary DMG equal to ${scaleValue(S.DanHengImbibitorLunaeScaling.ultimate.adjacent, i)} of Dan Heng • Imbibitor Lunae's ATK to adjacent targets. Then, obtains ${scaleValue(S.DanHengImbibitorLunaeScaling.ultimate.adjacent2, i, "")} "Squama Sacrosancta."<br>It's possible to hold up to ${scaleValue(S.DanHengImbibitorLunaeScaling.ultimate.adjacent3, i, "")} "Squama Sacrosancta," which can be used to offset Dan Heng • Imbibitor Lunae's consumption of skill points. Consuming "Squama Sacrosancta" is considered equivalent to consuming skill points.
       `,
         },
         talent: {
@@ -6304,7 +6304,7 @@ const Xueyi: Character = {
             level: "1/12",
             icon: charIcon("Xueyi", "Ultimate"),
             description: (i) => `
-        Deals Quantum DMG equal to ${scaleValue(S.XueyiScaling.ultimate.main, i)} of Xueyi's ATK to one designated enemy target. This attack ignores Weakness Types and reduces the enemy's Toughness. When the enemy's Weakness is Broken, the Quantum Weakness Break effect is triggered.\\nIn this attack, the more Toughness is reduced, the higher the DMG will be dealt, up to a max of ${scaleValue(S.XueyiScaling.ultimate.adjacent, i)} increase.
+        Deals Quantum DMG equal to ${scaleValue(S.XueyiScaling.ultimate.main, i)} of Xueyi's ATK to one designated enemy target. This attack ignores Weakness Types and reduces the enemy's Toughness. When the enemy's Weakness is Broken, the Quantum Weakness Break effect is triggered.<br>In this attack, the more Toughness is reduced, the higher the DMG will be dealt, up to a max of ${scaleValue(S.XueyiScaling.ultimate.adjacent, i)} increase.
       `,
         },
         talent: {
@@ -6314,7 +6314,7 @@ const Xueyi: Character = {
             level: "1/12",
             icon: charIcon("Xueyi", "Talent"),
             description: (i) => `
-        When Xueyi reduces enemy Toughness with attacks, "Karma" will be stacked. The more Toughness is reduced, the more stacks of "Karma" are added, up to ${scaleValue(S.XueyiScaling.talent.main, i, "")} stacks.\\nWhen Xueyi's teammates reduce enemy Toughness with attacks, Xueyi gains ${scaleValue(S.XueyiScaling.talent.adjacent, i, "")} stack(s) of "Karma."\\nWhen "Karma" reaches the max number of stacks, consumes all current "Karma" stacks and immediately launches <u>Follow-Up ATK</u> against an enemy target, dealing DMG for 3 times, with each time dealing Quantum DMG equal to ${scaleValue(S.XueyiScaling.talent.adjacent2, i)} of Xueyi's ATK to a single random enemy. This Follow-Up ATK will not add "Karma" stacks.
+        When Xueyi reduces enemy Toughness with attacks, "Karma" will be stacked. The more Toughness is reduced, the more stacks of "Karma" are added, up to ${scaleValue(S.XueyiScaling.talent.main, i, "")} stacks.<br>When Xueyi's teammates reduce enemy Toughness with attacks, Xueyi gains ${scaleValue(S.XueyiScaling.talent.adjacent, i, "")} stack(s) of "Karma."<br>When "Karma" reaches the max number of stacks, consumes all current "Karma" stacks and immediately launches <u>Follow-Up ATK</u> against an enemy target, dealing DMG for 3 times, with each time dealing Quantum DMG equal to ${scaleValue(S.XueyiScaling.talent.adjacent2, i)} of Xueyi's ATK to a single random enemy. This Follow-Up ATK will not add "Karma" stacks.
       `,
         },
         technique: {
@@ -6468,7 +6468,7 @@ const Hanya: Character = {
             level: "1/12",
             icon: charIcon("Hanya", "Skill"),
             description: (i) => `
-        Deals Physical DMG equal to ${scaleValue(S.HanyaScaling.skill.main, i)} of Hanya's ATK to one designated enemy target, then applies "Burden" to them.\\nFor every 2 Basic ATKs, Skills, or Ultimates allies use on an enemy with "Burden," allies will immediately recover 1 Skill Point. "Burden" is only active on the latest target it is applied to, and will be dispelled automatically after the Skill Point recovery effect has been triggered ${scaleValue(S.HanyaScaling.skill.adjacent, i, "")} times.
+        Deals Physical DMG equal to ${scaleValue(S.HanyaScaling.skill.main, i)} of Hanya's ATK to one designated enemy target, then applies "Burden" to them.<br>For every 2 Basic ATKs, Skills, or Ultimates allies use on an enemy with "Burden," allies will immediately recover 1 Skill Point. "Burden" is only active on the latest target it is applied to, and will be dispelled automatically after the Skill Point recovery effect has been triggered ${scaleValue(S.HanyaScaling.skill.adjacent, i, "")} times.
       `,
         },
         ultimate: {
@@ -6660,7 +6660,7 @@ const Huohuo: Character = {
             level: "1/12",
             icon: charIcon("Huohuo", "Talent"),
             description: (i) => `
-        After using her Skill, Huohuo gains Divine Provision, lasting for ${scaleValue(S.HuohuoScaling.talent.main, i, "")} turn(s). This duration decreases by 1 turn at the start of Huohuo's every turn. If Huohuo has Divine Provision when an ally's turn starts or when an ally uses their Ultimate, restores HP for that ally by an amount equal to ${scaleValue(S.HuohuoScaling.talent.adjacent, i)} of Huohuo's Max HP plus ${scaleValue(S.HuohuoScaling.talent.adjacent2, i, "")}. At the same time, every ally with ${scaleValue(S.HuohuoScaling.talent.adjacent3, i)} HP percentage or lower receives healing once.\\nWhen Divine Provision is triggered to heal an ally, dispel ${scaleValue(S.HuohuoScaling.talent.adjacent4, i, "")} <u>debuff(s)</u> from that ally. This effect can be triggered up to ${scaleValue(S.HuohuoScaling.talent.adjacent5, i, "")} time(s). Using the skill again resets the effect's trigger count.
+        After using her Skill, Huohuo gains Divine Provision, lasting for ${scaleValue(S.HuohuoScaling.talent.main, i, "")} turn(s). This duration decreases by 1 turn at the start of Huohuo's every turn. If Huohuo has Divine Provision when an ally's turn starts or when an ally uses their Ultimate, restores HP for that ally by an amount equal to ${scaleValue(S.HuohuoScaling.talent.adjacent, i)} of Huohuo's Max HP plus ${scaleValue(S.HuohuoScaling.talent.adjacent2, i, "")}. At the same time, every ally with ${scaleValue(S.HuohuoScaling.talent.adjacent3, i)} HP percentage or lower receives healing once.<br>When Divine Provision is triggered to heal an ally, dispel ${scaleValue(S.HuohuoScaling.talent.adjacent4, i, "")} <u>debuff(s)</u> from that ally. This effect can be triggered up to ${scaleValue(S.HuohuoScaling.talent.adjacent5, i, "")} time(s). Using the skill again resets the effect's trigger count.
       `,
         },
         technique: {
@@ -6824,7 +6824,7 @@ const Jiaoqiu: Character = {
             level: "1/12",
             icon: charIcon("Jiaoqiu", "Ultimate"),
             description: (i) => `
-        Sets the number of "Ashen Roast" stacks on enemy targets to the highest number of "Ashen Roast" stacks present on the battlefield. Then, activates a Zone and deals Fire DMG equal to ${scaleValue(S.JiaoqiuScaling.ultimate.main, i)} of Jiaoqiu's ATK to all enemies.\\nWhile inside the Zone, enemy targets receive ${scaleValue(S.JiaoqiuScaling.ultimate.adjacent, i)} increased Ultimate DMG, with a ${scaleValue(S.JiaoqiuScaling.ultimate.adjacent2, i)} <u>base chance</u> of being inflicted with 1 stack of Ashen Roast when taking action. While the Zone exists, this effect can trigger up to ${scaleValue(S.JiaoqiuScaling.ultimate.adjacent3, i, "")} time(s). And for each enemy target, it can only trigger once per turn. This trigger count resets every time Jiaoqiu uses Ultimate.\\nThe Zone lasts for ${scaleValue(S.JiaoqiuScaling.ultimate.adjacent4, i, "")} turn(s), and its duration decreases by 1 at the start of this unit's every turn. If Jiaoqiu gets <u>knocked down</u>, the Zone will also be dispelled.
+        Sets the number of "Ashen Roast" stacks on enemy targets to the highest number of "Ashen Roast" stacks present on the battlefield. Then, activates a Zone and deals Fire DMG equal to ${scaleValue(S.JiaoqiuScaling.ultimate.main, i)} of Jiaoqiu's ATK to all enemies.<br>While inside the Zone, enemy targets receive ${scaleValue(S.JiaoqiuScaling.ultimate.adjacent, i)} increased Ultimate DMG, with a ${scaleValue(S.JiaoqiuScaling.ultimate.adjacent2, i)} <u>base chance</u> of being inflicted with 1 stack of Ashen Roast when taking action. While the Zone exists, this effect can trigger up to ${scaleValue(S.JiaoqiuScaling.ultimate.adjacent3, i, "")} time(s). And for each enemy target, it can only trigger once per turn. This trigger count resets every time Jiaoqiu uses Ultimate.<br>The Zone lasts for ${scaleValue(S.JiaoqiuScaling.ultimate.adjacent4, i, "")} turn(s), and its duration decreases by 1 at the start of this unit's every turn. If Jiaoqiu gets <u>knocked down</u>, the Zone will also be dispelled.
       `,
         },
         talent: {
@@ -6834,7 +6834,7 @@ const Jiaoqiu: Character = {
             level: "1/12",
             icon: charIcon("Jiaoqiu", "Talent"),
             description: (i) => `
-        When Jiaoqiu hits an enemy with Basic ATK, Skill or Ultimate, there is a ${scaleValue(S.JiaoqiuScaling.talent.main, i)} <u>base chance</u> to inflict 1 stack of Ashen Roast on them. At 1 stack, increases DMG received by the enemy by ${scaleValue(S.JiaoqiuScaling.talent.adjacent, i)}. Then, each subsequent stack increases this by ${scaleValue(S.JiaoqiuScaling.talent.adjacent2, i)}.\\nAshen Roast is capped at ${scaleValue(S.JiaoqiuScaling.talent.adjacent3, i, "")} stack(s) and lasts for ${scaleValue(S.JiaoqiuScaling.talent.adjacent4, i, "")} turn(s).\\nWhen an enemy target is afflicted with Ashen Roast, they are also considered as being Burned at the same time, taking Fire DoT equal to ${scaleValue(S.JiaoqiuScaling.talent.adjacent5, i)} of Jiaoqiu's ATK at the start of each turn.
+        When Jiaoqiu hits an enemy with Basic ATK, Skill or Ultimate, there is a ${scaleValue(S.JiaoqiuScaling.talent.main, i)} <u>base chance</u> to inflict 1 stack of Ashen Roast on them. At 1 stack, increases DMG received by the enemy by ${scaleValue(S.JiaoqiuScaling.talent.adjacent, i)}. Then, each subsequent stack increases this by ${scaleValue(S.JiaoqiuScaling.talent.adjacent2, i)}.<br>Ashen Roast is capped at ${scaleValue(S.JiaoqiuScaling.talent.adjacent3, i, "")} stack(s) and lasts for ${scaleValue(S.JiaoqiuScaling.talent.adjacent4, i, "")} turn(s).<br>When an enemy target is afflicted with Ashen Roast, they are also considered as being Burned at the same time, taking Fire DoT equal to ${scaleValue(S.JiaoqiuScaling.talent.adjacent5, i)} of Jiaoqiu's ATK at the start of each turn.
       `,
         },
         technique: {
@@ -6998,7 +6998,7 @@ const Feixiao: Character = {
             level: "1/12",
             icon: charIcon("Feixiao", "Ultimate"),
             description: (i) => `
-        Deals Wind DMG to one designated enemy target, up to ${scaleValue(S.FeixiaoScaling.ultimate.main, i)} of Feixiao's ATK. During this time, can ignore Weakness Type to reduce the target's Toughness. When the target is not <u>Weakness Broken</u>, Feixiao's Weakness Break Efficiency increases by ${scaleValue(S.FeixiaoScaling.ultimate.adjacent, i)}.\\nDuring the attack, Feixiao first launches "Boltsunder Blitz" or "Waraxe Skyward" on the target, for a total of ${scaleValue(S.FeixiaoScaling.ultimate.adjacent2, i, "")} time(s). At the end, deals Wind DMG equal to ${scaleValue(S.FeixiaoScaling.ultimate.adjacent3, i)} of Feixiao's ATK to the target.
+        Deals Wind DMG to one designated enemy target, up to ${scaleValue(S.FeixiaoScaling.ultimate.main, i)} of Feixiao's ATK. During this time, can ignore Weakness Type to reduce the target's Toughness. When the target is not <u>Weakness Broken</u>, Feixiao's Weakness Break Efficiency increases by ${scaleValue(S.FeixiaoScaling.ultimate.adjacent, i)}.<br>During the attack, Feixiao first launches "Boltsunder Blitz" or "Waraxe Skyward" on the target, for a total of ${scaleValue(S.FeixiaoScaling.ultimate.adjacent2, i, "")} time(s). At the end, deals Wind DMG equal to ${scaleValue(S.FeixiaoScaling.ultimate.adjacent3, i)} of Feixiao's ATK to the target.
       `,
         },
         talent: {
@@ -7008,7 +7008,7 @@ const Feixiao: Character = {
             level: "1/12",
             icon: charIcon("Feixiao", "Talent"),
             description: (i) => `
-        Can activate Ultimate when "Flying Aureus" reaches ${scaleValue(S.FeixiaoScaling.talent.main, i, "")} points, accumulating up to ${scaleValue(S.FeixiaoScaling.talent.adjacent, i, "")} points. Feixiao gains 1 point of "Flying Aureus" for every ${scaleValue(S.FeixiaoScaling.talent.adjacent2, i, "")} attacks by ally targets. Feixiao's Ultimate attacks do not count towards this number.\\nAfter Feixiao's teammates attack an Enemy target, Feixiao immediately launches <u>Follow-Up ATK</u> against the primary target, dealing Wind DMG equal to ${scaleValue(S.FeixiaoScaling.talent.adjacent3, i)} of Feixiao's ATK. If there is no primary target available to attack, Feixiao attacks a single random enemy instead. This effect can only trigger once per turn and the trigger count resets at the start of Feixiao's turn. When using this attack, increases DMG dealt by this unit by ${scaleValue(S.FeixiaoScaling.talent.adjacent4, i)}, lasting for ${scaleValue(S.FeixiaoScaling.talent.adjacent5, i, "")} turn(s).
+        Can activate Ultimate when "Flying Aureus" reaches ${scaleValue(S.FeixiaoScaling.talent.main, i, "")} points, accumulating up to ${scaleValue(S.FeixiaoScaling.talent.adjacent, i, "")} points. Feixiao gains 1 point of "Flying Aureus" for every ${scaleValue(S.FeixiaoScaling.talent.adjacent2, i, "")} attacks by ally targets. Feixiao's Ultimate attacks do not count towards this number.<br>After Feixiao's teammates attack an Enemy target, Feixiao immediately launches <u>Follow-Up ATK</u> against the primary target, dealing Wind DMG equal to ${scaleValue(S.FeixiaoScaling.talent.adjacent3, i)} of Feixiao's ATK. If there is no primary target available to attack, Feixiao attacks a single random enemy instead. This effect can only trigger once per turn and the trigger count resets at the start of Feixiao's turn. When using this attack, increases DMG dealt by this unit by ${scaleValue(S.FeixiaoScaling.talent.adjacent4, i)}, lasting for ${scaleValue(S.FeixiaoScaling.talent.adjacent5, i, "")} turn(s).
       `,
         },
         technique: {
@@ -7018,7 +7018,7 @@ const Feixiao: Character = {
             level: "1/1",
             icon: charIcon("Feixiao", "Technique"),
             description: (i) => `
-        After using Technique, enters the "Onrush" state, lasting for ${scaleValue(S.FeixiaoScaling.technique.main, i, "")} seconds. While in "Onrush," pulls in enemies within a certain range, and increases this unit's movement speed by ${scaleValue(S.FeixiaoScaling.technique.adjacent, i)}. After entering battle, gains ${scaleValue(S.FeixiaoScaling.technique.adjacent2, i, "")} point(s) of "Flying Aureus."\\nWhile in "Onrush," actively attacking will start battle with all pulled enemies. After entering battle, deals Wind DMG equal to ${scaleValue(S.FeixiaoScaling.technique.adjacent3, i)} of Feixiao's ATK to all enemies at the start of each wave. This DMG is guaranteed to CRIT. If more than 1 enemy is pulled in, increases the multiplier of this DMG by ${scaleValue(S.FeixiaoScaling.technique.adjacent4, i)} for each additional enemy pulled in, up to a maximum of ${scaleValue(S.FeixiaoScaling.technique.adjacent5, i)}.
+        After using Technique, enters the "Onrush" state, lasting for ${scaleValue(S.FeixiaoScaling.technique.main, i, "")} seconds. While in "Onrush," pulls in enemies within a certain range, and increases this unit's movement speed by ${scaleValue(S.FeixiaoScaling.technique.adjacent, i)}. After entering battle, gains ${scaleValue(S.FeixiaoScaling.technique.adjacent2, i, "")} point(s) of "Flying Aureus."<br>While in "Onrush," actively attacking will start battle with all pulled enemies. After entering battle, deals Wind DMG equal to ${scaleValue(S.FeixiaoScaling.technique.adjacent3, i)} of Feixiao's ATK to all enemies at the start of each wave. This DMG is guaranteed to CRIT. If more than 1 enemy is pulled in, increases the multiplier of this DMG by ${scaleValue(S.FeixiaoScaling.technique.adjacent4, i)} for each additional enemy pulled in, up to a maximum of ${scaleValue(S.FeixiaoScaling.technique.adjacent5, i)}.
       `,
         },
         // --- Pasivas ---
@@ -7039,7 +7039,7 @@ const Feixiao: Character = {
             level: "1/1",
             icon: charIcon("Feixiao", "Heavenpath"),
             description: (i) => `
-        When the battle starts, gains ${scaleValue(S.FeixiaoScaling.b2, i, "")} point(s) of "Flying Aureus."\\nAt the start of a turn, if no <u>Follow-Up ATK</u> was launched via Talent in the previous turn, then this counts as 1 toward the number of attacks required to gain "Flying Aureus."
+        When the battle starts, gains ${scaleValue(S.FeixiaoScaling.b2, i, "")} point(s) of "Flying Aureus."<br>At the start of a turn, if no <u>Follow-Up ATK</u> was launched via Talent in the previous turn, then this counts as 1 toward the number of attacks required to gain "Flying Aureus."
       `,
         },
         b3: {
@@ -7172,7 +7172,7 @@ const Yunli: Character = {
             level: "1/12",
             icon: charIcon("Yunli", "Ultimate"),
             description: (i) => `
-        Consumes ${scaleValue(S.YunliScaling.ultimate.main, i, "")} Energy. Yunli gains Parry and Taunts all enemies, lasting until the end of the next ally's or enemy's turn. Increases the CRIT DMG dealt by Yunli's next Counter by ${scaleValue(S.YunliScaling.ultimate.adjacent, i)}. When triggering the Counter effect from Talent, launches the <u>Counter</u> "Intuit: Cull" instead and removes the Parry effect. If no Counter is triggered while Parry is active, Yunli will immediately launch the <u>Counter</u> "Intuit: Slash" on a random enemy target.\\n\\n"Intuit: Slash": Deals Physical DMG equal to ${scaleValue(S.YunliScaling.ultimate.adjacent2, i)} of Yunli's ATK to the target, and deals Physical DMG equal to ${scaleValue(S.YunliScaling.ultimate.adjacent3, i)} of Yunli's ATK to adjacent targets.\\n"Intuit: Cull": Deals Physical DMG equal to ${scaleValue(S.YunliScaling.ultimate.adjacent2, i)} of Yunli's ATK to the target, and deals Physical DMG equal to ${scaleValue(S.YunliScaling.ultimate.adjacent3, i)} of Yunli's ATK to adjacent targets. Then, additionally deals ${scaleValue(S.YunliScaling.ultimate.adjacent4, i, "")} instances of DMG, each dealing Physical DMG equal to ${scaleValue(S.YunliScaling.ultimate.adjacent5, i)} of Yunli's ATK to a random single enemy.\\n\\nWhen Yunli deals DMG via this ability, it's considered as dealing Ultimate DMG.
+        Consumes ${scaleValue(S.YunliScaling.ultimate.main, i, "")} Energy. Yunli gains Parry and Taunts all enemies, lasting until the end of the next ally's or enemy's turn. Increases the CRIT DMG dealt by Yunli's next Counter by ${scaleValue(S.YunliScaling.ultimate.adjacent, i)}. When triggering the Counter effect from Talent, launches the <u>Counter</u> "Intuit: Cull" instead and removes the Parry effect. If no Counter is triggered while Parry is active, Yunli will immediately launch the <u>Counter</u> "Intuit: Slash" on a random enemy target.<br><br>"Intuit: Slash": Deals Physical DMG equal to ${scaleValue(S.YunliScaling.ultimate.adjacent2, i)} of Yunli's ATK to the target, and deals Physical DMG equal to ${scaleValue(S.YunliScaling.ultimate.adjacent3, i)} of Yunli's ATK to adjacent targets.<br>"Intuit: Cull": Deals Physical DMG equal to ${scaleValue(S.YunliScaling.ultimate.adjacent2, i)} of Yunli's ATK to the target, and deals Physical DMG equal to ${scaleValue(S.YunliScaling.ultimate.adjacent3, i)} of Yunli's ATK to adjacent targets. Then, additionally deals ${scaleValue(S.YunliScaling.ultimate.adjacent4, i, "")} instances of DMG, each dealing Physical DMG equal to ${scaleValue(S.YunliScaling.ultimate.adjacent5, i)} of Yunli's ATK to a random single enemy.<br><br>When Yunli deals DMG via this ability, it's considered as dealing Ultimate DMG.
       `,
         },
         talent: {
@@ -7182,7 +7182,7 @@ const Yunli: Character = {
             level: "1/12",
             icon: charIcon("Yunli", "Talent"),
             description: (i) => `
-        When Yunli gets attacked by an enemy target, additionally regenerates ${scaleValue(S.YunliScaling.talent.main, i, "")} Energy and immediately launches a <u>Counter</u> on the attacker, dealing Physical DMG equal to ${scaleValue(S.YunliScaling.talent.adjacent, i)} of Yunli's ATK to the attacker and Physical DMG equal to ${scaleValue(S.YunliScaling.talent.adjacent2, i)} of Yunli's ATK to adjacent targets.\\nIf there is no immediate target to Counter, then Counters a random enemy target instead.
+        When Yunli gets attacked by an enemy target, additionally regenerates ${scaleValue(S.YunliScaling.talent.main, i, "")} Energy and immediately launches a <u>Counter</u> on the attacker, dealing Physical DMG equal to ${scaleValue(S.YunliScaling.talent.adjacent, i)} of Yunli's ATK to the attacker and Physical DMG equal to ${scaleValue(S.YunliScaling.talent.adjacent2, i)} of Yunli's ATK to adjacent targets.<br>If there is no immediate target to Counter, then Counters a random enemy target instead.
       `,
         },
         technique: {
@@ -7344,7 +7344,7 @@ const Lingsha: Character = {
             level: "1/12",
             icon: charIcon("Lingsha", "Ultimate"),
             description: (i) => `
-        Inflicts "Befog" on all enemies. While in "Befog," targets receive ${scaleValue(S.LingshaScaling.ultimate.main, i)} increased <u>Break DMG</u>, lasting for ${scaleValue(S.LingshaScaling.ultimate.adjacent, i, "")} turn(s).\\nDeals Fire DMG equal to ${scaleValue(S.LingshaScaling.ultimate.adjacent2, i)} of Lingsha's ATK to all enemies, and at the same time restores HP equal to ${scaleValue(S.LingshaScaling.ultimate.adjacent3, i)} of Lingsha's ATK plus ${scaleValue(S.LingshaScaling.ultimate.adjacent4, i, "")} for all allies. Fuyuan's <u>action advances</u> by ${scaleValue(S.LingshaScaling.ultimate.adjacent5, i)}.
+        Inflicts "Befog" on all enemies. While in "Befog," targets receive ${scaleValue(S.LingshaScaling.ultimate.main, i)} increased <u>Break DMG</u>, lasting for ${scaleValue(S.LingshaScaling.ultimate.adjacent, i, "")} turn(s).<br>Deals Fire DMG equal to ${scaleValue(S.LingshaScaling.ultimate.adjacent2, i)} of Lingsha's ATK to all enemies, and at the same time restores HP equal to ${scaleValue(S.LingshaScaling.ultimate.adjacent3, i)} of Lingsha's ATK plus ${scaleValue(S.LingshaScaling.ultimate.adjacent4, i, "")} for all allies. Fuyuan's <u>action advances</u> by ${scaleValue(S.LingshaScaling.ultimate.adjacent5, i)}.
       `,
         },
         talent: {
@@ -7354,7 +7354,7 @@ const Lingsha: Character = {
             level: "1/12",
             icon: charIcon("Lingsha", "Talent"),
             description: (i) => `
-        When using Skill, summons "Fuyuan," with an initial SPD of ${scaleValue(S.LingshaScaling.talent.main, i, "")} and an initial action count of ${scaleValue(S.LingshaScaling.talent.adjacent, i, "")}.\\nWhen taking action, "Fuyuan" launches <u>Follow-Up ATK</u>, dealing Fire DMG equal to ${scaleValue(S.LingshaScaling.talent.adjacent2, i)} of Lingsha's ATK to all enemies. Additionally deals Fire DMG equal to ${scaleValue(S.LingshaScaling.talent.adjacent3, i)} of Lingsha's ATK to one random enemy, and this DMG prioritizes targets that have both Toughness greater than 0 and Fire Weakness. Dispels ${scaleValue(S.LingshaScaling.talent.adjacent4, i, "")} <u>debuff(s)</u> from all allies and restores HP equal to ${scaleValue(S.LingshaScaling.talent.adjacent5, i)} of Lingsha's ATK plus ${scaleValue(S.LingshaScaling.talent.adjacent6, i, "")}.\\n"Fuyuan's" action count can accumulate up to ${scaleValue(S.LingshaScaling.talent.adjacent7, i, "")}. When the action count reaches 0 or when Lingsha is <u>knocked down</u>, "Fuyuan" disappears.\\nWhile "Fuyuan" is on the field, using Skill can increase "Fuyuan's" action count by ${scaleValue(S.LingshaScaling.talent.adjacent, i, "")}.
+        When using Skill, summons "Fuyuan," with an initial SPD of ${scaleValue(S.LingshaScaling.talent.main, i, "")} and an initial action count of ${scaleValue(S.LingshaScaling.talent.adjacent, i, "")}.<br>When taking action, "Fuyuan" launches <u>Follow-Up ATK</u>, dealing Fire DMG equal to ${scaleValue(S.LingshaScaling.talent.adjacent2, i)} of Lingsha's ATK to all enemies. Additionally deals Fire DMG equal to ${scaleValue(S.LingshaScaling.talent.adjacent3, i)} of Lingsha's ATK to one random enemy, and this DMG prioritizes targets that have both Toughness greater than 0 and Fire Weakness. Dispels ${scaleValue(S.LingshaScaling.talent.adjacent4, i, "")} <u>debuff(s)</u> from all allies and restores HP equal to ${scaleValue(S.LingshaScaling.talent.adjacent5, i)} of Lingsha's ATK plus ${scaleValue(S.LingshaScaling.talent.adjacent6, i, "")}.<br>"Fuyuan's" action count can accumulate up to ${scaleValue(S.LingshaScaling.talent.adjacent7, i, "")}. When the action count reaches 0 or when Lingsha is <u>knocked down</u>, "Fuyuan" disappears.<br>While "Fuyuan" is on the field, using Skill can increase "Fuyuan's" action count by ${scaleValue(S.LingshaScaling.talent.adjacent, i, "")}.
       `,
         },
         technique: {
@@ -7508,7 +7508,7 @@ const Moze: Character = {
             level: "1/12",
             icon: charIcon("Moze", "Skill"),
             description: (i) => `
-        Marks a designated single enemy target as "Prey" and deals to it Lightning DMG equal to ${scaleValue(S.MozeScaling.skill.main, i)} of Moze's ATK, and gains ${scaleValue(S.MozeScaling.skill.adjacent, i, "")} points of Charge.\\nWhen there are no other characters on the field that are capable of combat, Moze cannot use his Skill and dispels the enemy's "Prey" state.
+        Marks a designated single enemy target as "Prey" and deals to it Lightning DMG equal to ${scaleValue(S.MozeScaling.skill.main, i)} of Moze's ATK, and gains ${scaleValue(S.MozeScaling.skill.adjacent, i, "")} points of Charge.<br>When there are no other characters on the field that are capable of combat, Moze cannot use his Skill and dispels the enemy's "Prey" state.
       `,
         },
         ultimate: {
@@ -7528,7 +7528,7 @@ const Moze: Character = {
             level: "1/12",
             icon: charIcon("Moze", "Talent"),
             description: (i) => `
-        When "Prey" exists on the field, Moze will enter the <u>Departed</u> state.\\nAfter ally targets attack "Prey," Moze will additionally deal 1 instance of Lightning <u>Additional DMG</u> equal to ${scaleValue(S.MozeScaling.talent.main, i)} of his ATK and consumes 1 point of Charge. For every ${scaleValue(S.MozeScaling.talent.adjacent, i, "")} point(s) of Charge consumed, Moze launches 1 <u>Follow-Up ATK</u> to "Prey," dealing Lightning DMG equal to ${scaleValue(S.MozeScaling.talent.adjacent2, i)} of his ATK. When Charge reaches 0, dispels the target's "Prey" state and resets the tally of Charge points required to launch <u>Follow-Up ATK</u>. Talent's <u>Follow-Up ATK</u> does not consume Charge.
+        When "Prey" exists on the field, Moze will enter the <u>Departed</u> state.<br>After ally targets attack "Prey," Moze will additionally deal 1 instance of Lightning <u>Additional DMG</u> equal to ${scaleValue(S.MozeScaling.talent.main, i)} of his ATK and consumes 1 point of Charge. For every ${scaleValue(S.MozeScaling.talent.adjacent, i, "")} point(s) of Charge consumed, Moze launches 1 <u>Follow-Up ATK</u> to "Prey," dealing Lightning DMG equal to ${scaleValue(S.MozeScaling.talent.adjacent2, i)} of his ATK. When Charge reaches 0, dispels the target's "Prey" state and resets the tally of Charge points required to launch <u>Follow-Up ATK</u>. Talent's <u>Follow-Up ATK</u> does not consume Charge.
       `,
         },
         technique: {
@@ -7682,7 +7682,7 @@ const March7thHunt: Character = {
             level: "1/12",
             icon: charIcon("March7th", "Skill"),
             description: (i) => `
-        Designates one ally (excluding this unit) as "Shifu" and increases "Shifu"'s SPD by ${scaleValue(S.March7thHuntScaling.skill.main, i)}. Only the most recent target of March 7th's Skill is considered as "Shifu."\\nWhenever using Basic ATK or dealing 1 hit of Enhanced Basic ATK's DMG, triggers the corresponding effect if "Shifu" with the specified Path is present on the field:\\nErudition, Destruction, The Hunt, Remembrance, Elation: Deals <u>Additional DMG</u> (DMG Type based on "Shifu"'s Combat Type) equal to ${scaleValue(S.March7thScaling.skill.adjacent, i)} of March 7th's ATK.\\nHarmony, Nihility, Preservation, Abundance: Increases the Toughness Reduction of this instance of DMG by ${scaleValue(S.March7thScaling.skill.adjacent2, i)}.
+        Designates one ally (excluding this unit) as "Shifu" and increases "Shifu"'s SPD by ${scaleValue(S.March7thHuntScaling.skill.main, i)}. Only the most recent target of March 7th's Skill is considered as "Shifu."<br>Whenever using Basic ATK or dealing 1 hit of Enhanced Basic ATK's DMG, triggers the corresponding effect if "Shifu" with the specified Path is present on the field:<br>Erudition, Destruction, The Hunt, Remembrance, Elation: Deals <u>Additional DMG</u> (DMG Type based on "Shifu"'s Combat Type) equal to ${scaleValue(S.March7thScaling.skill.adjacent, i)} of March 7th's ATK.<br>Harmony, Nihility, Preservation, Abundance: Increases the Toughness Reduction of this instance of DMG by ${scaleValue(S.March7thScaling.skill.adjacent2, i)}.
       `,
         },
         ultimate: {
@@ -7692,7 +7692,7 @@ const March7thHunt: Character = {
             level: "1/12",
             icon: charIcon("March7th", "Ultimate"),
             description: (i) => `
-        Deals Imaginary DMG equal to ${scaleValue(S.March7thHuntScaling.ultimate.main, i)} of March 7th's ATK to one designated enemy target.\\nIncreases the initial Hits Per Action of the next Enhanced Basic ATK by ${scaleValue(S.March7thScaling.ultimate.adjacent, i, "")} hit(s) and increase the <u>fixed chance </u>of additionally dealing DMG by ${scaleValue(S.March7thScaling.ultimate.adjacent2, i)}.
+        Deals Imaginary DMG equal to ${scaleValue(S.March7thHuntScaling.ultimate.main, i)} of March 7th's ATK to one designated enemy target.<br>Increases the initial Hits Per Action of the next Enhanced Basic ATK by ${scaleValue(S.March7thScaling.ultimate.adjacent, i, "")} hit(s) and increase the <u>fixed chance </u>of additionally dealing DMG by ${scaleValue(S.March7thScaling.ultimate.adjacent2, i)}.
       `,
         },
         talent: {
@@ -7702,7 +7702,7 @@ const March7thHunt: Character = {
             level: "1/12",
             icon: charIcon("March7th", "Talent"),
             description: (i) => `
-        After Shifu uses an attack or Ultimate, March 7th gains up to 1 point of Charge each time.\\nUpon reaching ${scaleValue(S.March7thHuntScaling.talent.main, i, "")} or more points of Charge, March 7th immediately takes action and increases the DMG she deals by ${scaleValue(S.March7thHuntScaling.talent.adjacent, i)}. Her Basic ATK gets Enhanced, and her Skill cannot be used. After using Enhanced Basic ATK, consumes ${scaleValue(S.March7thHuntScaling.talent.main, i, "")} point(s) of Charge. Charge is capped at ${scaleValue(S.March7thHuntScaling.talent.adjacent2, i, "")} points.
+        After Shifu uses an attack or Ultimate, March 7th gains up to 1 point of Charge each time.<br>Upon reaching ${scaleValue(S.March7thHuntScaling.talent.main, i, "")} or more points of Charge, March 7th immediately takes action and increases the DMG she deals by ${scaleValue(S.March7thHuntScaling.talent.adjacent, i)}. Her Basic ATK gets Enhanced, and her Skill cannot be used. After using Enhanced Basic ATK, consumes ${scaleValue(S.March7thHuntScaling.talent.main, i, "")} point(s) of Charge. Charge is capped at ${scaleValue(S.March7thHuntScaling.talent.adjacent2, i, "")} points.
       `,
         },
         technique: {
@@ -7712,7 +7712,7 @@ const March7thHunt: Character = {
             level: "1/1",
             icon: charIcon("March7th", "Technique"),
             description: (i) => `
-        If March 7th is on the team, she gains 1 point of Charge at the start of the next battle whenever a teammate uses Technique, up to a max of ${scaleValue(S.March7thScaling.technique.main, i, "")} point(s).\\nAfter using Technique, March 7th regenerates ${scaleValue(S.March7thScaling.technique.adjacent, i, "")} Energy when the next battle starts.
+        If March 7th is on the team, she gains 1 point of Charge at the start of the next battle whenever a teammate uses Technique, up to a max of ${scaleValue(S.March7thScaling.technique.main, i, "")} point(s).<br>After using Technique, March 7th regenerates ${scaleValue(S.March7thScaling.technique.adjacent, i, "")} Energy when the next battle starts.
       `,
         },
         // --- Pasivas ---
@@ -7854,7 +7854,7 @@ const Fugue: Character = {
             level: "1/12",
             icon: charIcon("Fugue", "Skill"),
             description: (i) => `
-        Grants one designated ally "Foxian Prayer". Enters the "Torrid Scorch" state, lasting for ${scaleValue(S.FugueScaling.skill.main, i, "")} turn(s). The duration decreases by 1 at the start of Fugue's every turn. "Foxian Prayer" only takes effect on the most recent target of Fugue's Skill.\\nThe ally target with "Foxian Prayer" increases their Break Effect by ${scaleValue(S.FugueScaling.skill.adjacent, i)} and can also reduce Toughness even when attacking enemies that don't have the corresponding Weakness Type, with the effect equivalent to ${scaleValue(S.FugueScaling.skill.adjacent2, i)} of the original Toughness Reduction value. This cannot stack with other Toughness Reduction effects that also ignore Weakness Type.\\nWhile in the "Torrid Scorch" state, Fugue enhances her Basic ATK. Every time an ally target with "Foxian Prayer" attacks, Fugue has a ${scaleValue(S.FugueScaling.skill.adjacent3, i)} <u>base chance</u> to reduce the attacked enemy target's DEF by ${scaleValue(S.FugueScaling.skill.adjacent4, i)}, lasting for ${scaleValue(S.FugueScaling.skill.adjacent5, i, "")} turn(s).
+        Grants one designated ally "Foxian Prayer". Enters the "Torrid Scorch" state, lasting for ${scaleValue(S.FugueScaling.skill.main, i, "")} turn(s). The duration decreases by 1 at the start of Fugue's every turn. "Foxian Prayer" only takes effect on the most recent target of Fugue's Skill.<br>The ally target with "Foxian Prayer" increases their Break Effect by ${scaleValue(S.FugueScaling.skill.adjacent, i)} and can also reduce Toughness even when attacking enemies that don't have the corresponding Weakness Type, with the effect equivalent to ${scaleValue(S.FugueScaling.skill.adjacent2, i)} of the original Toughness Reduction value. This cannot stack with other Toughness Reduction effects that also ignore Weakness Type.<br>While in the "Torrid Scorch" state, Fugue enhances her Basic ATK. Every time an ally target with "Foxian Prayer" attacks, Fugue has a ${scaleValue(S.FugueScaling.skill.adjacent3, i)} <u>base chance</u> to reduce the attacked enemy target's DEF by ${scaleValue(S.FugueScaling.skill.adjacent4, i)}, lasting for ${scaleValue(S.FugueScaling.skill.adjacent5, i, "")} turn(s).
       `,
         },
         ultimate: {
@@ -7874,7 +7874,7 @@ const Fugue: Character = {
             level: "1/12",
             icon: charIcon("Fugue", "Talent"),
             description: (i) => `
-        While Fugue is on the field, enemy targets will get additionally afflicted with "Cloudflame Luster," equal to ${scaleValue(S.FugueScaling.talent.main, i)} of their Max Toughness. When the initial Toughness is reduced to 0, "Cloudflame Luster" can continue to be reduced. When "Cloudflame Luster" is reduced to 0, the enemy will receive Weakness Break DMG again.\\nWhile Fugue is on the field and after allies attack <u>Weakness Broken</u> enemy targets, converts the Toughness Reduction of this attack into 1 instance of ${scaleValue(S.FugueScaling.talent.adjacent, i)} <u>Super Break DMG</u>.
+        While Fugue is on the field, enemy targets will get additionally afflicted with "Cloudflame Luster," equal to ${scaleValue(S.FugueScaling.talent.main, i)} of their Max Toughness. When the initial Toughness is reduced to 0, "Cloudflame Luster" can continue to be reduced. When "Cloudflame Luster" is reduced to 0, the enemy will receive Weakness Break DMG again.<br>While Fugue is on the field and after allies attack <u>Weakness Broken</u> enemy targets, converts the Toughness Reduction of this attack into 1 instance of ${scaleValue(S.FugueScaling.talent.adjacent, i)} <u>Super Break DMG</u>.
       `,
         },
         technique: {
@@ -7884,7 +7884,7 @@ const Fugue: Character = {
             level: "1/1",
             icon: charIcon("Fugue", "Technique"),
             description: (i) => `
-        After using Technique, inflicts Daze on enemies within a certain area, lasting for ${scaleValue(S.FugueScaling.technique.main, i, "")} second(s). While Dazed, enemies will not actively attack ally targets.\\nAfter entering battle via actively attacking Dazed enemies, Fugue's <u>action advances</u> by ${scaleValue(S.FugueScaling.technique.adjacent, i)}, with a ${scaleValue(S.FugueScaling.technique.adjacent2, i)} <u>base chance</u> to inflict each enemy target with the same DEF Reduction state as that applied by Fugue's Skill, lasting for ${scaleValue(S.FugueScaling.technique.adjacent3, i, "")} turn(s).
+        After using Technique, inflicts Daze on enemies within a certain area, lasting for ${scaleValue(S.FugueScaling.technique.main, i, "")} second(s). While Dazed, enemies will not actively attack ally targets.<br>After entering battle via actively attacking Dazed enemies, Fugue's <u>action advances</u> by ${scaleValue(S.FugueScaling.technique.adjacent, i)}, with a ${scaleValue(S.FugueScaling.technique.adjacent2, i)} <u>base chance</u> to inflict each enemy target with the same DEF Reduction state as that applied by Fugue's Skill, lasting for ${scaleValue(S.FugueScaling.technique.adjacent3, i, "")} turn(s).
       `,
         },
         // --- Pasivas ---
@@ -8228,7 +8228,7 @@ const Argenti: Character = {
             level: "1/1",
             icon: charIcon("Argenti", "Technique"),
             description: (i) => `
-        After using the Technique, enemies in a set area are inflicted with Daze for ${scaleValue(S.ArgentiScaling.technique.main, i, "")} second(s). Dazed enemies will not actively attack the team.\\nWhen attacking a Dazed enemy to enter combat, deals Physical DMG to all enemies equal to ${scaleValue(S.ArgentiScaling.technique.adjacent, i)} of Argenti's ATK and regenerates his Energy by ${scaleValue(S.ArgentiScaling.technique.adjacent2, i, "")}.
+        After using the Technique, enemies in a set area are inflicted with Daze for ${scaleValue(S.ArgentiScaling.technique.main, i, "")} second(s). Dazed enemies will not actively attack the team.<br>When attacking a Dazed enemy to enter combat, deals Physical DMG to all enemies equal to ${scaleValue(S.ArgentiScaling.technique.adjacent, i)} of Argenti's ATK and regenerates his Energy by ${scaleValue(S.ArgentiScaling.technique.adjacent2, i, "")}.
       `,
         },
         // --- Pasivas ---
@@ -8382,7 +8382,7 @@ const RuanMei: Character = {
             level: "1/12",
             icon: charIcon("RuanMei", "Ultimate"),
             description: (i) => `
-        Ruan Mei deploys a Zone that lasts for ${scaleValue(S.RuanMeiScaling.ultimate.main, i, "")} turns. The Zone's duration decreases by 1 at the start of her turn.\\nWhile inside the Zone, all allies' All-Type RES PEN increases by ${scaleValue(S.RuanMeiScaling.ultimate.adjacent, i)} and their attacks apply Thanatoplum Rebloom to the enemies hit.\\nWhen these enemies attempt to recover from <u>Weakness Break</u>, Thanatoplum Rebloom is triggered, extending the duration of their <u>Weakness Break</u>, <u>delaying their action</u> by an amount equal to ${scaleValue(S.RuanMeiScaling.ultimate.adjacent2, i)} of Ruan Mei's Break Effect plus ${scaleValue(S.RuanMeiScaling.ultimate.adjacent3, i)}, and dealing Break DMG equal to ${scaleValue(S.RuanMeiScaling.ultimate.adjacent4, i)} of Ruan Mei's Ice <u>Break DMG</u>.\\nEnemy targets cannot have Thanatoplum Rebloom re-applied to them until they recover from <u>Weakness Break</u>.
+        Ruan Mei deploys a Zone that lasts for ${scaleValue(S.RuanMeiScaling.ultimate.main, i, "")} turns. The Zone's duration decreases by 1 at the start of her turn.<br>While inside the Zone, all allies' All-Type RES PEN increases by ${scaleValue(S.RuanMeiScaling.ultimate.adjacent, i)} and their attacks apply Thanatoplum Rebloom to the enemies hit.<br>When these enemies attempt to recover from <u>Weakness Break</u>, Thanatoplum Rebloom is triggered, extending the duration of their <u>Weakness Break</u>, <u>delaying their action</u> by an amount equal to ${scaleValue(S.RuanMeiScaling.ultimate.adjacent2, i)} of Ruan Mei's Break Effect plus ${scaleValue(S.RuanMeiScaling.ultimate.adjacent3, i)}, and dealing Break DMG equal to ${scaleValue(S.RuanMeiScaling.ultimate.adjacent4, i)} of Ruan Mei's Ice <u>Break DMG</u>.<br>Enemy targets cannot have Thanatoplum Rebloom re-applied to them until they recover from <u>Weakness Break</u>.
       `,
         },
         talent: {
@@ -8402,7 +8402,7 @@ const RuanMei: Character = {
             level: "1/1",
             icon: charIcon("RuanMei", "Technique"),
             description: (i) => `
-        After using the Technique, gains Silken Serenade. At the start of the next battle, automatically triggers the Skill for ${scaleValue(S.RuanMeiScaling.technique.main, i, "")} time(s) without consuming Skill Points.\\nIn Simulated Universe or Divergent Universe, when Ruan Mei has Silken Serenade, the team actively attacking enemies will always be regarded as attacking their Weakness to enter combat, and this attack can reduce all enemies' Toughness regardless of Weakness types. When breaking Weakness, triggers Weakness Break Effect corresponding to the attacker's Type. For every Blessing in possession (up to a max of ${scaleValue(S.RuanMeiScaling.technique.adjacent, i, "")} Blessings will be taken into account), additionally increases the Toughness Reduction of this attack by ${scaleValue(S.RuanMeiScaling.technique.adjacent2, i)}. After breaking an enemy target's Weakness, additionally deals to the enemy target Break DMG equal to ${scaleValue(S.RuanMeiScaling.technique.adjacent3, i)} of Ruan Mei's Ice Break DMG.
+        After using the Technique, gains Silken Serenade. At the start of the next battle, automatically triggers the Skill for ${scaleValue(S.RuanMeiScaling.technique.main, i, "")} time(s) without consuming Skill Points.<br>In Simulated Universe or Divergent Universe, when Ruan Mei has Silken Serenade, the team actively attacking enemies will always be regarded as attacking their Weakness to enter combat, and this attack can reduce all enemies' Toughness regardless of Weakness types. When breaking Weakness, triggers Weakness Break Effect corresponding to the attacker's Type. For every Blessing in possession (up to a max of ${scaleValue(S.RuanMeiScaling.technique.adjacent, i, "")} Blessings will be taken into account), additionally increases the Toughness Reduction of this attack by ${scaleValue(S.RuanMeiScaling.technique.adjacent2, i)}. After breaking an enemy target's Weakness, additionally deals to the enemy target Break DMG equal to ${scaleValue(S.RuanMeiScaling.technique.adjacent3, i)} of Ruan Mei's Ice Break DMG.
       `,
         },
         // --- Pasivas ---
@@ -8576,7 +8576,7 @@ const Aventurine: Character = {
             level: "1/1",
             icon: charIcon("Aventurine", "Technique"),
             description: (i) => `
-        After using the Technique, 1 of the following effects will be granted:\\nThere is a chance for DEF to increase by ${scaleValue(S.AventurineScaling.technique.main, i)}.\\nThere is a high chance for DEF to increase by ${scaleValue(S.AventurineScaling.technique.adjacent, i)}.\\nThere is a small chance for DEF to increase by ${scaleValue(S.AventurineScaling.technique.adjacent2, i)}.\\n\\nWhen this Technique is used repeatedly, the acquired effect with the highest buff value is retained.\\nWhen the next battle starts, increases all allies' DEF by the corresponding value, lasting for ${scaleValue(S.AventurineScaling.technique.adjacent3, i, "")} turn(s).
+        After using the Technique, 1 of the following effects will be granted:<br>There is a chance for DEF to increase by ${scaleValue(S.AventurineScaling.technique.main, i)}.<br>There is a high chance for DEF to increase by ${scaleValue(S.AventurineScaling.technique.adjacent, i)}.<br>There is a small chance for DEF to increase by ${scaleValue(S.AventurineScaling.technique.adjacent2, i)}.<br><br>When this Technique is used repeatedly, the acquired effect with the highest buff value is retained.<br>When the next battle starts, increases all allies' DEF by the corresponding value, lasting for ${scaleValue(S.AventurineScaling.technique.adjacent3, i, "")} turn(s).
       `,
         },
         // --- Pasivas ---
@@ -8730,7 +8730,7 @@ const DrRatio: Character = {
             level: "1/12",
             icon: charIcon("DrRatio", "Ultimate"),
             description: (i) => `
-        Deals Imaginary DMG equal to ${scaleValue(S.DrRatioScaling.ultimate.main, i)} of Dr. Ratio's ATK to one designated enemy target and applies "Wiseman's Folly." When Dr. Ratio's teammates attack a target afflicted with "Wiseman's Folly," Dr. Ratio launches 1 instance of his Talent's <u>Follow-Up ATK</u> against this target.\\n"Wiseman's Folly" can be triggered for up to ${scaleValue(S.DrRatioScaling.ultimate.adjacent, i, "")} times and only affects the most recent target of Dr. Ratio's Ultimate. This trigger count resets after Dr. Ratio's Ultimate is used.
+        Deals Imaginary DMG equal to ${scaleValue(S.DrRatioScaling.ultimate.main, i)} of Dr. Ratio's ATK to one designated enemy target and applies "Wiseman's Folly." When Dr. Ratio's teammates attack a target afflicted with "Wiseman's Folly," Dr. Ratio launches 1 instance of his Talent's <u>Follow-Up ATK</u> against this target.<br>"Wiseman's Folly" can be triggered for up to ${scaleValue(S.DrRatioScaling.ultimate.adjacent, i, "")} times and only affects the most recent target of Dr. Ratio's Ultimate. This trigger count resets after Dr. Ratio's Ultimate is used.
       `,
         },
         talent: {
@@ -8894,7 +8894,7 @@ const Sparkle: Character = {
             level: "1/12",
             icon: charIcon("Sparkle", "Skill"),
             description: (i) => `
-        Increases the CRIT DMG of a single target ally by ${scaleValue(S.SparkleScaling.skill.main, i)} of Sparkle's CRIT DMG plus ${scaleValue(S.SparkleScaling.skill.adjacent, i)}, lasting for ${scaleValue(S.SparkleScaling.skill.adjacent2, i, "")} turn(s). And at the same time, Advances Forward this ally's action by ${scaleValue(S.SparkleScaling.skill.adjacent3, i)}.\\nWhen Sparkle uses this ability on herself, the Action Advance effect will not trigger.
+        Increases the CRIT DMG of a single target ally by ${scaleValue(S.SparkleScaling.skill.main, i)} of Sparkle's CRIT DMG plus ${scaleValue(S.SparkleScaling.skill.adjacent, i)}, lasting for ${scaleValue(S.SparkleScaling.skill.adjacent2, i, "")} turn(s). And at the same time, Advances Forward this ally's action by ${scaleValue(S.SparkleScaling.skill.adjacent3, i)}.<br>When Sparkle uses this ability on herself, the Action Advance effect will not trigger.
       `,
         },
         ultimate: {
@@ -9076,7 +9076,7 @@ const BlackSwan: Character = {
             level: "1/12",
             icon: charIcon("BlackSwan", "Ultimate"),
             description: (i) => `
-        Inflicts Epiphany on all enemies for ${scaleValue(S.BlackSwanScaling.ultimate.main, i, "")} turn(s).\\nWhile afflicted with Epiphany, enemies take ${scaleValue(S.BlackSwanScaling.ultimate.adjacent, i)} increased DMG in their turn. Additionally, if enemies are also inflicted with <u>Arcana</u>, they are also considered to be simultaneously afflicted with Wind Shear, Bleed, Burn, and Shock. After <u>Arcana</u> causes DMG at the start of each turn, its stacks are not reset. This non-reset effect of <u>Arcana</u> stacks can be triggered up to ${scaleValue(S.BlackSwanScaling.ultimate.adjacent2, i, "")} time(s) for the duration of Epiphany. And the trigger count resets when Epiphany is applied again.\\nDeals Wind DMG equal to ${scaleValue(S.BlackSwanScaling.ultimate.adjacent3, i)} of Black Swan's ATK to all enemies.
+        Inflicts Epiphany on all enemies for ${scaleValue(S.BlackSwanScaling.ultimate.main, i, "")} turn(s).<br>While afflicted with Epiphany, enemies take ${scaleValue(S.BlackSwanScaling.ultimate.adjacent, i)} increased DMG in their turn. Additionally, if enemies are also inflicted with <u>Arcana</u>, they are also considered to be simultaneously afflicted with Wind Shear, Bleed, Burn, and Shock. After <u>Arcana</u> causes DMG at the start of each turn, its stacks are not reset. This non-reset effect of <u>Arcana</u> stacks can be triggered up to ${scaleValue(S.BlackSwanScaling.ultimate.adjacent2, i, "")} time(s) for the duration of Epiphany. And the trigger count resets when Epiphany is applied again.<br>Deals Wind DMG equal to ${scaleValue(S.BlackSwanScaling.ultimate.adjacent3, i)} of Black Swan's ATK to all enemies.
       `,
         },
         talent: {
@@ -9086,7 +9086,7 @@ const BlackSwan: Character = {
             level: "1/12",
             icon: charIcon("BlackSwan", "Talent"),
             description: (i) => `
-        Every time an enemy target receives DoT at the start of each turn, there is a ${scaleValue(S.BlackSwanScaling.talent.main, i)} <u>base chance</u> for it to be inflicted with 1 stack of <u>Arcana</u>.\\nWhile afflicted with <u>Arcana</u>, enemy targets receive Wind DoT equal to ${scaleValue(S.BlackSwanScaling.talent.adjacent, i)} of Black Swan's ATK at the start of each turn. Each stack of <u>Arcana</u> increases this DMG multiplier by ${scaleValue(S.BlackSwanScaling.talent.adjacent2, i)}. Then <u>Arcana</u> resets to 1 stack. <u>Arcana</u> can stack up to ${scaleValue(S.BlackSwanScaling.talent.adjacent3, i, "")} times.\\nOnly when <u>Arcana</u> causes DMG at the start of an enemy target's turn, Black Swan triggers additional effects based on the number of <u>Arcana</u> stacks inflicted on the target:\\nWhen there are ${scaleValue(S.BlackSwanScaling.talent.adjacent4, i, "")} or more <u>Arcana</u> stacks, deals Wind DoT equal to ${scaleValue(S.BlackSwanScaling.talent.adjacent5, i)} of Black Swan's ATK to adjacent targets, with a ${scaleValue(S.BlackSwanScaling.talent.main, i)} <u>base chance</u> of inflicting 1 stack of <u>Arcana</u> on adjacent targets.\\nWhen there are ${scaleValue(S.BlackSwanScaling.talent.adjacent6, i, "")} or more <u>Arcana</u> stacks, enables the current DoT dealt this time to ignore ${scaleValue(S.BlackSwanScaling.talent.adjacent7, i)} of the target's and adjacent targets' DEF.
+        Every time an enemy target receives DoT at the start of each turn, there is a ${scaleValue(S.BlackSwanScaling.talent.main, i)} <u>base chance</u> for it to be inflicted with 1 stack of <u>Arcana</u>.<br>While afflicted with <u>Arcana</u>, enemy targets receive Wind DoT equal to ${scaleValue(S.BlackSwanScaling.talent.adjacent, i)} of Black Swan's ATK at the start of each turn. Each stack of <u>Arcana</u> increases this DMG multiplier by ${scaleValue(S.BlackSwanScaling.talent.adjacent2, i)}. Then <u>Arcana</u> resets to 1 stack. <u>Arcana</u> can stack up to ${scaleValue(S.BlackSwanScaling.talent.adjacent3, i, "")} times.<br>Only when <u>Arcana</u> causes DMG at the start of an enemy target's turn, Black Swan triggers additional effects based on the number of <u>Arcana</u> stacks inflicted on the target:<br>When there are ${scaleValue(S.BlackSwanScaling.talent.adjacent4, i, "")} or more <u>Arcana</u> stacks, deals Wind DoT equal to ${scaleValue(S.BlackSwanScaling.talent.adjacent5, i)} of Black Swan's ATK to adjacent targets, with a ${scaleValue(S.BlackSwanScaling.talent.main, i)} <u>base chance</u> of inflicting 1 stack of <u>Arcana</u> on adjacent targets.<br>When there are ${scaleValue(S.BlackSwanScaling.talent.adjacent6, i, "")} or more <u>Arcana</u> stacks, enables the current DoT dealt this time to ignore ${scaleValue(S.BlackSwanScaling.talent.adjacent7, i)} of the target's and adjacent targets' DEF.
       `,
         },
         technique: {
@@ -9127,7 +9127,7 @@ const BlackSwan: Character = {
             level: "1/1",
             icon: charIcon("BlackSwan", "GobletsDredges"),
             description: (i) => `
-        When an enemy target enters combat, there is a ${scaleValue(S.BlackSwanScaling.b3.main, i)} <u>base chance</u> for it to be inflicted with 1 stack of <u>Arcana</u>.\\nEvery time an enemy target receives 1 instance of DoT during a single attack by an ally, there is a ${scaleValue(S.BlackSwanScaling.b3.main, i)} <u>base chance</u> for the target to be inflicted with 1 stack of <u>Arcana</u>. The maximum number of stacks that can be inflicted during 1 single attack is ${scaleValue(S.BlackSwanScaling.b3.adjacent, i, "")}.
+        When an enemy target enters combat, there is a ${scaleValue(S.BlackSwanScaling.b3.main, i)} <u>base chance</u> for it to be inflicted with 1 stack of <u>Arcana</u>.<br>Every time an enemy target receives 1 instance of DoT during a single attack by an ally, there is a ${scaleValue(S.BlackSwanScaling.b3.main, i)} <u>base chance</u> for the target to be inflicted with 1 stack of <u>Arcana</u>. The maximum number of stacks that can be inflicted during 1 single attack is ${scaleValue(S.BlackSwanScaling.b3.adjacent, i, "")}.
       `,
         },
         // --- Stats Nodes ---
@@ -9250,7 +9250,7 @@ const Acheron: Character = {
             level: "1/12",
             icon: charIcon("Acheron", "Ultimate"),
             description: (i) => `
-        Sequentially unleash "Rainblade" 3 times and "Stygian Resurge" 1 time, dealing Lightning DMG up to ${scaleValue(S.AcheronScaling.ultimate.main, i)} of Acheron's ATK to one designated enemy target, as well as Lightning DMG up to ${scaleValue(S.AcheronScaling.ultimate.adjacent, i)} of Acheron's ATK to other targets.\\n"Rainblade": Deals Lightning DMG equal to ${scaleValue(S.AcheronScaling.ultimate.adjacent2, i)} of Acheron's ATK to one designated enemy target and removes up to 3 stacks of "Crimson Knot" from the target. When "Crimson Knot" is removed, immediately deals Lightning DMG equal to ${scaleValue(S.AcheronScaling.ultimate.adjacent3, i)} of Acheron's ATK to all enemies. For every stack of "Crimson Knot" removed, this DMG Multiplier is additionally increased, up to a maximum of ${scaleValue(S.AcheronScaling.ultimate.adjacent4, i)}.\\n"Stygian Resurge": Deals Lightning DMG equal to ${scaleValue(S.AcheronScaling.ultimate.adjacent5, i)} of Acheron's ATK to all enemies and remove all "Crimson Knots."\\n"Crimson Knot" cannot be applied to enemies during the Ultimate.
+        Sequentially unleash "Rainblade" 3 times and "Stygian Resurge" 1 time, dealing Lightning DMG up to ${scaleValue(S.AcheronScaling.ultimate.main, i)} of Acheron's ATK to one designated enemy target, as well as Lightning DMG up to ${scaleValue(S.AcheronScaling.ultimate.adjacent, i)} of Acheron's ATK to other targets.<br>"Rainblade": Deals Lightning DMG equal to ${scaleValue(S.AcheronScaling.ultimate.adjacent2, i)} of Acheron's ATK to one designated enemy target and removes up to 3 stacks of "Crimson Knot" from the target. When "Crimson Knot" is removed, immediately deals Lightning DMG equal to ${scaleValue(S.AcheronScaling.ultimate.adjacent3, i)} of Acheron's ATK to all enemies. For every stack of "Crimson Knot" removed, this DMG Multiplier is additionally increased, up to a maximum of ${scaleValue(S.AcheronScaling.ultimate.adjacent4, i)}.<br>"Stygian Resurge": Deals Lightning DMG equal to ${scaleValue(S.AcheronScaling.ultimate.adjacent5, i)} of Acheron's ATK to all enemies and remove all "Crimson Knots."<br>"Crimson Knot" cannot be applied to enemies during the Ultimate.
       `,
         },
         talent: {
@@ -9260,7 +9260,7 @@ const Acheron: Character = {
             level: "1/12",
             icon: charIcon("Acheron", "Talent"),
             description: (i) => `
-        When Slashed Dream reaches ${scaleValue(S.AcheronScaling.talent.main, i, "")} point(s), the Ultimate can be activated. During the Ultimate, reduces enemies' Toughness regardless of Weakness Types and reduces all enemies' All-Type RES by ${scaleValue(S.AcheronScaling.talent.adjacent, i)}, lasting until the end of the Ultimate.\\nWhen any unit inflicts debuffs on an enemy target while using their ability, Acheron gains 1 point of Slashed Dream and inflicts 1 stack of Crimson Knot on a target. If debuffs are inflicted on multiple targets, then the 1 stack of Crimson Knot will be inflicted on the enemy target with the most Crimson Knot stacks. This effect can only trigger once for every ability use.\\nAfter an enemy target exits the field or gets defeated by any unit while Acheron is on the field, their Crimson Knot stacks will be transferred to the enemy target with the most Crimson Knot stacks on the whole field.
+        When Slashed Dream reaches ${scaleValue(S.AcheronScaling.talent.main, i, "")} point(s), the Ultimate can be activated. During the Ultimate, reduces enemies' Toughness regardless of Weakness Types and reduces all enemies' All-Type RES by ${scaleValue(S.AcheronScaling.talent.adjacent, i)}, lasting until the end of the Ultimate.<br>When any unit inflicts debuffs on an enemy target while using their ability, Acheron gains 1 point of Slashed Dream and inflicts 1 stack of Crimson Knot on a target. If debuffs are inflicted on multiple targets, then the 1 stack of Crimson Knot will be inflicted on the enemy target with the most Crimson Knot stacks. This effect can only trigger once for every ability use.<br>After an enemy target exits the field or gets defeated by any unit while Acheron is on the field, their Crimson Knot stacks will be transferred to the enemy target with the most Crimson Knot stacks on the whole field.
       `,
         },
         technique: {
@@ -9270,7 +9270,7 @@ const Acheron: Character = {
             level: "1/1",
             icon: charIcon("Acheron", "Technique"),
             description: (i) => `
-        Immediately attacks the enemy. At the start of each wave, gains Quadrivalent Ascendance, dealing Lightning DMG equal to ${scaleValue(S.AcheronScaling.technique.main, i)} of Acheron's ATK to all enemies and reducing Toughness of all enemies irrespective of Weakness Types. When breaking Weaknesses, triggers the Lightning Weakness Break effect.\\nQuadrivalent Ascendance: After using the Ultimate, Acheron gains ${scaleValue(S.AcheronScaling.technique.adjacent, i, "")} point(s) of Slashed Dream and inflicts ${scaleValue(S.AcheronScaling.technique.adjacent, i, "")} stack(s) of Crimson Knot on a single random enemy.\\nIf attacking a normal enemy, immediately defeats them without entering combat. When not hitting enemies, no Technique Points are consumed.
+        Immediately attacks the enemy. At the start of each wave, gains Quadrivalent Ascendance, dealing Lightning DMG equal to ${scaleValue(S.AcheronScaling.technique.main, i)} of Acheron's ATK to all enemies and reducing Toughness of all enemies irrespective of Weakness Types. When breaking Weaknesses, triggers the Lightning Weakness Break effect.<br>Quadrivalent Ascendance: After using the Ultimate, Acheron gains ${scaleValue(S.AcheronScaling.technique.adjacent, i, "")} point(s) of Slashed Dream and inflicts ${scaleValue(S.AcheronScaling.technique.adjacent, i, "")} stack(s) of Crimson Knot on a single random enemy.<br>If attacking a normal enemy, immediately defeats them without entering combat. When not hitting enemies, no Technique Points are consumed.
       `,
         },
         // --- Pasivas ---
@@ -9424,7 +9424,7 @@ const Robin: Character = {
             level: "1/12",
             icon: charIcon("Robin", "Ultimate"),
             description: (i) => `
-        Robin enters the "Concerto" state and makes all teammates (i.e., excluding this unit) immediately take action.\\nWhile in the "Concerto" state, increases all allies' ATK by ${scaleValue(S.RobinScaling.ultimate.main, i)} of Robin's ATK plus ${scaleValue(S.RobinScaling.ultimate.adjacent, i, "")}. Moreover, after every attack by ally targets, Robin deals Physical <u>Additional DMG</u> equal to ${scaleValue(S.RobinScaling.ultimate.adjacent2, i)} of her ATK for 1 time, with a fixed CRIT Rate for this damage set at ${scaleValue(S.RobinScaling.ultimate.adjacent3, i)} and fixed CRIT DMG set at ${scaleValue(S.RobinScaling.ultimate.adjacent4, i)}.\\nWhile in the "Concerto" state, Robin is immune to <u>Crowd Control debuffs</u> and cannot enter her turn or take action until the "Concerto" state ends.\\nA "Concerto" countdown appears in the Action Order. When the countdown's turn begins, Robin exits the "Concerto" state and immediately takes action. The countdown has its own fixed SPD of ${scaleValue(S.RobinScaling.ultimate.adjacent5, i, "")}.
+        Robin enters the "Concerto" state and makes all teammates (i.e., excluding this unit) immediately take action.<br>While in the "Concerto" state, increases all allies' ATK by ${scaleValue(S.RobinScaling.ultimate.main, i)} of Robin's ATK plus ${scaleValue(S.RobinScaling.ultimate.adjacent, i, "")}. Moreover, after every attack by ally targets, Robin deals Physical <u>Additional DMG</u> equal to ${scaleValue(S.RobinScaling.ultimate.adjacent2, i)} of her ATK for 1 time, with a fixed CRIT Rate for this damage set at ${scaleValue(S.RobinScaling.ultimate.adjacent3, i)} and fixed CRIT DMG set at ${scaleValue(S.RobinScaling.ultimate.adjacent4, i)}.<br>While in the "Concerto" state, Robin is immune to <u>Crowd Control debuffs</u> and cannot enter her turn or take action until the "Concerto" state ends.<br>A "Concerto" countdown appears in the Action Order. When the countdown's turn begins, Robin exits the "Concerto" state and immediately takes action. The countdown has its own fixed SPD of ${scaleValue(S.RobinScaling.ultimate.adjacent5, i, "")}.
       `,
         },
         talent: {
@@ -9598,7 +9598,7 @@ const Firefly: Character = {
             level: "1/12",
             icon: charIcon("Firefly", "Ultimate"),
             description: (i) => `
-        Enters the Complete Combustion state, advances this unit's Action by 100%, and gains Enhanced Basic ATK and Enhanced Skill. While in Complete Combustion, increases SPD by ${scaleValue(S.FireflyScaling.ultimate.main, i, "")}, and when using the Enhanced Basic ATK or Enhanced Skill, increases this unit's Weakness Break Efficiency by ${scaleValue(S.FireflyScaling.ultimate.adjacent, i)} and increases the Break DMG dealt by SAM to the enemy targets by ${scaleValue(S.FireflyScaling.ultimate.adjacent2, i)}, lasting until this current attack ends.\\nA countdown timer for the Complete Combustion state appears in the Action Order. When the countdown timer's turn starts, SAM exits the Complete Combustion state. The countdown timer has a fixed SPD of ${scaleValue(S.FireflyScaling.ultimate.adjacent3, i, "")}.\\nSAM cannot use Ultimate while in Complete Combustion.
+        Enters the Complete Combustion state, advances this unit's Action by 100%, and gains Enhanced Basic ATK and Enhanced Skill. While in Complete Combustion, increases SPD by ${scaleValue(S.FireflyScaling.ultimate.main, i, "")}, and when using the Enhanced Basic ATK or Enhanced Skill, increases this unit's Weakness Break Efficiency by ${scaleValue(S.FireflyScaling.ultimate.adjacent, i)} and increases the Break DMG dealt by SAM to the enemy targets by ${scaleValue(S.FireflyScaling.ultimate.adjacent2, i)}, lasting until this current attack ends.<br>A countdown timer for the Complete Combustion state appears in the Action Order. When the countdown timer's turn starts, SAM exits the Complete Combustion state. The countdown timer has a fixed SPD of ${scaleValue(S.FireflyScaling.ultimate.adjacent3, i, "")}.<br>SAM cannot use Ultimate while in Complete Combustion.
       `,
         },
         talent: {
@@ -9608,7 +9608,7 @@ const Firefly: Character = {
             level: "1/12",
             icon: charIcon("Firefly", "Talent"),
             description: (i) => `
-        The lower the HP, the less DMG received. When HP is ${scaleValue(S.FireflyScaling.talent.main, i)} or lower, the DMG Reduction reaches its maximum effect, reducing up to ${scaleValue(S.FireflyScaling.talent.adjacent, i)}. During the Complete Combustion, the DMG Reduction remains at its maximum effect, and the Effect RES increases by ${scaleValue(S.FireflyScaling.talent.adjacent2, i)}.\\nIf Energy is lower than ${scaleValue(S.FireflyScaling.talent.adjacent3, i)} when the battle starts, regenerates Energy to ${scaleValue(S.FireflyScaling.talent.adjacent3, i)}. Once Energy is regenerated to its maximum, dispels all <u>debuffs</u> on this unit.
+        The lower the HP, the less DMG received. When HP is ${scaleValue(S.FireflyScaling.talent.main, i)} or lower, the DMG Reduction reaches its maximum effect, reducing up to ${scaleValue(S.FireflyScaling.talent.adjacent, i)}. During the Complete Combustion, the DMG Reduction remains at its maximum effect, and the Effect RES increases by ${scaleValue(S.FireflyScaling.talent.adjacent2, i)}.<br>If Energy is lower than ${scaleValue(S.FireflyScaling.talent.adjacent3, i)} when the battle starts, regenerates Energy to ${scaleValue(S.FireflyScaling.talent.adjacent3, i)}. Once Energy is regenerated to its maximum, dispels all <u>debuffs</u> on this unit.
       `,
         },
         technique: {
@@ -9772,7 +9772,7 @@ const Misha: Character = {
             level: "1/12",
             icon: charIcon("Misha", "Ultimate"),
             description: (i) => `
-        Has ${scaleValue(S.MishaScaling.ultimate.main, i, "")} Hits Per Action by default. First, uses 1 hit to deal Ice DMG equal to ${scaleValue(S.MishaScaling.ultimate.adjacent, i)} of Misha's ATK to one designated enemy target. Then, the rest of the hits each deals Ice DMG equal to ${scaleValue(S.MishaScaling.ultimate.adjacent, i)} of Misha's ATK to one random enemy. Just before each hit lands, there is a ${scaleValue(S.MishaScaling.ultimate.adjacent2, i)} <u>base chance</u> to Freeze the target, lasting for 1 turn.\\nWhile Frozen, enemy targets cannot take any actions, and at the start of their turn, they receive Ice <u>Additional DMG</u> equal to ${scaleValue(S.MishaScaling.ultimate.adjacent3, i)} of Misha's ATK.\\nThis Ultimate can possess up to ${scaleValue(S.MishaScaling.ultimate.adjacent4, i, "")} Hits Per Action. After the Ultimate is used, its Hits Per Action will be reset to the default level.
+        Has ${scaleValue(S.MishaScaling.ultimate.main, i, "")} Hits Per Action by default. First, uses 1 hit to deal Ice DMG equal to ${scaleValue(S.MishaScaling.ultimate.adjacent, i)} of Misha's ATK to one designated enemy target. Then, the rest of the hits each deals Ice DMG equal to ${scaleValue(S.MishaScaling.ultimate.adjacent, i)} of Misha's ATK to one random enemy. Just before each hit lands, there is a ${scaleValue(S.MishaScaling.ultimate.adjacent2, i)} <u>base chance</u> to Freeze the target, lasting for 1 turn.<br>While Frozen, enemy targets cannot take any actions, and at the start of their turn, they receive Ice <u>Additional DMG</u> equal to ${scaleValue(S.MishaScaling.ultimate.adjacent3, i)} of Misha's ATK.<br>This Ultimate can possess up to ${scaleValue(S.MishaScaling.ultimate.adjacent4, i, "")} Hits Per Action. After the Ultimate is used, its Hits Per Action will be reset to the default level.
       `,
         },
         talent: {
@@ -9936,7 +9936,7 @@ const Sunday: Character = {
             level: "1/12",
             icon: charIcon("Sunday", "Skill"),
             description: (i) => `
-        Enables one designated ally character and their summon to immediately take action, and increases their DMG dealt by ${scaleValue(S.SundayScaling.skill.main, i)}. If the target has a summon, then the DMG Boost effect is further boosted by an additional ${scaleValue(S.SundayScaling.skill.adjacent, i)}, lasting for ${scaleValue(S.SundayScaling.skill.adjacent2, i, "")} turn(s).\\nAfter using Skill on The Beatified, recovers 1 Skill Point.\\nWhen Sunday uses this ability on characters following the Path of Harmony, cannot trigger the "immediate action" effect.
+        Enables one designated ally character and their summon to immediately take action, and increases their DMG dealt by ${scaleValue(S.SundayScaling.skill.main, i)}. If the target has a summon, then the DMG Boost effect is further boosted by an additional ${scaleValue(S.SundayScaling.skill.adjacent, i)}, lasting for ${scaleValue(S.SundayScaling.skill.adjacent2, i, "")} turn(s).<br>After using Skill on The Beatified, recovers 1 Skill Point.<br>When Sunday uses this ability on characters following the Path of Harmony, cannot trigger the "immediate action" effect.
       `,
         },
         ultimate: {
@@ -9946,7 +9946,7 @@ const Sunday: Character = {
             level: "1/12",
             icon: charIcon("Sunday", "Ultimate"),
             description: (i) => `
-        Regenerates Energy by ${scaleValue(S.SundayScaling.ultimate.main, i)} of Max Energy for one designated ally character, and turns the target and their summon into "The Beatified." "The Beatified" have their CRIT DMG increased by an amount equal to ${scaleValue(S.SundayScaling.ultimate.adjacent, i)} of Sunday's CRIT DMG plus ${scaleValue(S.SundayScaling.ultimate.adjacent2, i)}.\\nAt the start of Sunday's every turn, the duration of "The Beatified" decreases by 1 turn, lasting for a total of ${scaleValue(S.SundayScaling.ultimate.adjacent3, i, "")} turn(s). And it only takes effect on the most recent target of the Ultimate (excluding Sunday himself). When Sunday is knocked down, "The Beatified" will also be dispelled.
+        Regenerates Energy by ${scaleValue(S.SundayScaling.ultimate.main, i)} of Max Energy for one designated ally character, and turns the target and their summon into "The Beatified." "The Beatified" have their CRIT DMG increased by an amount equal to ${scaleValue(S.SundayScaling.ultimate.adjacent, i)} of Sunday's CRIT DMG plus ${scaleValue(S.SundayScaling.ultimate.adjacent2, i)}.<br>At the start of Sunday's every turn, the duration of "The Beatified" decreases by 1 turn, lasting for a total of ${scaleValue(S.SundayScaling.ultimate.adjacent3, i, "")} turn(s). And it only takes effect on the most recent target of the Ultimate (excluding Sunday himself). When Sunday is knocked down, "The Beatified" will also be dispelled.
       `,
         },
         talent: {
@@ -10110,7 +10110,7 @@ const Jade: Character = {
             level: "1/12",
             icon: charIcon("Jade", "Skill"),
             description: (i) => `
-        Makes a single target ally become the Debt Collector and increases their SPD by ${scaleValue(S.JadeScaling.skill.main, i, "")}, lasting for ${scaleValue(S.JadeScaling.skill.adjacent, i, "")} turn(s).\\nAfter the Debt Collector attacks, deals 1 instance of Quantum <u>Additional DMG</u> equal to ${scaleValue(S.JadeScaling.skill.adjacent2, i)} of Jade's ATK to each enemy target hit, and consumes the Debt Collector's HP by an amount equal to ${scaleValue(S.JadeScaling.skill.adjacent3, i)} of their Max HP. If the current HP is insufficient, reduces HP to 1.\\nIf Jade becomes the Debt Collector, she cannot gain the SPD boost effect, and her attacks do not consume HP.\\nWhen the Debt Collector exists on the field, Jade cannot use her Skill. At the start of Jade's every turn, the Debt Collector's duration decreases by 1 turn.
+        Makes a single target ally become the Debt Collector and increases their SPD by ${scaleValue(S.JadeScaling.skill.main, i, "")}, lasting for ${scaleValue(S.JadeScaling.skill.adjacent, i, "")} turn(s).<br>After the Debt Collector attacks, deals 1 instance of Quantum <u>Additional DMG</u> equal to ${scaleValue(S.JadeScaling.skill.adjacent2, i)} of Jade's ATK to each enemy target hit, and consumes the Debt Collector's HP by an amount equal to ${scaleValue(S.JadeScaling.skill.adjacent3, i)} of their Max HP. If the current HP is insufficient, reduces HP to 1.<br>If Jade becomes the Debt Collector, she cannot gain the SPD boost effect, and her attacks do not consume HP.<br>When the Debt Collector exists on the field, Jade cannot use her Skill. At the start of Jade's every turn, the Debt Collector's duration decreases by 1 turn.
       `,
         },
         ultimate: {
@@ -10130,7 +10130,7 @@ const Jade: Character = {
             level: "1/12",
             icon: charIcon("Jade", "Talent"),
             description: (i) => `
-        After Jade or the "Debt Collector" unit attacks, gains 1 point of Charge for each enemy target hit. Upon reaching ${scaleValue(S.JadeScaling.talent.main, i, "")} points of Charge, consumes the ${scaleValue(S.JadeScaling.talent.main, i, "")} points to launch 1 instance of <u>Follow-Up ATK</u>, dealing Quantum DMG equal to ${scaleValue(S.JadeScaling.talent.adjacent, i)} of Jade's ATK to all enemies. This <u>Follow-Up ATK</u> does not generate Charge.\\nWhen launching her Talent's <u>Follow-Up ATK</u>, Jade immediately gains ${scaleValue(S.JadeScaling.talent.adjacent2, i, "")} stack(s) of "Pawned Asset," with each stack increasing CRIT DMG by ${scaleValue(S.JadeScaling.talent.adjacent3, i)}, stacking up to ${scaleValue(S.JadeScaling.talent.adjacent4, i, "")} times.
+        After Jade or the "Debt Collector" unit attacks, gains 1 point of Charge for each enemy target hit. Upon reaching ${scaleValue(S.JadeScaling.talent.main, i, "")} points of Charge, consumes the ${scaleValue(S.JadeScaling.talent.main, i, "")} points to launch 1 instance of <u>Follow-Up ATK</u>, dealing Quantum DMG equal to ${scaleValue(S.JadeScaling.talent.adjacent, i)} of Jade's ATK to all enemies. This <u>Follow-Up ATK</u> does not generate Charge.<br>When launching her Talent's <u>Follow-Up ATK</u>, Jade immediately gains ${scaleValue(S.JadeScaling.talent.adjacent2, i, "")} stack(s) of "Pawned Asset," with each stack increasing CRIT DMG by ${scaleValue(S.JadeScaling.talent.adjacent3, i)}, stacking up to ${scaleValue(S.JadeScaling.talent.adjacent4, i, "")} times.
       `,
         },
         technique: {
@@ -10284,7 +10284,7 @@ const Boothill: Character = {
             level: "1/12",
             icon: charIcon("Boothill", "Skill"),
             description: (i) => `
-        Forces Boothill and one designated enemy target into the "Standoff" state. Boothill's Basic ATK gets Enhanced, and he cannot use his Skill, lasting for ${scaleValue(S.BoothillScaling.skill.main, i, "")} turn(s). This duration decreases by 1 at the start of Boothill's every turn.\\nThe enemy target in the "Standoff" becomes Taunted. When this enemy target/Boothill gets attacked by the other party in the Standoff, the DMG they receive increases by ${scaleValue(S.BoothillScaling.skill.adjacent, i)}/${scaleValue(S.BoothillScaling.skill.adjacent2, i)}.\\nAfter this target is defeated or becomes Weakness Broken, Boothill gains 1 stack of "Pocket Trickshot," then dispels the "Standoff."\\nThis Skill cannot regenerate Energy. After using this Skill, the current turn does not end.
+        Forces Boothill and one designated enemy target into the "Standoff" state. Boothill's Basic ATK gets Enhanced, and he cannot use his Skill, lasting for ${scaleValue(S.BoothillScaling.skill.main, i, "")} turn(s). This duration decreases by 1 at the start of Boothill's every turn.<br>The enemy target in the "Standoff" becomes Taunted. When this enemy target/Boothill gets attacked by the other party in the Standoff, the DMG they receive increases by ${scaleValue(S.BoothillScaling.skill.adjacent, i)}/${scaleValue(S.BoothillScaling.skill.adjacent2, i)}.<br>After this target is defeated or becomes Weakness Broken, Boothill gains 1 stack of "Pocket Trickshot," then dispels the "Standoff."<br>This Skill cannot regenerate Energy. After using this Skill, the current turn does not end.
       `,
         },
         ultimate: {
@@ -10294,7 +10294,7 @@ const Boothill: Character = {
             level: "1/12",
             icon: charIcon("Boothill", "Ultimate"),
             description: (i) => `
-        Applies Physical Weakness to one designated enemy target, lasting for ${scaleValue(S.BoothillScaling.ultimate.main, i, "")} turn(s).\\nDeals Physical DMG equal to ${scaleValue(S.BoothillScaling.ultimate.adjacent, i)} of Boothill's ATK to the target and <u>delays their action</u> by ${scaleValue(S.BoothillScaling.ultimate.adjacent2, i)}.
+        Applies Physical Weakness to one designated enemy target, lasting for ${scaleValue(S.BoothillScaling.ultimate.main, i, "")} turn(s).<br>Deals Physical DMG equal to ${scaleValue(S.BoothillScaling.ultimate.adjacent, i)} of Boothill's ATK to the target and <u>delays their action</u> by ${scaleValue(S.BoothillScaling.ultimate.adjacent2, i)}.
       `,
         },
         talent: {
@@ -10304,7 +10304,7 @@ const Boothill: Character = {
             level: "1/12",
             icon: charIcon("Boothill", "Talent"),
             description: (i) => `
-        Each stack of Pocket Trickshot increases the Enhanced Basic Attack's Toughness Reduction by ${scaleValue(S.BoothillScaling.talent.main, i)}, stacking up to ${scaleValue(S.BoothillScaling.talent.adjacent, i, "")} time(s).\\nIf the target is <u>Weakness Broken</u> while the Enhanced Basic ATK is being used, based on the number of Pocket Trickshot stacks, deals <u>Break DMG</u> to this target equal to ${scaleValue(S.BoothillScaling.talent.adjacent2, i)}/${scaleValue(S.BoothillScaling.talent.adjacent3, i)}/${scaleValue(S.BoothillScaling.talent.adjacent4, i)} of Boothill's Physical Break DMG. The max Toughness taken into account for this DMG cannot exceed ${scaleValue(S.BoothillScaling.talent.adjacent5, i, "")} times the base Toughness Reduction of the Basic Attack "Skullcrush Spurs."\\nAfter winning the battle, Boothill can retain Pocket Trickshot for the next battle.
+        Each stack of Pocket Trickshot increases the Enhanced Basic Attack's Toughness Reduction by ${scaleValue(S.BoothillScaling.talent.main, i)}, stacking up to ${scaleValue(S.BoothillScaling.talent.adjacent, i, "")} time(s).<br>If the target is <u>Weakness Broken</u> while the Enhanced Basic ATK is being used, based on the number of Pocket Trickshot stacks, deals <u>Break DMG</u> to this target equal to ${scaleValue(S.BoothillScaling.talent.adjacent2, i)}/${scaleValue(S.BoothillScaling.talent.adjacent3, i)}/${scaleValue(S.BoothillScaling.talent.adjacent4, i)} of Boothill's Physical Break DMG. The max Toughness taken into account for this DMG cannot exceed ${scaleValue(S.BoothillScaling.talent.adjacent5, i, "")} times the base Toughness Reduction of the Basic Attack "Skullcrush Spurs."<br>After winning the battle, Boothill can retain Pocket Trickshot for the next battle.
       `,
         },
         technique: {
@@ -10468,7 +10468,7 @@ const Rappa: Character = {
             level: "1/12",
             icon: charIcon("Rappa", "Ultimate"),
             description: (i) => `
-        Enters the "Sealform" state, immediately gains 1 <u>extra turn</u>, obtains ${scaleValue(S.RappaScaling.ultimate.main, i, "")} points of "Chroma Ink," and increases Weakness Break Efficiency by ${scaleValue(S.RappaScaling.ultimate.adjacent, i)} and Break Effect by ${scaleValue(S.RappaScaling.ultimate.adjacent2, i)}.\\nWhile in the "Sealform" state, Basic ATK is enhanced, and Skill and Ultimate cannot be used. After using Enhanced Basic ATK, consumes 1 point of "Chroma Ink." When "Chroma Ink" is depleted, exits the "Sealform" state.
+        Enters the "Sealform" state, immediately gains 1 <u>extra turn</u>, obtains ${scaleValue(S.RappaScaling.ultimate.main, i, "")} points of "Chroma Ink," and increases Weakness Break Efficiency by ${scaleValue(S.RappaScaling.ultimate.adjacent, i)} and Break Effect by ${scaleValue(S.RappaScaling.ultimate.adjacent2, i)}.<br>While in the "Sealform" state, Basic ATK is enhanced, and Skill and Ultimate cannot be used. After using Enhanced Basic ATK, consumes 1 point of "Chroma Ink." When "Chroma Ink" is depleted, exits the "Sealform" state.
       `,
         },
         talent: {
@@ -10478,7 +10478,7 @@ const Rappa: Character = {
             level: "1/12",
             icon: charIcon("Rappa", "Talent"),
             description: (i) => `
-        Each time the enemy target is Weakness Broken, Rappa gains 1 point of Charge, up to a max of ${scaleValue(S.RappaScaling.talent.main, i, "")} points of Charge. When Rappa next launches the third hit of "Ningu: Demonbane Petalblade," additionally deals Break DMG equal to ${scaleValue(S.RappaScaling.talent.adjacent, i)} of Rappa's Imaginary Break DMG to all enemies. This DMG can ignore Weakness Type to reduce ${scaleValue(S.RappaScaling.talent.adjacent2, i, "")} Toughness, consuming all Charge. Each point of Charge increases the Break DMG multiplier by ${scaleValue(S.RappaScaling.talent.adjacent3, i)} and increases the Toughness Reduction that can ignore Weakness Type by ${scaleValue(S.RappaScaling.talent.adjacent4, i, "")}.\\nWhen Breaking Weakness, triggers the Imaginary Weakness Break effect.
+        Each time the enemy target is Weakness Broken, Rappa gains 1 point of Charge, up to a max of ${scaleValue(S.RappaScaling.talent.main, i, "")} points of Charge. When Rappa next launches the third hit of "Ningu: Demonbane Petalblade," additionally deals Break DMG equal to ${scaleValue(S.RappaScaling.talent.adjacent, i)} of Rappa's Imaginary Break DMG to all enemies. This DMG can ignore Weakness Type to reduce ${scaleValue(S.RappaScaling.talent.adjacent2, i, "")} Toughness, consuming all Charge. Each point of Charge increases the Break DMG multiplier by ${scaleValue(S.RappaScaling.talent.adjacent3, i)} and increases the Toughness Reduction that can ignore Weakness Type by ${scaleValue(S.RappaScaling.talent.adjacent4, i, "")}.<br>When Breaking Weakness, triggers the Imaginary Weakness Break effect.
       `,
         },
         technique: {
@@ -10632,7 +10632,7 @@ const TheDahlia: Character = {
             level: "1/12",
             icon: charIcon("TheDahlia", "Skill"),
             description: (i) => `
-        Deploys a Zone that lasts for ${scaleValue(S.TheDahliaScaling.skill.main, i, "")} turn(s). This duration decreases by 1 at the start of The Dahlia's turn. Then, deals Fire DMG equal to ${scaleValue(S.TheDahliaScaling.skill.adjacent, i)} of The Dahlia's ATK to one designated enemy and their adjacent targets.\\nWhile the Zone lasts, increases all allies' Weakness Break Efficiency by ${scaleValue(S.TheDahliaScaling.skill.adjacent2, i)}. Toughness Reduction taken by enemy targets while not <u>Weakness Broken</u> can also be converted into <u>Super Break DMG</u>.
+        Deploys a Zone that lasts for ${scaleValue(S.TheDahliaScaling.skill.main, i, "")} turn(s). This duration decreases by 1 at the start of The Dahlia's turn. Then, deals Fire DMG equal to ${scaleValue(S.TheDahliaScaling.skill.adjacent, i)} of The Dahlia's ATK to one designated enemy and their adjacent targets.<br>While the Zone lasts, increases all allies' Weakness Break Efficiency by ${scaleValue(S.TheDahliaScaling.skill.adjacent2, i)}. Toughness Reduction taken by enemy targets while not <u>Weakness Broken</u> can also be converted into <u>Super Break DMG</u>.
       `,
         },
         ultimate: {
@@ -10642,7 +10642,7 @@ const TheDahlia: Character = {
             level: "1/12",
             icon: charIcon("TheDahlia", "Ultimate"),
             description: (i) => `
-        Inflicts a "Wilt" state on all enemies, lasting for ${scaleValue(S.TheDahliaScaling.ultimate.main, i, "")} turn(s). Then, deals Fire DMG equal to ${scaleValue(S.TheDahliaScaling.ultimate.adjacent, i)} of The Dahlia's ATK, which is distributed evenly across all enemies.\\nEnemy targets in the "Wilt" state have their DEF reduced by ${scaleValue(S.TheDahliaScaling.ultimate.adjacent2, i)} and will be implanted with Weakness of all Dance Partners' Types.
+        Inflicts a "Wilt" state on all enemies, lasting for ${scaleValue(S.TheDahliaScaling.ultimate.main, i, "")} turn(s). Then, deals Fire DMG equal to ${scaleValue(S.TheDahliaScaling.ultimate.adjacent, i)} of The Dahlia's ATK, which is distributed evenly across all enemies.<br>Enemy targets in the "Wilt" state have their DEF reduced by ${scaleValue(S.TheDahliaScaling.ultimate.adjacent2, i)} and will be implanted with Weakness of all Dance Partners' Types.
       `,
         },
         talent: {
@@ -10652,7 +10652,7 @@ const TheDahlia: Character = {
             level: "1/12",
             icon: charIcon("TheDahlia", "Talent"),
             description: (i) => `
-        When entering combat, The Dahlia regenerates ${scaleValue(S.TheDahliaScaling.talent.main, i, "")} Energy and becomes "Dance Partners" along with the teammate that triggered combat. Whenever there is no other "Dance Partner" on the field, this unit and the teammate with the highest Break Effect become "Dance Partners" together. After a "Dance Partner" attacks a <u>Weakness Broken</u> enemy target, the Toughness Reduction from this attack will be converted into 1 instance of <u>Super Break DMG</u> at ${scaleValue(S.TheDahliaScaling.talent.adjacent, i)}.\\nAfter an enemy target gets attacked by the other "Dance Partner," The Dahlia launches <u>Follow-Up ATK</u> and deals ${scaleValue(S.TheDahliaScaling.talent.adjacent2, i, "")} instance(s) of DMG, each dealing Fire DMG equal to ${scaleValue(S.TheDahliaScaling.talent.adjacent3, i)} of The Dahlia's ATK to one random enemy. After each instance of DMG dealt to a <u>Weakness Broken</u> enemy target, the Toughness Reduction from this DMG will be converted into 1 instance of <u>Super Break DMG</u> at ${scaleValue(S.TheDahliaScaling.talent.adjacent4, i)}.\\nThis effect can only trigger once per turn. If the target is defeated before the <u>Follow-Up ATK</u> is used, it will be launched at one random enemy instead.
+        When entering combat, The Dahlia regenerates ${scaleValue(S.TheDahliaScaling.talent.main, i, "")} Energy and becomes "Dance Partners" along with the teammate that triggered combat. Whenever there is no other "Dance Partner" on the field, this unit and the teammate with the highest Break Effect become "Dance Partners" together. After a "Dance Partner" attacks a <u>Weakness Broken</u> enemy target, the Toughness Reduction from this attack will be converted into 1 instance of <u>Super Break DMG</u> at ${scaleValue(S.TheDahliaScaling.talent.adjacent, i)}.<br>After an enemy target gets attacked by the other "Dance Partner," The Dahlia launches <u>Follow-Up ATK</u> and deals ${scaleValue(S.TheDahliaScaling.talent.adjacent2, i, "")} instance(s) of DMG, each dealing Fire DMG equal to ${scaleValue(S.TheDahliaScaling.talent.adjacent3, i)} of The Dahlia's ATK to one random enemy. After each instance of DMG dealt to a <u>Weakness Broken</u> enemy target, the Toughness Reduction from this DMG will be converted into 1 instance of <u>Super Break DMG</u> at ${scaleValue(S.TheDahliaScaling.talent.adjacent4, i)}.<br>This effect can only trigger once per turn. If the target is defeated before the <u>Follow-Up ATK</u> is used, it will be launched at one random enemy instead.
       `,
         },
         technique: {
@@ -10662,7 +10662,7 @@ const TheDahlia: Character = {
             level: "1/1",
             icon: charIcon("TheDahlia", "Technique"),
             description: (i) => `
-        After using Technique, creates a Special Dimension that lasts for ${scaleValue(S.TheDahliaScaling.technique.main, i, "")} second(s). Enemies within this dimension will not actively attack ally targets. After entering combat with enemies in the Special Dimension, The Dahlia immediately deploys her Skill's Zone, and converts the combat-triggering Toughness Reduction into 1 instance of <u>Super Break DMG</u> at ${scaleValue(S.TheDahliaScaling.technique.adjacent, i)} against enemy targets that are <u>Weakness Broken</u>.\\nOnly 1 Dimension Effect created by allies can exist at the same time.
+        After using Technique, creates a Special Dimension that lasts for ${scaleValue(S.TheDahliaScaling.technique.main, i, "")} second(s). Enemies within this dimension will not actively attack ally targets. After entering combat with enemies in the Special Dimension, The Dahlia immediately deploys her Skill's Zone, and converts the combat-triggering Toughness Reduction into 1 instance of <u>Super Break DMG</u> at ${scaleValue(S.TheDahliaScaling.technique.adjacent, i)} against enemy targets that are <u>Weakness Broken</u>.<br>Only 1 Dimension Effect created by allies can exist at the same time.
       `,
         },
         // --- Pasivas ---
@@ -10836,7 +10836,7 @@ const TheHerta: Character = {
             level: "1/1",
             icon: charIcon("TheHerta", "Technique"),
             description: (i) => `
-        After using Technique, increases The Herta's ATK by ${scaleValue(S.TheHertaScaling.technique.main, i)} at the start of the next battle, lasting for ${scaleValue(S.TheHertaScaling.technique.adjacent, i, "")} turn(s).\\nIf there are Basic Treasures in this current map, using Technique can mark up to ${scaleValue(S.TheHertaScaling.technique.adjacent2, i, "")} Basic Treasures' locations.\\nAfter entering battle by using Technique in Simulated Universe or Divergent Universe, at the start of each wave, deals <u>True DMG</u> to enemy targets lower than Elite-level by an amount equal to ${scaleValue(S.TheHertaScaling.technique.adjacent3, i)} of the targets' Max HP, and deals <u>True DMG</u> to enemy targets at Elite-level and above by an amount equal to ${scaleValue(S.TheHertaScaling.technique.adjacent4, i)} of the targets' Max HP.
+        After using Technique, increases The Herta's ATK by ${scaleValue(S.TheHertaScaling.technique.main, i)} at the start of the next battle, lasting for ${scaleValue(S.TheHertaScaling.technique.adjacent, i, "")} turn(s).<br>If there are Basic Treasures in this current map, using Technique can mark up to ${scaleValue(S.TheHertaScaling.technique.adjacent2, i, "")} Basic Treasures' locations.<br>After entering battle by using Technique in Simulated Universe or Divergent Universe, at the start of each wave, deals <u>True DMG</u> to enemy targets lower than Elite-level by an amount equal to ${scaleValue(S.TheHertaScaling.technique.adjacent3, i)} of the targets' Max HP, and deals <u>True DMG</u> to enemy targets at Elite-level and above by an amount equal to ${scaleValue(S.TheHertaScaling.technique.adjacent4, i)} of the targets' Max HP.
       `,
         },
         // --- Pasivas ---
@@ -10990,7 +10990,7 @@ const Aglaea: Character = {
             level: "1/12",
             icon: charIcon("Aglaea", "Ultimate"),
             description: (i) => `
-        <u>Summons the memosprite</u> Garmentmaker. If Garmentmaker is already on the field, then restores its HP to max. Aglaea enters the "Supreme Stance" state and immediately takes action.\\nWhile in "Supreme Stance," Aglaea gains the SPD Boost stacks from Garmentmaker's Memosprite Talent, with each stack increasing this unit's SPD by ${scaleValue(S.AglaeaScaling.ultimate.main, i)}. Enhances Basic ATK to "Slash by a Thousandfold Kiss," and cannot use Skill. Garmentmaker is immune to <u>Crowd Control debuffs</u>.\\nA countdown appears in the Action Order, with its own SPD set at ${scaleValue(S.AglaeaScaling.ultimate.adjacent, i, "")}. While the countdown exists, using Ultimate again will reset the countdown. When the countdown's turn starts, Garmentmaker self-destructs. When Garmentmaker disappears, Aglaea dispels the "Supreme Stance" state.
+        <u>Summons the memosprite</u> Garmentmaker. If Garmentmaker is already on the field, then restores its HP to max. Aglaea enters the "Supreme Stance" state and immediately takes action.<br>While in "Supreme Stance," Aglaea gains the SPD Boost stacks from Garmentmaker's Memosprite Talent, with each stack increasing this unit's SPD by ${scaleValue(S.AglaeaScaling.ultimate.main, i)}. Enhances Basic ATK to "Slash by a Thousandfold Kiss," and cannot use Skill. Garmentmaker is immune to <u>Crowd Control debuffs</u>.<br>A countdown appears in the Action Order, with its own SPD set at ${scaleValue(S.AglaeaScaling.ultimate.adjacent, i, "")}. While the countdown exists, using Ultimate again will reset the countdown. When the countdown's turn starts, Garmentmaker self-destructs. When Garmentmaker disappears, Aglaea dispels the "Supreme Stance" state.
       `,
         },
         talent: {
@@ -11188,7 +11188,7 @@ const Tribbie: Character = {
             level: "1/12",
             icon: charIcon("Tribbie", "Ultimate"),
             description: (i) => `
-        Activates a Zone and deals Quantum DMG equal to ${scaleValue(S.TribbieScaling.ultimate.main, i)} of Tribbie's Max HP to all enemies.\\nWhile the Zone lasts, increases enemy targets' DMG taken by ${scaleValue(S.TribbieScaling.ultimate.adjacent, i)}. After an ally target attacks, for every 1 target hit, deals 1 instance of Quantum <u>Additional DMG</u> equal to ${scaleValue(S.TribbieScaling.ultimate.adjacent2, i)} of Tribbie's Max HP to the target that has the highest HP among the hit targets.\\nThe Zone lasts for ${scaleValue(S.TribbieScaling.ultimate.adjacent3, i, "")} turn(s). This duration decreases by 1 at the start of this unit's every turn.
+        Activates a Zone and deals Quantum DMG equal to ${scaleValue(S.TribbieScaling.ultimate.main, i)} of Tribbie's Max HP to all enemies.<br>While the Zone lasts, increases enemy targets' DMG taken by ${scaleValue(S.TribbieScaling.ultimate.adjacent, i)}. After an ally target attacks, for every 1 target hit, deals 1 instance of Quantum <u>Additional DMG</u> equal to ${scaleValue(S.TribbieScaling.ultimate.adjacent2, i)} of Tribbie's Max HP to the target that has the highest HP among the hit targets.<br>The Zone lasts for ${scaleValue(S.TribbieScaling.ultimate.adjacent3, i, "")} turn(s). This duration decreases by 1 at the start of this unit's every turn.
       `,
         },
         talent: {
@@ -11352,7 +11352,7 @@ const Mydei: Character = {
             level: "1/12",
             icon: charIcon("Mydei", "Skill"),
             description: (i) => `
-        Consumes HP by an amount equal to ${scaleValue(S.MydeiScaling.skill.main, i)} of Mydei's current HP. Deals Imaginary DMG equal to ${scaleValue(S.MydeiScaling.skill.adjacent, i)} of Mydei's Max HP to one designated enemy and Imaginary DMG equal to ${scaleValue(S.MydeiScaling.skill.adjacent2, i)} of Mydei's Max HP to adjacent targets.\\nIf the current HP is not sufficient, using Skill reduces Mydei's current HP to 1.
+        Consumes HP by an amount equal to ${scaleValue(S.MydeiScaling.skill.main, i)} of Mydei's current HP. Deals Imaginary DMG equal to ${scaleValue(S.MydeiScaling.skill.adjacent, i)} of Mydei's Max HP to one designated enemy and Imaginary DMG equal to ${scaleValue(S.MydeiScaling.skill.adjacent2, i)} of Mydei's Max HP to adjacent targets.<br>If the current HP is not sufficient, using Skill reduces Mydei's current HP to 1.
       `,
         },
         ultimate: {
@@ -11372,7 +11372,7 @@ const Mydei: Character = {
             level: "1/12",
             icon: charIcon("Mydei", "Talent"),
             description: (i) => `
-        For each 1% of HP lost, accumulates 1 point of Charge (up to 200 points). When Charge reaches 100, consumes 100 points of Charge to enter the "Vendetta" state, restores HP equal to ${scaleValue(S.MydeiScaling.talent.main, i)} of Mydei's Max HP, and advances action by 100%. While the "Vendetta" state is active, Max HP increases by ${scaleValue(S.MydeiScaling.talent.adjacent, i)} of the current Max HP and DEF remains at 0. At the start of this unit's turn, automatically uses "Kingslayer Be King."\\nWhen Charge reaches ${scaleValue(S.MydeiScaling.talent.adjacent2, i, "")} points during the "Vendetta" state, Mydei immediately gains 1 <u>extra turn</u> and automatically uses "Godslayer Be God."\\nWhen receiving a killing blow during the "Vendetta" state, Mydei will not be <u>knocked down</u>, but will clear his Charge, exits the "Vendetta" state, and restores HP by ${scaleValue(S.MydeiScaling.talent.adjacent3, i)} of his Max HP.
+        For each 1% of HP lost, accumulates 1 point of Charge (up to 200 points). When Charge reaches 100, consumes 100 points of Charge to enter the "Vendetta" state, restores HP equal to ${scaleValue(S.MydeiScaling.talent.main, i)} of Mydei's Max HP, and advances action by 100%. While the "Vendetta" state is active, Max HP increases by ${scaleValue(S.MydeiScaling.talent.adjacent, i)} of the current Max HP and DEF remains at 0. At the start of this unit's turn, automatically uses "Kingslayer Be King."<br>When Charge reaches ${scaleValue(S.MydeiScaling.talent.adjacent2, i, "")} points during the "Vendetta" state, Mydei immediately gains 1 <u>extra turn</u> and automatically uses "Godslayer Be God."<br>When receiving a killing blow during the "Vendetta" state, Mydei will not be <u>knocked down</u>, but will clear his Charge, exits the "Vendetta" state, and restores HP by ${scaleValue(S.MydeiScaling.talent.adjacent3, i)} of his Max HP.
       `,
         },
         technique: {
@@ -11382,7 +11382,7 @@ const Mydei: Character = {
             level: "1/1",
             icon: charIcon("Mydei", "Technique"),
             description: (i) => `
-        After using Technique, pulls in enemies within a certain area and inflicts Daze on them for ${scaleValue(S.MydeiScaling.technique.main, i, "")} second(s). Dazed enemies will not actively attack ally targets.\\nIf actively attacking Dazed enemies, when entering battle, deals Imaginary DMG equal to ${scaleValue(S.MydeiScaling.technique.adjacent, i)} of Mydei's Max HP to all enemies, and Taunts the targets, lasting for ${scaleValue(S.MydeiScaling.technique.adjacent2, i, "")} turn(s). This unit accumulates ${scaleValue(S.MydeiScaling.technique.adjacent3, i, "")} point(s) of Talent's Charge.
+        After using Technique, pulls in enemies within a certain area and inflicts Daze on them for ${scaleValue(S.MydeiScaling.technique.main, i, "")} second(s). Dazed enemies will not actively attack ally targets.<br>If actively attacking Dazed enemies, when entering battle, deals Imaginary DMG equal to ${scaleValue(S.MydeiScaling.technique.adjacent, i)} of Mydei's Max HP to all enemies, and Taunts the targets, lasting for ${scaleValue(S.MydeiScaling.technique.adjacent2, i, "")} turn(s). This unit accumulates ${scaleValue(S.MydeiScaling.technique.adjacent3, i, "")} point(s) of Talent's Charge.
       `,
         },
         // --- Pasivas ---
@@ -11524,7 +11524,7 @@ const Anaxa: Character = {
             level: "1/12",
             icon: charIcon("Anaxa", "Skill"),
             description: (i) => `
-        Deals Wind DMG equal to ${scaleValue(S.AnaxaScaling.skill.main, i)} of Anaxa's ATK to one designated enemy and additionally deals ${scaleValue(S.AnaxaScaling.skill.adjacent, i, "")} instance(s) of DMG. Each instance of DMG deals Wind DMG equal to ${scaleValue(S.AnaxaScaling.skill.main, i)} of Anaxa's ATK to one random enemy, prioritizing Bouncing to enemy targets that have not been hit by this instance of Skill.\\nWhen used, for each attackable enemy on the field, this Skill has its DMG dealt increased by ${scaleValue(S.AnaxaScaling.skill.adjacent2, i)}.
+        Deals Wind DMG equal to ${scaleValue(S.AnaxaScaling.skill.main, i)} of Anaxa's ATK to one designated enemy and additionally deals ${scaleValue(S.AnaxaScaling.skill.adjacent, i, "")} instance(s) of DMG. Each instance of DMG deals Wind DMG equal to ${scaleValue(S.AnaxaScaling.skill.main, i)} of Anaxa's ATK to one random enemy, prioritizing Bouncing to enemy targets that have not been hit by this instance of Skill.<br>When used, for each attackable enemy on the field, this Skill has its DMG dealt increased by ${scaleValue(S.AnaxaScaling.skill.adjacent2, i)}.
       `,
         },
         ultimate: {
@@ -11534,7 +11534,7 @@ const Anaxa: Character = {
             level: "1/12",
             icon: charIcon("Anaxa", "Ultimate"),
             description: (i) => `
-        Inflicts the "Sublimation" state on all enemies, then deals Wind DMG equal to ${scaleValue(S.AnaxaScaling.ultimate, i)} of Anaxa's ATK to all enemies.\\nIn the "Sublimation" state, the targets will be simultaneously inflicted with Physical, Fire, Ice, Lightning, Wind, Quantum, and Imaginary Weaknesses, lasting until the start of the targets' turn. If the targets do not have Control RES, they are unable to take action in the "Sublimation" state.
+        Inflicts the "Sublimation" state on all enemies, then deals Wind DMG equal to ${scaleValue(S.AnaxaScaling.ultimate, i)} of Anaxa's ATK to all enemies.<br>In the "Sublimation" state, the targets will be simultaneously inflicted with Physical, Fire, Ice, Lightning, Wind, Quantum, and Imaginary Weaknesses, lasting until the start of the targets' turn. If the targets do not have Control RES, they are unable to take action in the "Sublimation" state.
       `,
         },
         talent: {
@@ -11544,7 +11544,7 @@ const Anaxa: Character = {
             level: "1/12",
             icon: charIcon("Anaxa", "Talent"),
             description: (i) => `
-        Each time Anaxa lands 1 hit on enemy targets, inflicts 1 Weakness of a random Type to the targets, lasting for ${scaleValue(S.AnaxaScaling.talent.main, i, "")} turn(s), with priority to the Weakness Type that the target doesn't already possess.\\nWhile Anaxa is on the field, inflicts the "Qualitative Disclosure" state on enemy targets that have at least ${scaleValue(S.AnaxaScaling.talent.adjacent, i, "")} different Types of Weaknesses. Anaxa deals ${scaleValue(S.AnaxaScaling.talent.adjacent2, i)} increased DMG to targets afflicted with the "Qualitative Disclosure" state. In addition, after using Basic ATK or Skill on them, unleashes 1 additional instance of Skill on the targets. This additional Skill does not consume any Skill Points and cannot trigger this effect again. If the target has been defeated before the additional Skill is used, it will be cast on one random enemy instead.
+        Each time Anaxa lands 1 hit on enemy targets, inflicts 1 Weakness of a random Type to the targets, lasting for ${scaleValue(S.AnaxaScaling.talent.main, i, "")} turn(s), with priority to the Weakness Type that the target doesn't already possess.<br>While Anaxa is on the field, inflicts the "Qualitative Disclosure" state on enemy targets that have at least ${scaleValue(S.AnaxaScaling.talent.adjacent, i, "")} different Types of Weaknesses. Anaxa deals ${scaleValue(S.AnaxaScaling.talent.adjacent2, i)} increased DMG to targets afflicted with the "Qualitative Disclosure" state. In addition, after using Basic ATK or Skill on them, unleashes 1 additional instance of Skill on the targets. This additional Skill does not consume any Skill Points and cannot trigger this effect again. If the target has been defeated before the additional Skill is used, it will be cast on one random enemy instead.
       `,
         },
         technique: {
@@ -11575,7 +11575,7 @@ const Anaxa: Character = {
             level: "1/1",
             icon: charIcon("Anaxa", "RoamingSignifier"),
             description: (i) => `
-        When using Basic ATK, additionally regenerates ${scaleValue(S.AnaxaScaling.b2.main, i, "")} Energy.\\nAt the start of the turn, if there are no enemy targets in the "Qualitative Disclosure" state, immediately regenerates ${scaleValue(S.AnaxaScaling.b2.adjacent, i, "")} Energy.
+        When using Basic ATK, additionally regenerates ${scaleValue(S.AnaxaScaling.b2.main, i, "")} Energy.<br>At the start of the turn, if there are no enemy targets in the "Qualitative Disclosure" state, immediately regenerates ${scaleValue(S.AnaxaScaling.b2.adjacent, i, "")} Energy.
       `,
         },
         b3: {
@@ -11585,7 +11585,7 @@ const Anaxa: Character = {
             level: "1/1",
             icon: charIcon("Anaxa", "ImperativeHiatus"),
             description: (i) => `
-        Based on the number of "Erudition" characters in the team, one of the following effects will be triggered in the current battle:\\n1 character: Increases Anaxa's CRIT DMG by ${scaleValue(S.AnaxaScaling.b3.main, i)}.\\nAt least 2 characters: Increases DMG dealt by all allies by ${scaleValue(S.AnaxaScaling.b3.adjacent, i)}.
+        Based on the number of "Erudition" characters in the team, one of the following effects will be triggered in the current battle:<br>1 character: Increases Anaxa's CRIT DMG by ${scaleValue(S.AnaxaScaling.b3.main, i)}.<br>At least 2 characters: Increases DMG dealt by all allies by ${scaleValue(S.AnaxaScaling.b3.adjacent, i)}.
       `,
         },
         // --- Stats Nodes ---
@@ -11718,7 +11718,7 @@ const Cipher: Character = {
             level: "1/12",
             icon: charIcon("Cipher", "Talent"),
             description: (i) => `
-        When there are no enemy targets in the "Patron" state on the battlefield, Cipher immediately causes one enemy target with the highest Max HP on the battlefield to become the "Patron." When using Skill and Ultimate, the primary target becomes the "Patron." The "Patron" state only takes effect on the most recent target.\\nAfter the "Patron" gets attacked by other ally targets, Cipher immediately launches <u>Follow-Up ATK</u> against the "Patron," dealing Quantum DMG equal to ${scaleValue(S.CipherScaling.talent.main, i)} of Cipher's ATK. This effect can trigger up to ${scaleValue(S.CipherScaling.talent.adjacent, i, "")} time(s) per turn, and this trigger count resets at the start of Cipher's turn.\\nCipher will tally ${scaleValue(S.CipherScaling.talent.adjacent2, i)} of the non-<u>True DMG</u> dealt by ally targets to the "Patron." Overflow DMG will not be tallied. After using Ultimate, clears this tally.
+        When there are no enemy targets in the "Patron" state on the battlefield, Cipher immediately causes one enemy target with the highest Max HP on the battlefield to become the "Patron." When using Skill and Ultimate, the primary target becomes the "Patron." The "Patron" state only takes effect on the most recent target.<br>After the "Patron" gets attacked by other ally targets, Cipher immediately launches <u>Follow-Up ATK</u> against the "Patron," dealing Quantum DMG equal to ${scaleValue(S.CipherScaling.talent.main, i)} of Cipher's ATK. This effect can trigger up to ${scaleValue(S.CipherScaling.talent.adjacent, i, "")} time(s) per turn, and this trigger count resets at the start of Cipher's turn.<br>Cipher will tally ${scaleValue(S.CipherScaling.talent.adjacent2, i)} of the non-<u>True DMG</u> dealt by ally targets to the "Patron." Overflow DMG will not be tallied. After using Ultimate, clears this tally.
       `,
         },
         technique: {
@@ -11728,7 +11728,7 @@ const Cipher: Character = {
             level: "1/1",
             icon: charIcon("Cipher", "Technique"),
             description: (i) => `
-        Gains "Zagreus's Blessing" that lasts for ${scaleValue(S.CipherScaling.technique.main, i, "")} second(s). During this time, Cipher will be undetectable by enemies and her movement speed increases by 50%. When approaching an enemy in the overworld/Simulated Universe/Divergent Universe, can immediately gain a random Consumable. Consumables can be gained this way for up to ${scaleValue(S.CipherScaling.technique.adjacent, i, "")} time(s) in each Earth day.\\nWhen entering battle with "Zagreus's Blessing" active, deals Quantum DMG equal to ${scaleValue(S.CipherScaling.technique.adjacent2, i)} of Cipher's ATK to all enemies. And the tallied amount Cipher gains from this instance of DMG increases by ${scaleValue(S.CipherScaling.technique.adjacent3, i)}.
+        Gains "Zagreus's Blessing" that lasts for ${scaleValue(S.CipherScaling.technique.main, i, "")} second(s). During this time, Cipher will be undetectable by enemies and her movement speed increases by 50%. When approaching an enemy in the overworld/Simulated Universe/Divergent Universe, can immediately gain a random Consumable. Consumables can be gained this way for up to ${scaleValue(S.CipherScaling.technique.adjacent, i, "")} time(s) in each Earth day.<br>When entering battle with "Zagreus's Blessing" active, deals Quantum DMG equal to ${scaleValue(S.CipherScaling.technique.adjacent2, i)} of Cipher's ATK to all enemies. And the tallied amount Cipher gains from this instance of DMG increases by ${scaleValue(S.CipherScaling.technique.adjacent3, i)}.
       `,
         },
         // --- Pasivas ---
@@ -11872,7 +11872,7 @@ const Castorice: Character = {
             level: "1/12",
             icon: charIcon("Castorice", "Skill"),
             description: (i) => `
-        Consumes ${scaleValue(S.CastoriceScaling.skill.main, i)} of all allies' current HP. Deals Quantum DMG equal to ${scaleValue(S.CastoriceScaling.skill.adjacent, i)} of Castorice's Max HP to one designated enemy and Quantum DMG equal to ${scaleValue(S.CastoriceScaling.skill.adjacent2, i)} of Castorice's Max HP to adjacent targets.\\nIf the current HP is insufficient, reduces the current HP down to 1.\\nIf Netherwing is on the battlefield, the Skill becomes "Boneclaw, Doomdrake's Embrace" instead.
+        Consumes ${scaleValue(S.CastoriceScaling.skill.main, i)} of all allies' current HP. Deals Quantum DMG equal to ${scaleValue(S.CastoriceScaling.skill.adjacent, i)} of Castorice's Max HP to one designated enemy and Quantum DMG equal to ${scaleValue(S.CastoriceScaling.skill.adjacent2, i)} of Castorice's Max HP to adjacent targets.<br>If the current HP is insufficient, reduces the current HP down to 1.<br>If Netherwing is on the battlefield, the Skill becomes "Boneclaw, Doomdrake's Embrace" instead.
       `,
         },
         ultimate: {
@@ -11882,7 +11882,7 @@ const Castorice: Character = {
             level: "1/12",
             icon: charIcon("Castorice", "Ultimate"),
             description: (i) => `
-        <u>Summons the memosprite</u> Netherwing and <u>advances its action</u> by 100%. At the same time, deploys the <u>Territory</u> "Lost Netherland," which decreases all enemies' All-Type RES by ${scaleValue(S.CastoriceScaling.ultimate.main, i)}. If Castorice has the DMG Boost effect from her Talent, then this effect spreads to Netherwing. Netherwing has an initial SPD of ${scaleValue(S.CastoriceScaling.ultimate.adjacent, i, "")} and a set Max HP equal to ${scaleValue(S.CastoriceScaling.ultimate.adjacent2, i)} of max "Newbud."\\nAfter Netherwing experiences ${scaleValue(S.CastoriceScaling.ultimate.adjacent3, i, "")} turns or when its HP is 0, it disappears and dispels the <u>Territory</u> "Lost Netherland."
+        <u>Summons the memosprite</u> Netherwing and <u>advances its action</u> by 100%. At the same time, deploys the <u>Territory</u> "Lost Netherland," which decreases all enemies' All-Type RES by ${scaleValue(S.CastoriceScaling.ultimate.main, i)}. If Castorice has the DMG Boost effect from her Talent, then this effect spreads to Netherwing. Netherwing has an initial SPD of ${scaleValue(S.CastoriceScaling.ultimate.adjacent, i, "")} and a set Max HP equal to ${scaleValue(S.CastoriceScaling.ultimate.adjacent2, i)} of max "Newbud."<br>After Netherwing experiences ${scaleValue(S.CastoriceScaling.ultimate.adjacent3, i, "")} turns or when its HP is 0, it disappears and dispels the <u>Territory</u> "Lost Netherland."
       `,
         },
         talent: {
@@ -11892,7 +11892,7 @@ const Castorice: Character = {
             level: "1/12",
             icon: charIcon("Castorice", "Talent"),
             description: (i) => `
-        The maximum limit of "Newbud" is related to the levels of all characters on the battlefield. For every 1 point of HP lost by all allies, Castorice gains 1 point of "Newbud." When "Newbud" reaches its maximum limit, can activate the Ultimate. When allies lose HP, Castorice's and Netherwing's DMG dealt increases by ${scaleValue(S.CastoriceScaling.talent.main, i)}. This effect can stack up to ${scaleValue(S.CastoriceScaling.talent.adjacent, i, "")} time(s), lasting for ${scaleValue(S.CastoriceScaling.talent.adjacent2, i, "")} turn(s).\\nWhen Netherwing is on the field, "Newbud" cannot be gained through Talent, and every 1 point of HP lost by all allies (except Netherwing) will be converted to an equal amount of HP for Netherwing.
+        The maximum limit of "Newbud" is related to the levels of all characters on the battlefield. For every 1 point of HP lost by all allies, Castorice gains 1 point of "Newbud." When "Newbud" reaches its maximum limit, can activate the Ultimate. When allies lose HP, Castorice's and Netherwing's DMG dealt increases by ${scaleValue(S.CastoriceScaling.talent.main, i)}. This effect can stack up to ${scaleValue(S.CastoriceScaling.talent.adjacent, i, "")} time(s), lasting for ${scaleValue(S.CastoriceScaling.talent.adjacent2, i, "")} turn(s).<br>When Netherwing is on the field, "Newbud" cannot be gained through Talent, and every 1 point of HP lost by all allies (except Netherwing) will be converted to an equal amount of HP for Netherwing.
       `,
         },
         technique: {
@@ -11902,7 +11902,7 @@ const Castorice: Character = {
             level: "1/1",
             icon: charIcon("Castorice", "Technique"),
             description: (i) => `
-        After using Technique, enters the "Netherveil" state that lasts for ${scaleValue(S.CastoriceScaling.technique.main, i, "")} seconds. While "Netherveil" is active, enemies are unable to actively approach Castorice.\\nDuring "Netherveil," active attacks will cause all enemies within range to enter combat. At the same time, <u>summons the memosprite</u> Netherwing, <u>advances its action</u> by 100%, and deploys the <u>Territory</u> "Lost Netherland." Netherwing has its current HP equal to ${scaleValue(S.CastoriceScaling.technique.adjacent, i)} of max "Newbud." After entering battle, consumes ${scaleValue(S.CastoriceScaling.technique.adjacent2, i)} of the current HP of all allies (except Netherwing).\\nIf Netherwing is not summoned after entering battle, Castorice gains "Newbud" by an amount equal to ${scaleValue(S.CastoriceScaling.technique.adjacent3, i)} of max "Newbud."
+        After using Technique, enters the "Netherveil" state that lasts for ${scaleValue(S.CastoriceScaling.technique.main, i, "")} seconds. While "Netherveil" is active, enemies are unable to actively approach Castorice.<br>During "Netherveil," active attacks will cause all enemies within range to enter combat. At the same time, <u>summons the memosprite</u> Netherwing, <u>advances its action</u> by 100%, and deploys the <u>Territory</u> "Lost Netherland." Netherwing has its current HP equal to ${scaleValue(S.CastoriceScaling.technique.adjacent, i)} of max "Newbud." After entering battle, consumes ${scaleValue(S.CastoriceScaling.technique.adjacent2, i)} of the current HP of all allies (except Netherwing).<br>If Netherwing is not summoned after entering battle, Castorice gains "Newbud" by an amount equal to ${scaleValue(S.CastoriceScaling.technique.adjacent3, i)} of max "Newbud."
       `,
         },
         // --- Pasivas ---
@@ -11961,7 +11961,7 @@ const Castorice: Character = {
             description: (i) => `
         <b>Claw Splits the Veil</b><br>Deals Quantum DMG equal to ${scaleValue(S.CastoriceScaling.b5.ClawSplitstheVeil, i)} of Castorice's Max HP to all enemies.
 <br>
-        <b>Breath Scorches the Shadow</b><br>Launching "Breath Scorches the Shadow" will consume ${scaleValue(S.CastoriceScaling.b5.BreathScorchestheShadow.main, i)} of Netherwing's Max HP to deal Quantum DMG equal to ${scaleValue(S.CastoriceScaling.b5.BreathScorchestheShadow.adjacent, i)} of Castorice's Max HP to all enemies.\\nIn one attack, "Breath Scorches the Shadow" can be launched repeatedly, with the DMG multiplier increased progressively to ${scaleValue(S.CastoriceScaling.b5.BreathScorchestheShadow.adjacent2, i)} / ${scaleValue(S.CastoriceScaling.b5.BreathScorchestheShadow.adjacent3, i)}. After reaching ${scaleValue(S.CastoriceScaling.b5.BreathScorchestheShadow.adjacent3, i)}, it will not increase further. The DMG Multiplier Boost effect will not decrease before Netherwing disappears.\\nWhen Netherwing's current HP is equal to or less than ${scaleValue(S.CastoriceScaling.b5.BreathScorchestheShadow.adjacent4, i)} of its Max HP, launching this ability will actively reduce HP down to 1, and then trigger the ability effect equal to that of the Talent "Wings Sweep the Ruins."
+        <b>Breath Scorches the Shadow</b><br>Launching "Breath Scorches the Shadow" will consume ${scaleValue(S.CastoriceScaling.b5.BreathScorchestheShadow.main, i)} of Netherwing's Max HP to deal Quantum DMG equal to ${scaleValue(S.CastoriceScaling.b5.BreathScorchestheShadow.adjacent, i)} of Castorice's Max HP to all enemies.<br>In one attack, "Breath Scorches the Shadow" can be launched repeatedly, with the DMG multiplier increased progressively to ${scaleValue(S.CastoriceScaling.b5.BreathScorchestheShadow.adjacent2, i)} / ${scaleValue(S.CastoriceScaling.b5.BreathScorchestheShadow.adjacent3, i)}. After reaching ${scaleValue(S.CastoriceScaling.b5.BreathScorchestheShadow.adjacent3, i)}, it will not increase further. The DMG Multiplier Boost effect will not decrease before Netherwing disappears.<br>When Netherwing's current HP is equal to or less than ${scaleValue(S.CastoriceScaling.b5.BreathScorchestheShadow.adjacent4, i)} of its Max HP, launching this ability will actively reduce HP down to 1, and then trigger the ability effect equal to that of the Talent "Wings Sweep the Ruins."
       `,
         },
         // --- Stats Nodes ---
@@ -12084,7 +12084,7 @@ const Phainon: Character = {
             level: "1/12",
             icon: charIcon("Phainon", "Ultimate"),
             description: (i) => `
-        Transforms into Khaslana. During the transformation, deploys the <u>Territory</u> "Ruinous Irontomb." Within the <u>Territory</u>, other teammates <u>depart</u> and cannot take action, and all enemies have Physical Weaknesses.\\nKhaslana does not enter his own turn, but has ${scaleValue(S.PhainonScaling.ultimate.main, i, "")} <u>Khaslana's extra turn(s)</u>, with a SPD set at ${scaleValue(S.PhainonScaling.ultimate.adjacent, i)} of Khaslana's base SPD. When the last of <u>Khaslana's extra turns</u> starts, immediately launches a final hit and deals Physical Ultimate DMG equal to ${scaleValue(S.PhainonScaling.ultimate.adjacent2, i)} of Khaslana's ATK that is distributed evenly across all enemies.
+        Transforms into Khaslana. During the transformation, deploys the <u>Territory</u> "Ruinous Irontomb." Within the <u>Territory</u>, other teammates <u>depart</u> and cannot take action, and all enemies have Physical Weaknesses.<br>Khaslana does not enter his own turn, but has ${scaleValue(S.PhainonScaling.ultimate.main, i, "")} <u>Khaslana's extra turn(s)</u>, with a SPD set at ${scaleValue(S.PhainonScaling.ultimate.adjacent, i)} of Khaslana's base SPD. When the last of <u>Khaslana's extra turns</u> starts, immediately launches a final hit and deals Physical Ultimate DMG equal to ${scaleValue(S.PhainonScaling.ultimate.adjacent2, i)} of Khaslana's ATK that is distributed evenly across all enemies.
       `,
         },
         talent: {
@@ -12094,7 +12094,7 @@ const Phainon: Character = {
             level: "1/12",
             icon: charIcon("Phainon", "Talent"),
             description: (i) => `
-        Phainon's Talent. When "Coreflame" reaches ${scaleValue(S.PhainonScaling.talent.main, i, "")} point(s), can activate Ultimate. Even after reaching the limit, can still hold up to ${scaleValue(S.PhainonScaling.talent.adjacent, i, "")} overflow point(s). When the transformation ends, gains "Coreflame" based on the number of overflow points.\\nWhen Phainon is targeted by an ability from any other target, gains 1 "Coreflame" point. And if the ability is cast by one of Phainon's teammates, can also increase Phainon's CRIT DMG by ${scaleValue(S.PhainonScaling.talent.adjacent2, i)} for ${scaleValue(S.PhainonScaling.talent.adjacent3, i, "")} turn(s).
+        Phainon's Talent. When "Coreflame" reaches ${scaleValue(S.PhainonScaling.talent.main, i, "")} point(s), can activate Ultimate. Even after reaching the limit, can still hold up to ${scaleValue(S.PhainonScaling.talent.adjacent, i, "")} overflow point(s). When the transformation ends, gains "Coreflame" based on the number of overflow points.<br>When Phainon is targeted by an ability from any other target, gains 1 "Coreflame" point. And if the ability is cast by one of Phainon's teammates, can also increase Phainon's CRIT DMG by ${scaleValue(S.PhainonScaling.talent.adjacent2, i)} for ${scaleValue(S.PhainonScaling.talent.adjacent3, i, "")} turn(s).
       `,
         },
         technique: {
@@ -12104,7 +12104,7 @@ const Phainon: Character = {
             level: "1/1",
             icon: charIcon("Phainon", "Technique"),
             description: (i) => `
-        While Phainon is in the team, increases Max Technique Points by 3.\\nWhen actively using this Technique, consumes 2 Technique Points and immediately attacks all enemies within a certain range. After entering combat, regenerates ${scaleValue(S.PhainonScaling.technique.main, i, "")} Energy for allies and gains ${scaleValue(S.PhainonScaling.technique.adjacent, i, "")} <u>"Scourge"</u> and ${scaleValue(S.PhainonScaling.technique.adjacent2, i, "")} Skill Point(s). Deals Physical DMG equal to ${scaleValue(S.PhainonScaling.technique.adjacent3, i)} of Phainon's ATK to all enemies at the start of each wave.\\nIf attacking a normal enemy, immediately defeats them without entering combat. No Technique Points are consumed if no enemies are hit.
+        While Phainon is in the team, increases Max Technique Points by 3.<br>When actively using this Technique, consumes 2 Technique Points and immediately attacks all enemies within a certain range. After entering combat, regenerates ${scaleValue(S.PhainonScaling.technique.main, i, "")} Energy for allies and gains ${scaleValue(S.PhainonScaling.technique.adjacent, i, "")} <u>"Scourge"</u> and ${scaleValue(S.PhainonScaling.technique.adjacent2, i, "")} Skill Point(s). Deals Physical DMG equal to ${scaleValue(S.PhainonScaling.technique.adjacent3, i)} of Phainon's ATK to all enemies at the start of each wave.<br>If attacking a normal enemy, immediately defeats them without entering combat. No Technique Points are consumed if no enemies are hit.
       `,
         },
         // --- Pasivas ---
@@ -12135,7 +12135,7 @@ const Phainon: Character = {
             level: "1/1",
             icon: charIcon("Phainon", "BideinFlames"),
             description: (i) => `
-        When receiving healing or a Shield from a teammate, deals ${scaleValue(S.PhainonScaling.b3.main, i)} increased DMG for ${scaleValue(S.PhainonScaling.b3.adjacent, i, "")} turn(s). This effect cannot trigger repeatedly within one turn.\\nWhen receiving an Energy Regeneration effect from a teammate's ability, gains ${scaleValue(S.PhainonScaling.b3.adjacent2, i, "")} point(s) of "Coreflame."
+        When receiving healing or a Shield from a teammate, deals ${scaleValue(S.PhainonScaling.b3.main, i)} increased DMG for ${scaleValue(S.PhainonScaling.b3.adjacent, i, "")} turn(s). This effect cannot trigger repeatedly within one turn.<br>When receiving an Energy Regeneration effect from a teammate's ability, gains ${scaleValue(S.PhainonScaling.b3.adjacent2, i, "")} point(s) of "Coreflame."
       `,
         },
         // --- Stats Nodes ---
@@ -12319,7 +12319,7 @@ const Hyacine: Character = {
             level: "1/1",
             icon: charIcon("Hyacine", "TakeSkyinHand"),
             description: (i) => `
-        <b>Take Sky in Hand</b><br>Little Ica maintains 0 SPD, is immune to <u>debuffs</u>, and will not appear in the Action Order.\\nIf the HP of an ally target (except Little Ica) is reduced, then at the start of any target's turn or after any target takes action, Little Ica will consume ${scaleValue(S.HyacineScaling.b4.TakeSkyinHand.main, i)} of their own Max HP and heal the ally target with reduced HP for an amount equal to ${scaleValue(S.HyacineScaling.b4.TakeSkyinHand.adjacent, i)} of Hyacine's Max HP plus ${scaleValue(S.HyacineScaling.b4.TakeSkyinHand.adjacent2, i, "")}.\\nWhile Hyacine is in the "After Rain" state, Little Ica gains 1 <u>extra turn</u> and automatically casts "Rainclouds, Time to Go!" immediately after Hyacine uses an ability. Moreover, when Little Ica triggers the Talent's healing effect, additionally restores HP for all ally targets by an amount equal to ${scaleValue(S.HyacineScaling.b4.TakeSkyinHand.adjacent3, i)} of Hyacine's Max HP plus ${scaleValue(S.HyacineScaling.b4.TakeSkyinHand.adjacent4, i, "")}. After Little Ica uses an ability, the duration of all their <u>Continuous Effects</u> decreases by 1 turn.
+        <b>Take Sky in Hand</b><br>Little Ica maintains 0 SPD, is immune to <u>debuffs</u>, and will not appear in the Action Order.<br>If the HP of an ally target (except Little Ica) is reduced, then at the start of any target's turn or after any target takes action, Little Ica will consume ${scaleValue(S.HyacineScaling.b4.TakeSkyinHand.main, i)} of their own Max HP and heal the ally target with reduced HP for an amount equal to ${scaleValue(S.HyacineScaling.b4.TakeSkyinHand.adjacent, i)} of Hyacine's Max HP plus ${scaleValue(S.HyacineScaling.b4.TakeSkyinHand.adjacent2, i, "")}.<br>While Hyacine is in the "After Rain" state, Little Ica gains 1 <u>extra turn</u> and automatically casts "Rainclouds, Time to Go!" immediately after Hyacine uses an ability. Moreover, when Little Ica triggers the Talent's healing effect, additionally restores HP for all ally targets by an amount equal to ${scaleValue(S.HyacineScaling.b4.TakeSkyinHand.adjacent3, i)} of Hyacine's Max HP plus ${scaleValue(S.HyacineScaling.b4.TakeSkyinHand.adjacent4, i, "")}. After Little Ica uses an ability, the duration of all their <u>Continuous Effects</u> decreases by 1 turn.
 <br>
         <b>Soar, Unto the Sunlight</b><br>When summoned, regenerates ${scaleValue(S.HyacineScaling.b4.SoarUntotheSunlight.main, i, "")} Energy for Hyacine. On the first summon, additionally regenerates ${scaleValue(S.HyacineScaling.b4.SoarUntotheSunlight.adjacent, i, "")} Energy.
 <br>
@@ -12456,7 +12456,7 @@ const Hysilens: Character = {
             level: "1/12",
             icon: charIcon("Hysilens", "Ultimate"),
             description: (i) => `
-        Hysilens deploys a Zone that reduces enemy targets' ATK by ${scaleValue(S.HysilensScaling.ultimate.main, i)} and DEF by ${scaleValue(S.HysilensScaling.ultimate.adjacent, i)}, and deals Physical DMG equal to ${scaleValue(S.HysilensScaling.ultimate.adjacent2, i)} of Hysilens's ATK to all enemies.\\nFor every 1 instance of DoT taken by an enemy target within the Zone, Hysilens deals Physical DoT equal to ${scaleValue(S.HysilensScaling.ultimate.adjacent3, i)} of her ATK to them. This damage triggers at the start of each turn or after one attack by an ally target, up to ${scaleValue(S.HysilensScaling.ultimate.adjacent4, i, "")} time(s). And it cannot repeatedly trigger this effect.\\nThe Zone lasts for ${scaleValue(S.HysilensScaling.ultimate.adjacent5, i, "")} turn(s) and this duration decreases by 1 at the start of this unit's every turn. When Hysilens gets <u>knocked down</u>, the Zone will also be dispelled.
+        Hysilens deploys a Zone that reduces enemy targets' ATK by ${scaleValue(S.HysilensScaling.ultimate.main, i)} and DEF by ${scaleValue(S.HysilensScaling.ultimate.adjacent, i)}, and deals Physical DMG equal to ${scaleValue(S.HysilensScaling.ultimate.adjacent2, i)} of Hysilens's ATK to all enemies.<br>For every 1 instance of DoT taken by an enemy target within the Zone, Hysilens deals Physical DoT equal to ${scaleValue(S.HysilensScaling.ultimate.adjacent3, i)} of her ATK to them. This damage triggers at the start of each turn or after one attack by an ally target, up to ${scaleValue(S.HysilensScaling.ultimate.adjacent4, i, "")} time(s). And it cannot repeatedly trigger this effect.<br>The Zone lasts for ${scaleValue(S.HysilensScaling.ultimate.adjacent5, i, "")} turn(s) and this duration decreases by 1 at the start of this unit's every turn. When Hysilens gets <u>knocked down</u>, the Zone will also be dispelled.
       `,
         },
         talent: {
@@ -12466,7 +12466,7 @@ const Hysilens: Character = {
             level: "1/12",
             icon: charIcon("Hysilens", "Talent"),
             description: (i) => `
-        When an ally target attacks, there is a ${scaleValue(S.HysilensScaling.talent.main, i)} <u>base chance</u> for Hysilens to inflict the hit enemy target with one of the following states: Wind Shear, Bleed, Burn, or Shock. Priority is given to inflicting a different state.\\nWhile in the Wind Shear/Burn/Shock state, at the start of each turn, the enemy target takes Wind/Fire/Lightning DoT equal to ${scaleValue(S.HysilensScaling.talent.adjacent, i)} of Hysilens's ATK for ${scaleValue(S.HysilensScaling.talent.adjacent2, i, "")} turn(s).\\nWhile in the Bleed state, at the start of each turn, the enemy target takes Physical DoT equal to ${scaleValue(S.HysilensScaling.talent.adjacent3, i)} of their Max HP, up to ${scaleValue(S.HysilensScaling.talent.adjacent4, i)} of Hysilens's ATK, lasting for ${scaleValue(S.HysilensScaling.talent.adjacent2, i, "")} turn(s).
+        When an ally target attacks, there is a ${scaleValue(S.HysilensScaling.talent.main, i)} <u>base chance</u> for Hysilens to inflict the hit enemy target with one of the following states: Wind Shear, Bleed, Burn, or Shock. Priority is given to inflicting a different state.<br>While in the Wind Shear/Burn/Shock state, at the start of each turn, the enemy target takes Wind/Fire/Lightning DoT equal to ${scaleValue(S.HysilensScaling.talent.adjacent, i)} of Hysilens's ATK for ${scaleValue(S.HysilensScaling.talent.adjacent2, i, "")} turn(s).<br>While in the Bleed state, at the start of each turn, the enemy target takes Physical DoT equal to ${scaleValue(S.HysilensScaling.talent.adjacent3, i)} of their Max HP, up to ${scaleValue(S.HysilensScaling.talent.adjacent4, i)} of Hysilens's ATK, lasting for ${scaleValue(S.HysilensScaling.talent.adjacent2, i, "")} turn(s).
       `,
         },
         technique: {
@@ -12476,7 +12476,7 @@ const Hysilens: Character = {
             level: "1/1",
             icon: charIcon("Hysilens", "Technique"),
             description: (i) => `
-        After using Technique, creates a Special Dimension that lasts for ${scaleValue(S.HysilensScaling.technique.main, i, "")} seconds and automatically moves forward. Enemies within the Special Dimension enter the "Soulstruck" state. "Soulstruck" enemies will not attack ally targets and will follow the dimension while it persists.\\nAfter entering combat with "Soulstruck" enemies, there is a ${scaleValue(S.HysilensScaling.technique.adjacent, i)} <u>base chance</u> to inflict each enemy target with ${scaleValue(S.HysilensScaling.technique.adjacent2, i, "")} of the following states: Wind Shear/Bleed/Burn/Shock, all of which are equivalent to those provided by Hysilens's Talent effect. Only 1 Dimension Effect created by allies can exist at the same time.
+        After using Technique, creates a Special Dimension that lasts for ${scaleValue(S.HysilensScaling.technique.main, i, "")} seconds and automatically moves forward. Enemies within the Special Dimension enter the "Soulstruck" state. "Soulstruck" enemies will not attack ally targets and will follow the dimension while it persists.<br>After entering combat with "Soulstruck" enemies, there is a ${scaleValue(S.HysilensScaling.technique.adjacent, i)} <u>base chance</u> to inflict each enemy target with ${scaleValue(S.HysilensScaling.technique.adjacent2, i, "")} of the following states: Wind Shear/Bleed/Burn/Shock, all of which are equivalent to those provided by Hysilens's Talent effect. Only 1 Dimension Effect created by allies can exist at the same time.
       `,
         },
         // --- Pasivas ---
@@ -12812,7 +12812,7 @@ const Evernight: Character = {
             level: "1/12",
             icon: charIcon("Evernight", "Talent"),
             description: (i) => `
-        When entering combat, <u>summons memosprite</u> Evey. Evey has an initial SPD of ${scaleValue(S.EvernightScaling.talent.main, i, "")} and its Max HP equals to ${scaleValue(S.EvernightScaling.talent.adjacent, i)} of that of Evernight's. Each time Evernight or Evey loses HP, increases CRIT DMG for Evernight and Evey by ${scaleValue(S.EvernightScaling.talent.adjacent2, i)} for ${scaleValue(S.EvernightScaling.talent.adjacent3, i, "")} turn(s), and gains ${scaleValue(S.EvernightScaling.talent.adjacent4, i, "")} "Memoria." This effect can trigger only once per target for each received attack.\\nWhen Evernight has ${scaleValue(S.EvernightScaling.talent.adjacent5, i, "")} or more points of "Memoria," dispels <u>Crowd Control debuffs</u> and becomes immune to them. If Evey is on the field, it immediately takes action. The immediate action effect can only trigger again after Evey uses "Dream, Dissolving, as Dew."
+        When entering combat, <u>summons memosprite</u> Evey. Evey has an initial SPD of ${scaleValue(S.EvernightScaling.talent.main, i, "")} and its Max HP equals to ${scaleValue(S.EvernightScaling.talent.adjacent, i)} of that of Evernight's. Each time Evernight or Evey loses HP, increases CRIT DMG for Evernight and Evey by ${scaleValue(S.EvernightScaling.talent.adjacent2, i)} for ${scaleValue(S.EvernightScaling.talent.adjacent3, i, "")} turn(s), and gains ${scaleValue(S.EvernightScaling.talent.adjacent4, i, "")} "Memoria." This effect can trigger only once per target for each received attack.<br>When Evernight has ${scaleValue(S.EvernightScaling.talent.adjacent5, i, "")} or more points of "Memoria," dispels <u>Crowd Control debuffs</u> and becomes immune to them. If Evey is on the field, it immediately takes action. The immediate action effect can only trigger again after Evey uses "Dream, Dissolving, as Dew."
       `,
         },
         technique: {
@@ -12992,7 +12992,7 @@ const DanHengPermansorTerrae: Character = {
             level: "1/12",
             icon: charIcon("DanHengPermansorTerrae", "Skill"),
             description: (i) => `
-        Designates one ally character as the "Bondmate" and provides all allies with a Shield that can offset DMG equal to ${scaleValue(S.DanHengPermansorTerraeScaling.skill.main, i)} of Dan Heng • Permansor Terrae's ATK plus ${scaleValue(S.DanHengPermansorTerraeScaling.skill.adjacent, i, "")} for ${scaleValue(S.DanHengPermansorTerraeScaling.skill.adjacent2, i, "")} turn(s). When repeatedly receiving Dan Heng • Permansor Terrae's Shield, can stack the Shield Effect, but it will not exceed ${scaleValue(S.DanHengPermansorTerraeScaling.skill.adjacent3, i)} of the current Shield provided by Skill.\\n"Bondmate" only applies to the most recent target of Dan Heng • Permansor Terrae's Skill.
+        Designates one ally character as the "Bondmate" and provides all allies with a Shield that can offset DMG equal to ${scaleValue(S.DanHengPermansorTerraeScaling.skill.main, i)} of Dan Heng • Permansor Terrae's ATK plus ${scaleValue(S.DanHengPermansorTerraeScaling.skill.adjacent, i, "")} for ${scaleValue(S.DanHengPermansorTerraeScaling.skill.adjacent2, i, "")} turn(s). When repeatedly receiving Dan Heng • Permansor Terrae's Shield, can stack the Shield Effect, but it will not exceed ${scaleValue(S.DanHengPermansorTerraeScaling.skill.adjacent3, i)} of the current Shield provided by Skill.<br>"Bondmate" only applies to the most recent target of Dan Heng • Permansor Terrae's Skill.
       `,
         },
         ultimate: {
@@ -13002,7 +13002,7 @@ const DanHengPermansorTerrae: Character = {
             level: "1/12",
             icon: charIcon("DanHengPermansorTerrae", "Ultimate"),
             description: (i) => `
-        Deals Physical DMG equal to ${scaleValue(S.DanHengPermansorTerraeScaling.ultimate.main, i)} of Dan Heng • Permansor Terrae's ATK to all enemies, and provides a Shield to all allies that can offset DMG equal to ${scaleValue(S.DanHengPermansorTerraeScaling.ultimate.adjacent, i)} of Dan Heng • Permansor Terrae's ATK plus ${scaleValue(S.DanHengPermansorTerraeScaling.ultimate.adjacent2, i, "")}, lasting for ${scaleValue(S.DanHengPermansorTerraeScaling.ultimate.adjacent3, i, "")} turn(s). When repeatedly receiving Dan Heng • Permansor Terrae's Shield, can stack the Shield Effect, but it will not exceed ${scaleValue(S.DanHengPermansorTerraeScaling.ultimate.adjacent4, i)} of the current Shield provided by Skill.\\n"Souldragon" becomes enhanced. When "Souldragon" takes action, launches <u>Follow-Up ATK</u>, dealing Physical DMG to all enemies equal to ${scaleValue(S.DanHengPermansorTerraeScaling.ultimate.adjacent5, i)} of Dan Heng • Permansor Terrae's ATK and <u>Additional DMG</u> of the Bondmate's Type to all enemies equal to ${scaleValue(S.DanHengPermansorTerraeScaling.ultimate.adjacent6, i)} of the Bondmate's ATK. The enhancement lasts for ${scaleValue(S.DanHengPermansorTerraeScaling.ultimate.adjacent7, i, "")} "Souldragon" action(s).
+        Deals Physical DMG equal to ${scaleValue(S.DanHengPermansorTerraeScaling.ultimate.main, i)} of Dan Heng • Permansor Terrae's ATK to all enemies, and provides a Shield to all allies that can offset DMG equal to ${scaleValue(S.DanHengPermansorTerraeScaling.ultimate.adjacent, i)} of Dan Heng • Permansor Terrae's ATK plus ${scaleValue(S.DanHengPermansorTerraeScaling.ultimate.adjacent2, i, "")}, lasting for ${scaleValue(S.DanHengPermansorTerraeScaling.ultimate.adjacent3, i, "")} turn(s). When repeatedly receiving Dan Heng • Permansor Terrae's Shield, can stack the Shield Effect, but it will not exceed ${scaleValue(S.DanHengPermansorTerraeScaling.ultimate.adjacent4, i)} of the current Shield provided by Skill.<br>"Souldragon" becomes enhanced. When "Souldragon" takes action, launches <u>Follow-Up ATK</u>, dealing Physical DMG to all enemies equal to ${scaleValue(S.DanHengPermansorTerraeScaling.ultimate.adjacent5, i)} of Dan Heng • Permansor Terrae's ATK and <u>Additional DMG</u> of the Bondmate's Type to all enemies equal to ${scaleValue(S.DanHengPermansorTerraeScaling.ultimate.adjacent6, i)} of the Bondmate's ATK. The enhancement lasts for ${scaleValue(S.DanHengPermansorTerraeScaling.ultimate.adjacent7, i, "")} "Souldragon" action(s).
       `,
         },
         talent: {
@@ -13012,7 +13012,7 @@ const DanHengPermansorTerrae: Character = {
             level: "1/12",
             icon: charIcon("DanHengPermansorTerrae", "Talent"),
             description: (i) => `
-        When an ally character becomes the "Bondmate," Dan Heng • Permansor Terrae summons "Souldragon" for them, which has an initial SPD of ${scaleValue(S.DanHengPermansorTerraeScaling.talent.main, i, "")}.\\nWhen "Souldragon" takes action, dispels ${scaleValue(S.DanHengPermansorTerraeScaling.talent.adjacent, i, "")} <u>debuff(s)</u> from all allies and provides a Shield that can offset DMG equal to ${scaleValue(S.DanHengPermansorTerraeScaling.talent.adjacent2, i)} of Dan Heng • Permansor Terrae's ATK plus ${scaleValue(S.DanHengPermansorTerraeScaling.talent.adjacent3, i, "")} for ${scaleValue(S.DanHengPermansorTerraeScaling.talent.adjacent4, i, "")} turn(s). The Shield Effect provided by Dan Heng • Permansor Terrae and "Souldragon" can be stacked, but it will not exceed ${scaleValue(S.DanHengPermansorTerraeScaling.talent.adjacent5, i)} of the Shield provided by Dan Heng • Permansor Terrae's Skill.\\nWhen Dan Heng • Permansor Terrae or the "Bondmate" is <u>knocked down</u>, "Souldragon" disappears.
+        When an ally character becomes the "Bondmate," Dan Heng • Permansor Terrae summons "Souldragon" for them, which has an initial SPD of ${scaleValue(S.DanHengPermansorTerraeScaling.talent.main, i, "")}.<br>When "Souldragon" takes action, dispels ${scaleValue(S.DanHengPermansorTerraeScaling.talent.adjacent, i, "")} <u>debuff(s)</u> from all allies and provides a Shield that can offset DMG equal to ${scaleValue(S.DanHengPermansorTerraeScaling.talent.adjacent2, i)} of Dan Heng • Permansor Terrae's ATK plus ${scaleValue(S.DanHengPermansorTerraeScaling.talent.adjacent3, i, "")} for ${scaleValue(S.DanHengPermansorTerraeScaling.talent.adjacent4, i, "")} turn(s). The Shield Effect provided by Dan Heng • Permansor Terrae and "Souldragon" can be stacked, but it will not exceed ${scaleValue(S.DanHengPermansorTerraeScaling.talent.adjacent5, i)} of the Shield provided by Dan Heng • Permansor Terrae's Skill.<br>When Dan Heng • Permansor Terrae or the "Bondmate" is <u>knocked down</u>, "Souldragon" disappears.
       `,
         },
         technique: {
@@ -13022,7 +13022,7 @@ const DanHengPermansorTerrae: Character = {
             level: "1/1",
             icon: charIcon("DanHengPermansorTerrae", "Technique"),
             description: (i) => `
-        After using Technique, gains "Bondmate" and inflict Daze on enemies within a certain area for ${scaleValue(S.DanHengPermansorTerraeScaling.technique, i, "")} second(s). Dazed enemies will not actively attack ally targets.\\nWhen switching the active character, "Bondmate" transfers to the current active character. At the start of the next battle, automatically uses Skill 1 time on the character with "Bondmate" without consuming any Skill Points.
+        After using Technique, gains "Bondmate" and inflict Daze on enemies within a certain area for ${scaleValue(S.DanHengPermansorTerraeScaling.technique, i, "")} second(s). Dazed enemies will not actively attack ally targets.<br>When switching the active character, "Bondmate" transfers to the current active character. At the start of the next battle, automatically uses Skill 1 time on the character with "Bondmate" without consuming any Skill Points.
       `,
         },
         // --- Pasivas ---
@@ -13176,7 +13176,7 @@ const Cyrene: Character = {
             level: "1/12",
             icon: charIcon("Cyrene", "Ultimate"),
             description: (i) => `
-        <u>Summons memosprite</u> Demiurge, causes it to immediately gain 1 <u>extra turn</u>, and activates all teammates' Ultimate. Then, enters the "Ripples of Past Reverie" state. Enhances Basic ATK to "To Love and Tomorrow ♪" and can only use this Basic ATK. Increases Cyrene's and Demiurge's CRIT Rate by ${scaleValue(S.CyreneScaling.ultimate.main, i)}, and deploys the Zone effect from Skill with no duration limit.\\nCan only be used once per battle. Demiurge's initial Max HP equals to ${scaleValue(S.CyreneScaling.ultimate.adjacent, i)} of Cyrene's Max HP.
+        <u>Summons memosprite</u> Demiurge, causes it to immediately gain 1 <u>extra turn</u>, and activates all teammates' Ultimate. Then, enters the "Ripples of Past Reverie" state. Enhances Basic ATK to "To Love and Tomorrow ♪" and can only use this Basic ATK. Increases Cyrene's and Demiurge's CRIT Rate by ${scaleValue(S.CyreneScaling.ultimate.main, i)}, and deploys the Zone effect from Skill with no duration limit.<br>Can only be used once per battle. Demiurge's initial Max HP equals to ${scaleValue(S.CyreneScaling.ultimate.adjacent, i)} of Cyrene's Max HP.
       `,
         },
         talent: {
@@ -13410,7 +13410,7 @@ const Sparxie: Character = {
             level: "1/12",
             icon: charIcon("Sparxie", "Talent"),
             description: (i) => `
-        While Sparxie holds "<u>Certified Banger</u>":\\nUsing Enhanced Basic ATK deals ${scaleValue(S.SparxieScaling.talent.main, i)} Fire <u>Elation DMG</u> to one designated enemy, and ${scaleValue(S.SparxieScaling.talent.adjacent, i)} Fire <u>Elation DMG</u> to their adjacent targets. Additionally, for every 1 instance of "Engagement Farming" triggered, the Enhanced Basic ATK deals 1 extra instance of ${scaleValue(S.SparxieScaling.talent.adjacent2, i)} Fire <u>Elation DMG</u> to 1 random attacked enemy target.\\nUsing Ultimate deals ${scaleValue(S.SparxieScaling.talent.adjacent3, i)} Fire <u>Elation DMG</u> to all enemies.
+        While Sparxie holds "<u>Certified Banger</u>":<br>Using Enhanced Basic ATK deals ${scaleValue(S.SparxieScaling.talent.main, i)} Fire <u>Elation DMG</u> to one designated enemy, and ${scaleValue(S.SparxieScaling.talent.adjacent, i)} Fire <u>Elation DMG</u> to their adjacent targets. Additionally, for every 1 instance of "Engagement Farming" triggered, the Enhanced Basic ATK deals 1 extra instance of ${scaleValue(S.SparxieScaling.talent.adjacent2, i)} Fire <u>Elation DMG</u> to 1 random attacked enemy target.<br>Using Ultimate deals ${scaleValue(S.SparxieScaling.talent.adjacent3, i)} Fire <u>Elation DMG</u> to all enemies.
       `,
         },
         technique: {
@@ -13420,7 +13420,7 @@ const Sparxie: Character = {
             level: "1/1",
             icon: charIcon("Sparxie", "Technique"),
             description: (i) => `
-        After using the Technique, inflicts enemies within a set area with "Block" for ${scaleValue(S.SparxieScaling.technique.main, i, "")} second(s). "Blocked" enemies cannot detect ally targets.\\nAfter entering combat via actively attacking a "Blocked" enemy, deals Fire DMG to all enemies equal to ${scaleValue(S.SparxieScaling.technique.adjacent, i)} of Sparxie's ATK and recovers ${scaleValue(S.SparxieScaling.technique.adjacent2, i, "")} Skill Point(s) for allies.
+        After using the Technique, inflicts enemies within a set area with "Block" for ${scaleValue(S.SparxieScaling.technique.main, i, "")} second(s). "Blocked" enemies cannot detect ally targets.<br>After entering combat via actively attacking a "Blocked" enemy, deals Fire DMG to all enemies equal to ${scaleValue(S.SparxieScaling.technique.adjacent, i)} of Sparxie's ATK and recovers ${scaleValue(S.SparxieScaling.technique.adjacent2, i, "")} Skill Point(s) for allies.
       `,
         },
         // --- Pasivas ---
@@ -13594,7 +13594,7 @@ const YaoGuang: Character = {
             level: "1/12",
             icon: charIcon("YaoGuang", "Talent"),
             description: (i) => `
-        While Yao Guang holds "<u>Certified Banger</u>":\\nAfter an ally target uses an attack, triggers the "Great Boon" effect, dealing 1 additional instance of ${scaleValue(S.YaoGuangScaling.talent, i)} <u>Elation DMG</u> of the corresponding Type to 1 random hit target. If this attack consumes Skill Points, then additionally triggers "Great Boon" 1 time.\\nWhen triggering the "Great Boon" effect, if the attacker's Elation is lower than that of Yao Guang, then this instance of <u>Elation DMG</u> will take Yao Guang's Elation into calculation.\\nTriggering the "Great Boon" effect is not considered as using 1 instance of attack.
+        While Yao Guang holds "<u>Certified Banger</u>":<br>After an ally target uses an attack, triggers the "Great Boon" effect, dealing 1 additional instance of ${scaleValue(S.YaoGuangScaling.talent, i)} <u>Elation DMG</u> of the corresponding Type to 1 random hit target. If this attack consumes Skill Points, then additionally triggers "Great Boon" 1 time.<br>When triggering the "Great Boon" effect, if the attacker's Elation is lower than that of Yao Guang, then this instance of <u>Elation DMG</u> will take Yao Guang's Elation into calculation.<br>Triggering the "Great Boon" effect is not considered as using 1 instance of attack.
       `,
         },
         technique: {
@@ -13758,7 +13758,7 @@ const Ashveil: Character = {
             level: "1/12",
             icon: charIcon("Ashveil", "Skill"),
             description: (i) => `
-        Makes one designated enemy become the "Bait," dealing it Lightning DMG equal to ${scaleValue(S.AshveilScaling.skill.main, i)} of Ashveil's ATK. If the target is already the "Bait," additionally deals it Lightning DMG equal to ${scaleValue(S.AshveilScaling.skill.adjacent, i)} of Ashveil's ATK, and recovers ${scaleValue(S.AshveilScaling.skill.adjacent2, i, "")} Skill Point(s). When the "Bait" exists on the field, all enemies' DEF gets reduced by ${scaleValue(S.AshveilScaling.skill.adjacent3, i)}.\\nWhen there is no "Bait" on the field, Ashveil immediately makes the enemy target with the lowest HP on the field become the "Bait." The "Bait" state only takes effect on the most recently applied target.
+        Makes one designated enemy become the "Bait," dealing it Lightning DMG equal to ${scaleValue(S.AshveilScaling.skill.main, i)} of Ashveil's ATK. If the target is already the "Bait," additionally deals it Lightning DMG equal to ${scaleValue(S.AshveilScaling.skill.adjacent, i)} of Ashveil's ATK, and recovers ${scaleValue(S.AshveilScaling.skill.adjacent2, i, "")} Skill Point(s). When the "Bait" exists on the field, all enemies' DEF gets reduced by ${scaleValue(S.AshveilScaling.skill.adjacent3, i)}.<br>When there is no "Bait" on the field, Ashveil immediately makes the enemy target with the lowest HP on the field become the "Bait." The "Bait" state only takes effect on the most recently applied target.
       `,
         },
         ultimate: {
@@ -13768,7 +13768,7 @@ const Ashveil: Character = {
             level: "1/12",
             icon: charIcon("Ashveil", "Ultimate"),
             description: (i) => `
-        Makes one designated enemy become the "Bait," dealing it Lightning DMG equal to ${scaleValue(S.AshveilScaling.ultimate.main, i)} of Ashveil's ATK. Then, immediately launches 1 instance of enhanced Talent's <u>Follow-Up ATK</u> against the "Bait." And Ashveil gains ${scaleValue(S.AshveilScaling.ultimate.adjacent, i, "")} Charge.\\nThis enhanced Talent's <u>Follow-Up ATK</u> does not consume Charge. Whenever "Gluttony" reaches ${scaleValue(S.AshveilScaling.ultimate.adjacent2, i, "")} stack(s) or more, consumes ${scaleValue(S.AshveilScaling.ultimate.adjacent2, i, "")} stack(s) of "Gluttony" to additionally deal 1 instance of Lightning DMG equal to ${scaleValue(S.AshveilScaling.ultimate.adjacent3, i)} of Ashveil's ATK. And when this instance of <u>Follow-Up ATK</u> deals a killing blow to the target, it will continue to deal DMG to a new "Bait." This triggers until "Gluttony" becomes lower than ${scaleValue(S.AshveilScaling.ultimate.adjacent2, i, "")} stack(s). If all enemy targets currently on the field have been dealt killing blows, the enhanced Talent's <u>Follow-Up ATK</u> will immediately end.
+        Makes one designated enemy become the "Bait," dealing it Lightning DMG equal to ${scaleValue(S.AshveilScaling.ultimate.main, i)} of Ashveil's ATK. Then, immediately launches 1 instance of enhanced Talent's <u>Follow-Up ATK</u> against the "Bait." And Ashveil gains ${scaleValue(S.AshveilScaling.ultimate.adjacent, i, "")} Charge.<br>This enhanced Talent's <u>Follow-Up ATK</u> does not consume Charge. Whenever "Gluttony" reaches ${scaleValue(S.AshveilScaling.ultimate.adjacent2, i, "")} stack(s) or more, consumes ${scaleValue(S.AshveilScaling.ultimate.adjacent2, i, "")} stack(s) of "Gluttony" to additionally deal 1 instance of Lightning DMG equal to ${scaleValue(S.AshveilScaling.ultimate.adjacent3, i)} of Ashveil's ATK. And when this instance of <u>Follow-Up ATK</u> deals a killing blow to the target, it will continue to deal DMG to a new "Bait." This triggers until "Gluttony" becomes lower than ${scaleValue(S.AshveilScaling.ultimate.adjacent2, i, "")} stack(s). If all enemy targets currently on the field have been dealt killing blows, the enhanced Talent's <u>Follow-Up ATK</u> will immediately end.
       `,
         },
         talent: {
@@ -13788,7 +13788,7 @@ const Ashveil: Character = {
             level: "1/1",
             icon: charIcon("Ashveil", "Technique"),
             description: (i) => `
-        After using Technique, inflicts Daze on enemies within a set area for ${scaleValue(S.AshveilScaling.technique.main, i, "")} second(s). Dazed enemies will not actively attack ally targets.\\nWhen entering combat via actively attacking a Dazed enemy, deals Lightning DMG to all enemies equal to ${scaleValue(S.AshveilScaling.technique.adjacent, i)} of Ashveil's ATK, and grants Ashveil ${scaleValue(S.AshveilScaling.technique.adjacent2, i, "")} Charge.
+        After using Technique, inflicts Daze on enemies within a set area for ${scaleValue(S.AshveilScaling.technique.main, i, "")} second(s). Dazed enemies will not actively attack ally targets.<br>When entering combat via actively attacking a Dazed enemy, deals Lightning DMG to all enemies equal to ${scaleValue(S.AshveilScaling.technique.adjacent, i)} of Ashveil's ATK, and grants Ashveil ${scaleValue(S.AshveilScaling.technique.adjacent2, i, "")} Charge.
       `,
         },
         // --- Pasivas ---
@@ -13952,7 +13952,7 @@ const Evanescia: Character = {
             level: "1/12",
             icon: charIcon("Evanescia", "Talent"),
             description: (i) => `
-        Evanescia gains Elation equal to ${scaleValue(S.EvanesciaScaling.talent.main, i)} of CRIT DMG. When Evanescia gains Energy, she will simultaneously gain an equal amount of "<u>Certified Banger</u>." When Evanescia gains "<u>Certified Banger</u>," she will simultaneously gain an equal amount of Energy. The amount of "<u>Certified Banger</u>" taken into calculation via this method cannot exceed 100 points in a single instance.\\nAfter accumulating ${scaleValue(S.EvanesciaScaling.talent.adjacent, i, "")} Energy, she consumes this accumulation of ${scaleValue(S.EvanesciaScaling.talent.adjacent, i, "")}, and "Master Fox" launches <u>Follow-Up ATK</u>, dealing Physical DMG equal to ${scaleValue(S.EvanesciaScaling.talent.adjacent2, i)} of Evanescia's ATK to all enemies, and regenerates ${scaleValue(S.EvanesciaScaling.talent.adjacent3, i, "")} Energy for Evanescia. Each instance of Energy regeneration grants up to an accumulation of ${scaleValue(S.EvanesciaScaling.talent.adjacent, i, "")}. While Evanescia holds "<u>Certified Banger</u>":\\nUsing Skill can deal ${scaleValue(S.EvanesciaScaling.talent.adjacent4, i)} Physical <u>Elation DMG</u> to the attacked enemy targets.\\nUsing Ultimate can deal ${scaleValue(S.EvanesciaScaling.talent.adjacent5, i)} Physical <u>Elation DMG</u> to all enemies and also deals ${scaleValue(S.EvanesciaScaling.talent.adjacent6, i)} Physical <u>Elation DMG</u> to the enemy targets that have been randomly dealt DMG by Ultimate. When Ultimate deals <u>Elation DMG</u>, the amount of "<u>Certified Banger</u>" taken into account is at least equal to Max Energy.\\nMaster Fox's <u>Follow-Up ATK</u> deals ${scaleValue(S.EvanesciaScaling.talent.adjacent7, i)} Physical <u>Elation DMG</u> to all enemies.
+        Evanescia gains Elation equal to ${scaleValue(S.EvanesciaScaling.talent.main, i)} of CRIT DMG. When Evanescia gains Energy, she will simultaneously gain an equal amount of "<u>Certified Banger</u>." When Evanescia gains "<u>Certified Banger</u>," she will simultaneously gain an equal amount of Energy. The amount of "<u>Certified Banger</u>" taken into calculation via this method cannot exceed 100 points in a single instance.<br>After accumulating ${scaleValue(S.EvanesciaScaling.talent.adjacent, i, "")} Energy, she consumes this accumulation of ${scaleValue(S.EvanesciaScaling.talent.adjacent, i, "")}, and "Master Fox" launches <u>Follow-Up ATK</u>, dealing Physical DMG equal to ${scaleValue(S.EvanesciaScaling.talent.adjacent2, i)} of Evanescia's ATK to all enemies, and regenerates ${scaleValue(S.EvanesciaScaling.talent.adjacent3, i, "")} Energy for Evanescia. Each instance of Energy regeneration grants up to an accumulation of ${scaleValue(S.EvanesciaScaling.talent.adjacent, i, "")}. While Evanescia holds "<u>Certified Banger</u>":<br>Using Skill can deal ${scaleValue(S.EvanesciaScaling.talent.adjacent4, i)} Physical <u>Elation DMG</u> to the attacked enemy targets.<br>Using Ultimate can deal ${scaleValue(S.EvanesciaScaling.talent.adjacent5, i)} Physical <u>Elation DMG</u> to all enemies and also deals ${scaleValue(S.EvanesciaScaling.talent.adjacent6, i)} Physical <u>Elation DMG</u> to the enemy targets that have been randomly dealt DMG by Ultimate. When Ultimate deals <u>Elation DMG</u>, the amount of "<u>Certified Banger</u>" taken into account is at least equal to Max Energy.<br>Master Fox's <u>Follow-Up ATK</u> deals ${scaleValue(S.EvanesciaScaling.talent.adjacent7, i)} Physical <u>Elation DMG</u> to all enemies.
       `,
         },
         technique: {
@@ -14126,7 +14126,7 @@ const SilverWolfLV999: Character = {
             level: "1/12",
             icon: charIcon("SilverWolfLV999", "Ultimate"),
             description: (i) => `
-        Enters the "Godmode Player" state, and <u>advances action</u> by 100%.\\nDeploys a Zone while in the "Godmode Player" state. While Silver Wolf LV.999 holds "<u>Certified Banger</u>," for every 1 Skill Point consumed by an ally target within the Zone, there is a chance to trigger 1 instance of Silver Wolf LV.999's "<u>Top Loot Box</u>": Deals ${scaleValue(S.SilverWolfLV999Scaling.ultimate.main, i)} Imaginary <u>Elation DMG</u> that is distributed evenly among all enemies, and randomly triggers 1 of the following effects:\\n"Big Flipping Sword": Additionally deals <u>True DMG</u> equal to ${scaleValue(S.SilverWolfLV999Scaling.ultimate.adjacent, i)} of the total DMG dealt this time to the enemy target with the highest HP.\\n"Kaboom Eggsplosion": Recovers ${scaleValue(S.SilverWolfLV999Scaling.ultimate.adjacent2, i, "")} Skill Point(s).\\n"Funky Munch Bean": Gains ${scaleValue(S.SilverWolfLV999Scaling.ultimate.adjacent3, i, "")} <u>Punchline</u> point(s).\\nThe initial <u>fixed chance</u> to trigger the effect is 100%. After a successfully trigger, the <u>fixed chance</u> for the next trigger is reduced to ${scaleValue(S.SilverWolfLV999Scaling.ultimate.adjacent4, i)} of the current chance. If the target is defeated before it triggers, it will instead trigger on a newly entering enemy target.
+        Enters the "Godmode Player" state, and <u>advances action</u> by 100%.<br>Deploys a Zone while in the "Godmode Player" state. While Silver Wolf LV.999 holds "<u>Certified Banger</u>," for every 1 Skill Point consumed by an ally target within the Zone, there is a chance to trigger 1 instance of Silver Wolf LV.999's "<u>Top Loot Box</u>": Deals ${scaleValue(S.SilverWolfLV999Scaling.ultimate.main, i)} Imaginary <u>Elation DMG</u> that is distributed evenly among all enemies, and randomly triggers 1 of the following effects:<br>"Big Flipping Sword": Additionally deals <u>True DMG</u> equal to ${scaleValue(S.SilverWolfLV999Scaling.ultimate.adjacent, i)} of the total DMG dealt this time to the enemy target with the highest HP.<br>"Kaboom Eggsplosion": Recovers ${scaleValue(S.SilverWolfLV999Scaling.ultimate.adjacent2, i, "")} Skill Point(s).<br>"Funky Munch Bean": Gains ${scaleValue(S.SilverWolfLV999Scaling.ultimate.adjacent3, i, "")} <u>Punchline</u> point(s).<br>The initial <u>fixed chance</u> to trigger the effect is 100%. After a successfully trigger, the <u>fixed chance</u> for the next trigger is reduced to ${scaleValue(S.SilverWolfLV999Scaling.ultimate.adjacent4, i)} of the current chance. If the target is defeated before it triggers, it will instead trigger on a newly entering enemy target.
       `,
         },
         talent: {
@@ -14136,7 +14136,7 @@ const SilverWolfLV999: Character = {
             level: "1/12",
             icon: charIcon("SilverWolfLV999", "Talent"),
             description: (i) => `
-        After "Hidden MMR" reaches ${scaleValue(S.SilverWolfLV999Scaling.talent.main, i, "")}, can activate Ultimate. And after reaching its maximum limit, it can overflow by an additional ${scaleValue(S.SilverWolfLV999Scaling.talent.adjacent, i, "")} point(s).\\nWhen gaining <u>Punchline</u>, Silver Wolf LV.999 gains an equal amount of "Hidden MMR." Each point of "Hidden MMR" increases CRIT Rate by ${scaleValue(S.SilverWolfLV999Scaling.talent.adjacent2, i)}. Once CRIT Rate reaches 100%, each additional point of "Hidden MMR" instead increases CRIT DMG by ${scaleValue(S.SilverWolfLV999Scaling.talent.adjacent3, i)}.\\nWhile in the "Godmode Player" state, Silver Wolf LV.999 becomes immune to <u>Crowd Control debuffs</u>, cannot use Ultimate, and gains Enhanced Basic ATK and Enhanced Elation Skill. After fully using Enhanced Basic ATK ${scaleValue(S.SilverWolfLV999Scaling.talent.adjacent4, i, "")} time(s), she exits the "Godmode Player" state. When exiting the "Godmode Player" state, clears "Hidden MMR".\\nWhile holding "<u>Certified Banger</u>," using Basic ATK or Skill deals ${scaleValue(S.SilverWolfLV999Scaling.talent.adjacent5, i)} Imaginary <u>Elation DMG</u> to the attacked enemy targets. And the Enhanced Basic ATK's ability DMG changes to <u>Elation DMG</u> at the same multiplier.
+        After "Hidden MMR" reaches ${scaleValue(S.SilverWolfLV999Scaling.talent.main, i, "")}, can activate Ultimate. And after reaching its maximum limit, it can overflow by an additional ${scaleValue(S.SilverWolfLV999Scaling.talent.adjacent, i, "")} point(s).<br>When gaining <u>Punchline</u>, Silver Wolf LV.999 gains an equal amount of "Hidden MMR." Each point of "Hidden MMR" increases CRIT Rate by ${scaleValue(S.SilverWolfLV999Scaling.talent.adjacent2, i)}. Once CRIT Rate reaches 100%, each additional point of "Hidden MMR" instead increases CRIT DMG by ${scaleValue(S.SilverWolfLV999Scaling.talent.adjacent3, i)}.<br>While in the "Godmode Player" state, Silver Wolf LV.999 becomes immune to <u>Crowd Control debuffs</u>, cannot use Ultimate, and gains Enhanced Basic ATK and Enhanced Elation Skill. After fully using Enhanced Basic ATK ${scaleValue(S.SilverWolfLV999Scaling.talent.adjacent4, i, "")} time(s), she exits the "Godmode Player" state. When exiting the "Godmode Player" state, clears "Hidden MMR".<br>While holding "<u>Certified Banger</u>," using Basic ATK or Skill deals ${scaleValue(S.SilverWolfLV999Scaling.talent.adjacent5, i)} Imaginary <u>Elation DMG</u> to the attacked enemy targets. And the Enhanced Basic ATK's ability DMG changes to <u>Elation DMG</u> at the same multiplier.
       `,
         },
         technique: {
@@ -14146,7 +14146,7 @@ const SilverWolfLV999: Character = {
             level: "1/1",
             icon: charIcon("SilverWolfLV999", "Technique"),
             description: (i) => `
-        Summons "Funky Munch Bean." Use again to dismiss. Using Technique does not consume Technique Points. When Technique Points reach 0, the summon is dismissed and Technique cannot be used.\\n"Funky Munch Bean" causes Normal Enemies within a certain range to enter a Terrified state. It will also automatically search for and attack Normal Enemies, consuming 1 Technique Point to instantly defeat them without entering combat.\\nWhile "Funky Munch Bean" is present, after entering combat, 1 instance of "<u>Top Loot Box</u>" from "Funky Munch Bean" is triggered at the start of each wave. A fixed amount of ${scaleValue(S.SilverWolfLV999Scaling.technique, i, "")} "<u>Certified Banger</u>" is taken into account for the <u>Elation DMG</u> dealt in this instance.
+        Summons "Funky Munch Bean." Use again to dismiss. Using Technique does not consume Technique Points. When Technique Points reach 0, the summon is dismissed and Technique cannot be used.<br>"Funky Munch Bean" causes Normal Enemies within a certain range to enter a Terrified state. It will also automatically search for and attack Normal Enemies, consuming 1 Technique Point to instantly defeat them without entering combat.<br>While "Funky Munch Bean" is present, after entering combat, 1 instance of "<u>Top Loot Box</u>" from "Funky Munch Bean" is triggered at the start of each wave. A fixed amount of ${scaleValue(S.SilverWolfLV999Scaling.technique, i, "")} "<u>Certified Banger</u>" is taken into account for the <u>Elation DMG</u> dealt in this instance.
       `,
         },
         // --- Pasivas ---
@@ -14302,7 +14302,7 @@ const MortenaxBlade: Character = {
             level: "1/12",
             icon: charIcon("MortenaxBlade", "Skill"),
             description: (i) => `
-        Consumes HP equal to ${scaleValue(S.MortenaxBladeScaling.skill.main, i)} of Mortenax Blade's Max HP and deals Fire DMG equal to ${scaleValue(S.MortenaxBladeScaling.skill.adjacent, i)} of Mortenax Blade's Max HP to all enemies, and additionally deals ${scaleValue(S.MortenaxBladeScaling.skill.adjacent2, i, "")} instance(s) of DMG, with each instance dealing Fire DMG equal to ${scaleValue(S.MortenaxBladeScaling.skill.adjacent3, i)} of Mortenax Blade's Max HP to one random enemy.\\nIf the current HP is insufficient, Mortenax Blade's current HP will be reduced to 1 when he uses Skill.\\nWhile not in the "Infinite Fury" state or when the current HP is 1 or lower, Mortenax Blade cannot use his Skill.\\nUsing Skill does not consume Skill Points.
+        Consumes HP equal to ${scaleValue(S.MortenaxBladeScaling.skill.main, i)} of Mortenax Blade's Max HP and deals Fire DMG equal to ${scaleValue(S.MortenaxBladeScaling.skill.adjacent, i)} of Mortenax Blade's Max HP to all enemies, and additionally deals ${scaleValue(S.MortenaxBladeScaling.skill.adjacent2, i, "")} instance(s) of DMG, with each instance dealing Fire DMG equal to ${scaleValue(S.MortenaxBladeScaling.skill.adjacent3, i)} of Mortenax Blade's Max HP to one random enemy.<br>If the current HP is insufficient, Mortenax Blade's current HP will be reduced to 1 when he uses Skill.<br>While not in the "Infinite Fury" state or when the current HP is 1 or lower, Mortenax Blade cannot use his Skill.<br>Using Skill does not consume Skill Points.
       `,
         },
         ultimate: {
@@ -14312,7 +14312,7 @@ const MortenaxBlade: Character = {
             level: "1/12",
             icon: charIcon("MortenaxBlade", "Ultimate"),
             description: (i) => `
-        Inflicts "Balefire Bind" on all enemies. Enemy targets in the "Balefire Bind" state have their DEF reduced by ${scaleValue(S.MortenaxBladeScaling.ultimate.main, i)} and the DMG they receive increases by ${scaleValue(S.MortenaxBladeScaling.ultimate.adjacent, i)}, lasting for ${scaleValue(S.MortenaxBladeScaling.ultimate.adjacent2, i, "")} turn(s). Then, consumes HP equal to ${scaleValue(S.MortenaxBladeScaling.ultimate.adjacent3, i)} of Mortenax Blade's Max HP to deploy a Zone. While the Zone is active, Mortenax Blade enters the "Infinite Fury" state.\\nDuring the "Infinite Fury" state, increases CRIT Rate by ${scaleValue(S.MortenaxBladeScaling.ultimate.adjacent4, i)}, increases CRIT DMG by ${scaleValue(S.MortenaxBladeScaling.ultimate.adjacent5, i)}, enhances Basic ATK, unlocks Skill, and gains a new Ultimate "Tenax Per Ignem." When receiving a killing blow, this unit will not be <u>knocked down</u>, but will dispel the Zone, exit the "Infinite Fury" state, and restore HP equal to ${scaleValue(S.MortenaxBladeScaling.ultimate.adjacent6, i)} of this unit's Max HP.\\nWhen gaining the "Infinite Fury" state, a corresponding countdown appears on the Action Order. The countdown has a fixed SPD of ${scaleValue(S.MortenaxBladeScaling.ultimate.adjacent7, i, "")}. At the start of the countdown's turn, dispels the Zone and exits the "Infinite Fury" state.\\nIf the current HP is insufficient, Mortenax Blade's current HP will be reduced to 1 when he uses this ability.
+        Inflicts "Balefire Bind" on all enemies. Enemy targets in the "Balefire Bind" state have their DEF reduced by ${scaleValue(S.MortenaxBladeScaling.ultimate.main, i)} and the DMG they receive increases by ${scaleValue(S.MortenaxBladeScaling.ultimate.adjacent, i)}, lasting for ${scaleValue(S.MortenaxBladeScaling.ultimate.adjacent2, i, "")} turn(s). Then, consumes HP equal to ${scaleValue(S.MortenaxBladeScaling.ultimate.adjacent3, i)} of Mortenax Blade's Max HP to deploy a Zone. While the Zone is active, Mortenax Blade enters the "Infinite Fury" state.<br>During the "Infinite Fury" state, increases CRIT Rate by ${scaleValue(S.MortenaxBladeScaling.ultimate.adjacent4, i)}, increases CRIT DMG by ${scaleValue(S.MortenaxBladeScaling.ultimate.adjacent5, i)}, enhances Basic ATK, unlocks Skill, and gains a new Ultimate "Tenax Per Ignem." When receiving a killing blow, this unit will not be <u>knocked down</u>, but will dispel the Zone, exit the "Infinite Fury" state, and restore HP equal to ${scaleValue(S.MortenaxBladeScaling.ultimate.adjacent6, i)} of this unit's Max HP.<br>When gaining the "Infinite Fury" state, a corresponding countdown appears on the Action Order. The countdown has a fixed SPD of ${scaleValue(S.MortenaxBladeScaling.ultimate.adjacent7, i, "")}. At the start of the countdown's turn, dispels the Zone and exits the "Infinite Fury" state.<br>If the current HP is insufficient, Mortenax Blade's current HP will be reduced to 1 when he uses this ability.
       `,
         },
         talent: {
@@ -14650,7 +14650,7 @@ const Gilgamesh: Character = {
             level: "1/12",
             icon: charIcon("Gilgamesh", "Skill"),
             description: (i) => `
-        Gains "King's Acknowledgement," allowing this unit to ignore ${scaleValue(S.GilgameshScaling.skill.main, i)} of the target's DEF when dealing DMG, lasting for ${scaleValue(S.GilgameshScaling.skill.adjacent, i, "")} turn(s).\\nDeals Lightning DMG equal to ${scaleValue(S.GilgameshScaling.skill.adjacent2, i)} of Gilgamesh's ATK to one designated enemy, and deals Lightning DMG equal to ${scaleValue(S.GilgameshScaling.skill.adjacent3, i)} of Gilgamesh's ATK to adjacent targets.
+        Gains "King's Acknowledgement," allowing this unit to ignore ${scaleValue(S.GilgameshScaling.skill.main, i)} of the target's DEF when dealing DMG, lasting for ${scaleValue(S.GilgameshScaling.skill.adjacent, i, "")} turn(s).<br>Deals Lightning DMG equal to ${scaleValue(S.GilgameshScaling.skill.adjacent2, i)} of Gilgamesh's ATK to one designated enemy, and deals Lightning DMG equal to ${scaleValue(S.GilgameshScaling.skill.adjacent3, i)} of Gilgamesh's ATK to adjacent targets.
       `,
         },
         ultimate: {
@@ -14670,7 +14670,7 @@ const Gilgamesh: Character = {
             level: "1/12",
             icon: charIcon("Gilgamesh", "Talent"),
             description: (i) => `
-        When a teammate uses their Ultimate, Gilgamesh gains "King's Burden," which increases Ultimate DMG dealt by this unit by ${scaleValue(S.GilgameshScaling.talent.main, i)}, lasting for ${scaleValue(S.GilgameshScaling.talent.adjacent, i, "")} turn(s).\\nInitially, automatically uses Basic ATK at the start of this unit's turn. When another ally target takes action, Gilgamesh gains 1 point of "Interest." For each point of "Interest" in possession, increases this unit's SPD by ${scaleValue(S.GilgameshScaling.talent.adjacent2, i)}.\\nWhen "Interest" reaches ${scaleValue(S.GilgameshScaling.talent.adjacent3, i, "")} for the first time, enters the "Interest Piqued!" state. In that state, can only use Skill, lasting for the entire battle. After using Skill, clears this unit's "Interest."
+        When a teammate uses their Ultimate, Gilgamesh gains "King's Burden," which increases Ultimate DMG dealt by this unit by ${scaleValue(S.GilgameshScaling.talent.main, i)}, lasting for ${scaleValue(S.GilgameshScaling.talent.adjacent, i, "")} turn(s).<br>Initially, automatically uses Basic ATK at the start of this unit's turn. When another ally target takes action, Gilgamesh gains 1 point of "Interest." For each point of "Interest" in possession, increases this unit's SPD by ${scaleValue(S.GilgameshScaling.talent.adjacent2, i)}.<br>When "Interest" reaches ${scaleValue(S.GilgameshScaling.talent.adjacent3, i, "")} for the first time, enters the "Interest Piqued!" state. In that state, can only use Skill, lasting for the entire battle. After using Skill, clears this unit's "Interest."
       `,
         },
         technique: {
@@ -14680,7 +14680,7 @@ const Gilgamesh: Character = {
             level: "1/1",
             icon: charIcon("Gilgamesh", "Technique"),
             description: (i) => `
-        After using Technique, creates 1 Special Dimension lasting for ${scaleValue(S.GilgameshScaling.technique.main, i, "")} second(s). Enemies in the Special Dimension enter the "King's Permission" state. Enemies in the "King's Permission" state will cease all actions.\\nWhen entering combat by actively attacking an enemy in the "King's Permission" state, causes all enemies in the "King's Permission" state to enter combat, and deals Lightning DMG equal to ${scaleValue(S.GilgameshScaling.technique.adjacent, i)} of Gilgamesh's ATK to all enemies after entering combat. Gilgamesh also immediately gains ${scaleValue(S.GilgameshScaling.technique.adjacent2, i, "")} "Interest." Only 1 Dimension Effect created by allies can exist at the same time.
+        After using Technique, creates 1 Special Dimension lasting for ${scaleValue(S.GilgameshScaling.technique.main, i, "")} second(s). Enemies in the Special Dimension enter the "King's Permission" state. Enemies in the "King's Permission" state will cease all actions.<br>When entering combat by actively attacking an enemy in the "King's Permission" state, causes all enemies in the "King's Permission" state to enter combat, and deals Lightning DMG equal to ${scaleValue(S.GilgameshScaling.technique.adjacent, i)} of Gilgamesh's ATK to all enemies after entering combat. Gilgamesh also immediately gains ${scaleValue(S.GilgameshScaling.technique.adjacent2, i, "")} "Interest." Only 1 Dimension Effect created by allies can exist at the same time.
       `,
         },
         // --- Pasivas ---
@@ -14834,7 +14834,7 @@ const HimekoNova: Character = {
             level: "1/12",
             icon: charIcon("HimekoNova", "Ultimate"),
             description: (i) => `
-        Immediately takes control of "Starblazer." "Starblazer" can launch "Hyperluminal Particle Beam" against enemies 6 times, or consume <u>"Source Energy"</u> to launch "Orbital Annihilation Pulse," dealing Fire DMG up to ${scaleValue(S.HimekoNovaScaling.ultimate.main, i)} of Himeko • Nova's ATK to one designated enemy, and Fire DMG up to ${scaleValue(S.HimekoNovaScaling.ultimate.adjacent, i)} of Himeko • Nova's ATK to other targets.\\nWhen the uses of "Hyperluminal Particle Beam" are depleted, automatically launches "Orbital Annihilation Pulse," followed by Final Hit, dealing ${scaleValue(S.HimekoNovaScaling.ultimate.adjacent2, i, "")} instance(s) of DMG, with each instance dealing Fire DMG equal to ${scaleValue(S.HimekoNovaScaling.ultimate.adjacent3, i)} of Himeko • Nova's ATK to one random enemy.\\nWhen "Hyperluminal Particle Beam" or "Orbital Annihilation Pulse" deals fatal damage to all enemies on the field, or when enemy HP can no longer be reduced, immediately launches Final Hit.
+        Immediately takes control of "Starblazer." "Starblazer" can launch "Hyperluminal Particle Beam" against enemies 6 times, or consume <u>"Source Energy"</u> to launch "Orbital Annihilation Pulse," dealing Fire DMG up to ${scaleValue(S.HimekoNovaScaling.ultimate.main, i)} of Himeko • Nova's ATK to one designated enemy, and Fire DMG up to ${scaleValue(S.HimekoNovaScaling.ultimate.adjacent, i)} of Himeko • Nova's ATK to other targets.<br>When the uses of "Hyperluminal Particle Beam" are depleted, automatically launches "Orbital Annihilation Pulse," followed by Final Hit, dealing ${scaleValue(S.HimekoNovaScaling.ultimate.adjacent2, i, "")} instance(s) of DMG, with each instance dealing Fire DMG equal to ${scaleValue(S.HimekoNovaScaling.ultimate.adjacent3, i)} of Himeko • Nova's ATK to one random enemy.<br>When "Hyperluminal Particle Beam" or "Orbital Annihilation Pulse" deals fatal damage to all enemies on the field, or when enemy HP can no longer be reduced, immediately launches Final Hit.
       `,
         },
         talent: {
@@ -14844,7 +14844,7 @@ const HimekoNova: Character = {
             level: "1/12",
             icon: charIcon("HimekoNova", "Talent"),
             description: (i) => `
-        While Himeko • Nova is on the field, immediately deploys the <u>Territory</u> "Starblazer Visioscape," summoning "Starblazer" to the field and granting all ally characters 1 <u>Assist Skill</u> use. Ally characters can use <u>Assist Skill</u> to call upon "Starblazer" to attack enemies.\\nUsing <u>Assist Skill</u> is considered as Himeko • Nova using her Skill. Himeko • Nova gains ${scaleValue(S.HimekoNovaScaling.talent.main, i)} increased All-Type <u>RES PEN</u> and ${scaleValue(S.HimekoNovaScaling.talent.adjacent, i)} increased CRIT DMG. When attacking, can ignore Weakness Types to reduce enemy Toughness. When breaking Weakness, triggers the Fire Weakness Break effect.\\nWhen ally characters other than Himeko • Nova use their <u>Assist Skill</u>, regenerates ${scaleValue(S.HimekoNovaScaling.talent.adjacent2, i, "")} Energy for them.
+        While Himeko • Nova is on the field, immediately deploys the <u>Territory</u> "Starblazer Visioscape," summoning "Starblazer" to the field and granting all ally characters 1 <u>Assist Skill</u> use. Ally characters can use <u>Assist Skill</u> to call upon "Starblazer" to attack enemies.<br>Using <u>Assist Skill</u> is considered as Himeko • Nova using her Skill. Himeko • Nova gains ${scaleValue(S.HimekoNovaScaling.talent.main, i)} increased All-Type <u>RES PEN</u> and ${scaleValue(S.HimekoNovaScaling.talent.adjacent, i)} increased CRIT DMG. When attacking, can ignore Weakness Types to reduce enemy Toughness. When breaking Weakness, triggers the Fire Weakness Break effect.<br>When ally characters other than Himeko • Nova use their <u>Assist Skill</u>, regenerates ${scaleValue(S.HimekoNovaScaling.talent.adjacent2, i, "")} Energy for them.
       `,
         },
         technique: {
@@ -14854,7 +14854,7 @@ const HimekoNova: Character = {
             level: "1/1",
             icon: charIcon("HimekoNova", "Technique"),
             description: (i) => `
-        When Himeko • Nova is in the team, increases the max Technique Points by 3.\\nAfter using Technique, enters the "Cruise" state for ${scaleValue(S.HimekoNovaScaling.technique, i, "")} seconds. Actively using the Technique consumes 2 Technique Points and immediately attacks all enemies within a certain range. After entering combat, immediately uses Skill 1 time at the start of each wave.\\nIf attacking a Normal Enemy, immediately defeats them without entering combat. No Technique Points are consumed if no enemies are hit.
+        When Himeko • Nova is in the team, increases the max Technique Points by 3.<br>After using Technique, enters the "Cruise" state for ${scaleValue(S.HimekoNovaScaling.technique, i, "")} seconds. Actively using the Technique consumes 2 Technique Points and immediately attacks all enemies within a certain range. After entering combat, immediately uses Skill 1 time at the start of each wave.<br>If attacking a Normal Enemy, immediately defeats them without entering combat. No Technique Points are consumed if no enemies are hit.
       `,
         },
         // --- Pasivas ---
@@ -15016,7 +15016,7 @@ const RobinSummeretto: Character = {
             level: "1/12",
             icon: charIcon("RobinSummeretto", "Talent"),
             description: (i) => `
-        Memosprite "Summer Songbirds" has an initial Max HP equal to ${scaleValue(S.RobinSummerettoScaling.talent.main, i)} of Robin • Summeretto's Max HP and an initial SPD equal to ${scaleValue(S.RobinSummerettoScaling.talent.adjacent, i)} of Robin • Summeretto's SPD. When an ally target uses an attack, or when they provide healing or Shield for the first time in any target's turn, Robin • Summeretto gains Vibes by 1 point, capped at ${scaleValue(S.RobinSummerettoScaling.talent.adjacent2, i, "")}. While "Summer Songbirds" Bessie is on the field, if Robin • Summeretto's Vibes is ${scaleValue(S.RobinSummerettoScaling.talent.adjacent3, i, "")} or higher, immediately summons "Summer Songbirds" Drummie, and if Vibes is ${scaleValue(S.RobinSummerettoScaling.talent.adjacent4, i, "")} or higher, immediately summons "Summer Songbirds" Paddie. When all "Summer Songbirds" take the stage, dispels all <u>Crowd Control debuffs</u> inflicted upon Robin • Summeretto and the "Summer Songbirds", starts the "Fever" state, and deploys a Zone. When ally targets deal DMG within the Zone, they ignore a percentage of enemy targets' DEF equal to (${scaleValue(S.RobinSummerettoScaling.talent.adjacent5, i)} + Vibes × ${scaleValue(S.RobinSummerettoScaling.talent.adjacent6, i)}).\\nWhile in the "Fever" state, Robin • Summeretto and the "Summer Songbirds" are immune to <u>Crowd Control debuffs</u>. Robin • Summeretto will not enter her turn until the "Fever" state ends.
+        Memosprite "Summer Songbirds" has an initial Max HP equal to ${scaleValue(S.RobinSummerettoScaling.talent.main, i)} of Robin • Summeretto's Max HP and an initial SPD equal to ${scaleValue(S.RobinSummerettoScaling.talent.adjacent, i)} of Robin • Summeretto's SPD. When an ally target uses an attack, or when they provide healing or Shield for the first time in any target's turn, Robin • Summeretto gains Vibes by 1 point, capped at ${scaleValue(S.RobinSummerettoScaling.talent.adjacent2, i, "")}. While "Summer Songbirds" Bessie is on the field, if Robin • Summeretto's Vibes is ${scaleValue(S.RobinSummerettoScaling.talent.adjacent3, i, "")} or higher, immediately summons "Summer Songbirds" Drummie, and if Vibes is ${scaleValue(S.RobinSummerettoScaling.talent.adjacent4, i, "")} or higher, immediately summons "Summer Songbirds" Paddie. When all "Summer Songbirds" take the stage, dispels all <u>Crowd Control debuffs</u> inflicted upon Robin • Summeretto and the "Summer Songbirds", starts the "Fever" state, and deploys a Zone. When ally targets deal DMG within the Zone, they ignore a percentage of enemy targets' DEF equal to (${scaleValue(S.RobinSummerettoScaling.talent.adjacent5, i)} + Vibes × ${scaleValue(S.RobinSummerettoScaling.talent.adjacent6, i)}).<br>While in the "Fever" state, Robin • Summeretto and the "Summer Songbirds" are immune to <u>Crowd Control debuffs</u>. Robin • Summeretto will not enter her turn until the "Fever" state ends.
       `,
         },
         technique: {
@@ -15370,8 +15370,10 @@ const Pearl: Character = {
             level: "1/7",
             icon: charIcon("Pearl", "BasicATK"),
             description: (i) => `
-        <h3><b>Character in beta ${i}</b></h3>
-      `,
+        Deals Ice DMG equal to ${scaleValue(S.PearlScalling.attack.main, i)} of Pearl's DEF to one designated enemy. <br>
+        <b>Brushstroke: Imagenate the Starry Night</b><br>Deals Ice DMG equal to ${scaleValue(S.PearlScalling.attack.adj, i)} of Pearl's DEF to all enemies, restores HP for all ally targets equal to ${scaleValue(S.PearlScalling.attack.adj2, i)} of Pearl's DEF plus ${scaleValue(S.PearlScalling.attack.adj3, i, "")}, and additionally restores HP for the ally target with the lowest current HP percentage by an amount equal to ${scaleValue(S.PearlScalling.attack.adj4, i)} of Pearl's DEF plus ${scaleValue(S.PearlScalling.attack.adj5, i)}. While holding "Certified Banger", additionally deals ${scaleValue(S.PearlScalling.attack.adj6, i)} Ice Elation DMG.
+        <br><b>Brushstroke: Render the Great Wave</b><br>Deals Ice DMG equal to ${scaleValue(S.PearlScalling.attack.adj, i)} of Pearl's DEF to all enemies. Restores HP for all ally targets equal to ${scaleValue(S.PearlScalling.attack.adj2, i)} of Pearl's DEF plus ${scaleValue(S.PearlScalling.attack.adj3, i)}, and additionally restores HP for the ally with the lowest current HP percentage by an amount equal to ${scaleValue(S.PearlScalling.attack.adj4, i)} of Pearl's DEF plus ${scaleValue(S.PearlScalling.attack.adj5, i)}.
+        `,
         },
         skill: {
             id: "skill",
@@ -15380,7 +15382,7 @@ const Pearl: Character = {
             level: "1/12",
             icon: charIcon("Pearl", "Skill"),
             description: (i) => `
-        <h3><b>Character in beta ${i}</b></h3>
+        Gains 15 point(s) of "Certified Banger," restores HP for all ally targets equal to ${scaleValue(S.PearlScalling.skill.main, i)} of Pearl's DEF plus ${scaleValue(S.PearlScalling.skill.adj, i)}, and additionally restores HP for the ally target with the lowest current HP percentage by an amount equal to ${scaleValue(S.PearlScalling.skill.adj2, i)} of Pearl's DEF plus ${scaleValue(S.PearlScalling.skill.adj3, i)}.
       `,
         },
         ultimate: {
@@ -15390,7 +15392,9 @@ const Pearl: Character = {
             level: "1/12",
             icon: charIcon("Pearl", "Ultimate"),
             description: (i) => `
-        <h3><b>Character in beta ${i}</b></h3>
+        Gains 20 point(s) of "Certified Banger". Uses "Deep Learning" on one designated ally character other than this unit, making the target the "Aesthetic Archetype."
+When there are 1/2/(3 or more) Elation characters on the team, advances the "Aesthetic Archetype's" action by 10%/15%/30% respectively. When there are 4 or more Elation characters on the team, the "Aesthetic Archetype" gains 1 extra turn. At the start of this extra turn, the "Aesthetic Archetype" gains 30 point(s) of "Certified Banger" and 60 point(s) of Punchline, which are removed at the end of the extra turn.
+While "Deep Learning," Basic ATK "Brushstroke: Trace the Severed Stream" gets enhanced to "Brushstroke: Render the Great Wave." If the "Aesthetic Archetype" is on the Path of Elation, it is instead enhanced to "Brushstroke: Imagenate the Starry Night." And after attacking, additionally deals ${scaleValue(S.PearlScalling.ultimate, i)} Ice Elation DMG. This Elation DMG is calculated based on the "Aesthetic Archetype's" stats. "Deep Learning" has 3 point(s) of Charge. After Pearl uses an Enhanced Basic ATK, 1 point of Charge is consumed. If no Charge remains after taking action, "Deep Learning" ends.
       `,
         },
         talent: {
@@ -15400,7 +15404,8 @@ const Pearl: Character = {
             level: "1/12",
             icon: charIcon("Pearl", "Talent"),
             description: (i) => `
-        <h3><b>Character in beta ${i}</b></h3>
+        Pearl can use "Certified Banger" as Repellency. Each point of "Certified Banger" is equivalent to 200 point(s) of Repellency. When an ally target takes DMG, Pearl can consume Repellency to offset 60% of that DMG for the ally target. Pearl's "Certified Banger" lasts indefinitely and has a max limit of 50.
+When an ally target's current HP percentage is 50% or lower, their DMG taken gets reduced by ${scaleValue(S.PearlScalling.talent, i)}.
       `,
         },
         technique: {
@@ -15574,7 +15579,7 @@ const Trailblazer: Character = {
             level: "1/12",
             icon: charIcon("NICKNAME", "Ultimate"),
             description: (i) => `
-        Choose between two attack modes to deliver a full strike.\\n"Blowout: Farewell Hit" deals Physical DMG equal to ${scaleValue(S.TrailblazerScaling.ultimate.main, i)} of the Trailblazer's ATK to one designated enemy.\\n"Blowout: RIP Home Run" deals Physical DMG equal to ${scaleValue(S.TrailblazerScaling.ultimate.adjacent, i)} of the Trailblazer's ATK to one designated enemy, and Physical DMG equal to ${scaleValue(S.TrailblazerScaling.ultimate.adjacent2, i)} of the Trailblazer's ATK to enemies adjacent to it.
+        Choose between two attack modes to deliver a full strike.<br>"Blowout: Farewell Hit" deals Physical DMG equal to ${scaleValue(S.TrailblazerScaling.ultimate.main, i)} of the Trailblazer's ATK to one designated enemy.<br>"Blowout: RIP Home Run" deals Physical DMG equal to ${scaleValue(S.TrailblazerScaling.ultimate.adjacent, i)} of the Trailblazer's ATK to one designated enemy, and Physical DMG equal to ${scaleValue(S.TrailblazerScaling.ultimate.adjacent2, i)} of the Trailblazer's ATK to enemies adjacent to it.
       `,
         },
         talent: {
@@ -15758,7 +15763,7 @@ const TrailblazerPreservation: Character = {
             level: "1/12",
             icon: charIcon("NICKNAME", "Talent"),
             description: (i) => `
-        Each time the Trailblazer is hit, they gain 1 stack of "Magma Will" for a max of ${scaleValue(S.TrailblazerPreservationScaling.talent.main, i, "")} stack(s).\\nWhen "Magma Will" has no fewer than 4 stacks, the Trailblazer's Basic ATK becomes enhanced, dealing DMG to one designated enemy and enemies adjacent to it.\\nWhen the Trailblazer uses Basic ATK, Skill, or Ultimate, apply a Shield to all allies that absorbs DMG equal to ${scaleValue(S.TrailblazerPreservationScaling.talent.adjacent, i)} of the Trailblazer's DEF plus ${scaleValue(S.TrailblazerPreservationScaling.talent.adjacent2, i, "")}. The Shield lasts for ${scaleValue(S.TrailblazerPreservationScaling.talent.adjacent3, i, "")} turn(s).
+        Each time the Trailblazer is hit, they gain 1 stack of "Magma Will" for a max of ${scaleValue(S.TrailblazerPreservationScaling.talent.main, i, "")} stack(s).<br>When "Magma Will" has no fewer than 4 stacks, the Trailblazer's Basic ATK becomes enhanced, dealing DMG to one designated enemy and enemies adjacent to it.<br>When the Trailblazer uses Basic ATK, Skill, or Ultimate, apply a Shield to all allies that absorbs DMG equal to ${scaleValue(S.TrailblazerPreservationScaling.talent.adjacent, i)} of the Trailblazer's DEF plus ${scaleValue(S.TrailblazerPreservationScaling.talent.adjacent2, i, "")}. The Shield lasts for ${scaleValue(S.TrailblazerPreservationScaling.talent.adjacent3, i, "")} turn(s).
       `,
         },
         technique: {
@@ -16116,7 +16121,7 @@ const TrailblazerRemembrance: Character = {
             level: "1/1",
             icon: charIcon("NICKNAME", "TechniqueRemembrance"),
             description: (i) => `
-        After using Technique, creates a Special Dimension that lasts for ${scaleValue(S.TrailblazerRemembranceScaling.technique.main, i, "")} second(s). Enemies within the Special Dimension are placed in a Time Stop state, halting all their actions.\\nAfter entering battle against enemies afflicted with the Time Stop state, <u>delays the action</u> of all enemies by ${scaleValue(S.TrailblazerRemembranceScaling.technique.adjacent, i)}, and then deals Ice DMG to all enemies equal to ${scaleValue(S.TrailblazerRemembranceScaling.technique.adjacent2, i)} of Trailblazer's ATK.\\nOnly 1 Dimension Effect created by allies can exist at the same time.
+        After using Technique, creates a Special Dimension that lasts for ${scaleValue(S.TrailblazerRemembranceScaling.technique.main, i, "")} second(s). Enemies within the Special Dimension are placed in a Time Stop state, halting all their actions.<br>After entering battle against enemies afflicted with the Time Stop state, <u>delays the action</u> of all enemies by ${scaleValue(S.TrailblazerRemembranceScaling.technique.adjacent, i)}, and then deals Ice DMG to all enemies equal to ${scaleValue(S.TrailblazerRemembranceScaling.technique.adjacent2, i)} of Trailblazer's ATK.<br>Only 1 Dimension Effect created by allies can exist at the same time.
       `,
         },
         // --- Pasivas ---
@@ -16157,7 +16162,7 @@ const TrailblazerRemembrance: Character = {
             level: "1/10",
             icon: charIcon("NICKNAME", "MemoTalent"),
             description: (i) => `
-        <b>Friends! Together!</b><br>Increases all allies' CRIT DMG by an amount equal to ${scaleValue(S.TrailblazerRemembranceScaling.b4.FriendsTogether.main, i)} of Mem's CRIT DMG plus ${scaleValue(S.TrailblazerRemembranceScaling.b4.FriendsTogether.adjacent, i)}.\\nIf the Charge has yet to reach 100%, Mem automatically uses "Baddies! Trouble!" when taking action. When the Charge reaches 100%, Mem immediately takes action. In the next action, can select one ally and use "Lemme! Help You!".
+        <b>Friends! Together!</b><br>Increases all allies' CRIT DMG by an amount equal to ${scaleValue(S.TrailblazerRemembranceScaling.b4.FriendsTogether.main, i)} of Mem's CRIT DMG plus ${scaleValue(S.TrailblazerRemembranceScaling.b4.FriendsTogether.adjacent, i)}.<br>If the Charge has yet to reach 100%, Mem automatically uses "Baddies! Trouble!" when taking action. When the Charge reaches 100%, Mem immediately takes action. In the next action, can select one ally and use "Lemme! Help You!".
 <br>
         <b>Go, Mem, Go!</b><br>When Mem is summoned, immediately gains ${scaleValue(S.TrailblazerRemembranceScaling.b4.GoMemGo, i)} Charge.
 <br>
@@ -16173,7 +16178,7 @@ const TrailblazerRemembrance: Character = {
             description: (i) => `
         <b>Baddies! Trouble!</b><br>Deals ${scaleValue(S.TrailblazerRemembranceScaling.b5.BaddiesTrouble.main, i, "")} instance(s) of DMG, with each instance dealing Ice DMG equal to ${scaleValue(S.TrailblazerRemembranceScaling.b5.BaddiesTrouble.adjacent, i)} of Mem's ATK to one random enemy. At the end, deals Ice DMG equal to ${scaleValue(S.TrailblazerRemembranceScaling.b5.BaddiesTrouble.adjacent2, i)} of Mem's ATK to all enemies.
 <br>
-        <b>Lemme! Help You!</b><br><u>Advances the action</u> of one designated ally by ${scaleValue(S.TrailblazerRemembranceScaling.b5.LemmeHelpYou.main, i)} and grants them "Mem's Support," lasting for ${scaleValue(S.TrailblazerRemembranceScaling.b5.LemmeHelpYou.adjacent, i, "")} turn(s).\\nFor every 1 instance of DMG dealt by a target that has "Mem's Support," additionally deals 1 instance of <u>True DMG</u> equal to ${scaleValue(S.TrailblazerRemembranceScaling.b5.LemmeHelpYou.adjacent2, i)} of the original DMG.\\nWhen using this ability on this unit, cannot trigger the <u>action advance</u> effect.
+        <b>Lemme! Help You!</b><br><u>Advances the action</u> of one designated ally by ${scaleValue(S.TrailblazerRemembranceScaling.b5.LemmeHelpYou.main, i)} and grants them "Mem's Support," lasting for ${scaleValue(S.TrailblazerRemembranceScaling.b5.LemmeHelpYou.adjacent, i, "")} turn(s).<br>For every 1 instance of DMG dealt by a target that has "Mem's Support," additionally deals 1 instance of <u>True DMG</u> equal to ${scaleValue(S.TrailblazerRemembranceScaling.b5.LemmeHelpYou.adjacent2, i)} of the original DMG.<br>When using this ability on this unit, cannot trigger the <u>action advance</u> effect.
       `,
         },
         // --- Stats Nodes ---
@@ -16296,7 +16301,7 @@ const TrailblazerElation: Character = {
             level: "1/12",
             icon: charIcon("NICKNAME", "UltimateElation"),
             description: (i) => `
-        Gains ${scaleValue(S.TrailblazerElationScaling.ultimate.main, i, "")} <u>Punchline</u> point(s). Increases the CRIT DMG of one designated ally by ${scaleValue(S.TrailblazerElationScaling.ultimate.adjacent, i)} for ${scaleValue(S.TrailblazerElationScaling.ultimate.adjacent2, i, "")} turn(s), and dispels <u>Crowd Control debuffs</u> on them.\\nIf the target has Elation Skill, they additionally gain ${scaleValue(S.TrailblazerElationScaling.ultimate.adjacent3, i, "")} point(s) of "<u>Certified Banger</u>" and immediately use their Elation Skill 1 time, taking into account a fixed amount of ${scaleValue(S.TrailblazerElationScaling.ultimate.adjacent4, i, "")} <u>Punchline</u> point(s). If the enemy target is defeated before the Elation Skill is unleashed, then the Elation Skill is instead launched on a newly entering enemy target.\\nIf the target does not have Elation Skill, their <u>action advances</u> by ${scaleValue(S.TrailblazerElationScaling.ultimate.adjacent5, i)}.
+        Gains ${scaleValue(S.TrailblazerElationScaling.ultimate.main, i, "")} <u>Punchline</u> point(s). Increases the CRIT DMG of one designated ally by ${scaleValue(S.TrailblazerElationScaling.ultimate.adjacent, i)} for ${scaleValue(S.TrailblazerElationScaling.ultimate.adjacent2, i, "")} turn(s), and dispels <u>Crowd Control debuffs</u> on them.<br>If the target has Elation Skill, they additionally gain ${scaleValue(S.TrailblazerElationScaling.ultimate.adjacent3, i, "")} point(s) of "<u>Certified Banger</u>" and immediately use their Elation Skill 1 time, taking into account a fixed amount of ${scaleValue(S.TrailblazerElationScaling.ultimate.adjacent4, i, "")} <u>Punchline</u> point(s). If the enemy target is defeated before the Elation Skill is unleashed, then the Elation Skill is instead launched on a newly entering enemy target.<br>If the target does not have Elation Skill, their <u>action advances</u> by ${scaleValue(S.TrailblazerElationScaling.ultimate.adjacent5, i)}.
       `,
         },
         talent: {
@@ -16306,7 +16311,7 @@ const TrailblazerElation: Character = {
             level: "1/12",
             icon: charIcon("NICKNAME", "TalentElation"),
             description: (i) => `
-        After using an attack, regenerates a fixed amount of ${scaleValue(S.TrailblazerElationScaling.talent.main, i, "")} Energy and gains ${scaleValue(S.TrailblazerElationScaling.talent.adjacent, i, "")} <u>Punchline</u> point(s).\\nWhen the Trailblazer holds "<u>Certified Banger</u>," their Skill additionally deals ${scaleValue(S.TrailblazerElationScaling.talent.adjacent2, i)} Lightning <u>Elation DMG</u> to all enemies. This DMG is calculated using the highest "<u>Certified Banger</u>" value among all allies.
+        After using an attack, regenerates a fixed amount of ${scaleValue(S.TrailblazerElationScaling.talent.main, i, "")} Energy and gains ${scaleValue(S.TrailblazerElationScaling.talent.adjacent, i, "")} <u>Punchline</u> point(s).<br>When the Trailblazer holds "<u>Certified Banger</u>," their Skill additionally deals ${scaleValue(S.TrailblazerElationScaling.talent.adjacent2, i)} Lightning <u>Elation DMG</u> to all enemies. This DMG is calculated using the highest "<u>Certified Banger</u>" value among all allies.
       `,
         },
         technique: {
@@ -16316,7 +16321,7 @@ const TrailblazerElation: Character = {
             level: "1/1",
             icon: charIcon("NICKNAME", "TechniqueElation"),
             description: (i) => `
-        After using Technique, randomly gains 1 of the following effects:\\nA low chance to gain "Hearty Laughter": Increases Elation by ${scaleValue(S.TrailblazerElationScaling.technique.main, i)}.\\nA high chance to gain "Irrepressible Laughter": Increases Elation by ${scaleValue(S.TrailblazerElationScaling.technique.adjacent, i)}.\\nWhen the next battle begins, increases all allies' Elation stat by the corresponding amount for ${scaleValue(S.TrailblazerElationScaling.technique.adjacent2, i, "")} turn(s).
+        After using Technique, randomly gains 1 of the following effects:<br>A low chance to gain "Hearty Laughter": Increases Elation by ${scaleValue(S.TrailblazerElationScaling.technique.main, i)}.<br>A high chance to gain "Irrepressible Laughter": Increases Elation by ${scaleValue(S.TrailblazerElationScaling.technique.adjacent, i)}.<br>When the next battle begins, increases all allies' Elation stat by the corresponding amount for ${scaleValue(S.TrailblazerElationScaling.technique.adjacent2, i, "")} turn(s).
       `,
         },
         // --- Pasivas ---
