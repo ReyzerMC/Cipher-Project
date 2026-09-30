@@ -5,7 +5,7 @@ import * as Eidolons from './eidolons/Eidolons';
 import * as S from './scalingData';
 
 export const scaleValue = (
-    values: number[],
+    values: number[] | string[],
     index: number,
     suffix = "%"
 ) => {
@@ -15415,7 +15415,7 @@ When an ally target's current HP percentage is 50% or lower, their DMG taken get
             level: "1/1",
             icon: charIcon("Pearl", "Technique"),
             description: (i) => `
-        <h3><b>Character in beta ${i}</b></h3>
+        After using Technique, gains "Aesthetic Archetype." When switching active characters, "Aesthetic Archetype" transfers to the currently active character. At the start of the next battle, Pearl gains 20 "Certified Banger" and applies "Deep Learning" on the character with "Aesthetic Archetype." This "Deep Learning" has 2 Charge. Pearl can only apply "Deep Learning" on characters other than herself.
       `,
         },
         // --- Pasivas ---
@@ -15426,7 +15426,7 @@ When an ally target's current HP percentage is 50% or lower, their DMG taken get
             level: "1/10",
             icon: charIcon("Pearl", "DissolveReasonintoElation"),
             description: (i) => `
-        <h3><b>Character in beta ${i}</b></h3>
+        When there are 1/2/3/(4 or more) Elation characters in the team, then after all ally targets use their next attack, enables them to additionally deal Elation DMG of their corresponding Type to the attack target, equal to ${scaleValue(S.PearlScalling.elationSkill, i)} respectively.
       `,
         },
         b2: {
