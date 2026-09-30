@@ -2243,10 +2243,16 @@ export const Texts = {
     },
 
     ColorsforTomorrowENG: (rank: number): string => {
+        const DEFValue = [48, 60, 72, 84, 96];
+        const DMGValue = [22, 28, 33, 39, 44];
+        const HPValue = [10, 13, 15, 18, 20];
 
         const index = Math.max(0, Math.min(rank - 1, 4));
+        const DEF = DEFValue[index];
+        const DMG = DMGValue[index];
+        const HP = HPValue[index];
 
-        return `<h3><b>Ligth Cone in beta ${index}</b></h3>`;
+        return `Increases the wearer's DEF by ${DEF}%%. When the wearer uses Elation Skill on all allies, increases DMG taken by all enemies by ${DMG}%%, lasting for 3 turn(s). Regenerates a fixed 10 Energy for the wearer, and restores HP equal to ${HP}% of the wearer's DEF for all allies.`;
     },
 
 } as const;
