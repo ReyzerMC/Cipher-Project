@@ -1,7 +1,5 @@
-import { Response, type D1Database, type PagesFunction } from "@cloudflare/workers-types";
-
 interface Env {
-    DB: D1Database;
+  DB: D1Database;
 }
 
 export const onRequest: PagesFunction<Env> = async ({ env }) => {
@@ -9,5 +7,9 @@ export const onRequest: PagesFunction<Env> = async ({ env }) => {
     .prepare("SELECT 1 AS test")
     .first();
 
-  return Response.json(result);
+  return new Response(JSON.stringify(result), {
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
 };
