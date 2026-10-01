@@ -2255,6 +2255,13 @@ export const Texts = {
         return `Increases the wearer's DEF by ${DEF}%%. When the wearer uses Elation Skill on all allies, increases DMG taken by all enemies by ${DMG}%%, lasting for 3 turn(s). Regenerates a fixed 10 Energy for the wearer, and restores HP equal to ${HP}% of the wearer's DEF for all allies.`;
     },
 
+    UpontheFirstEchoOfAhaENG: (rank: number): string => {
+
+        const index = Math.max(0, Math.min(rank - 1, 4));
+
+        return `Light Cone in Beta ${index}`;
+    },
+
 } as const;
 
 export type Text = typeof Texts[keyof typeof Texts];

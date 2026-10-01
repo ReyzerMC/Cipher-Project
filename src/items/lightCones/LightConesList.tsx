@@ -3911,3 +3911,25 @@ const ColorsforTomorrow: LightCone = {
 };
 
 LightCones.push(ColorsforTomorrow);
+
+const UpontheFirstEchoOfAha: LightCone = {
+
+    name: `Upon the First Echo of "Aha"`,
+
+    path: Paths.Elation,
+
+    description: Texts.UpontheFirstEchoOfAhaENG,
+
+    image: lightConeImg("UpontheFirstEchoOfAha"),
+
+    baseHP: 952,
+
+    baseATK: 582,
+
+    baseDEF: 529,
+
+    dupe: 1,
+
+};
+
+LightCones.push(UpontheFirstEchoOfAha);
