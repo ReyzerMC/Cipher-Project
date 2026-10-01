@@ -9,5 +9,12 @@
       "database_name": "cipher-project-db",
       "database_id": "5bf50bf6-2153-4f05-8a87-f19dbf054458"
     }
+  ],
+
+  "r2_buckets": [
+    {
+      "binding": "STORAGE",
+      "bucket_name": "cipher-project-avatars"
+    }
   ]
 }

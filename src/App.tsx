@@ -17,6 +17,8 @@ interface AuthUser {
   email: string;
   role: string;
   created_at: number;
+  avatar_key: string | null;
+  avatar_url: string | null;
 }
 
 function navigate(path: string) {
@@ -225,17 +227,23 @@ export default function App() {
     <div className="hsr-container">
       <header className="account-nav">
         {authLoading ? null : authUser ? (
-          <>
-            <button
-              className="account-profile-button"
-              onClick={() => navigate("/profile")}
-              title="Profile"
-            >
+          <button
+            className="account-profile-button"
+            onClick={() => navigate("/profile")}
+            title="Profile"
+          >
+            {authUser.avatar_url ? (
+              <img
+                className="account-avatar-image"
+                src={authUser.avatar_url}
+                alt=""
+              />
+            ) : (
               <span className="account-avatar">
                 {authUser.username.charAt(0).toUpperCase()}
               </span>
-            </button>
-          </>
+            )}
+          </button>
         ) : (
           <>
             <button

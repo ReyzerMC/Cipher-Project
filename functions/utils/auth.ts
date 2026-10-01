@@ -6,6 +6,7 @@ export interface User {
   email: string;
   role: string;
   created_at: number;
+  avatar_key: string | null;
 }
 
 function generateSessionId(): string {
@@ -63,6 +64,7 @@ export async function getCurrentUser(
         users.email,
         users.role,
         users.created_at,
+        users.avatar_key,
         sessions.expires_at
        FROM sessions
        INNER JOIN users ON users.id = sessions.user_id
@@ -75,6 +77,7 @@ export async function getCurrentUser(
       email: string;
       role: string;
       created_at: number;
+      avatar_key: string | null;
       expires_at: number;
     }>();
 
@@ -97,6 +100,7 @@ export async function getCurrentUser(
     email: session.email,
     role: session.role,
     created_at: session.created_at,
+    avatar_key: session.avatar_key,
   };
 }
 
