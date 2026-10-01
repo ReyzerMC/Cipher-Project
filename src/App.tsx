@@ -909,7 +909,7 @@ function ProfilePage({
                 formData.append("avatar", file);
 
                 try {
-                  const response = await fetch("/api/auth/avatar", {
+                  const response = await fetch("/api/profile/avatar", {
                     method: "POST",
                     credentials: "include",
                     body: formData,
