@@ -138,7 +138,7 @@ export const onRequestPost: PagesFunction<Env> = async ({
   const key =
     `avatars/${user.id}/${crypto.randomUUID()}.${extension}`;
 
-  await env.AVATARS.put(key, image, {
+  await env.STORAGE.put(key, image, {
     httpMetadata: {
       contentType: storedContentType,
       cacheControl:
