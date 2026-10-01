@@ -29,23 +29,85 @@ export const onRequestPost: PagesFunction<Env> = async ({
     );
   }
 
-  const contentType = request.headers.get("Content-Type");
+  const role = user.role;
 
-  if (contentType !== "image/webp") {
+  const maxSize =
+    role === "USER"
+      ? 15 * 1024 * 1024
+      : role === "ADMINISTRATOR"
+        ? 25 * 1024 * 1024
+        : 35 * 1024 * 1024;
+
+  const contentType =
+    request.headers.get("Content-Type")?.toLowerCase();
+
+  if (!contentType?.startsWith("image/")) {
     return json(
       {
-        error: "Only WebP images are accepted.",
+        error: "Only image files are allowed.",
       },
       400
     );
   }
 
+  const isGif = contentType === "image/gif";
+
+  // USER
+  if (role === "USER") {
+    const allowed = [
+      "image/png",
+      "image/jpeg",
+      "image/webp",
+    ];
+
+    if (!allowed.includes(contentType)) {
+      return json(
+        {
+          error:
+            "USER accounts can only upload PNG, JPEG or WebP images.",
+        },
+        400
+      );
+    }
+  }
+
+  // ADMINISTRATOR
+  if (role === "ADMINISTRATOR") {
+    const allowed = [
+      "image/png",
+      "image/jpeg",
+      "image/webp",
+      "image/gif",
+    ];
+
+    if (!allowed.includes(contentType)) {
+      return json(
+        {
+          error: "Unsupported image format.",
+        },
+        400
+      );
+    }
+  }
+
+  // DEVELOPER / HEAD_DEVELOPER
+  // Any image/* MIME type is accepted.
+
   const image = await request.arrayBuffer();
 
-  if (image.byteLength > 5 * 1024 * 1024) {
+  if (image.byteLength > maxSize) {
     return json(
       {
-        error: "The image is too large.",
+        error: `Your role allows images up to ${maxSize / 1024 / 1024} MB.`,
+      },
+      400
+    );
+  }
+
+  if (image.byteLength === 0) {
+    return json(
+      {
+        error: "The image is empty.",
       },
       400
     );
@@ -60,12 +122,24 @@ export const onRequestPost: PagesFunction<Env> = async ({
       avatar_key: string | null;
     }>();
 
+  /*
+   * GIFs remain GIFs.
+   *
+   * Everything else should already have been converted
+   * to WebP by the avatar editor.
+   */
+  const extension = isGif ? "gif" : "webp";
+
+  const storedContentType = isGif
+    ? "image/gif"
+    : "image/webp";
+
   const key =
-    `avatars/${user.id}/${crypto.randomUUID()}.webp`;
+    `avatars/${user.id}/${crypto.randomUUID()}.${extension}`;
 
   await env.AVATARS.put(key, image, {
     httpMetadata: {
-      contentType: "image/webp",
+      contentType: storedContentType,
       cacheControl:
         "public, max-age=31536000, immutable",
     },
