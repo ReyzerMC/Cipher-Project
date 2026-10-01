@@ -5957,61 +5957,61 @@ export const NihiluxEidolons: Eidolon = {
 
     e1: {
 
-        title: "Nestle That Pearl in Uninked Tides",
+        title: "Who Giggled at the Primordial Hush?",
 
-        desc: "When the number of Elation Path characters on the team equals 2/3/4 or more, increases Elation for all allies by 10%/20%/60%. When an ally target is struck with fatal damage, instead of becoming knocked down, their HP immediately restores to 50% of their Max HP. This effect can trigger 2 time(s) per battle",
+        desc: "Character in beta",
 
-        image: charEidolon("Pearl", 1),
+        image: charEidolon("Nihilux", 1),
 
     },
 
     e2: {
 
-        title: "Crop That Dappled Dawn",
+        title: "Between THEIR Eyes and Yours",
 
-        desc: "Merrymakes all ally targets' Elation DMG by 15%. When using Ultimate, causes other ally Elation characters (excluding Pearl and \"Aesthetic Archetype\") to also trigger the action advance effect, and increases the \"Certified Banger\" and Punchline gained at the start of the extra turn provided by the Ultimate by 100%.",
+        desc: "Character in beta",
 
-        image: charEidolon("Pearl", 2),
+        image: charEidolon("Nihilux", 2),
 
     },
 
     e3: {
 
-        title: "Sketch That Suspended Wave",
+        title: "A Stacked Deck of Sorrow and Joy",
 
-        desc: "Ultimate Lv. +2, up to a maximum of Lv. 15. Basic ATK Lv. +1, up to a maximum of Lv. 10. Elation Skill Lv. +1, up to a maximum of Lv. 15.",
+        desc: "Character in beta",
 
-        image: charEidolon("Pearl", 3),
+        image: charEidolon("Nihilux", 3),
 
     },
 
     e4: {
 
-        title: "Study That Veiled Smile",
+        title: "A Joke's Fate Boxed in Black",
 
-        desc: "In the Talent \"Grow Grace from Grit,\" Repellency provided by each point of \"Certified Banger\" increases by 40, and the percentage of DMG it can block increases by 5%.",
+        desc: "Character in beta",
 
-        image: charEidolon("Pearl", 4),
+        image: charEidolon("Nihilux", 4),
 
     },
 
     e5: {
 
-        title: "Render Those Starlit Swirls",
+        title: "Moi Onstage and Me Offstage",
 
-        desc: "Skill Lv. +2, up to a maximum of Lv. 15. Talent Lv. +2, up to a maximum of Lv. 15. Elation Skill Lv. +1, up to a maximum of Lv. 15.",
+        desc: "Character in beta",
 
-        image: charEidolon("Pearl", 5),
+        image: charEidolon("Nihilux", 5),
 
     },
 
     e6: {
 
-        title: "Compute Life From One Shell",
+        title: "For THEY Said: You Are Elation",
 
-        desc: "While in \"Deep Learning,\" all allies' All-Type RES PEN increases by 20%. Pearl's Enhanced Basic ATK additionally deals Ice Elation DMG equal to 240% of the stats of \"Aesthetic Archetype.\"",
+        desc: "Character in beta",
 
-        image: charEidolon("Pearl", 6),
+        image: charEidolon("Nihilux", 6),
 
     },
 

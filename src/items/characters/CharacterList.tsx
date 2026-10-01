@@ -15542,7 +15542,7 @@ const Nihilux: Character = {
   world: Worlds.Planacardia,
   image: charSplash("Nihilux"),
   pfp: charPfp("Nihilux"),
-  eidolons: Eidolons.PearlEidolons,
+  eidolons: Eidolons.NihiluxEidolons,
 
   baseATK: 679,
   baseDEF: 509,
