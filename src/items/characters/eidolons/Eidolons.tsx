@@ -1,5 +1,5 @@
-import { charEidolon } from "../../../utils/assets";
 import type { Eidolon } from "../../../types/hsr";
+import { charEidolon } from "../../../utils/assets";
 
 export const PreservationMarch7thEidolons: Eidolon = {
 
@@ -5890,6 +5890,70 @@ export const ElationTrailblazerEidolons: Eidolon = {
 };
 
 export const PearlEidolons: Eidolon = {
+
+    e1: {
+
+        title: "Nestle That Pearl in Uninked Tides",
+
+        desc: "When the number of Elation Path characters on the team equals 2/3/4 or more, increases Elation for all allies by 10%/20%/60%. When an ally target is struck with fatal damage, instead of becoming knocked down, their HP immediately restores to 50% of their Max HP. This effect can trigger 2 time(s) per battle",
+
+        image: charEidolon("Pearl", 1),
+
+    },
+
+    e2: {
+
+        title: "Crop That Dappled Dawn",
+
+        desc: "Merrymakes all ally targets' Elation DMG by 15%. When using Ultimate, causes other ally Elation characters (excluding Pearl and \"Aesthetic Archetype\") to also trigger the action advance effect, and increases the \"Certified Banger\" and Punchline gained at the start of the extra turn provided by the Ultimate by 100%.",
+
+        image: charEidolon("Pearl", 2),
+
+    },
+
+    e3: {
+
+        title: "Sketch That Suspended Wave",
+
+        desc: "Ultimate Lv. +2, up to a maximum of Lv. 15. Basic ATK Lv. +1, up to a maximum of Lv. 10. Elation Skill Lv. +1, up to a maximum of Lv. 15.",
+
+        image: charEidolon("Pearl", 3),
+
+    },
+
+    e4: {
+
+        title: "Study That Veiled Smile",
+
+        desc: "In the Talent \"Grow Grace from Grit,\" Repellency provided by each point of \"Certified Banger\" increases by 40, and the percentage of DMG it can block increases by 5%.",
+
+        image: charEidolon("Pearl", 4),
+
+    },
+
+    e5: {
+
+        title: "Render Those Starlit Swirls",
+
+        desc: "Skill Lv. +2, up to a maximum of Lv. 15. Talent Lv. +2, up to a maximum of Lv. 15. Elation Skill Lv. +1, up to a maximum of Lv. 15.",
+
+        image: charEidolon("Pearl", 5),
+
+    },
+
+    e6: {
+
+        title: "Compute Life From One Shell",
+
+        desc: "While in \"Deep Learning,\" all allies' All-Type RES PEN increases by 20%. Pearl's Enhanced Basic ATK additionally deals Ice Elation DMG equal to 240% of the stats of \"Aesthetic Archetype.\"",
+
+        image: charEidolon("Pearl", 6),
+
+    },
+
+};
+
+export const NihiluxEidolons: Eidolon = {
 
     e1: {
 
