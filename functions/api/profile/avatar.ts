@@ -31,6 +31,7 @@ export const onRequestPost: PagesFunction<Env> = async ({
   request,
   env,
 }) => {
+try {
   const user = await getCurrentUser(request, env.DB);
 
   if (!user) {
@@ -177,4 +178,18 @@ export const onRequestPost: PagesFunction<Env> = async ({
     avatar_key: key,
     avatar_url: avatarUrl,
   });
+  } catch (error) {
+    console.error("Avatar upload error:", error);
+
+    return json(
+      {
+        error: "Internal server error.",
+        details:
+          error instanceof Error
+            ? error.message
+            : String(error),
+      },
+      500
+    );
+  }
 };
