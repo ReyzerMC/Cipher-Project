@@ -18,4 +18,15 @@ const v4_5_2: Log = {
     ]
 }
 
-export const changes: Log[] = [v4_5_2, v4_5];
+const v4_6: Log = {
+    version: "4.6",
+    title: "Dance With the Beast Before Moonrise",
+    changes: [
+        `Added Pearl Character`,
+        `Added Colors for Tomorrow Light Cone`,
+        `Added Aeon ★ Aha | [Nihilux] Beta Character`,
+        `Added Upon the First Echo of "Aha" Beta Light Cone`
+    ]
+}
+
+export const changes: Log[] = [v4_6, v4_5_2, v4_5];
