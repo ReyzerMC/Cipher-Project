@@ -15535,6 +15535,190 @@ When an ally target's current HP percentage is 50% or lower, their DMG taken get
 
 Characters.push(Pearl);
 
+const Nihilux: Character = {
+  name: "Aeon ★ Aha | [Nihilux]",
+  path: Paths.Elation,
+  element: Elements.Quantum,
+  world: Worlds.Planacardia,
+  image: charSplash("Nihilux"),
+  pfp: charPfp("Pearl"),
+  eidolons: Eidolons.PearlEidolons,
+
+  baseATK: 679,
+  baseDEF: 509,
+  baseHP: 1049,
+  baseSPD: 94,
+  aggro: 100,
+  dupe: 0,
+
+  traces: {
+        attack: {
+            id: "attack",
+            name: "Basic ATK: Starfrost, Showtime!",
+            type: "basic",
+            level: "1/7",
+            icon: charIcon("Nihilux", "BasicATK"),
+            description: (i) => `
+            <b>Character in beta ${i}</b>
+        `,
+        },
+        skill: {
+            id: "skill",
+            name: "Skill: This Emanator Was Certified by Aha™",
+            type: "skill",
+            level: "1/12",
+            icon: charIcon("Nihilux", "Skill"),
+            description: (i) => `
+        <b>Character in beta ${i}</b>
+      `,
+        },
+        ultimate: {
+            id: "ultimate",
+            name: "Ultimate: Aha! Let There Be Laughter",
+            type: "ultimate",
+            level: "1/12",
+            icon: charIcon("Nihilux", "Ultimate"),
+            description: (i) => `
+        <b>Character in beta ${i}</b>
+      `,
+        },
+        talent: {
+            id: "talent",
+            name: "Talent: Work Wonders with THEM",
+            type: "talent",
+            level: "1/12",
+            icon: charIcon("Nihilux", "Talent"),
+            description: (i) => `
+        <b>Character in beta ${i}</b>
+      `,
+        },
+        technique: {
+            id: "technique",
+            name: "Technique: ABRACADABRA!",
+            type: "technique",
+            level: "1/1",
+            icon: charIcon("Nihilux", "Technique"),
+            description: `
+        <b>Character in beta</b>
+      `,
+        },
+        // --- Pasivas ---
+        b1: {
+            id: "b1",
+            name: "Elation Skill: Yes Aha At Full Moon",
+            type: "bonus",
+            level: "1/10",
+            icon: charIcon("Nihilux", "elationSkill"),
+            description: (i) => `
+        <b>Character in beta ${i}</b>
+      `,
+        },
+        b2: {
+            id: "b2",
+            name: "A Prank on Aeons",
+            type: "bonus",
+            level: "1/1",
+            icon: charIcon("Nihilux", "APrankonAeons"),
+            description: `
+        <b>Character in beta</b>
+      `,
+        },
+        b3: {
+            id: "b3",
+            name: "A Carnival in Whimsy",
+            type: "bonus",
+            level: "1/1",
+            icon: charIcon("Nihilux", "ACarnivalinWhimsy"),
+            description: `
+        <b>Character in beta</b>
+      `,
+        },
+        b4: {
+            id: "b4",
+            name: "A Box of Everything",
+            type: "bonus",
+            level: "1/1",
+            icon: charIcon("Nihilux", "ABoxofEverything"),
+            description: `
+        <b>Character in beta</b>
+      `,
+        },
+        // --- Stats Nodes ---
+        s1: {
+                id: "s1",
+                name: "ATK Boost",
+                type: "stat",
+                icon: statIcon("ATK"),
+                description: "<h3><b>Character in beta</b></h3>",
+            },
+        s2: {
+                id: "s2",
+                name: "ATK Boost",
+                type: "stat",
+                icon: statIcon("ATK"),
+                description: "<h3><b>Character in beta</b></h3>",
+            },
+        s3: {
+                id: "s3",
+                name: "CRIT Rate Boost",
+                type: "stat",
+                icon: statIcon("CritRate"),
+                description: "<h3><b>Character in beta</b></h3>",
+            },
+        s4: {
+                id: "s4",
+                name: "CRIT Rate Boost",
+                type: "stat",
+                icon: statIcon("CritRate"),
+                description: "<h3><b>Character in beta</b></h3>",
+            },
+        s5: {
+                id: "s5",
+                name: "ATK Boost",
+                type: "stat",
+                icon: statIcon("ATK"),
+                description: "<h3><b>Character in beta</b></h3>",
+            },
+        s6: {
+                id: "s6",
+                name: "CRIT Rate Boost",
+                type: "stat",
+                icon: statIcon("CritRate"),
+                description: "<h3><b>Character in beta</b></h3>",
+            },
+        s7: {
+                id: "s7",
+                name: "ATK Boost",
+                type: "stat",
+                icon: statIcon("ATK"),
+                description: "<h3><b>Character in beta</b></h3>",
+            },
+        s8: {
+                id: "s8",
+                name: "CRIT DMG Boost",
+                type: "stat",
+                icon: statIcon("CritDMG"),
+                description: "<h3><b>Character in beta</b></h3>",
+            },
+        s9: {
+                id: "s9",
+                name: "ATK Boost",
+                type: "stat",
+                icon: statIcon("ATK"),
+                description: "<h3><b>Character in beta</b></h3>",
+            },
+        s10: {
+                id: "s10",
+                name: "CRIT DMG Boost",
+                type: "stat",
+                icon: statIcon("CritDMG"),
+                description: "<h3><b>Character in beta</b></h3>",
+            },
+  },
+};
+
+Characters.push(Nihilux);
+
 const Trailblazer: Character = {
   name: "Trailblazer Destruction",
   path: Paths.Destruction,
