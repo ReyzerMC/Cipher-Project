@@ -21,52 +21,73 @@ export const onRequestPost: PagesFunction<Env> = async ({
   const user = await getCurrentUser(request, env.DB);
 
   if (!user) {
-    return json({ error: "You are not logged in." }, 401);
+    return json(
+      {
+        error: "You must be logged in.",
+      },
+      401
+    );
   }
 
-  const contentType = request.headers.get("Content-Type") ?? "";
+  const contentType = request.headers.get("Content-Type");
 
   if (contentType !== "image/webp") {
     return json(
-      { error: "Only WebP images are allowed." },
+      {
+        error: "Only WebP images are accepted.",
+      },
       400
     );
   }
 
-  const data = await request.arrayBuffer();
+  const image = await request.arrayBuffer();
 
-  if (data.byteLength > 5 * 1024 * 1024) {
+  if (image.byteLength > 5 * 1024 * 1024) {
     return json(
-      { error: "Image is too large. Maximum size is 5 MB." },
+      {
+        error: "The image is too large.",
+      },
       400
     );
   }
 
-  const key = `avatars/${user.id}/${crypto.randomUUID()}.webp`;
+  const oldUser = await env.DB
+    .prepare(
+      "SELECT avatar_key FROM users WHERE id = ?"
+    )
+    .bind(user.id)
+    .first<{
+      avatar_key: string | null;
+    }>();
 
-  await env.AVATARS.put(key, data, {
+  const key =
+    `avatars/${user.id}/${crypto.randomUUID()}.webp`;
+
+  await env.AVATARS.put(key, image, {
     httpMetadata: {
       contentType: "image/webp",
-      cacheControl: "public, max-age=31536000, immutable",
+      cacheControl:
+        "public, max-age=31536000, immutable",
     },
   });
 
-  const oldAvatar = await env.DB
-    .prepare("SELECT avatar_key FROM users WHERE id = ?")
-    .bind(user.id)
-    .first<{ avatar_key: string | null }>();
-
   await env.DB
-    .prepare("UPDATE users SET avatar_key = ? WHERE id = ?")
+    .prepare(
+      "UPDATE users SET avatar_key = ? WHERE id = ?"
+    )
     .bind(key, user.id)
     .run();
 
-  if (oldAvatar?.avatar_key) {
-    await env.STORAGE.delete(oldAvatar.avatar_key);
+  if (oldUser?.avatar_key) {
+    await env.AVATARS.delete(oldUser.avatar_key);
   }
+
+  const avatarUrl =
+    `https://cdn.cipher-project.reyzer.org/${key}`;
 
   return json({
     success: true,
     avatar_key: key,
+    avatar_url: avatarUrl,
   });
 };

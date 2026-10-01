@@ -881,8 +881,54 @@ function ProfilePage({
           <h1>Profile</h1>
         </div>
 
-        <div className="profile-avatar">
-          {user.username.charAt(0).toUpperCase()}
+        <div className="profile-avatar-wrapper">
+          {user.avatar_url ? (
+            <img
+              src={user.avatar_url}
+              alt={`${user.username}'s profile`}
+              className="profile-avatar-image"
+            />
+          ) : (
+            <div className="profile-avatar">
+              {user.username.charAt(0).toUpperCase()}
+            </div>
+          )}
+
+          <label className="profile-avatar-upload">
+            Change avatar
+            <input
+              type="file"
+              accept="image/png,image/jpeg,image/webp,image/gif"
+              hidden
+              onChange={async (event) => {
+                const file = event.target.files?.[0];
+
+                if (!file) return;
+
+                const formData = new FormData();
+                formData.append("avatar", file);
+
+                try {
+                  const response = await fetch("/api/auth/avatar", {
+                    method: "POST",
+                    credentials: "include",
+                    body: formData,
+                  });
+
+                  const data = await response.json();
+
+                  if (!response.ok) {
+                    alert(data.error ?? "Failed to upload avatar.");
+                    return;
+                  }
+
+                  window.location.reload();
+                } catch {
+                  alert("Unable to connect to the server.");
+                }
+              }}
+            />
+          </label>
         </div>
 
         <h2>{user.username}</h2>
