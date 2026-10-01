@@ -11,6 +11,19 @@ import { Modal } from "./components/Modal";
 import { useCookies } from "react-cookie";
 import { changes } from "./components/changelog";
 
+interface AuthUser {
+  id: number;
+  username: string;
+  email: string;
+  role: string;
+  created_at: number;
+}
+
+function navigate(path: string) {
+  window.history.pushState({}, "", path);
+  window.dispatchEvent(new PopStateEvent("popstate"));
+}
+
 const useTraceScale = () => {
   const [scale, setScale] = useState(1.0);
 
@@ -73,6 +86,44 @@ export default function App() {
   const [isChLogsModalOpen, setIsChLogsModalOpen] = useState<boolean>(false);
   const [selectedLog, setSelectedLog] = useState<Log>(changes[0]);
 
+  const [currentPath, setCurrentPath] = useState(window.location.pathname);
+  const [authUser, setAuthUser] = useState<AuthUser | null>(null);
+  const [authLoading, setAuthLoading] = useState(true);
+
+  useEffect(() => {
+    const handleNavigation = () => {
+      setCurrentPath(window.location.pathname);
+    };
+
+    window.addEventListener("popstate", handleNavigation);
+
+    return () => {
+      window.removeEventListener("popstate", handleNavigation);
+    };
+  }, []);
+
+  useEffect(() => {
+    fetch("/api/auth/me", {
+      credentials: "include",
+    })
+      .then(async (response) => {
+        if (!response.ok) {
+          setAuthUser(null);
+          return;
+        }
+
+        const data = await response.json();
+
+        setAuthUser(data.authenticated ? data.user : null);
+      })
+      .catch(() => {
+        setAuthUser(null);
+      })
+      .finally(() => {
+        setAuthLoading(false);
+      });
+  }, []);
+
   const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const versionSelected = event.target.value;
     const foundLog = changes.find((log) => log.version === versionSelected);
@@ -127,8 +178,90 @@ export default function App() {
     setIsLcModalOpen(true);
   };
 
+  if (currentPath === "/login") {
+    return (
+      <LoginPage
+        onLogin={(user) => {
+          setAuthUser(user);
+          navigate("/");
+        }}
+        onRegister={() => navigate("/register")}
+      />
+    );
+  }
+
+  if (currentPath === "/register") {
+    return (
+      <RegisterPage
+        onRegistered={() => navigate("/login")}
+        onLogin={() => navigate("/login")}
+      />
+    );
+  }
+
+  if (currentPath === "/profile") {
+    if (authLoading) {
+      return <div className="account-page">Loading...</div>;
+    }
+
+    if (!authUser) {
+      navigate("/login");
+      return null;
+    }
+
+    return (
+      <ProfilePage
+        user={authUser}
+        onLogout={() => {
+          setAuthUser(null);
+          navigate("/");
+        }}
+        onUserUpdated={(user) => setAuthUser(user)}
+      />
+    );
+  }
+
   return (
     <div className="hsr-container">
+      <header className="account-nav">
+        {authLoading ? null : authUser ? (
+          <>
+            <button
+              className="account-profile-button"
+              onClick={() => navigate("/profile")}
+              title="Profile"
+            >
+              <span className="account-avatar">
+                {authUser.username.charAt(0).toUpperCase()}
+              </span>
+            </button>
+          </>
+        ) : (
+          <>
+            <button
+              className="account-nav-button"
+              onClick={() => navigate("/login")}
+            >
+              Login
+            </button>
+
+            <button
+              className="account-nav-button"
+              onClick={() => navigate("/register")}
+            >
+              Register
+            </button>
+
+            <button
+              className="account-profile-button"
+              onClick={() => navigate("/login")}
+              title="Profile"
+            >
+              <span className="account-avatar">?</span>
+            </button>
+          </>
+        )}
+      </header>
       {/* Columna Izquierda */}
       <aside className="hsr-left-panel" style={{ transform: `scale(${scale})` }}>
         <div className="hsr-header">
@@ -455,6 +588,466 @@ export default function App() {
           </div>
         </Modal>
       )}
+    </div>
+  );
+}
+
+function LoginPage({
+  onLogin,
+  onRegister,
+}: {
+  onLogin: (user: AuthUser) => void;
+  onRegister: () => void;
+}) {
+  const [identifier, setIdentifier] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const submit = async (event: React.FormEvent) => {
+    event.preventDefault();
+
+    setError("");
+    setLoading(true);
+
+    try {
+      const response = await fetch("/api/auth/login", {
+        method: "POST",
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          identifier,
+          password,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        setError(data.error ?? "Login failed.");
+        return;
+      }
+
+      onLogin(data.user);
+    } catch {
+      setError("Unable to connect to the server.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div className="account-page">
+      <div className="account-card">
+        <h1>Login</h1>
+        <p className="account-subtitle">
+          Sign in to your Cipher account.
+        </p>
+
+        <form onSubmit={submit}>
+          <label>Username or Email</label>
+          <input
+            value={identifier}
+            onChange={(e) => setIdentifier(e.target.value)}
+            autoComplete="username"
+            required
+          />
+
+          <label>Password</label>
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            autoComplete="current-password"
+            required
+          />
+
+          {error && (
+            <div className="account-error">
+              {error}
+            </div>
+          )}
+
+          <button
+            className="account-submit"
+            type="submit"
+            disabled={loading}
+          >
+            {loading ? "Logging in..." : "Login"}
+          </button>
+        </form>
+
+        <button
+          className="account-secondary-button"
+          onClick={onRegister}
+        >
+          Don't have an account? Register
+        </button>
+
+        <button
+          className="account-back-button"
+          onClick={() => navigate("/")}
+        >
+          ← Back
+        </button>
+      </div>
+    </div>
+  );
+}
+
+function RegisterPage({
+  onRegistered,
+  onLogin,
+}: {
+  onRegistered: () => void;
+  onLogin: () => void;
+}) {
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const submit = async (event: React.FormEvent) => {
+    event.preventDefault();
+
+    setError("");
+    setLoading(true);
+
+    try {
+      const response = await fetch("/api/auth/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          username,
+          email,
+          password,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        setError(data.error ?? "Registration failed.");
+        return;
+      }
+
+      onRegistered();
+    } catch {
+      setError("Unable to connect to the server.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div className="account-page">
+      <div className="account-card">
+        <h1>Create Account</h1>
+
+        <p className="account-subtitle">
+          Create your Cipher account.
+        </p>
+
+        <form onSubmit={submit}>
+          <label>Username</label>
+
+          <input
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            autoComplete="username"
+            required
+          />
+
+          <span className="account-hint">
+            Letters and numbers only.
+          </span>
+
+          <label>Email</label>
+
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            autoComplete="email"
+            required
+          />
+
+          <label>Password</label>
+
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            autoComplete="new-password"
+            required
+          />
+
+          <span className="account-hint">
+            Letters and numbers only. No length restriction.
+          </span>
+
+          {error && (
+            <div className="account-error">
+              {error}
+            </div>
+          )}
+
+          <button
+            className="account-submit"
+            type="submit"
+            disabled={loading}
+          >
+            {loading ? "Creating account..." : "Register"}
+          </button>
+        </form>
+
+        <button
+          className="account-secondary-button"
+          onClick={onLogin}
+        >
+          Already have an account? Login
+        </button>
+
+        <button
+          className="account-back-button"
+          onClick={() => navigate("/")}
+        >
+          ← Back
+        </button>
+      </div>
+    </div>
+  );
+}
+
+function ProfilePage({
+  user,
+  onLogout,
+  onUserUpdated,
+}: {
+  user: AuthUser;
+  onLogout: () => void;
+  onUserUpdated: (user: AuthUser) => void;
+}) {
+  const [passwordModal, setPasswordModal] = useState(false);
+
+  const roleClass = user.role.toLowerCase().replace("_", "-");
+
+  const maskedEmail = (() => {
+    const [name, domain] = user.email.split("@");
+
+    if (!name || !domain) {
+      return user.email;
+    }
+
+    const visible = Math.min(2, name.length);
+
+    return `${name.slice(0, visible)}${"*".repeat(
+      Math.max(2, name.length - visible)
+    )}@${domain}`;
+  })();
+
+  const logout = async () => {
+    await fetch("/api/auth/logout", {
+      method: "POST",
+      credentials: "include",
+    });
+
+    onLogout();
+  };
+
+  return (
+    <div className="account-page">
+      <div className="profile-card">
+        <div className="profile-header">
+          <button
+            className="profile-back"
+            onClick={() => navigate("/")}
+          >
+            ←
+          </button>
+
+          <h1>Profile</h1>
+        </div>
+
+        <div className="profile-avatar">
+          {user.username.charAt(0).toUpperCase()}
+        </div>
+
+        <h2>{user.username}</h2>
+
+        <div className={`profile-role role-${roleClass}`}>
+          {formatRole(user.role)}
+        </div>
+
+        <div className="profile-info">
+          <div>
+            <span>Email</span>
+            <strong>{maskedEmail}</strong>
+          </div>
+
+          <div>
+            <span>Username</span>
+            <strong>{user.username}</strong>
+          </div>
+
+          <div>
+            <span>Role</span>
+            <strong>{formatRole(user.role)}</strong>
+          </div>
+        </div>
+
+        <div className="profile-actions">
+          <button
+            className="account-submit"
+            onClick={() => setPasswordModal(true)}
+          >
+            Change Password
+          </button>
+
+          <button
+            className="account-logout"
+            onClick={logout}
+          >
+            Logout
+          </button>
+        </div>
+      </div>
+
+      {passwordModal && (
+        <ChangePasswordModal
+          onClose={() => setPasswordModal(false)}
+          onChanged={() => setPasswordModal(false)}
+        />
+      )}
+    </div>
+  );
+}
+
+function formatRole(role: string): string {
+  switch (role) {
+    case "HEAD_DEVELOPER":
+      return "Head Developer";
+
+    case "DEVELOPER":
+      return "Developer";
+
+    case "ADMINISTRATOR":
+      return "Administrator";
+
+    default:
+      return "User";
+  }
+}
+
+function ChangePasswordModal({
+  onClose,
+  onChanged,
+}: {
+  onClose: () => void;
+  onChanged: () => void;
+}) {
+  const [currentPassword, setCurrentPassword] = useState("");
+  const [newPassword, setNewPassword] = useState("");
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const submit = async (event: React.FormEvent) => {
+    event.preventDefault();
+
+    setError("");
+    setSuccess("");
+    setLoading(true);
+
+    try {
+      const response = await fetch("/api/auth/change-password", {
+        method: "POST",
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          currentPassword,
+          newPassword,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        setError(data.error ?? "Failed to change password.");
+        return;
+      }
+
+      setSuccess("Password changed successfully.");
+
+      setTimeout(() => {
+        onChanged();
+      }, 800);
+    } catch {
+      setError("Unable to connect to the server.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div className="account-modal-overlay">
+      <div className="account-modal">
+        <button
+          className="account-modal-close"
+          onClick={onClose}
+        >
+          ×
+        </button>
+
+        <h2>Change Password</h2>
+
+        <form onSubmit={submit}>
+          <label>Current Password</label>
+
+          <input
+            type="password"
+            value={currentPassword}
+            onChange={(e) => setCurrentPassword(e.target.value)}
+            required
+          />
+
+          <label>New Password</label>
+
+          <input
+            type="password"
+            value={newPassword}
+            onChange={(e) => setNewPassword(e.target.value)}
+            required
+          />
+
+          {error && (
+            <div className="account-error">
+              {error}
+            </div>
+          )}
+
+          {success && (
+            <div className="account-success">
+              {success}
+            </div>
+          )}
+
+          <button
+            className="account-submit"
+            type="submit"
+            disabled={loading}
+          >
+            {loading ? "Changing..." : "Change Password"}
+          </button>
+        </form>
+      </div>
     </div>
   );
 }
