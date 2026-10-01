@@ -999,6 +999,27 @@ select.hsr-changelog-select option {
         box-shadow 0.2s ease;
 }
 
+.account-avatar-image {
+    width: 38px;
+    height: 38px;
+
+    display: block;
+    border-radius: 50%;
+    object-fit: cover;
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(8, 11, 25, 0.7);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.account-profile-button:hover .account-avatar-image {
+    transform: scale(1.07);
+    box-shadow: 0 0 20px rgba(115, 95, 190, 0.35);
+}
+
 .account-profile-button:hover .account-avatar {
     transform: scale(1.07);
 
