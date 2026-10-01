@@ -5,19 +5,6 @@ interface Env {
   AVATARS: R2Bucket;
 }
 
-export const onRequest: PagesFunction = async () => {
-  return new Response(
-    JSON.stringify({
-      test: "avatar function works",
-    }),
-    {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    }
-  );
-};
-
 function json(data: unknown, status = 200): Response {
   return new Response(JSON.stringify(data), {
     status,
@@ -31,7 +18,7 @@ export const onRequestPost: PagesFunction<Env> = async ({
   request,
   env,
 }) => {
-try {
+    
   const user = await getCurrentUser(request, env.DB);
 
   if (!user) {
@@ -178,18 +165,4 @@ try {
     avatar_key: key,
     avatar_url: avatarUrl,
   });
-  } catch (error) {
-    console.error("Avatar upload error:", error);
-
-    return json(
-      {
-        error: "Internal server error.",
-        details:
-          error instanceof Error
-            ? error.message
-            : String(error),
-      },
-      500
-    );
-  }
 };
