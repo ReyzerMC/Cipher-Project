@@ -10,6 +10,7 @@ import { EidolonsMenu } from "./EidolonsMenu";
 import { Modal } from "./components/Modal";
 import { useCookies } from "react-cookie";
 import { changes } from "./components/changelog";
+import { AvatarEditor } from "./components/AvatarEditor";
 
 interface AuthUser {
   id: number;
@@ -835,12 +836,14 @@ function RegisterPage({
 function ProfilePage({
   user,
   onLogout,
+  onUserUpdated,
 }: {
   user: AuthUser;
   onLogout: () => void;
   onUserUpdated: (user: AuthUser) => void;
 }) {
   const [passwordModal, setPasswordModal] = useState(false);
+  const [avatarEditorOpen, setAvatarEditorOpen] = useState(false);
 
   const roleClass = user.role.toLowerCase().replace("_", "-");
 
@@ -894,41 +897,12 @@ function ProfilePage({
             </div>
           )}
 
-          <label className="profile-avatar-upload">
+          <button
+            className="profile-avatar-upload"
+            onClick={() => setAvatarEditorOpen(true)}
+          >
             Change avatar
-            <input
-              type="file"
-              accept="image/png,image/jpeg,image/webp,image/gif"
-              hidden
-              onChange={async (event) => {
-                const file = event.target.files?.[0];
-
-                if (!file) return;
-
-                const formData = new FormData();
-                formData.append("avatar", file);
-
-                try {
-                  const response = await fetch("/api/profile/avatar", {
-                    method: "POST",
-                    credentials: "include",
-                    body: formData,
-                  });
-
-                  const data = await response.json();
-
-                  if (!response.ok) {
-                    alert(data.error ?? "Failed to upload avatar.");
-                    return;
-                  }
-
-                  window.location.reload();
-                } catch {
-                  alert("Unable to connect to the server.");
-                }
-              }}
-            />
-          </label>
+          </button>
         </div>
 
         <h2>{user.username}</h2>
@@ -975,6 +949,23 @@ function ProfilePage({
         <ChangePasswordModal
           onClose={() => setPasswordModal(false)}
           onChanged={() => setPasswordModal(false)}
+        />
+      )}
+      {avatarEditorOpen && (
+        <AvatarEditor
+          onClose={() => setAvatarEditorOpen(false)}
+          onSaved={(avatarUrl) => {
+            onUserUpdated({
+              ...user,
+              avatar_url: avatarUrl,
+              avatar_key: avatarUrl
+                .split("/")
+                .slice(3)
+                .join("/"),
+            });
+
+            setAvatarEditorOpen(false);
+          }}
         />
       )}
     </div>
