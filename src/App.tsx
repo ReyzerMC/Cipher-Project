@@ -827,7 +827,6 @@ function RegisterPage({
 function ProfilePage({
   user,
   onLogout,
-  onUserUpdated,
 }: {
   user: AuthUser;
   onLogout: () => void;
