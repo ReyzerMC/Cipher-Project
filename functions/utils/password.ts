@@ -1,4 +1,4 @@
-const ITERATIONS = 310_000;
+const ITERATIONS = 100_000;
 const HASH_LENGTH = 32;
 
 function bytesToBase64(bytes: Uint8Array): string {
