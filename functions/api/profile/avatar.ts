@@ -5,6 +5,19 @@ interface Env {
   AVATARS: R2Bucket;
 }
 
+export const onRequest: PagesFunction = async () => {
+  return new Response(
+    JSON.stringify({
+      test: "avatar function works",
+    }),
+    {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+  );
+};
+
 function json(data: unknown, status = 200): Response {
   return new Response(JSON.stringify(data), {
     status,
