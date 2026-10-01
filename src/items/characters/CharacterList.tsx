@@ -15431,22 +15431,22 @@ When an ally target's current HP percentage is 50% or lower, their DMG taken get
         },
         b2: {
             id: "b2",
-            name: "Sensory Latitude",
-            type: "bonus",
-            level: "1/1",
-            icon: charIcon("Pearl", "SensoryLatitude"),
-            description: `
-        When Pearl's DEF is 2400 or higher, increases this unit's Elation by 32%. For every 100 DEF exceeding that threshold, increases this unit's Elation by 3%. Up to a max of 3600 excess DEF can be taken into account for this effect. Pearl gains Outgoing Healing Boost, equal to 20% of this unit's Elation.
-      `,
-        },
-        b3: {
-            id: "b3",
             name: "Panoptic Vision",
             type: "bonus",
             level: "1/1",
             icon: charIcon("Pearl", "PanopticVision"),
             description: `
         While holding "Certified Banger," increases all ally targets' Effect RES by 50%. When an ally target's turn begins, Pearl gains 5 point(s) of "Certified Banger," up to a max of 50 point(s) of "Certified Banger." The obtainable amount of "Certified Banger" resets at the start of Pearl's turn. When using Enhanced Basic ATK or Skill, dispels 1 debuff(s) from all ally targets.
+      `,
+        },
+        b3: {
+            id: "b3",
+            name: "Sensory Latitude",
+            type: "bonus",
+            level: "1/1",
+            icon: charIcon("Pearl", "SensoryLatitude"),
+            description: `
+        When Pearl's DEF is 2400 or higher, increases this unit's Elation by 32%. For every 100 DEF exceeding that threshold, increases this unit's Elation by 3%. Up to a max of 3600 excess DEF can be taken into account for this effect. Pearl gains Outgoing Healing Boost, equal to 20% of this unit's Elation.
       `,
         },
         b4: {
