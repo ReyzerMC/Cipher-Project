@@ -2,7 +2,7 @@ import { getCurrentUser } from "../../utils/auth";
 
 interface Env {
   DB: D1Database;
-  AVATARS: R2Bucket;
+  STORAGE: R2Bucket;
 }
 
 function json(data: unknown, status = 200): Response {
@@ -14,20 +14,21 @@ function json(data: unknown, status = 200): Response {
   });
 }
 
+const EXTENSIONS: Record<string, string> = {
+  "image/png": "png",
+  "image/jpeg": "jpg",
+  "image/webp": "webp",
+  "image/gif": "gif",
+};
+
 export const onRequestPost: PagesFunction<Env> = async ({
   request,
   env,
 }) => {
-    
   const user = await getCurrentUser(request, env.DB);
 
   if (!user) {
-    return json(
-      {
-        error: "You must be logged in.",
-      },
-      401
-    );
+    return json({ error: "You must be logged in." }, 401);
   }
 
   const role = user.role;
@@ -43,23 +44,12 @@ export const onRequestPost: PagesFunction<Env> = async ({
     request.headers.get("Content-Type")?.toLowerCase();
 
   if (!contentType?.startsWith("image/")) {
-    return json(
-      {
-        error: "Only image files are allowed.",
-      },
-      400
-    );
+    return json({ error: "Only image files are allowed." }, 400);
   }
-
-  const isGif = contentType === "image/gif";
 
   // USER
   if (role === "USER") {
-    const allowed = [
-      "image/png",
-      "image/jpeg",
-      "image/webp",
-    ];
+    const allowed = ["image/png", "image/jpeg", "image/webp"];
 
     if (!allowed.includes(contentType)) {
       return json(
@@ -82,12 +72,7 @@ export const onRequestPost: PagesFunction<Env> = async ({
     ];
 
     if (!allowed.includes(contentType)) {
-      return json(
-        {
-          error: "Unsupported image format.",
-        },
-        400
-      );
+      return json({ error: "Unsupported image format." }, 400);
     }
   }
 
@@ -95,6 +80,10 @@ export const onRequestPost: PagesFunction<Env> = async ({
   // Any image/* MIME type is accepted.
 
   const image = await request.arrayBuffer();
+
+  if (image.byteLength === 0) {
+    return json({ error: "The image is empty." }, 400);
+  }
 
   if (image.byteLength > maxSize) {
     return json(
@@ -105,56 +94,39 @@ export const onRequestPost: PagesFunction<Env> = async ({
     );
   }
 
-  if (image.byteLength === 0) {
-    return json(
-      {
-        error: "The image is empty.",
-      },
-      400
-    );
-  }
-
   const oldUser = await env.DB
-    .prepare(
-      "SELECT avatar_key FROM users WHERE id = ?"
-    )
+    .prepare("SELECT avatar_key FROM users WHERE id = ?")
     .bind(user.id)
-    .first<{
-      avatar_key: string | null;
-    }>();
+    .first<{ avatar_key: string | null }>();
 
-  /*
-   * GIFs remain GIFs.
-   *
-   * Everything else should already have been converted
-   * to WebP by the avatar editor.
-   */
-  const extension = isGif ? "gif" : "webp";
-
-  const storedContentType = isGif
-    ? "image/gif"
-    : "image/webp";
+  // Keep the original format. Fallback for DEVELOPER roles (any image/*).
+  const extension =
+    EXTENSIONS[contentType] ??
+    contentType.split("/")[1]?.replace(/[^a-z0-9]/g, "") ??
+    "bin";
 
   const key =
     `avatars/${user.id}/${crypto.randomUUID()}.${extension}`;
 
   await env.STORAGE.put(key, image, {
     httpMetadata: {
-      contentType: storedContentType,
-      cacheControl:
-        "public, max-age=31536000, immutable",
+      contentType,
+      cacheControl: "public, max-age=31536000, immutable",
     },
   });
 
   await env.DB
-    .prepare(
-      "UPDATE users SET avatar_key = ? WHERE id = ?"
-    )
+    .prepare("UPDATE users SET avatar_key = ? WHERE id = ?")
     .bind(key, user.id)
     .run();
 
+  // Delete the previous avatar; a failure here must not fail the upload.
   if (oldUser?.avatar_key) {
-    await env.AVATARS.delete(oldUser.avatar_key);
+    try {
+      await env.STORAGE.delete(oldUser.avatar_key);
+    } catch (err) {
+      console.error("Failed to delete old avatar:", err);
+    }
   }
 
   const avatarUrl =
