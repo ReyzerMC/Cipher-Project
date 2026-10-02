@@ -1,16 +1,23 @@
-import { useState, useEffect, useMemo } from "react";
+import { lazy, Suspense, useState, useEffect, useMemo } from "react";
 import type { Character, LightCone, Log } from "./types/hsr";
 import { Characters } from "./items/characters/CharacterList";
 import { LightCones } from "./items/lightCones/LightConesList";
 import "./App.css";
-import { TracesMenu } from "./TracesMenu";
 import { pathIcon } from "./utils/assets";
 import { Paths } from "./items/item/ResourcesLists";
-import { EidolonsMenu } from "./EidolonsMenu";
 import { Modal } from "./components/Modal";
 import { useCookies } from "react-cookie";
 import { changes } from "./components/changelog";
 import { AvatarEditor } from "./components/AvatarEditor";
+
+// Traces y Eidolons solo se descargan cuando el usuario abre esa pestaña
+// (menos JS inicial en móvil).
+const TracesMenu = lazy(() =>
+  import("./TracesMenu").then((m) => ({ default: m.TracesMenu }))
+);
+const EidolonsMenu = lazy(() =>
+  import("./EidolonsMenu").then((m) => ({ default: m.EidolonsMenu }))
+);
 
 interface AuthUser {
   id: number;
@@ -22,32 +29,27 @@ interface AuthUser {
   avatar_url: string | null;
 }
 
+// Hace que un <div> clicable sea usable con teclado y lectores de pantalla.
+function buttonProps(handler: () => void, disabled = false) {
+  return {
+    role: "button" as const,
+    tabIndex: disabled ? -1 : 0,
+    "aria-disabled": disabled || undefined,
+    onClick: disabled ? undefined : handler,
+    onKeyDown: (e: React.KeyboardEvent) => {
+      if (disabled) return;
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        handler();
+      }
+    },
+  };
+}
+
 function navigate(path: string) {
   window.history.pushState({}, "", path);
   window.dispatchEvent(new PopStateEvent("popstate"));
 }
-
-const useTraceScale = () => {
-  const [scale, setScale] = useState(1.0);
-
-  useEffect(() => {
-    const updateScale = () => {
-        const width = window.innerWidth;
-
-        if (width >= 2500) {
-            setScale(1.35);
-        } else {
-            setScale(1.0);
-        }
-    };
-
-    updateScale();
-    window.addEventListener("resize", updateScale);
-    return () => window.removeEventListener("resize", updateScale);
-  }, []);
-
-  return scale;
-};
 
 interface AppCookies {
   selectedChar?: string | null;
@@ -127,6 +129,12 @@ export default function App() {
       });
   }, []);
 
+  useEffect(() => {
+    if (currentPath === "/profile" && !authLoading && !authUser) {
+      navigate("/login");
+    }
+  }, [currentPath, authLoading, authUser]);
+
   const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const versionSelected = event.target.value;
     const foundLog = changes.find((log) => log.version === versionSelected);
@@ -138,8 +146,6 @@ export default function App() {
   const availableLightCones = selectedCharacter
     ? LightCones.filter(lc => lc.path === selectedCharacter.path)
     : LightCones;
-
-  const scale = useTraceScale();
 
   // Filtrado reactivo de personajes
   const filteredCharacters = useMemo(() => {
@@ -208,7 +214,6 @@ export default function App() {
     }
 
     if (!authUser) {
-      navigate("/login");
       return null;
     }
 
@@ -232,6 +237,7 @@ export default function App() {
             className="account-profile-button"
             onClick={() => navigate("/profile")}
             title="Profile"
+            aria-label="Profile"
           >
             {authUser.avatar_url ? (
               <img
@@ -262,9 +268,10 @@ export default function App() {
             </button>
 
             <button
-              className="account-profile-button"
+              className="account-profile-button account-guest-avatar"
               onClick={() => navigate("/login")}
               title="Profile"
+              aria-label="Profile"
             >
               <span className="account-avatar">?</span>
             </button>
@@ -272,7 +279,7 @@ export default function App() {
         )}
       </header>
       {/* Columna Izquierda */}
-      <aside className="hsr-left-panel" style={{ transform: `scale(${scale})` }}>
+      <aside className="hsr-left-panel">
         <div className="hsr-header">
           <h1 className="hsr-title">
             {selectedCharacter?.name ?? "Select Character"}
@@ -315,43 +322,49 @@ export default function App() {
       <main className="hsr-center-art">
         {activeTab === "details" && (
           selectedCharacter?.image ? (
-            <img src={selectedCharacter.image} alt={selectedCharacter.name} className="hsr-character-img" />
+            <img src={selectedCharacter.image} alt={selectedCharacter.name} className="hsr-character-img" decoding="async" />
           ) : (
             <div className="hsr-art-placeholder">Character Art</div>
           )
         )}
 
         {activeTab === "traces" && selectedCharacter && (
-          <TracesMenu
-            path={selectedCharacter?.path!}
-            nodes={selectedCharacter?.traces!}
-            bgWatermark={pathIcon(selectedCharacter.path)}
-          />
+          <Suspense fallback={<div className="hsr-art-placeholder">Loading...</div>}>
+            <TracesMenu
+              path={selectedCharacter?.path!}
+              nodes={selectedCharacter?.traces!}
+              bgWatermark={pathIcon(selectedCharacter.path)}
+            />
+          </Suspense>
         )}
 
         {activeTab === "eidolons" && selectedCharacter && (
-          <EidolonsMenu
-            e1={selectedCharacter.eidolons.e1}
-            e2={selectedCharacter.eidolons.e2}
-            e3={selectedCharacter.eidolons.e3}
-            e4={selectedCharacter.eidolons.e4}
-            e5={selectedCharacter.eidolons.e5}
-            e6={selectedCharacter.eidolons.e6}
-          />
+          <Suspense fallback={<div className="hsr-art-placeholder">Loading...</div>}>
+            <EidolonsMenu
+              e1={selectedCharacter.eidolons.e1}
+              e2={selectedCharacter.eidolons.e2}
+              e3={selectedCharacter.eidolons.e3}
+              e4={selectedCharacter.eidolons.e4}
+              e5={selectedCharacter.eidolons.e5}
+              e6={selectedCharacter.eidolons.e6}
+            />
+          </Suspense>
         )}
       </main>
 
       {/* Columna Derecha */}
       {activeTab === "details" && (
-        <aside className="hsr-right-panel" style={{ transform: `scale(${scale})` }}>
+        <aside className="hsr-right-panel">
           {/* Selectores */}
           <div className="hsr-card hsr-selectors">
-            <label className="hsr-label">Character</label>
+            <label className="hsr-label" id="char-select-label">Character</label>
             
             {/* Selector de Personaje Personalizado */}
             <div 
               className="hsr-custom-select" 
-              onClick={() => setIsCharModalOpen(true)}
+              aria-labelledby="char-select-label"
+              aria-haspopup="dialog"
+              {...buttonProps(() => setIsCharModalOpen(true))}
             >
               {selectedCharacter ? (
                 <div className="hsr-select-selected-item">
@@ -364,12 +377,14 @@ export default function App() {
               <span className="hsr-select-arrow">▼</span>
             </div>
 
-            <label className="hsr-label">Light Cone</label>
+            <label className="hsr-label" id="lc-select-label">Light Cone</label>
 
             {/* Selector de Cono de Luz Personalizado */}
             <div 
               className={`hsr-custom-select ${!selectedCharacter ? "disabled" : ""}`}
-              onClick={openLcModal}
+              aria-labelledby="lc-select-label"
+              aria-haspopup="dialog"
+              {...buttonProps(openLcModal, !selectedCharacter)}
             >
               {selectedLightCone ? (
                 <div className="hsr-select-selected-item">
@@ -440,6 +455,7 @@ export default function App() {
                 className="hsr-btn-passive"
                 disabled={!selectedLightCone}
                 onClick={() => setShowPassivePopover(!showPassivePopover)}
+                aria-expanded={showPassivePopover}
               >
                 Passive Ability {showPassivePopover ? "▲" : "▼"}
               </button>
@@ -475,8 +491,12 @@ export default function App() {
             {/* Buscador y Filtros */}
             <div className="hsr-modal-controls">
               <input
-                type="text"
+                type="search"
                 className="hsr-search-input"
+                aria-label="Search character"
+                autoComplete="off"
+                autoCapitalize="none"
+                spellCheck={false}
                 placeholder="Search character..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
@@ -486,6 +506,7 @@ export default function App() {
                 <button
                   className={`hsr-filter-btn ${selectedPathFilter === "ALL" ? "active" : ""}`}
                   onClick={() => setSelectedPathFilter("ALL")}
+                  aria-pressed={selectedPathFilter === "ALL"}
                 >
                   All
                 </button>
@@ -494,6 +515,7 @@ export default function App() {
                     key={pathKey}
                     className={`hsr-filter-btn ${selectedPathFilter === pathKey ? "active" : ""}`}
                     onClick={() => setSelectedPathFilter(pathKey)}
+                    aria-pressed={selectedPathFilter === pathKey}
                   >
                     {pathKey}
                   </button>
@@ -508,10 +530,11 @@ export default function App() {
                   <div
                     key={char.name}
                     className={`hsr-char-card ${selectedCharacter?.name === char.name ? "selected" : ""}`}
-                    onClick={() => handleSelectCharacter(char)}
+                    aria-label={char.name}
+                    {...buttonProps(() => handleSelectCharacter(char))}
                   >
                     <div className="hsr-char-pfp-wrapper">
-                      <img src={char.pfp} alt={char.name} className="hsr-char-pfp" />
+                      <img src={char.pfp} alt="" className="hsr-char-pfp" loading="lazy" decoding="async" />
                     </div>
                     <div className="hsr-char-info-bar">
                       <div className="hsr-char-name">{char.name}</div>
@@ -531,8 +554,12 @@ export default function App() {
             {/* Buscador */}
             <div className="hsr-modal-controls">
               <input
-                type="text"
+                type="search"
                 className="hsr-search-input"
+                aria-label="Search light cone"
+                autoComplete="off"
+                autoCapitalize="none"
+                spellCheck={false}
                 placeholder="Search Light Cone..."
                 value={lcSearchQuery}
                 onChange={(e) => setLcSearchQuery(e.target.value)}
@@ -546,11 +573,12 @@ export default function App() {
                   <div
                     key={lc.name}
                     className={`hsr-char-card hsr-lc-card-item ${selectedLightCone?.name === lc.name ? "selected" : ""}`}
-                    onClick={() => handleSelectLightCone(lc)}
+                    aria-label={lc.name}
+                    {...buttonProps(() => handleSelectLightCone(lc))}
                   >
                     {/* Imagen en la parte superior */}
                     <div className="hsr-char-pfp-wrapper">
-                      <img src={lc.image} alt={lc.name} className="hsr-char-pfp hsr-lc-img" />
+                      <img src={lc.image} alt="" className="hsr-char-pfp hsr-lc-img" loading="lazy" decoding="async" />
                     </div>
 
                     {/* Nombre y Estrellas en la parte inferior */}
@@ -656,16 +684,23 @@ function LoginPage({
         </p>
 
         <form onSubmit={submit}>
-          <label>Username or Email</label>
+          <label htmlFor="login-identifier">Username or Email</label>
           <input
+            id="login-identifier"
+            name="username"
+            autoCapitalize="none"
+            autoCorrect="off"
+            spellCheck={false}
             value={identifier}
             onChange={(e) => setIdentifier(e.target.value)}
             autoComplete="username"
             required
           />
 
-          <label>Password</label>
+          <label htmlFor="login-password">Password</label>
           <input
+            id="login-password"
+            name="password"
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
@@ -674,7 +709,7 @@ function LoginPage({
           />
 
           {error && (
-            <div className="account-error">
+            <div className="account-error" role="alert">
               {error}
             </div>
           )}
@@ -763,9 +798,14 @@ function RegisterPage({
         </p>
 
         <form onSubmit={submit}>
-          <label>Username</label>
+          <label htmlFor="register-username">Username</label>
 
           <input
+            id="register-username"
+            name="username"
+            autoCapitalize="none"
+            autoCorrect="off"
+            spellCheck={false}
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             autoComplete="username"
@@ -776,19 +816,27 @@ function RegisterPage({
             Letters and numbers only.
           </span>
 
-          <label>Email</label>
+          <label htmlFor="register-email">Email</label>
 
           <input
+            id="register-email"
+            name="email"
             type="email"
+            inputMode="email"
+            autoCapitalize="none"
+            autoCorrect="off"
+            spellCheck={false}
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             autoComplete="email"
             required
           />
 
-          <label>Password</label>
+          <label htmlFor="register-password">Password</label>
 
           <input
+            id="register-password"
+            name="password"
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
@@ -801,7 +849,7 @@ function RegisterPage({
           </span>
 
           {error && (
-            <div className="account-error">
+            <div className="account-error" role="alert">
               {error}
             </div>
           )}
@@ -1001,6 +1049,22 @@ function ChangePasswordModal({
   const [success, setSuccess] = useState("");
   const [loading, setLoading] = useState(false);
 
+  useEffect(() => {
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+
+    document.addEventListener("keydown", onKeyDown);
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.removeEventListener("keydown", onKeyDown);
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [onClose]);
+
   const submit = async (event: React.FormEvent) => {
     event.preventDefault();
 
@@ -1042,29 +1106,42 @@ function ChangePasswordModal({
 
   return (
     <div className="account-modal-overlay">
-      <div className="account-modal">
+      <div
+        className="account-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="change-password-title"
+      >
         <button
+          type="button"
           className="account-modal-close"
           onClick={onClose}
+          aria-label="Close"
         >
           ×
         </button>
 
-        <h2>Change Password</h2>
+        <h2 id="change-password-title">Change Password</h2>
 
         <form onSubmit={submit}>
-          <label>Current Password</label>
+          <label htmlFor="current-password">Current Password</label>
 
           <input
+            id="current-password"
+            name="current-password"
+            autoComplete="current-password"
             type="password"
             value={currentPassword}
             onChange={(e) => setCurrentPassword(e.target.value)}
             required
           />
 
-          <label>New Password</label>
+          <label htmlFor="new-password">New Password</label>
 
           <input
+            id="new-password"
+            name="new-password"
+            autoComplete="new-password"
             type="password"
             value={newPassword}
             onChange={(e) => setNewPassword(e.target.value)}
@@ -1072,13 +1149,13 @@ function ChangePasswordModal({
           />
 
           {error && (
-            <div className="account-error">
+            <div className="account-error" role="alert">
               {error}
             </div>
           )}
 
           {success && (
-            <div className="account-success">
+            <div className="account-success" role="status">
               {success}
             </div>
           )}

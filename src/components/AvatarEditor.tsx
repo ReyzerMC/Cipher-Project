@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Cropper from "react-easy-crop";
 import "./AvatarEditor.css";
 
@@ -29,6 +29,29 @@ export function AvatarEditor({
 
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState("");
+
+  // Libera la URL temporal de la imagen anterior al cambiar de archivo y al desmontar
+  useEffect(() => {
+    return () => {
+      if (image) URL.revokeObjectURL(image);
+    };
+  }, [image]);
+
+  useEffect(() => {
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape" && !saving) onClose();
+    };
+
+    document.addEventListener("keydown", onKeyDown);
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.removeEventListener("keydown", onKeyDown);
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [saving, onClose]);
 
   const onCropComplete = useCallback(
     (_croppedArea: Area, croppedPixels: Area) => {
@@ -200,15 +223,22 @@ export function AvatarEditor({
 
   return (
     <div className="avatar-editor-overlay">
-      <div className="avatar-editor-modal">
+      <div
+        className="avatar-editor-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="avatar-editor-title"
+      >
 
         <div className="avatar-editor-header">
-          <h2>Change profile picture</h2>
+          <h2 id="avatar-editor-title">Change profile picture</h2>
 
           <button
+            type="button"
             className="avatar-editor-close"
             onClick={onClose}
             disabled={saving}
+            aria-label="Close"
           >
             ×
           </button>
@@ -234,7 +264,7 @@ export function AvatarEditor({
               <input
                 type="file"
                 accept="image/*"
-                hidden
+                className="avatar-file-input"
                 onChange={(event) => {
                   const file =
                     event.target.files?.[0];
@@ -290,7 +320,7 @@ export function AvatarEditor({
                 <input
                   type="file"
                   accept="image/*"
-                  hidden
+                  className="avatar-file-input"
                   onChange={(event) => {
                     const file =
                       event.target.files?.[0];
@@ -317,7 +347,7 @@ export function AvatarEditor({
         )}
 
         {error && (
-          <div className="avatar-editor-error">
+          <div className="avatar-editor-error" role="alert">
             {error}
           </div>
         )}

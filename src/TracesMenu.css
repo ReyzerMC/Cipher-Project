@@ -9,8 +9,10 @@
 .hsr-traces-container {
   position: relative;
   width: 100%;
-  height: calc(100vh - 80px);
-  max-height: 720px;
+  /* Antes: altura fija (100vh - 80px) y max 720px. En pantallas bajas el lienzo de
+     600px se salía por arriba y esa parte no se podía alcanzar con scroll. */
+  height: auto;
+  min-height: 640px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -164,7 +166,9 @@
   top: 10%;
   right: 0px;
   width: 320px;
-  max-height: calc(100vh - 20vh);
+  max-height: 80vh;
+  max-height: 80dvh;
+  max-width: calc(100vw - 16px);
   overflow-y: auto;
   overflow-x: hidden;
   box-sizing: border-box;
@@ -419,4 +423,51 @@
       background: #ffffff;
       border-color: #ffffff;
     }
+}
+
+
+/* --- Área táctil ampliada de los nodos (los de stat miden 23px en móvil) --- */
+.hsr-trace-node-btn {
+  position: relative;
+}
+
+.hsr-trace-node-btn::after {
+  content: "";
+  position: absolute;
+  inset: -9px;
+  border-radius: 50%;
+}
+
+/* El nodo tiene su propio indicador de foco */
+.hsr-trace-node-btn:focus-visible {
+  outline: 2px solid #ffc700;
+  outline-offset: 3px;
+}
+
+/* --- Pantallas muy grandes: sustituye el scale() por JS --- */
+@media (min-width: 2500px) {
+  .hsr-traces-container {
+    min-height: 880px;
+  }
+
+  .hsr-traces-canvas {
+    zoom: 1.35;
+  }
+}
+
+/* Área táctil mínima y tamaño de letra legible en el popover de móvil */
+@media (pointer: coarse) {
+  .hsr-level-slider {
+    height: 8px;
+  }
+
+  .hsr-level-slider::-webkit-slider-thumb {
+    width: 24px;
+    height: 24px;
+  }
+
+  .hsr-level-slider::-moz-range-thumb {
+    width: 24px;
+    height: 24px;
+  }
 }

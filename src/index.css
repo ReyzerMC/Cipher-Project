@@ -1,0 +1,52 @@
+/* Base global (antes este archivo estaba vacío) */
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  color-scheme: dark;
+  background: #060814;
+}
+
+body {
+  min-height: 100vh;
+  min-height: 100dvh;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Quita el retardo de doble-toque y el zoom accidental en botones */
+button,
+[role="button"],
+select,
+summary {
+  touch-action: manipulation;
+}
+
+/* Foco visible para teclado (no molesta con ratón/táctil) */
+:focus-visible {
+  outline: 2px solid #ffc700;
+  outline-offset: 2px;
+}
+
+/* Texto solo para lectores de pantalla */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Respeta "reducir movimiento" del sistema (nebulosa, estrellas, hovers) */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

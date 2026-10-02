@@ -274,3 +274,48 @@
         line-height: 1.45;
     }
 }
+
+/* La flecha ahora es un <span>: para poder rotarla necesita ser inline-block */
+.hsr-eidolon-arrow {
+    display: inline-block;
+}
+
+/* La cabecera es role="button": quita el resaltado al tocar */
+.hsr-eidolon-header {
+    -webkit-tap-highlight-color: transparent;
+}
+
+.hsr-eidolon-header:focus-visible {
+    outline: 2px solid #f3d884;
+    outline-offset: -2px;
+}
+
+/* En táctil no hay hover real: evita la tarjeta "pegada" elevada tras tocarla */
+@media (hover: none) {
+    .hsr-eidolon-box:not(.open):hover {
+        transform: none;
+        border-color: rgba(197, 160, 89, 0.35);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7), inset 0 0 15px rgba(0, 0, 0, 0.8);
+    }
+
+    .hsr-eidolon-box:hover .hsr-eidolon-thumb {
+        transform: none;
+    }
+
+    .hsr-eidolon-box.open:hover {
+        transform: none;
+    }
+}
+
+/* Móviles muy estrechos (<= 380px): evita que el título empuje la flecha fuera de la tarjeta */
+@media (max-width: 380px) {
+    .hsr-eidolon-thumb-frame {
+        width: 48px;
+        height: 48px;
+    }
+
+    .hsr-eidolon-info {
+        gap: 10px;
+        min-width: 0;
+    }
+}

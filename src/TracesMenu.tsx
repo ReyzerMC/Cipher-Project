@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import type { TraceNodeData } from "./types/hsr";
 import {
   AbundanceTreeLayout,
@@ -21,34 +21,8 @@ interface TracesMenuProps {
   onLevelChange?: (nodeId: string, level: number, index: number) => void;
 }
 
-// Codigo duplicado, piensa en sacarlo en utils. Mira otras partes,
-// Lo mas probable es que tengas otras funciones que puedas sacar para reutilizar.
-// Tambien mira entre los menus de eidolons, traces y la propia app para mirar codigo html duplicado
-//
-// Normalmente, cuando haces una aplicacion en front end, quieres que toda la aplicacion y pagina
-// se vea igual (mismos espacios, colores, etc), vaya que quieres que parezca la misma aplicacion y no
-// un frankenstein. Para eso se hace una carpeta componentes/ donde pones los componentes que quieres reutilizar
-// Por ejemplo, el que te he hecho: Modal (src/components/Modal.tsx, usado en App.tsx).
-const useTraceScale = () => {
-  const [scale, setScale] = useState(1.0);
-
-  useEffect(() => {
-    const updateScale = () => {
-      const width = window.innerWidth;
-      if (width >= 2500) {
-        setScale(1.35);
-      } else {
-        setScale(1.0);
-      }
-    };
-
-    updateScale();
-    window.addEventListener("resize", updateScale);
-    return () => window.removeEventListener("resize", updateScale);
-  }, []);
-
-  return scale;
-};
+// El escalado para pantallas >= 2500px ahora lo hace TracesMenu.css (media query + zoom),
+// ya no hace falta el hook useTraceScale duplicado en App.tsx y en este archivo.
 
 // Función auxiliar para obtener el nivel máximo desde la cadena "x/max"
 const getMaxLevel = (levelStr?: string): number => {
@@ -72,7 +46,6 @@ export const TracesMenu: React.FC<TracesMenuProps> = ({
   // Diccionario para almacenar el nivel dinámico actual de cada nodo (id -> nivel)
   const [nodeLevels, setNodeLevels] = useState<Record<string, number>>({});
 
-  const scale = useTraceScale();
   const selectedNode = selectedNodeId ? nodes[selectedNodeId] : null;
 
   // Manejar cambio de nivel en el slider
@@ -135,7 +108,7 @@ export const TracesMenu: React.FC<TracesMenuProps> = ({
   return (
     <div className="hsr-traces-container">
       {/* Contenedor Canvas */}
-      <div className="hsr-traces-canvas" style={{ transform: `scale(${scale})` }}>
+      <div className="hsr-traces-canvas">
         {bgWatermark && (
           <img src={bgWatermark} alt={path} className="hsr-traces-watermark" />
         )}
@@ -182,11 +155,16 @@ export const TracesMenu: React.FC<TracesMenuProps> = ({
                 key={id}
                 className={`hsr-trace-node-wrapper node-type-${nodeData.type} ${isSelected ? "selected" : ""}`}
                 style={{ left: `${pos.x}%`, top: `${pos.y}%` }}
-                onClick={() => setSelectedNodeId(id)}
               >
                 {isSelected && <div className="hsr-node-arrow" />}
-                <button className="hsr-trace-node-btn">
-                  <img src={nodeData.icon} alt={nodeData.name} className="hsr-node-icon" />
+                <button
+                  type="button"
+                  className="hsr-trace-node-btn"
+                  onClick={() => setSelectedNodeId(id)}
+                  aria-label={nodeData.name}
+                  aria-pressed={isSelected}
+                >
+                  <img src={nodeData.icon} alt="" className="hsr-node-icon" draggable={false} />
                 </button>
                 {nodeData.level && (
                   <span className="hsr-node-level">

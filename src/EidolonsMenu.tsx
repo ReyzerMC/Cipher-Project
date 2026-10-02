@@ -44,28 +44,35 @@ export const EidolonsMenu: React.FC<Eidolon> = (props) => {
             {/* Cabecera Clicable */}
             <div
               className="hsr-eidolon-header"
+              role="button"
+              tabIndex={0}
+              aria-expanded={isOpen}
               onClick={() => toggleEidolon(key)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault();
+                  toggleEidolon(key);
+                }
+              }}
             >
               <div className="hsr-eidolon-info">
                 <span className="hsr-eidolon-num">{num}</span>
                 <div className="hsr-eidolon-thumb-frame">
                   <img
                     src={data.image}
-                    alt={data.title}
+                    alt=""
                     className="hsr-eidolon-thumb"
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
                 <span className="hsr-eidolon-title">{data.title}</span>
               </div>
 
               {/* Flecha desplegable */}
-              <button
-                type="button"
-                className="hsr-eidolon-arrow"
-                aria-label="Toggle description"
-              >
+              <span className="hsr-eidolon-arrow" aria-hidden="true">
                 ▼
-              </button>
+              </span>
             </div>
 
             {/* Contenido Desplegable */}
