@@ -8,6 +8,30 @@ import { LegalNoticePage, CookiesPage, PrivacyPage, TermsPage } from "./pages/Le
 import { LoginPage } from "./pages/LoginPage";
 import { ProfilePage } from "./pages/ProfilePage";
 import { RegisterPage } from "./pages/RegisterPage";
+import { VerifyEmailPage } from "./pages/VerifyEmailPage";
+
+// El identificador que se está verificando sobrevive a un F5 (solo en esta pestaña)
+const PENDING_KEY = "cipher.pendingVerification";
+
+function readPendingIdentifier(): string {
+  try {
+    return sessionStorage.getItem(PENDING_KEY) ?? "";
+  } catch {
+    return ""; // almacenamiento no disponible (modo privado, etc.)
+  }
+}
+
+function savePendingIdentifier(identifier: string) {
+  try {
+    if (identifier) {
+      sessionStorage.setItem(PENDING_KEY, identifier);
+    } else {
+      sessionStorage.removeItem(PENDING_KEY);
+    }
+  } catch {
+    // sin almacenamiento: no pasa nada, el usuario volverá a escribirlo
+  }
+}
 
 interface MeResponse {
   error?: string;
@@ -19,6 +43,17 @@ export default function App() {
   const [currentPath, setCurrentPath] = useState(window.location.pathname);
   const [authUser, setAuthUser] = useState<AuthUser | null>(null);
   const [authLoading, setAuthLoading] = useState(true);
+  const [pendingIdentifier, setPendingIdentifier] = useState(readPendingIdentifier);
+  const [verifyNotice, setVerifyNotice] = useState("");
+  const [verifyCooldown, setVerifyCooldown] = useState(0);
+
+  const startVerification = (identifier: string, notice: string, cooldown: number) => {
+    setPendingIdentifier(identifier);
+    savePendingIdentifier(identifier);
+    setVerifyNotice(notice);
+    setVerifyCooldown(cooldown);
+    navigate("/verify");
+  };
 
   useEffect(() => {
     const handleNavigation = () => {
@@ -70,6 +105,13 @@ export default function App() {
           navigate("/");
         }}
         onRegister={() => navigate("/register")}
+        onNeedsVerification={(identifier) =>
+          startVerification(
+            identifier,
+            "Your email isn't verified yet. We sent you a code (if you didn't just get one, press Resend).",
+            30
+          )
+        }
       />
     );
   }
@@ -77,8 +119,36 @@ export default function App() {
   if (currentPath === "/register") {
     return (
       <RegisterPage
-        onRegistered={() => navigate("/login")}
+        onRegistered={(identifier, emailSent) =>
+          startVerification(
+            identifier,
+            emailSent
+              ? "We sent a 6-digit code to your email."
+              : "Your account was created, but we couldn't send the email. Press Resend code.",
+            emailSent ? 60 : 0
+          )
+        }
         onLogin={() => navigate("/login")}
+      />
+    );
+  }
+
+  if (currentPath === "/verify") {
+    return (
+      <VerifyEmailPage
+        initialIdentifier={pendingIdentifier}
+        initialNotice={verifyNotice}
+        initialCooldown={verifyCooldown}
+        onIdentifierChange={(identifier) => {
+          setPendingIdentifier(identifier);
+          savePendingIdentifier(identifier);
+        }}
+        onVerified={() => {
+          setPendingIdentifier("");
+          savePendingIdentifier("");
+          navigate("/login");
+        }}
+        onBack={() => navigate("/login")}
       />
     );
   }

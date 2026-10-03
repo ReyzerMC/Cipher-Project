@@ -1,9 +1,15 @@
+import { isLocalRequest } from "../../utils/email";
+import type { EmailEnv } from "../../utils/email";
 import { hashPassword, validatePassword } from "../../utils/password";
 import { json, serverError } from "../../utils/http";
+import { issueVerificationCode } from "../../utils/verification";
 
-interface Env {
+interface Env extends EmailEnv {
   DB: D1Database;
 }
+
+// Cuentas que no verifican su email en este tiempo se borran (liberan usuario y email)
+const UNVERIFIED_TTL_SECONDS = 24 * 60 * 60;
 
 const USERNAME_PATTERN = /^[a-zA-Z0-9]{3,20}$/;
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -61,6 +67,25 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
       return json({ error: passwordError }, 400);
     }
 
+    const cutoff = Math.floor(Date.now() / 1000) - UNVERIFIED_TTL_SECONDS;
+
+    await env.DB.batch([
+      env.DB
+        .prepare(
+          `DELETE FROM email_verifications
+           WHERE user_id IN (
+             SELECT id FROM users
+             WHERE email_verified = 0 AND created_at < ?
+           )`
+        )
+        .bind(cutoff),
+      env.DB
+        .prepare(
+          "DELETE FROM users WHERE email_verified = 0 AND created_at < ?"
+        )
+        .bind(cutoff),
+    ]);
+
     // COLLATE NOCASE: "Reyzer" y "reyzer" cuentan como el mismo usuario
     const existing = await env.DB
       .prepare(
@@ -81,8 +106,10 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
 
     const passwordHash = await hashPassword(password);
 
+    let userId: number;
+
     try {
-      await env.DB
+      const result = await env.DB
         .prepare(
           `INSERT INTO users
            (username, email, password_hash, role, created_at)
@@ -95,6 +122,8 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
           Math.floor(Date.now() / 1000)
         )
         .run();
+
+      userId = result.meta.last_row_id;
     } catch (err) {
       // Dos registros simultáneos pueden pasar el SELECT: el índice UNIQUE
       // (migrations/0002_hardening.sql) rechaza el segundo.
@@ -108,10 +137,21 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
       throw err;
     }
 
+    // La cuenta queda sin verificar hasta que meta el código que se envía por email.
+    // Si el envío falla, la cuenta existe igualmente y puede pedir otro código.
+    const issued = await issueVerificationCode(
+      env.DB,
+      env,
+      { id: userId, username, email },
+      isLocalRequest(request)
+    );
+
     return json(
       {
         success: true,
-        message: "Account created successfully.",
+        verificationRequired: true,
+        emailSent: issued === "sent",
+        message: "Account created. Check your email for the verification code.",
       },
       201
     );

@@ -18,6 +18,18 @@ export function loginRateLimitKey(request: Request, identifier: string): string 
   return `login|${ip}|${identifier.toLowerCase().slice(0, 64)}`;
 }
 
+export function verifyRateLimitKey(request: Request, identifier: string): string {
+  const ip = request.headers.get("CF-Connecting-IP") ?? "unknown";
+
+  return `verify|${ip}|${identifier.toLowerCase().slice(0, 64)}`;
+}
+
+export function resendRateLimitKey(request: Request, identifier: string): string {
+  const ip = request.headers.get("CF-Connecting-IP") ?? "unknown";
+
+  return `resend|${ip}|${identifier.toLowerCase().slice(0, 64)}`;
+}
+
 export function userRateLimitKey(userId: number): string {
   return `password|${userId}`;
 }

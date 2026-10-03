@@ -7,15 +7,18 @@ import { navigate } from "../utils/navigation";
 
 interface LoginResponse {
   error?: string;
+  code?: string;
   user?: AuthUser;
 }
 
 export function LoginPage({
   onLogin,
   onRegister,
+  onNeedsVerification,
 }: {
   onLogin: (user: AuthUser) => void;
   onRegister: () => void;
+  onNeedsVerification: (identifier: string) => void;
 }) {
   const [identifier, setIdentifier] = useState("");
   const [password, setPassword] = useState("");
@@ -42,6 +45,12 @@ export function LoginPage({
       });
 
       const data = await readJson<LoginResponse>(response);
+
+      // Contraseña correcta pero email sin verificar: el servidor ya envió un código
+      if (response.status === 403 && data?.code === "EMAIL_NOT_VERIFIED") {
+        onNeedsVerification(identifier.trim());
+        return;
+      }
 
       if (!response.ok || !data?.user) {
         setError(apiError(data, response.status, "Login failed"));

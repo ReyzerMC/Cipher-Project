@@ -60,3 +60,21 @@ test("los inputs del login no provocan zoom en iOS (>= 16px)", async ({ page }) 
 
   expect(await horizontalOverflow(page)).toBeLessThanOrEqual(0);
 });
+
+test("la pantalla de verificación usa el teclado numérico y no provoca zoom", async ({ page }) => {
+  await page.goto("/verify");
+
+  const code = page.locator("#verify-code");
+
+  await expect(code).toHaveAttribute("autocomplete", "one-time-code");
+  await expect(code).toHaveAttribute("inputmode", "numeric");
+
+  const fontSize = await code.evaluate((el) => parseFloat(getComputedStyle(el).fontSize));
+  expect(fontSize).toBeGreaterThanOrEqual(16);
+
+  // Con menos de 6 dígitos el botón sigue desactivado
+  await code.fill("123");
+  await expect(page.getByRole("button", { name: "Verify" })).toBeDisabled();
+
+  expect(await horizontalOverflow(page)).toBeLessThanOrEqual(0);
+});

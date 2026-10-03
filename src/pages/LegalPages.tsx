@@ -83,6 +83,11 @@ export function PrivacyPage() {
           <strong>Profile picture</strong>, only if you upload one.
         </li>
         <li>
+          <strong>Email verification code</strong>: when you register we email
+          you a 6-digit code to confirm the address is yours. We store only a
+          hash of it, for a few minutes.
+        </li>
+        <li>
           <strong>Session cookie</strong> that keeps you logged in, and two
           preference cookies that remember your last selected character and
           light cone (see the <a href="/cookies">Cookies page</a>).
@@ -119,6 +124,10 @@ export function PrivacyPage() {
               <td>Legitimate interest (art. 6.1.f)</td>
             </tr>
             <tr>
+              <td>Confirm that the email address you register belongs to you</td>
+              <td>Legitimate interest in preventing fake accounts and abuse (art. 6.1.f)</td>
+            </tr>
+            <tr>
               <td>Remember your last selection on the wiki</td>
               <td>Your own choice when you use the feature (functional cookies)</td>
             </tr>
@@ -134,6 +143,11 @@ export function PrivacyPage() {
         </li>
         <li>Login sessions: up to 30 days, or until you log out.</li>
         <li>
+          Verification codes: valid for 15 minutes, stored only as a hash and
+          deleted once used or expired. Accounts whose email is never verified
+          are deleted automatically after 24 hours.
+        </li>
+        <li>
           Failed-login records: kept only briefly and removed during routine
           cleanup.
         </li>
@@ -146,10 +160,13 @@ export function PrivacyPage() {
       <h2>5. Who we share data with</h2>
       <p>
         We do not sell your data. The site runs on Cloudflare (hosting, database,
-        file storage, CDN and security), which acts as our processor. Cloudflare
-        may process data outside the European Economic Area under the safeguards
-        it provides (such as standard contractual clauses or the EU–US Data
-        Privacy Framework). We may disclose data if the law requires it.
+        file storage, CDN and security), which acts as our processor. We use
+        Resend to send you the email verification code; it receives your email
+        address and the content of that message for that purpose only. Cloudflare
+        and Resend may process data outside the European Economic Area under the
+        safeguards they provide (such as standard contractual clauses or the
+        EU–US Data Privacy Framework). We may disclose data if the law requires
+        it.
       </p>
 
       <h2>6. Your rights</h2>

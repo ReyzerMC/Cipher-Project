@@ -9,7 +9,7 @@ export function RegisterPage({
   onRegistered,
   onLogin,
 }: {
-  onRegistered: () => void;
+  onRegistered: (identifier: string, emailSent: boolean) => void;
   onLogin: () => void;
 }) {
   const [username, setUsername] = useState("");
@@ -39,14 +39,14 @@ export function RegisterPage({
         }),
       });
 
-      const data = await readJson<{ error?: string }>(response);
+      const data = await readJson<{ error?: string; emailSent?: boolean }>(response);
 
       if (!response.ok) {
         setError(apiError(data, response.status, "Registration failed"));
         return;
       }
 
-      onRegistered();
+      onRegistered(email.trim().toLowerCase(), data?.emailSent === true);
     } catch {
       setError("Unable to connect to the server.");
     } finally {

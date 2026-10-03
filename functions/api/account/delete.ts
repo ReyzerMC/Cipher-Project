@@ -97,8 +97,8 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
           "DELETE FROM login_attempts WHERE key LIKE ? OR key LIKE ?"
         )
         .bind(
-          `login|%|${user.username.toLowerCase()}`,
-          `login|%|${user.email.toLowerCase().slice(0, 64)}`
+          `%|${user.username.toLowerCase()}`,
+          `%|${user.email.toLowerCase().slice(0, 64)}`
         )
         .run();
     } catch (err) {
@@ -108,6 +108,9 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
     // 3) Sesiones y usuario, de forma atómica
     await env.DB.batch([
       env.DB.prepare("DELETE FROM sessions WHERE user_id = ?").bind(user.id),
+      env.DB
+        .prepare("DELETE FROM email_verifications WHERE user_id = ?")
+        .bind(user.id),
       env.DB.prepare("DELETE FROM users WHERE id = ?").bind(user.id),
     ]);
 

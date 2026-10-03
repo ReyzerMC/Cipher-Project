@@ -1,3 +1,6 @@
+import { isLocalRequest } from "../../utils/email";
+import type { EmailEnv } from "../../utils/email";
+import { issueVerificationCode } from "../../utils/verification";
 import {
   dummyVerify,
   MAX_LOGIN_PASSWORD_LENGTH,
@@ -18,7 +21,7 @@ import {
   RETRY_AFTER_SECONDS,
 } from "../../utils/rate-limit";
 
-interface Env {
+interface Env extends EmailEnv {
   DB: D1Database;
 }
 
@@ -70,7 +73,8 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
           password_hash,
           role,
           created_at,
-          avatar_key
+          avatar_key,
+          email_verified
          FROM users
          WHERE username = ? COLLATE NOCASE OR email = ?
          LIMIT 1`
@@ -84,6 +88,7 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
         role: string;
         created_at: number;
         avatar_key: string | null;
+        email_verified: number;
       }>();
 
     if (!user) {
@@ -102,6 +107,20 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
     }
 
     await clearFailures(env.DB, limitKey);
+
+    // Contraseña correcta pero email sin verificar: no hay sesión, pero se envía
+    // un código nuevo (si no hay uno reciente) para que pueda completar el proceso.
+    if (!user.email_verified) {
+      await issueVerificationCode(env.DB, env, user, isLocalRequest(request));
+
+      return json(
+        {
+          error: "Please verify your email before logging in.",
+          code: "EMAIL_NOT_VERIFIED",
+        },
+        403
+      );
+    }
 
     const sessionId = await createSession(env.DB, user.id);
 
