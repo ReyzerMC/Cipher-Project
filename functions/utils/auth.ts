@@ -1,5 +1,8 @@
 const SESSION_DURATION = 60 * 60 * 24 * 30;
 
+// 32 bytes en base64url = 43 caracteres
+const SESSION_ID_PATTERN = /^[A-Za-z0-9_-]{20,128}$/;
+
 export interface User {
   id: number;
   username: string;
@@ -24,11 +27,37 @@ function generateSessionId(): string {
     .replace(/=+$/, "");
 }
 
+// En la base de datos se guarda el SHA-256 del id, no el id: si alguien
+// consigue leer la tabla `sessions`, no puede usar esas sesiones.
+async function hashSessionId(sessionId: string): Promise<string> {
+  const digest = await crypto.subtle.digest(
+    "SHA-256",
+    new TextEncoder().encode(sessionId)
+  );
+
+  return Array.from(new Uint8Array(digest), (byte) =>
+    byte.toString(16).padStart(2, "0")
+  ).join("");
+}
+
+export function getSessionId(request: Request): string | null {
+  const cookie = request.headers.get("Cookie") ?? "";
+
+  const match = cookie.match(/(?:^|;\s*)session_id=([^;]+)/);
+
+  if (!match || !SESSION_ID_PATTERN.test(match[1])) {
+    return null;
+  }
+
+  return match[1];
+}
+
 export async function createSession(
   db: D1Database,
   userId: number
 ): Promise<string> {
   const sessionId = generateSessionId();
+  const tokenHash = await hashSessionId(sessionId);
   const expiresAt = Math.floor(Date.now() / 1000) + SESSION_DURATION;
 
   await db
@@ -36,9 +65,10 @@ export async function createSession(
       `INSERT INTO sessions (id, user_id, expires_at)
        VALUES (?, ?, ?)`
     )
-    .bind(sessionId, userId, expiresAt)
+    .bind(tokenHash, userId, expiresAt)
     .run();
 
+  // El valor "en claro" solo viaja en la cookie
   return sessionId;
 }
 
@@ -46,15 +76,13 @@ export async function getCurrentUser(
   request: Request,
   db: D1Database
 ): Promise<User | null> {
-  const cookie = request.headers.get("Cookie") ?? "";
+  const sessionId = getSessionId(request);
 
-  const match = cookie.match(/(?:^|;\s*)session_id=([^;]+)/);
-
-  if (!match) {
+  if (!sessionId) {
     return null;
   }
 
-  const sessionId = match[1];
+  const tokenHash = await hashSessionId(sessionId);
 
   const session = await db
     .prepare(
@@ -70,7 +98,7 @@ export async function getCurrentUser(
        INNER JOIN users ON users.id = sessions.user_id
        WHERE sessions.id = ?`
     )
-    .bind(sessionId)
+    .bind(tokenHash)
     .first<{
       id: number;
       username: string;
@@ -88,7 +116,7 @@ export async function getCurrentUser(
   if (session.expires_at <= Math.floor(Date.now() / 1000)) {
     await db
       .prepare("DELETE FROM sessions WHERE id = ?")
-      .bind(sessionId)
+      .bind(tokenHash)
       .run();
 
     return null;
@@ -102,6 +130,44 @@ export async function getCurrentUser(
     created_at: session.created_at,
     avatar_key: session.avatar_key,
   };
+}
+
+export async function deleteSession(
+  db: D1Database,
+  sessionId: string
+): Promise<void> {
+  await db
+    .prepare("DELETE FROM sessions WHERE id = ?")
+    .bind(await hashSessionId(sessionId))
+    .run();
+}
+
+// Cierra todas las sesiones del usuario menos la actual (p. ej. al cambiar la contraseña)
+export async function deleteOtherSessions(
+  db: D1Database,
+  userId: number,
+  currentSessionId: string | null
+): Promise<void> {
+  if (!currentSessionId) {
+    await db
+      .prepare("DELETE FROM sessions WHERE user_id = ?")
+      .bind(userId)
+      .run();
+
+    return;
+  }
+
+  await db
+    .prepare("DELETE FROM sessions WHERE user_id = ? AND id != ?")
+    .bind(userId, await hashSessionId(currentSessionId))
+    .run();
+}
+
+export async function deleteExpiredSessions(db: D1Database): Promise<void> {
+  await db
+    .prepare("DELETE FROM sessions WHERE expires_at <= ?")
+    .bind(Math.floor(Date.now() / 1000))
+    .run();
 }
 
 export function sessionCookie(sessionId: string): string {

@@ -61,24 +61,34 @@ body {
     border-radius: 50%;
     background: #fff;
     box-shadow:
-        /* Estrellas pequeñas */
-        40px 80px 0px #ffffff, 120px 450px 0px #b8d0ff, 280px 180px 0px #ffffff, 380px 720px 0px #e0e8ff,
-        510px 230px 0px #ffffff, 640px 610px 0px #9bbdff, 790px 150px 0px #ffffff, 880px 820px 0px #ffffff,
-        1020px 290px 0px #c2d8ff, 1150px 670px 0px #ffffff, 1310px 120px 0px #ffffff, 1480px 810px 0px #a4c4ff,
-        1600px 340px 0px #ffffff, 1750px 700px 0px #ffffff, 1900px 150px 0px #d8e5ff, 250px 890px 0px #ffffff,
-        680px 380px 0px #ffffff, 940px 470px 0px #b8d0ff, 1220px 920px 0px #ffffff, 1550px 220px 0px #ffffff,
-        40px 80px 0px #ffffff, 120px 450px 0px #b8d0ff, 280px 180px 0px #ffffff, 380px 720px 0px #e0e8ff,
-        510px 230px 0px #ffffff, 640px 610px 0px #9bbdff, 790px 150px 0px #ffffff, 880px 820px 0px #ffffff,
-        1020px 290px 0px #c2d8ff, 1150px 670px 0px #ffffff, 1310px 120px 0px #ffffff, 1480px 810px 0px #a4c4ff,
-        1600px 340px 0px #ffffff, 1750px 700px 0px #ffffff, 1900px 150px 0px #d8e5ff, 250px 890px 0px #ffffff,
-        680px 380px 0px #ffffff, 940px 470px 0px #b8d0ff, 1220px 920px 0px #ffffff, 1550px 220px 0px #ffffff,
-        /* Estrellas con brillo mediano */
-        180px 250px 1px #ffffff, 450px 550px 2px #a2c2ff, 720px 310px 1px #ffffff, 1080px 760px 2px #ffffff,
-        1380px 410px 1px #cce0ff, 1650px 190px 2px #ffffff, 850px 890px 1px #ffffff, 310px 620px 2px #a8c8ff,
-        180px 250px 1px #ffffff, 450px 550px 2px #a2c2ff, 720px 310px 1px #ffffff, 1080px 760px 2px #ffffff,
-        1380px 410px 1px #cce0ff, 1650px 190px 2px #ffffff, 850px 890px 1px #ffffff, 310px 620px 2px #a8c8ff,
-        180px 250px 1px #ffffff, 450px 550px 2px #a2c2ff, 720px 310px 1px #ffffff, 1080px 760px 2px #ffffff,
-        1380px 410px 1px #cce0ff, 1650px 190px 2px #ffffff, 850px 890px 1px #ffffff, 310px 620px 2px #a8c8ff;
+        40px 80px 0px #ffffff,
+        120px 450px 0px #b8d0ff,
+        280px 180px 0px #ffffff,
+        380px 720px 0px #e0e8ff,
+        510px 230px 0px #ffffff,
+        640px 610px 0px #9bbdff,
+        790px 150px 0px #ffffff,
+        880px 820px 0px #ffffff,
+        1020px 290px 0px #c2d8ff,
+        1150px 670px 0px #ffffff,
+        1310px 120px 0px #ffffff,
+        1480px 810px 0px #a4c4ff,
+        1600px 340px 0px #ffffff,
+        1750px 700px 0px #ffffff,
+        1900px 150px 0px #d8e5ff,
+        250px 890px 0px #ffffff,
+        680px 380px 0px #ffffff,
+        940px 470px 0px #b8d0ff,
+        1220px 920px 0px #ffffff,
+        1550px 220px 0px #ffffff,
+        180px 250px 1px #ffffff,
+        450px 550px 2px #a2c2ff,
+        720px 310px 1px #ffffff,
+        1080px 760px 2px #ffffff,
+        1380px 410px 1px #cce0ff,
+        1650px 190px 2px #ffffff,
+        850px 890px 1px #ffffff,
+        310px 620px 2px #a8c8ff;
     opacity: 0.75;
     pointer-events: none;
     z-index: 0;
@@ -2059,4 +2069,26 @@ select.hsr-changelog-select option {
         align-items: flex-start;
         overflow-y: auto;
     }
+}
+
+
+/* --- Carga diferida de los datos de la wiki --- */
+.hsr-loading {
+    position: relative;
+    z-index: 1;
+    grid-column: 1 / -1;
+    align-self: center;
+    justify-self: center;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    min-height: 40vh;
+    min-height: 40dvh;
+
+    color: var(--hsr-text-dim);
+    text-align: center;
 }

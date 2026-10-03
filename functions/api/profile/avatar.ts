@@ -1,18 +1,12 @@
 import { getCurrentUser } from "../../utils/auth";
+import { avatarUrlFor, json, serverError } from "../../utils/http";
 
 interface Env {
   DB: D1Database;
   STORAGE: R2Bucket;
 }
 
-function json(data: unknown, status = 200): Response {
-  return new Response(JSON.stringify(data), {
-    status,
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
-}
+type Context = Parameters<PagesFunction<Env>>[0];
 
 const EXTENSIONS: Record<string, string> = {
   "image/png": "png",
@@ -21,10 +15,7 @@ const EXTENSIONS: Record<string, string> = {
   "image/gif": "gif",
 };
 
-export const onRequestPost: PagesFunction<Env> = async ({
-  request,
-  env,
-}) => {
+async function handleUpload({ request, env }: Context): Promise<Response> {
   const user = await getCurrentUser(request, env.DB);
 
   if (!user) {
@@ -129,12 +120,17 @@ export const onRequestPost: PagesFunction<Env> = async ({
     }
   }
 
-  const avatarUrl =
-    `https://cdn.cipher-project.reyzer.org/${key}`;
-
   return json({
     success: true,
     avatar_key: key,
-    avatar_url: avatarUrl,
+    avatar_url: avatarUrlFor(key),
   });
+}
+
+export const onRequestPost: PagesFunction<Env> = async (context) => {
+  try {
+    return await handleUpload(context);
+  } catch (err) {
+    return serverError(err);
+  }
 };

@@ -1,30 +1,24 @@
-import { clearSessionCookie } from "../../utils/auth";
+import { clearSessionCookie, deleteSession, getSessionId } from "../../utils/auth";
+import { json, serverError } from "../../utils/http";
 
 interface Env {
   DB: D1Database;
 }
 
 export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
-  const cookie = request.headers.get("Cookie") ?? "";
+  try {
+    const sessionId = getSessionId(request);
 
-  const match = cookie.match(/(?:^|;\s*)session_id=([^;]+)/);
-
-  if (match) {
-    await env.DB
-      .prepare("DELETE FROM sessions WHERE id = ?")
-      .bind(match[1])
-      .run();
-  }
-
-  return new Response(
-    JSON.stringify({
-      success: true,
-    }),
-    {
-      headers: {
-        "Content-Type": "application/json",
-        "Set-Cookie": clearSessionCookie(),
-      },
+    if (sessionId) {
+      await deleteSession(env.DB, sessionId);
     }
-  );
+
+    return json(
+      { success: true },
+      200,
+      { "Set-Cookie": clearSessionCookie() }
+    );
+  } catch (err) {
+    return serverError(err);
+  }
 };

@@ -4,7 +4,7 @@ import "./AvatarEditor.css";
 
 interface AvatarEditorProps {
   onClose: () => void;
-  onSaved: (avatarUrl: string) => void;
+  onSaved: (avatarUrl: string, avatarKey: string) => void;
 }
 
 interface Area {
@@ -208,7 +208,7 @@ export function AvatarEditor({
         );
       }
 
-      onSaved(data.avatar_url);
+      onSaved(data.avatar_url, data.avatar_key);
       onClose();
     } catch (err) {
       setError(

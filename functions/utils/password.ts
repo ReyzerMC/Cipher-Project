@@ -103,3 +103,35 @@ export async function verifyPassword(
 
   return difference === 0;
 }
+
+// ---------------------------------------------------------------------------
+// Política de contraseñas
+// ---------------------------------------------------------------------------
+
+export const MIN_PASSWORD_LENGTH = 8;
+export const MAX_PASSWORD_LENGTH = 128;
+
+// En login se acepta más largo que el máximo de registro para no bloquear
+// a nadie con una contraseña antigua, pero se limita para no gastar CPU.
+export const MAX_LOGIN_PASSWORD_LENGTH = 1024;
+
+export function validatePassword(password: string): string | null {
+  if (password.length < MIN_PASSWORD_LENGTH) {
+    return `Password must be at least ${MIN_PASSWORD_LENGTH} characters long.`;
+  }
+
+  if (password.length > MAX_PASSWORD_LENGTH) {
+    return `Password must be at most ${MAX_PASSWORD_LENGTH} characters long.`;
+  }
+
+  return null;
+}
+
+// Cuando el usuario no existe se hace igualmente un hash, para que la
+// respuesta tarde lo mismo y no se pueda averiguar qué usuarios existen.
+let dummyHash: Promise<string> | null = null;
+
+export async function dummyVerify(password: string): Promise<void> {
+  dummyHash ??= hashPassword("cipher-project-dummy-password");
+  await verifyPassword(password, await dummyHash);
+}
