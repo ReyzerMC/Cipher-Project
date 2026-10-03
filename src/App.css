@@ -2092,3 +2092,239 @@ select.hsr-changelog-select option {
     color: var(--hsr-text-dim);
     text-align: center;
 }
+
+
+/* =========================================================
+   LEGAL: enlaces, páginas, casillas y zona de peligro
+   ========================================================= */
+
+/* --- Enlaces legales (pie de tarjetas y panel izquierdo) --- */
+.legal-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px 16px;
+
+    margin-top: 18px;
+
+    font-size: 0.8rem;
+}
+
+.legal-links a {
+    color: var(--hsr-text-dim);
+    text-decoration: none;
+
+    /* zona de toque algo mayor sin cambiar el aspecto */
+    padding: 6px 2px;
+}
+
+.legal-links a:hover,
+.legal-links a:focus-visible {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.legal-links--panel {
+    margin-top: 14px;
+}
+
+.legal-links--footer {
+    margin-top: 32px;
+    padding-top: 20px;
+    border-top: 1px solid var(--hsr-border);
+}
+
+/* --- Páginas legales --- */
+.legal-page {
+    align-items: flex-start;
+    padding-top: calc(24px + env(safe-area-inset-top, 0px));
+    padding-bottom: calc(40px + env(safe-area-inset-bottom, 0px));
+}
+
+.legal-card {
+    position: relative;
+    z-index: 1;
+
+    width: min(820px, 100%);
+    padding: 36px 40px;
+
+    background: rgba(25, 29, 55, 0.94);
+    border: 1px solid var(--hsr-border);
+    border-radius: 20px;
+
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5);
+
+    color: #e6e9f5;
+    line-height: 1.65;
+}
+
+.legal-card h1 {
+    margin: 12px 0 4px;
+    font-size: 2rem;
+}
+
+.legal-card h2 {
+    margin: 28px 0 8px;
+    font-size: 1.15rem;
+}
+
+.legal-card p,
+.legal-card li {
+    color: #cfd4ea;
+}
+
+.legal-card ul {
+    padding-left: 22px;
+}
+
+.legal-card a {
+    color: #f3d884;
+}
+
+.legal-card code {
+    padding: 1px 6px;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.08);
+    font-size: 0.9em;
+}
+
+.legal-updated {
+    margin: 0 0 20px;
+    font-size: 0.85rem;
+    color: var(--hsr-text-dim);
+}
+
+.legal-back-button {
+    border: none;
+    background: transparent;
+    padding: 8px 0;
+
+    color: var(--hsr-text-dim);
+    cursor: pointer;
+}
+
+.legal-back-button:hover {
+    color: #fff;
+}
+
+/* Tablas con scroll propio para que no ensanchen la página en móvil */
+.legal-table-wrap {
+    overflow-x: auto;
+    margin: 12px 0;
+}
+
+.legal-table-wrap table {
+    width: 100%;
+    min-width: 520px;
+    border-collapse: collapse;
+    font-size: 0.92rem;
+}
+
+.legal-table-wrap th,
+.legal-table-wrap td {
+    padding: 10px 12px;
+    text-align: left;
+    vertical-align: top;
+    border-bottom: 1px solid var(--hsr-border);
+}
+
+.legal-table-wrap th {
+    color: #fff;
+}
+
+/* --- Casilla de aceptación (registro / borrar cuenta) --- */
+.account-checkbox {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+
+    margin-top: 16px;
+}
+
+/* Gana a ".account-card input" (ancho 100 %, relleno, fondo...) */
+.account-card .account-checkbox input[type="checkbox"],
+.account-modal .account-checkbox input[type="checkbox"] {
+    flex: none;
+    width: 20px;
+    height: 20px;
+    margin: 2px 0 0;
+    padding: 0;
+    accent-color: #ffc700;
+}
+
+.account-card .account-checkbox label,
+.account-modal .account-checkbox label {
+    display: inline;
+    margin: 0;
+
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: var(--hsr-text-dim);
+}
+
+.account-checkbox label a {
+    color: #f3d884;
+}
+
+/* --- Borrar cuenta --- */
+.account-danger-link {
+    display: block;
+
+    margin: 22px auto 0;
+    padding: 8px 12px;
+
+    border: none;
+    background: transparent;
+
+    color: #ff8d9b;
+    font-size: 0.85rem;
+    cursor: pointer;
+}
+
+.account-danger-link:hover {
+    text-decoration: underline;
+}
+
+.account-danger-submit {
+    width: 100%;
+    margin-top: 18px;
+    padding: 12px;
+
+    border: 1px solid rgba(220, 80, 100, 0.5);
+    border-radius: 10px;
+
+    background: rgba(180, 50, 70, 0.25);
+    color: #ffb3bd;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.account-danger-submit:hover:not(:disabled) {
+    background: rgba(180, 50, 70, 0.4);
+}
+
+.account-danger-submit:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+@media (max-width: 700px) {
+    .legal-card {
+        padding: 24px 20px;
+        border-radius: 16px;
+    }
+
+    .legal-card h1 {
+        font-size: 1.6rem;
+    }
+}
+
+@media (pointer: coarse) {
+    .legal-links a {
+        padding: 10px 4px;
+    }
+
+    .account-danger-link {
+        min-height: 44px;
+    }
+}

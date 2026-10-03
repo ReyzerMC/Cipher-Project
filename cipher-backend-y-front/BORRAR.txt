@@ -1,1 +1,0 @@
-functions/api/test.ts  -> BORRAR (ya no se usa en produccion)

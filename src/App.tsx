@@ -4,6 +4,7 @@ import type { AuthUser } from "./types/auth";
 import { apiError, readJson } from "./utils/api";
 import { navigate } from "./utils/navigation";
 import { HomePage } from "./pages/HomePage";
+import { LegalNoticePage, CookiesPage, PrivacyPage, TermsPage } from "./pages/LegalPages";
 import { LoginPage } from "./pages/LoginPage";
 import { ProfilePage } from "./pages/ProfilePage";
 import { RegisterPage } from "./pages/RegisterPage";
@@ -99,9 +100,18 @@ export default function App() {
           navigate("/");
         }}
         onUserUpdated={(user) => setAuthUser(user)}
+        onDeleted={() => {
+          setAuthUser(null);
+          navigate("/");
+        }}
       />
     );
   }
+
+  if (currentPath === "/privacy") return <PrivacyPage />;
+  if (currentPath === "/terms") return <TermsPage />;
+  if (currentPath === "/cookies") return <CookiesPage />;
+  if (currentPath === "/legal") return <LegalNoticePage />;
 
   // "/" y "/character/<nombre>"
   return <HomePage authUser={authUser} authLoading={authLoading} />;

@@ -2,6 +2,7 @@ import { useState } from "react";
 import type { FormEvent } from "react";
 import type { AuthUser } from "../types/auth";
 import { apiError, readJson } from "../utils/api";
+import { LegalLinks } from "../components/LegalLinks";
 import { navigate } from "../utils/navigation";
 
 interface LoginResponse {
@@ -116,6 +117,8 @@ export function LoginPage({
         >
           ← Back
         </button>
+
+        <LegalLinks />
       </div>
     </div>
   );

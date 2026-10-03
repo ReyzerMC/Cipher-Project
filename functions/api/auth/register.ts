@@ -14,6 +14,7 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
       username?: string;
       email?: string;
       password?: string;
+      acceptedTerms?: boolean;
     };
 
     try {
@@ -28,6 +29,16 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
 
     if (!username || !email || !password) {
       return json({ error: "All fields are required." }, 400);
+    }
+
+    if (body.acceptedTerms !== true) {
+      return json(
+        {
+          error:
+            "You must accept the Privacy Policy and the Terms of Use to create an account.",
+        },
+        400
+      );
     }
 
     if (!USERNAME_PATTERN.test(username)) {

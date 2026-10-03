@@ -1,6 +1,8 @@
 import { useState } from "react";
 import type { FormEvent } from "react";
 import { apiError, readJson } from "../utils/api";
+import { LegalLinks } from "../components/LegalLinks";
+import { LEGAL } from "../config/legal";
 import { navigate } from "../utils/navigation";
 
 export function RegisterPage({
@@ -13,6 +15,7 @@ export function RegisterPage({
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [accepted, setAccepted] = useState(false);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -32,6 +35,7 @@ export function RegisterPage({
           username,
           email,
           password,
+          acceptedTerms: accepted,
         }),
       });
 
@@ -116,6 +120,28 @@ export function RegisterPage({
             At least 8 characters.
           </span>
 
+          <div className="account-checkbox">
+            <input
+              id="register-accept"
+              name="accept"
+              type="checkbox"
+              checked={accepted}
+              onChange={(e) => setAccepted(e.target.checked)}
+              required
+            />
+            <label htmlFor="register-accept">
+              I am at least {LEGAL.minimumAge} years old and I have read the{" "}
+              <a href="/privacy" target="_blank" rel="noopener noreferrer">
+                Privacy Policy
+              </a>{" "}
+              and the{" "}
+              <a href="/terms" target="_blank" rel="noopener noreferrer">
+                Terms of Use
+              </a>
+              .
+            </label>
+          </div>
+
           {error && (
             <div className="account-error" role="alert">
               {error}
@@ -125,7 +151,7 @@ export function RegisterPage({
           <button
             className="account-submit"
             type="submit"
-            disabled={loading}
+            disabled={loading || !accepted}
           >
             {loading ? "Creating account..." : "Register"}
           </button>
@@ -144,6 +170,8 @@ export function RegisterPage({
         >
           ← Back
         </button>
+
+        <LegalLinks />
       </div>
     </div>
   );

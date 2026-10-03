@@ -3,6 +3,7 @@ import type { ChangeEvent } from "react";
 import { useCookies } from "react-cookie";
 import type { Character, LightCone, Log } from "../types/hsr";
 import type { AuthUser } from "../types/auth";
+import { LegalLinks } from "../components/LegalLinks";
 import { Modal } from "../components/Modal";
 import { changes } from "../components/changelog";
 import { pathIcon } from "../utils/assets";
@@ -409,6 +410,7 @@ export function HomePage({ authUser, authLoading }: HomePageProps) {
             📋️ Changelogs
           </button>
         </div>
+        <LegalLinks className="legal-links--panel" />
       </aside>
       {/* Columna Central */}
       <main className="hsr-center-art">

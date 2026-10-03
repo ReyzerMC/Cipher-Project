@@ -72,6 +72,8 @@ export async function recordFailure(
       )
       .bind(key, current, WINDOW_SECONDS)
       .run();
+
+    await cleanupAttempts(db);
   } catch (err) {
     console.error("Rate limit record failed:", err);
   }

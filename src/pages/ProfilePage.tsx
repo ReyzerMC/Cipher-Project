@@ -2,18 +2,23 @@ import { useState } from "react";
 import type { AuthUser } from "../types/auth";
 import { AvatarEditor } from "../components/AvatarEditor";
 import { ChangePasswordModal } from "../components/ChangePasswordModal";
+import { DeleteAccountModal } from "../components/DeleteAccountModal";
+import { LegalLinks } from "../components/LegalLinks";
 import { navigate } from "../utils/navigation";
 
 export function ProfilePage({
   user,
   onLogout,
   onUserUpdated,
+  onDeleted,
 }: {
   user: AuthUser;
   onLogout: () => void;
   onUserUpdated: (user: AuthUser) => void;
+  onDeleted: () => void;
 }) {
   const [passwordModal, setPasswordModal] = useState(false);
+  const [deleteModal, setDeleteModal] = useState(false);
   const [avatarEditorOpen, setAvatarEditorOpen] = useState(false);
   const [logoutError, setLogoutError] = useState("");
 
@@ -130,7 +135,24 @@ export function ProfilePage({
             Logout
           </button>
         </div>
+
+        <button
+          type="button"
+          className="account-danger-link"
+          onClick={() => setDeleteModal(true)}
+        >
+          Delete account
+        </button>
+
+        <LegalLinks />
       </div>
+
+      {deleteModal && (
+        <DeleteAccountModal
+          onClose={() => setDeleteModal(false)}
+          onDeleted={onDeleted}
+        />
+      )}
 
       {passwordModal && (
         <ChangePasswordModal
