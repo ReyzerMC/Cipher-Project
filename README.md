@@ -24,11 +24,11 @@ El proyecto se encuentra en su primera release.
 
 ### Personajes
 
-Actualmente estan **todos los personages hasta la version 4.5**.
+Actualmente estan **todos los personages implementados**.
 
 ### Conos de Luz
 
-Actualmente estan **todos los Conos de Luz implementados hasta la version 4.5**.
+Actualmente estan **todos los Conos de Luz implementados**.
 
 ---
 

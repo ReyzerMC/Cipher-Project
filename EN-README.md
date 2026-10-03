@@ -24,11 +24,11 @@ The project is in its 1st Release
 
 ### Characters
 
-There are currently **all characters available up to 4.5 version**.
+There are currently **all characters available**.
 
 ### Light Cones
 
-There are **all the Light Cones implemented up to 4.5 version**.
+There are **all the Light Cones implemented**.
 
 ---
 
