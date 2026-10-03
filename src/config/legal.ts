@@ -15,9 +15,9 @@
 export const LEGAL = {
   siteName: "Cipher Project",
   siteUrl: "https://cipher-project.reyzer.org",
-  ownerName: "[YOUR FULL NAME]",
-  contactEmail: "[YOUR CONTACT EMAIL]",
-  ownerAddress: "[YOUR ADDRESS, CITY, COUNTRY]",
+  ownerName: "---",
+  contactEmail: "cipher-project.reyzer.org",
+  ownerAddress: "---",
   country: "Spain",
   minimumAge: 14,
   lastUpdated: "2026-10-03",
