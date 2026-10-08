@@ -15546,7 +15546,7 @@ const Nihilux: Character = {
 
   baseATK: 679,
   baseDEF: 509,
-  baseHP: 1049,
+  baseHP: 1048,
   baseSPD: 94,
   aggro: 100,
   dupe: 0,
