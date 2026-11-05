@@ -15559,7 +15559,7 @@ const Nihilux: Character = {
             level: "1/7",
             icon: charIcon("Nihilux", "BasicATK"),
             description: (i) => `
-            Deals ${scaleValue(S.Nihilux.attack.main, i)} Quantum Elation DMG to one designated enemy target.
+            Deals ${scaleValue(S.NihiluxScalling.attack, i)} Quantum Elation DMG to one designated enemy target.
         `,
         },
         skill: {
@@ -15569,7 +15569,9 @@ const Nihilux: Character = {
             level: "1/12",
             icon: charIcon("Nihilux", "Skill"),
             description: (i) => `
-        <b>Character in beta ${i}</b>
+        Causes one designated ally character (except this unit) to gain the "Emanator of Elation" state, then immediately launches a Follow-up ATK, 
+        dealing ${scaleValue(S.NihiluxScalling.skill.main, i)} Quantum Elation DMG to all enemies. The "Emanator of Elation" state lasts for the entire battle until switching to the next target. 
+        The target with the "Emanator of Elation" state has their Elation stat increased by 20% and, at the start of their turn, causes Aeon ★ Aha to gain 1 point(s) of "Wishpower."
       `,
         },
         ultimate: {
