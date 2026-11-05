@@ -134,6 +134,267 @@
 }
 
 /* =========================================================
+   EX-EIDOLON: botón especial + contenido del modal
+   ========================================================= */
+
+/* Ángulo animable para el borde giratorio (Chrome, Edge, Safari, Firefox recientes) */
+@property --ex-angle {
+  syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+.hsr-ex-button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+    padding: 14px 20px;
+    box-sizing: border-box;
+    cursor: pointer;
+    overflow: hidden;
+    text-align: left;
+    color: #ece5d8;
+    -webkit-tap-highlight-color: transparent;
+
+    /* Fondo oscuro por dentro + borde de gradiente cónico que gira */
+    border: 2px solid transparent;
+    border-radius: 8px;
+    background:
+        linear-gradient(135deg, #0a0d18 0%, #1a1530 100%) padding-box,
+        conic-gradient(
+            from var(--ex-angle),
+            #d4af37,
+            #70308c,
+            #1c5591,
+            #f3d884,
+            #70308c,
+            #d4af37
+        ) border-box;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7), 0 0 16px rgba(112, 48, 140, 0.35);
+    animation: exBorderSpin 6s linear infinite;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.hsr-ex-button::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -60%;
+    width: 40%;
+    height: 100%;
+    background: linear-gradient(
+        100deg,
+        transparent,
+        rgba(243, 216, 132, 0.22),
+        transparent
+    );
+    transform: skewX(-20deg);
+    animation: exShine 4.5s ease-in-out infinite;
+    pointer-events: none;
+}
+
+.hsr-ex-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 26px rgba(0, 0, 0, 0.8), 0 0 24px rgba(212, 175, 55, 0.4);
+}
+
+.hsr-ex-button:focus-visible {
+    outline: 2px solid #f3d884;
+    outline-offset: 3px;
+}
+
+.hsr-ex-icon-frame {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(112, 48, 140, 0.45) 0%, #04050a 75%);
+    border: 1.5px solid #d4af37;
+    animation: exIconPulse 2.8s ease-in-out infinite;
+}
+
+.hsr-ex-icon {
+    width: 70%;
+    height: 70%;
+    object-fit: contain;
+    filter: drop-shadow(0 0 6px rgba(243, 216, 132, 0.8));
+}
+
+.hsr-ex-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+    flex: 1;
+}
+
+.hsr-ex-label {
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #f3d884;
+    text-shadow: 0 0 8px rgba(212, 175, 55, 0.6);
+}
+
+.hsr-ex-name {
+    font-size: 1.05rem;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
+}
+
+.hsr-ex-spark {
+    color: #f3d884;
+    font-size: 1.3rem;
+    animation: exSpark 2.2s ease-in-out infinite;
+}
+
+/* ---------- Modal ---------- */
+.hsr-ex-modal {
+    display: grid;
+    grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr);
+    gap: 24px;
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-y: auto;
+}
+
+.hsr-ex-modal-art {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 0;
+    padding: 8px;
+    border-radius: 14px;
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    background:
+            radial-gradient(ellipse at 50% 40%, rgba(112, 48, 140, 0.3) 0%, transparent 70%),
+            rgba(4, 5, 10, 0.6);
+    box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.8);
+}
+
+.hsr-ex-modal-img {
+    display: block;
+    max-width: 100%;
+    max-height: calc(88dvh - 140px);
+    object-fit: contain;
+    filter: drop-shadow(0 0 18px rgba(0, 0, 0, 0.7));
+}
+
+.hsr-ex-modal-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-height: 0;
+    overflow-y: auto;
+    padding-right: 4px;
+}
+
+.hsr-ex-modal-tag {
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #f3d884;
+}
+
+.hsr-ex-modal-title {
+    margin: 0;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #fff;
+    line-height: 1.25;
+}
+
+.hsr-ex-modal-divider {
+    width: 100%;
+    margin: 4px 0;
+    border: 0;
+    border-top: 1px solid rgba(212, 175, 55, 0.35);
+}
+
+.hsr-ex-modal-desc {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.65;
+    color: #c0c6e0;
+}
+
+/* ---------- Animaciones ---------- */
+@keyframes exBorderSpin {
+    to { --ex-angle: 360deg; }
+}
+
+@keyframes exShine {
+    0%, 60% { left: -60%; }
+    100%    { left: 130%; }
+}
+
+@keyframes exIconPulse {
+    0%, 100% { box-shadow: 0 0 6px rgba(212, 175, 55, 0.3); }
+    50%      { box-shadow: 0 0 18px rgba(243, 216, 132, 0.7); }
+}
+
+@keyframes exSpark {
+    0%, 100% { opacity: 0.4; transform: scale(0.85) rotate(0deg); }
+    50%      { opacity: 1;   transform: scale(1.15) rotate(20deg); }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+    .hsr-ex-button {
+        padding: 12px 14px;
+        gap: 12px;
+    }
+
+    .hsr-ex-icon-frame {
+        width: 46px;
+        height: 46px;
+    }
+
+    .hsr-ex-name {
+        font-size: 0.95rem;
+    }
+
+    /* Imagen arriba, texto debajo */
+    .hsr-ex-modal {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .hsr-ex-modal-img {
+        max-height: 45dvh;
+    }
+
+    .hsr-ex-modal-info {
+        overflow-y: visible;
+    }
+}
+
+/* En táctil no hay hover real */
+@media (hover: none) {
+    .hsr-ex-button:hover {
+        transform: none;
+    }
+}
+
+/* Respeta a quien desactiva las animaciones */
+@media (prefers-reduced-motion: reduce) {
+    .hsr-ex-button,
+    .hsr-ex-button::after,
+    .hsr-ex-icon-frame,
+    .hsr-ex-spark {
+        animation: none;
+    }
+}
+
+/* =========================================================
    RESPONSIVE - 2K / MONITORES GRANDES (>= 2000px)
    ========================================================= */
 @media (min-width: 2000px) {

@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import type { Eidolon } from "./types/hsr";
+import type { Eidolons } from "./types/hsr";
+import { Modal } from "./components/Modal.tsx";
 import "./EidolonsMenu.css";
 
 type EidolonKey = "e1" | "e2" | "e3" | "e4" | "e5" | "e6";
 
-export const EidolonsMenu: React.FC<Eidolon> = (props) => {
+export const EidolonsMenu: React.FC<Eidolons> = (props) => {
   // Guardamos las claves de los eidolones desplegados
   const [openKeys, setOpenKeys] = useState<Record<EidolonKey, boolean>>({
     e1: false,
@@ -14,8 +15,11 @@ export const EidolonsMenu: React.FC<Eidolon> = (props) => {
     e5: false,
     e6: false,
   });
+  const [exOpen, setExOpen] = useState(false);
 
-  const eidolonsList: { key: EidolonKey; num: number; data: Eidolon["e1"] }[] = [
+  const { Ex } = props;
+
+  const eidolonsList: { key: EidolonKey; num: number; data: Eidolons["e1"] }[] = [
     { key: "e1", num: 1, data: props.e1 },
     { key: "e2", num: 2, data: props.e2 },
     { key: "e3", num: 3, data: props.e3 },
@@ -60,7 +64,7 @@ export const EidolonsMenu: React.FC<Eidolon> = (props) => {
                 <div className="hsr-eidolon-thumb-frame">
                   <img
                     src={data.image}
-                    alt=""
+                    alt="asd"
                     className="hsr-eidolon-thumb"
                     loading="lazy"
                     decoding="async"
@@ -84,6 +88,48 @@ export const EidolonsMenu: React.FC<Eidolon> = (props) => {
           </div>
         );
       })}
+
+      { /* Boton Ex-Eidolon: solo si especificado en personaje */ }
+      {Ex && (
+          <button
+            type="button"
+            className="hsr-ex-button"
+            onClick={() => setExOpen(true)}
+            aria-haspopup="dialog"
+          >
+            <span className="hsr-ex-icon-frame">
+              <img
+                src={Ex.icon}
+                alt="asd"
+                className="hsr-ex-icon"
+                loading="lazy"
+                decoding="async"
+              />
+            </span>
+            <span className="hsr-ex-text">
+              <span className="hsr-ex-label">Ex-Eidolon</span>
+              <span className="hsr-ex-name">{Ex.title}</span>
+            </span>
+            <span className="hsr-ex-spark" aria-hidden="true">✦</span>
+          </button>
+      )}
+
+      {Ex && exOpen && (
+          <Modal title={Ex.title} onClose={() => setExOpen(false)}>
+            <div className="hsr-ex-modal">
+              <div className="hsr-ex-modal-art">
+                <img src={Ex.image} alt={Ex.title} className="hsr-ex-modal-img" />
+              </div>
+
+              <div className="hsr-ex-modal-info">
+                <span className="hsr-ex-modal-tag">Ex-Eidolon</span>
+                <h3 className="hsr-ex-modal-title">{Ex.title}</h3>
+                <hr className="hsr-ex-modal-divider" />
+                <p className="hsr-ex-modal-desc">{Ex.desc}</p>
+              </div>
+            </div>
+          </Modal>
+      )}
     </div>
   );
 };

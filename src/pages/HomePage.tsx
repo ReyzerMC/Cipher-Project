@@ -425,8 +425,8 @@ export function HomePage({ authUser, authLoading }: HomePageProps) {
         {activeTab === "traces" && selectedCharacter && (
           <Suspense fallback={<div className="hsr-art-placeholder">Loading...</div>}>
             <TracesMenu
-              path={selectedCharacter?.path!}
-              nodes={selectedCharacter?.traces!}
+              path={selectedCharacter?.path}
+              nodes={selectedCharacter?.traces}
               bgWatermark={pathIcon(selectedCharacter.path)}
             />
           </Suspense>
@@ -441,6 +441,7 @@ export function HomePage({ authUser, authLoading }: HomePageProps) {
               e4={selectedCharacter.eidolons.e4}
               e5={selectedCharacter.eidolons.e5}
               e6={selectedCharacter.eidolons.e6}
+              Ex={selectedCharacter.eidolons.Ex}
             />
           </Suspense>
         )}

@@ -1,7 +1,7 @@
-import type { Eidolon } from "../../../types/hsr";
-import { charEidolon } from "../../../utils/assets";
+import type { Eidolons } from "../../../types/hsr";
+import {charEidolon, getExIcon, getExImg} from "../../../utils/assets";
 
-export const PreservationMarch7thEidolons: Eidolon = {
+export const PreservationMarch7thEidolons: Eidolons = {
 
     e1: {
 
@@ -65,7 +65,7 @@ export const PreservationMarch7thEidolons: Eidolon = {
 
 };
 
-export const DanHengEidolons: Eidolon = {
+export const DanHengEidolons: Eidolons = {
 
     e1: {
 
@@ -129,7 +129,7 @@ export const DanHengEidolons: Eidolon = {
 
 };
 
-export const HimekoEidolons: Eidolon = {
+export const HimekoEidolons: Eidolons = {
 
     e1: {
 
@@ -193,7 +193,7 @@ export const HimekoEidolons: Eidolon = {
 
 };
 
-export const WeltEidolons: Eidolon = {
+export const WeltEidolons: Eidolons = {
 
     e1: {
 
@@ -257,7 +257,7 @@ export const WeltEidolons: Eidolon = {
 
 };
 
-export const KafkaEidolons: Eidolon = {
+export const KafkaEidolons: Eidolons = {
 
     e1: {
 
@@ -321,7 +321,7 @@ export const KafkaEidolons: Eidolon = {
 
 };
 
-export const SilverWolfEidolons: Eidolon = {
+export const SilverWolfEidolons: Eidolons = {
 
     e1: {
 
@@ -385,7 +385,7 @@ export const SilverWolfEidolons: Eidolon = {
 
 };
 
-export const ArlanEidolons: Eidolon = {
+export const ArlanEidolons: Eidolons = {
 
     e1: {
 
@@ -449,7 +449,7 @@ export const ArlanEidolons: Eidolon = {
 
 };
 
-export const AstaEidolons: Eidolon = {
+export const AstaEidolons: Eidolons = {
 
     e1: {
 
@@ -513,7 +513,7 @@ export const AstaEidolons: Eidolon = {
 
 };
 
-export const HertaEidolons: Eidolon = {
+export const HertaEidolons: Eidolons = {
 
     e1: {
 
@@ -577,7 +577,7 @@ export const HertaEidolons: Eidolon = {
 
 };
 
-export const SaberEidolons: Eidolon = {
+export const SaberEidolons: Eidolons = {
 
     e1: {
 
@@ -641,7 +641,7 @@ export const SaberEidolons: Eidolon = {
 
 };
 
-export const ArcherEidolons: Eidolon = {
+export const ArcherEidolons: Eidolons = {
 
     e1: {
 
@@ -705,7 +705,7 @@ export const ArcherEidolons: Eidolon = {
 
 };
 
-export const BronyaEidolons: Eidolon = {
+export const BronyaEidolons: Eidolons = {
 
     e1: {
 
@@ -769,7 +769,7 @@ export const BronyaEidolons: Eidolon = {
 
 };
 
-export const SeeleEidolons: Eidolon = {
+export const SeeleEidolons: Eidolons = {
 
     e1: {
 
@@ -833,7 +833,7 @@ export const SeeleEidolons: Eidolon = {
 
 };
 
-export const ServalEidolons: Eidolon = {
+export const ServalEidolons: Eidolons = {
 
     e1: {
 
@@ -897,7 +897,7 @@ export const ServalEidolons: Eidolon = {
 
 };
 
-export const GepardEidolons: Eidolon = {
+export const GepardEidolons: Eidolons = {
 
     e1: {
 
@@ -961,7 +961,7 @@ export const GepardEidolons: Eidolon = {
 
 };
 
-export const NatashaEidolons: Eidolon = {
+export const NatashaEidolons: Eidolons = {
 
     e1: {
 
@@ -1025,7 +1025,7 @@ export const NatashaEidolons: Eidolon = {
 
 };
 
-export const PelaEidolons: Eidolon = {
+export const PelaEidolons: Eidolons = {
 
     e1: {
 
@@ -1089,7 +1089,7 @@ export const PelaEidolons: Eidolon = {
 
 };
 
-export const ClaraEidolons: Eidolon = {
+export const ClaraEidolons: Eidolons = {
 
     e1: {
 
@@ -1153,7 +1153,7 @@ export const ClaraEidolons: Eidolon = {
 
 };
 
-export const SampoEidolons: Eidolon = {
+export const SampoEidolons: Eidolons = {
 
     e1: {
 
@@ -1217,7 +1217,7 @@ export const SampoEidolons: Eidolon = {
 
 };
 
-export const HookEidolons: Eidolon = {
+export const HookEidolons: Eidolons = {
 
     e1: {
 
@@ -1281,7 +1281,7 @@ export const HookEidolons: Eidolon = {
 
 };
 
-export const LynxEidolons: Eidolon = {
+export const LynxEidolons: Eidolons = {
 
     e1: {
 
@@ -1345,7 +1345,7 @@ export const LynxEidolons: Eidolon = {
 
 };
 
-export const LukaEidolons: Eidolon = {
+export const LukaEidolons: Eidolons = {
 
     e1: {
 
@@ -1409,7 +1409,7 @@ export const LukaEidolons: Eidolon = {
 
 };
 
-export const TopazNumbyEidolons: Eidolon = {
+export const TopazNumbyEidolons: Eidolons = {
 
     e1: {
 
@@ -1473,7 +1473,7 @@ export const TopazNumbyEidolons: Eidolon = {
 
 };
 
-export const QingqueEidolons: Eidolon = {
+export const QingqueEidolons: Eidolons = {
 
     e1: {
 
@@ -1537,7 +1537,7 @@ export const QingqueEidolons: Eidolon = {
 
 };
 
-export const TingyunEidolons: Eidolon = {
+export const TingyunEidolons: Eidolons = {
 
     e1: {
 
@@ -1601,7 +1601,7 @@ export const TingyunEidolons: Eidolon = {
 
 };
 
-export const LuochaEidolons: Eidolon = {
+export const LuochaEidolons: Eidolons = {
 
     e1: {
 
@@ -1665,7 +1665,7 @@ export const LuochaEidolons: Eidolon = {
 
 };
 
-export const JingYuanEidolons: Eidolon = {
+export const JingYuanEidolons: Eidolons = {
 
     e1: {
 
@@ -1729,7 +1729,7 @@ export const JingYuanEidolons: Eidolon = {
 
 };
 
-export const BladeEidolons: Eidolon = {
+export const BladeEidolons: Eidolons = {
 
     e1: {
 
@@ -1793,7 +1793,7 @@ export const BladeEidolons: Eidolon = {
 
 };
 
-export const SushangEidolons: Eidolon = {
+export const SushangEidolons: Eidolons = {
 
     e1: {
 
@@ -1857,7 +1857,7 @@ export const SushangEidolons: Eidolon = {
 
 };
 
-export const YukongEidolons: Eidolon = {
+export const YukongEidolons: Eidolons = {
 
     e1: {
 
@@ -1921,7 +1921,7 @@ export const YukongEidolons: Eidolon = {
 
 };
 
-export const FuXuanEidolons: Eidolon = {
+export const FuXuanEidolons: Eidolons = {
 
     e1: {
 
@@ -1985,7 +1985,7 @@ export const FuXuanEidolons: Eidolon = {
 
 };
 
-export const YanqingEidolons: Eidolon = {
+export const YanqingEidolons: Eidolons = {
 
     e1: {
 
@@ -2049,7 +2049,7 @@ export const YanqingEidolons: Eidolon = {
 
 };
 
-export const GuinaifenEidolons: Eidolon = {
+export const GuinaifenEidolons: Eidolons = {
 
     e1: {
 
@@ -2113,7 +2113,7 @@ export const GuinaifenEidolons: Eidolon = {
 
 };
 
-export const BailuEidolons: Eidolon = {
+export const BailuEidolons: Eidolons = {
 
     e1: {
 
@@ -2177,7 +2177,7 @@ export const BailuEidolons: Eidolon = {
 
 };
 
-export const JingliuEidolons: Eidolon = {
+export const JingliuEidolons: Eidolons = {
 
     e1: {
 
@@ -2241,7 +2241,7 @@ export const JingliuEidolons: Eidolon = {
 
 };
 
-export const DanHengImbibitorLunaeEidolons: Eidolon = {
+export const DanHengImbibitorLunaeEidolons: Eidolons = {
 
     e1: {
 
@@ -2305,7 +2305,7 @@ export const DanHengImbibitorLunaeEidolons: Eidolon = {
 
 };
 
-export const XueyiEidolons: Eidolon = {
+export const XueyiEidolons: Eidolons = {
 
     e1: {
 
@@ -2369,7 +2369,7 @@ export const XueyiEidolons: Eidolon = {
 
 };
 
-export const HanyaEidolons: Eidolon = {
+export const HanyaEidolons: Eidolons = {
 
     e1: {
 
@@ -2433,7 +2433,7 @@ export const HanyaEidolons: Eidolon = {
 
 };
 
-export const HuohuoEidolons: Eidolon = {
+export const HuohuoEidolons: Eidolons = {
 
     e1: {
 
@@ -2497,7 +2497,7 @@ export const HuohuoEidolons: Eidolon = {
 
 };
 
-export const JiaoqiuEidolons: Eidolon = {
+export const JiaoqiuEidolons: Eidolons = {
 
     e1: {
 
@@ -2561,7 +2561,7 @@ export const JiaoqiuEidolons: Eidolon = {
 
 };
 
-export const FeixiaoEidolons: Eidolon = {
+export const FeixiaoEidolons: Eidolons = {
 
     e1: {
 
@@ -2625,7 +2625,7 @@ export const FeixiaoEidolons: Eidolon = {
 
 };
 
-export const YunliEidolons: Eidolon = {
+export const YunliEidolons: Eidolons = {
 
     e1: {
 
@@ -2689,7 +2689,7 @@ export const YunliEidolons: Eidolon = {
 
 };
 
-export const LingshaEidolons: Eidolon = {
+export const LingshaEidolons: Eidolons = {
 
     e1: {
 
@@ -2753,7 +2753,7 @@ export const LingshaEidolons: Eidolon = {
 
 };
 
-export const MozeEidolons: Eidolon = {
+export const MozeEidolons: Eidolons = {
 
     e1: {
 
@@ -2817,7 +2817,7 @@ export const MozeEidolons: Eidolon = {
 
 };
 
-export const March7thEidolons: Eidolon = {
+export const March7thEidolons: Eidolons = {
 
     e1: {
 
@@ -2881,7 +2881,7 @@ export const March7thEidolons: Eidolon = {
 
 };
 
-export const FugueEidolons: Eidolon = {
+export const FugueEidolons: Eidolons = {
 
     e1: {
 
@@ -2945,7 +2945,7 @@ export const FugueEidolons: Eidolon = {
 
 };
 
-export const GallagherEidolons: Eidolon = {
+export const GallagherEidolons: Eidolons = {
 
     e1: {
 
@@ -3009,7 +3009,7 @@ export const GallagherEidolons: Eidolon = {
 
 };
 
-export const ArgentiEidolons: Eidolon = {
+export const ArgentiEidolons: Eidolons = {
 
     e1: {
 
@@ -3073,7 +3073,7 @@ export const ArgentiEidolons: Eidolon = {
 
 };
 
-export const RuanMeiEidolons: Eidolon = {
+export const RuanMeiEidolons: Eidolons = {
 
     e1: {
 
@@ -3137,7 +3137,7 @@ export const RuanMeiEidolons: Eidolon = {
 
 };
 
-export const AventurineEidolons: Eidolon = {
+export const AventurineEidolons: Eidolons = {
 
     e1: {
 
@@ -3201,7 +3201,7 @@ export const AventurineEidolons: Eidolon = {
 
 };
 
-export const DrRatioEidolons: Eidolon = {
+export const DrRatioEidolons: Eidolons = {
 
     e1: {
 
@@ -3265,7 +3265,7 @@ export const DrRatioEidolons: Eidolon = {
 
 };
 
-export const SparkleEidolons: Eidolon = {
+export const SparkleEidolons: Eidolons = {
 
     e1: {
 
@@ -3329,7 +3329,7 @@ export const SparkleEidolons: Eidolon = {
 
 };
 
-export const BlackSwanEidolons: Eidolon = {
+export const BlackSwanEidolons: Eidolons = {
 
     e1: {
 
@@ -3393,7 +3393,7 @@ export const BlackSwanEidolons: Eidolon = {
 
 };
 
-export const AcheronEidolons: Eidolon = {
+export const AcheronEidolons: Eidolons = {
 
     e1: {
 
@@ -3454,10 +3454,20 @@ export const AcheronEidolons: Eidolon = {
         image: charEidolon("Acheron", 6),
 
     },
+    Ex: {
 
+        title: "A Glance Through Rime to Bone",
+
+        desc: "When a teammate attacks an enemy target with \"Crimson Knot,\" Acheron deals 1 instance of Lightning Additional DMG equal to 80% of this unit's ATK to the target and launches a Follow-Up ATK, dealing Lightning DMG equal to 300% of Acheron's ATK to all enemies, then gains 1 point(s) of Slashed Dream and inflicts 1 stack(s) of \"Crimson Knot\" on the enemy target with the most \"Crimson Knot.\" This effect can trigger up to 1 time(s) per turn. The trigger count resets at the start of Acheron's turn.",
+
+        icon: getExIcon("Acheron"),
+
+        image: getExImg("Acheron"),
+
+    },
 };
 
-export const RobinEidolons: Eidolon = {
+export const RobinEidolons: Eidolons = {
 
     e1: {
 
@@ -3521,7 +3531,7 @@ export const RobinEidolons: Eidolon = {
 
 };
 
-export const FireflyEidolons: Eidolon = {
+export const FireflyEidolons: Eidolons = {
 
     e1: {
 
@@ -3585,7 +3595,7 @@ export const FireflyEidolons: Eidolon = {
 
 };
 
-export const MishaEidolons: Eidolon = {
+export const MishaEidolons: Eidolons = {
 
     e1: {
 
@@ -3649,7 +3659,7 @@ export const MishaEidolons: Eidolon = {
 
 };
 
-export const SundayEidolons: Eidolon = {
+export const SundayEidolons: Eidolons = {
 
     e1: {
 
@@ -3713,7 +3723,7 @@ export const SundayEidolons: Eidolon = {
 
 };
 
-export const JadeEidolons: Eidolon = {
+export const JadeEidolons: Eidolons = {
 
     e1: {
 
@@ -3777,7 +3787,7 @@ export const JadeEidolons: Eidolon = {
 
 };
 
-export const BoothillEidolons: Eidolon = {
+export const BoothillEidolons: Eidolons = {
 
     e1: {
 
@@ -3841,7 +3851,7 @@ export const BoothillEidolons: Eidolon = {
 
 };
 
-export const RappaEidolons: Eidolon = {
+export const RappaEidolons: Eidolons = {
 
     e1: {
 
@@ -3905,7 +3915,7 @@ export const RappaEidolons: Eidolon = {
 
 };
 
-export const TheDahliaEidolons: Eidolon = {
+export const TheDahliaEidolons: Eidolons = {
 
     e1: {
 
@@ -3969,7 +3979,7 @@ export const TheDahliaEidolons: Eidolon = {
 
 };
 
-export const TheHertaEidolons: Eidolon = {
+export const TheHertaEidolons: Eidolons = {
 
     e1: {
 
@@ -4033,7 +4043,7 @@ export const TheHertaEidolons: Eidolon = {
 
 };
 
-export const AglaeaEidolons: Eidolon = {
+export const AglaeaEidolons: Eidolons = {
 
     e1: {
 
@@ -4097,7 +4107,7 @@ export const AglaeaEidolons: Eidolon = {
 
 };
 
-export const TribbieEidolons: Eidolon = {
+export const TribbieEidolons: Eidolons = {
 
     e1: {
 
@@ -4161,7 +4171,7 @@ export const TribbieEidolons: Eidolon = {
 
 };
 
-export const MydeiEidolons: Eidolon = {
+export const MydeiEidolons: Eidolons = {
 
     e1: {
 
@@ -4225,7 +4235,7 @@ export const MydeiEidolons: Eidolon = {
 
 };
 
-export const AnaxaEidolons: Eidolon = {
+export const AnaxaEidolons: Eidolons = {
 
     e1: {
 
@@ -4289,7 +4299,7 @@ export const AnaxaEidolons: Eidolon = {
 
 };
 
-export const CipherEidolons: Eidolon = {
+export const CipherEidolons: Eidolons = {
 
     e1: {
 
@@ -4353,7 +4363,7 @@ export const CipherEidolons: Eidolon = {
 
 };
 
-export const CastoriceEidolons: Eidolon = {
+export const CastoriceEidolons: Eidolons = {
 
     e1: {
 
@@ -4417,7 +4427,7 @@ export const CastoriceEidolons: Eidolon = {
 
 };
 
-export const PhainonEidolons: Eidolon = {
+export const PhainonEidolons: Eidolons = {
 
     e1: {
 
@@ -4481,7 +4491,7 @@ export const PhainonEidolons: Eidolon = {
 
 };
 
-export const HyacineEidolons: Eidolon = {
+export const HyacineEidolons: Eidolons = {
 
     e1: {
 
@@ -4545,7 +4555,7 @@ export const HyacineEidolons: Eidolon = {
 
 };
 
-export const HysilensEidolons: Eidolon = {
+export const HysilensEidolons: Eidolons = {
 
     e1: {
 
@@ -4609,7 +4619,7 @@ export const HysilensEidolons: Eidolon = {
 
 };
 
-export const CerydraEidolons: Eidolon = {
+export const CerydraEidolons: Eidolons = {
 
     e1: {
 
@@ -4673,7 +4683,7 @@ export const CerydraEidolons: Eidolon = {
 
 };
 
-export const EvernightEidolons: Eidolon = {
+export const EvernightEidolons: Eidolons = {
 
     e1: {
 
@@ -4737,7 +4747,7 @@ export const EvernightEidolons: Eidolon = {
 
 };
 
-export const DanHengPermansorTerraeEidolons: Eidolon = {
+export const DanHengPermansorTerraeEidolons: Eidolons = {
 
     e1: {
 
@@ -4801,7 +4811,7 @@ export const DanHengPermansorTerraeEidolons: Eidolon = {
 
 };
 
-export const CyreneEidolons: Eidolon = {
+export const CyreneEidolons: Eidolons = {
 
     e1: {
 
@@ -4865,7 +4875,7 @@ export const CyreneEidolons: Eidolon = {
 
 };
 
-export const SparxieEidolons: Eidolon = {
+export const SparxieEidolons: Eidolons = {
 
     e1: {
 
@@ -4929,7 +4939,7 @@ export const SparxieEidolons: Eidolon = {
 
 };
 
-export const YaoGuangEidolons: Eidolon = {
+export const YaoGuangEidolons: Eidolons = {
 
     e1: {
 
@@ -4993,7 +5003,7 @@ export const YaoGuangEidolons: Eidolon = {
 
 };
 
-export const AshveilEidolons: Eidolon = {
+export const AshveilEidolons: Eidolons = {
 
     e1: {
 
@@ -5057,7 +5067,7 @@ export const AshveilEidolons: Eidolon = {
 
 };
 
-export const EvanesciaEidolons: Eidolon = {
+export const EvanesciaEidolons: Eidolons = {
 
     e1: {
 
@@ -5121,11 +5131,11 @@ export const EvanesciaEidolons: Eidolon = {
 
 };
 
-export const SilverWolfLV999Eidolons: Eidolon = {
+export const SilverWolfLV999Eidolons: Eidolons = {
 
     e1: {
 
-        title: "Aether Editing: Eidolon +1",
+        title: "Aether Editing: Eidolons +1",
 
         desc: "Enemy targets in the Zone take 20% increased DMG. When exiting the \"Godmode Player\" state, \"Hidden MMR\" will not be cleared. Instead, 20% of \"Hidden MMR\" will be retained.",
 
@@ -5185,7 +5195,7 @@ export const SilverWolfLV999Eidolons: Eidolon = {
 
 };
 
-export const MortenaxBladeEidolons: Eidolon = {
+export const MortenaxBladeEidolons: Eidolons = {
 
     e1: {
 
@@ -5249,7 +5259,7 @@ export const MortenaxBladeEidolons: Eidolon = {
 
 };
 
-export const RinEidolons: Eidolon = {
+export const RinEidolons: Eidolons = {
 
     e1: {
 
@@ -5313,7 +5323,7 @@ export const RinEidolons: Eidolon = {
 
 };
 
-export const GilgameshEidolons: Eidolon = {
+export const GilgameshEidolons: Eidolons = {
 
     e1: {
 
@@ -5377,7 +5387,7 @@ export const GilgameshEidolons: Eidolon = {
 
 };
 
-export const HimekoNovaEidolons: Eidolon = {
+export const HimekoNovaEidolons: Eidolons = {
 
     e1: {
 
@@ -5441,7 +5451,7 @@ export const HimekoNovaEidolons: Eidolon = {
 
 };
 
-export const RobinSummerettoEidolons: Eidolon = {
+export const RobinSummerettoEidolons: Eidolons = {
 
     e1: {
 
@@ -5505,7 +5515,7 @@ export const RobinSummerettoEidolons: Eidolon = {
 
 };
 
-export const AventurineWaveflairEidolons: Eidolon = {
+export const AventurineWaveflairEidolons: Eidolons = {
 
     e1: {
 
@@ -5569,7 +5579,7 @@ export const AventurineWaveflairEidolons: Eidolon = {
 
 };
 
-export const DestructionTrailblazerEidolons: Eidolon = {
+export const DestructionTrailblazerEidolons: Eidolons = {
 
     e1: {
 
@@ -5633,7 +5643,7 @@ export const DestructionTrailblazerEidolons: Eidolon = {
 
 };
 
-export const PreservationTrailblazerEidolons: Eidolon = {
+export const PreservationTrailblazerEidolons: Eidolons = {
 
     e1: {
 
@@ -5697,7 +5707,7 @@ export const PreservationTrailblazerEidolons: Eidolon = {
 
 };
 
-export const HarmonyTrailblazerEidolons: Eidolon = {
+export const HarmonyTrailblazerEidolons: Eidolons = {
 
     e1: {
 
@@ -5761,7 +5771,7 @@ export const HarmonyTrailblazerEidolons: Eidolon = {
 
 };
 
-export const RemembranceTrailblazerEidolons: Eidolon = {
+export const RemembranceTrailblazerEidolons: Eidolons = {
 
     e1: {
 
@@ -5825,7 +5835,7 @@ export const RemembranceTrailblazerEidolons: Eidolon = {
 
 };
 
-export const ElationTrailblazerEidolons: Eidolon = {
+export const ElationTrailblazerEidolons: Eidolons = {
 
     e1: {
 
@@ -5889,7 +5899,7 @@ export const ElationTrailblazerEidolons: Eidolon = {
 
 };
 
-export const PearlEidolons: Eidolon = {
+export const PearlEidolons: Eidolons = {
 
     e1: {
 
@@ -5953,7 +5963,7 @@ export const PearlEidolons: Eidolon = {
 
 };
 
-export const NihiluxEidolons: Eidolon = {
+export const NihiluxEidolons: Eidolons = {
 
     e1: {
 

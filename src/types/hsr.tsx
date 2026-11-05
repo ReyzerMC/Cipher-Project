@@ -9,7 +9,7 @@ export interface Character {
     world: World;
     image: string;
     pfp: string;
-    eidolons: Eidolon;
+    eidolons: Eidolons;
 
     // Stats
     baseATK: number;
@@ -35,37 +35,27 @@ export interface LightCone {
     dupe: number;
 }
 
+export interface Eidolons {
+  e1: Eidolon;
+  e2: Eidolon;
+  e3: Eidolon;
+  e4: Eidolon;
+  e5: Eidolon;
+  e6: Eidolon;
+  Ex?: ExEidolon;
+}
+
 export interface Eidolon {
-  e1: {
-    title: string;
-    desc: string;
-    image: string;
-  };
-  e2: {
-    title: string;
-    desc: string;
-    image: string;
-  };
-  e3: {
-    title: string;
-    desc: string;
-    image: string;
-  };
-  e4: {
-    title: string;
-    desc: string;
-    image: string;
-  };
-  e5: {
-    title: string;
-    desc: string;
-    image: string;
-  };
-  e6: {
-    title: string;
-    desc: string;
-    image: string;
-  };
+  title: string;
+  desc: string;
+  image: string;
+}
+
+export interface ExEidolon {
+  title: string;
+  desc: string;
+  icon: string;
+  image: string;
 }
 
 export interface Log {

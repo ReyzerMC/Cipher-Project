@@ -38,3 +38,9 @@ export const lightConeImg = (name: string) =>
 
 export const pathIcon = (path: string) =>
     asset(`paths/${path}.webp`);
+
+export const getExImg = (character: string) =>
+    asset(`characters/${character}/eidolons/ExEidolon.webp`);
+
+export const getExIcon = (character: string) =>
+    asset(`characters/${character}/eidolons/ExEidolonIcon.webp`);

@@ -38,4 +38,13 @@ const v4_7b: Log = {
     ]
 }
 
-export const changes: Log[] = [v4_7b, v4_6, v4_5_2, v4_5];
+const v4_7b_2: Log = {
+    version: "4.7-beta-2",
+    title: "Now, Lay Laughter to All Stars",
+    changes: [
+        `Added Ex-Eidolon system`,
+        `Added Acheron's Ex-Eidolon A Glance Through Rime to Bone`
+    ]
+}
+
+export const changes: Log[] = [v4_7b_2, v4_7b, v4_6, v4_5_2, v4_5];
