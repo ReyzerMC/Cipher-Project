@@ -15581,7 +15581,11 @@ const Nihilux: Character = {
             level: "1/12",
             icon: charIcon("Nihilux", "Ultimate"),
             description: (i) => `
-        <b>Character in beta ${i}</b>
+        Causes Aha's action to advance by 20%. Aeon ★ Aha gains the "Faces of Elation" state, lasting for 3 turn(s). 
+        At the start of each Aeon ★ Aha's turn, duration decreases by 1. 
+        Deals ${scaleValue(S.NihiluxScalling.ultimate.main, i)} Quantum Elation DMG to all enemies, 
+        then deals 5 instance(s) of DMG. Each instance deals ${scaleValue(S.NihiluxScalling.ultimate.adj, i)}
+         Quantum Elation DMG to one random enemy.
       `,
         },
         talent: {
@@ -15591,7 +15595,13 @@ const Nihilux: Character = {
             level: "1/12",
             icon: charIcon("Nihilux", "Talent"),
             description: (i) => `
-        <b>Character in beta ${i}</b>
+        The Ultimate can be activated once "Wishpower" reaches 8 point(s). Wishpower can overflow until 10 after reaching its max. 
+        Aeon ★ Aha gains 1 point(s) of "Wishpower" after using Basic ATK, Skill, or Elation Skill. Once allies' Punchline reaches 40 point(s) for the first time, 
+        Aeon ★ Aha will immediately gain 1 points of "Wishpower" and increase all allies' CRIT DMG by ${scaleValue(S.NihiluxScalling.talent, i)}, lasting for 3 turn(s). 
+        This can be triggered again after Aha's turn ends. <br><br>
+        <b>Talent: The True Story of Aha<b> <br><br>
+        When Aeon ★ Aha and teammates deal DMG, additionally deal "Elation Debt" effect equal to 25% of DMG to the enemy target. During the enemy target's phase transition, 
+        they maintain the "Elation Debt" value, with a maximum not exceeding 10% of the target's Max HP.
       `,
         },
         technique: {
@@ -15601,7 +15611,12 @@ const Nihilux: Character = {
             level: "1/1",
             icon: charIcon("Nihilux", "Technique"),
             description: `
-        <b>Character in beta</b>
+        After using the Technique, creates a Special Dimension around this unit lasting 20 second(s). Enemies within the Special Dimension are inflicted with "Misjudgment." 
+        Enemies inflicted with "Misjudgment" cannot detect ally targets. After entering combat, Aha immediately gains 1 extra turn that takes a fixed 20 Punchline into account. 
+        Only 1 dimension effect created by allies can exist at the same time. <br><br>
+        <b>Innate Trace: Faces of Elation ★ Ex Nihilo<b> <br><br>
+        While possessing the "Faces of Elation" state, Aeon ★ Aha causes allies' Path of Elation to ascend, enhancing Punchline and the "Certified Banger" state into Bliss and the "Party Trick" state. 
+        Bliss recovers 10% of the consumed Punchline at the end of the "Aha Instant" turn. During "Faces of Elation," Aeon ★ Aha's CRIT Rate increases by 12%, and the DMG dealt by Aeon ★ Aha ignores 30% of the enemy target's DEF.
       `,
         },
         // --- Pasivas ---
@@ -15612,7 +15627,7 @@ const Nihilux: Character = {
             level: "1/10",
             icon: charIcon("Nihilux", "elationSkill"),
             description: (i) => `
-        <b>Character in beta ${i}</b>
+        Ignores Participant ID and is always used at the end of the Aha Instant. Deals Quantum Elation DMG equal to ${scaleValue(S.NihiluxScalling.elationSkill, i)} to all enemies, then deals True DMG equal to 20% of total non-True DMG dealt by ally targets this Aha Instant, equally distributed among all enemies.
       `,
         },
         b2: {
@@ -15622,7 +15637,8 @@ const Nihilux: Character = {
             level: "1/1",
             icon: charIcon("Nihilux", "APrankonAeons"),
             description: `
-        <b>Character in beta</b>
+        Skill's Follow-Up ATK additionally deals 20% Elation DMG of the corresponding Type to the target with "Emanator of Elation" state and recovers 1 Skill Point(s). 
+        The Elation DMG additionally dealt in this instance does not count as 1 instance of attack.
       `,
         },
         b3: {
@@ -15632,7 +15648,7 @@ const Nihilux: Character = {
             level: "1/1",
             icon: charIcon("Nihilux", "ACarnivalinWhimsy"),
             description: `
-        <b>Character in beta</b>
+        When receiving healing or a Shield provided by a teammate, gains 1 point(s) of "Wishpower." This can be triggered up to 1 times. The trigger count resets after using Ultimate.
       `,
         },
         b4: {
@@ -15642,7 +15658,7 @@ const Nihilux: Character = {
             level: "1/1",
             icon: charIcon("Nihilux", "ABoxofEverything"),
             description: `
-        <b>Character in beta</b>
+        When Aeon ★ Aha's SPD reaches 125/150 or higher, Elation increases by 120%/150%. When entering combat, advances THEIR own action by 30%.
       `,
         },
         // --- Stats Nodes ---

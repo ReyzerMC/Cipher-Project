@@ -5959,7 +5959,7 @@ export const NihiluxEidolons: Eidolon = {
 
         title: "Who Giggled at the Primordial Hush?",
 
-        desc: "Character in beta",
+        desc: `When entering combat, immediately gains 5 point(s) of "Wishpower." When Aeon ★ Aha is present, merrymakes Elation DMG dealt by all ally targets by 15%.`,
 
         image: charEidolon("Nihilux", 1),
 
@@ -5969,7 +5969,7 @@ export const NihiluxEidolons: Eidolon = {
 
         title: "Between THEIR Eyes and Yours",
 
-        desc: "Character in beta",
+        desc: `Enhances Path of Elation Ascension effects: #{series_ref_skill_desc:UIText_SeriesSkillDescFormat,151129,2} `,
 
         image: charEidolon("Nihilux", 2),
 
@@ -5979,7 +5979,7 @@ export const NihiluxEidolons: Eidolon = {
 
         title: "A Stacked Deck of Sorrow and Joy",
 
-        desc: "Character in beta",
+        desc: `Ultimate Lv. +2, up to a maximum of Lv. 15. Basic ATK Lv. +1, up to a maximum of Lv. 10. Elation Skill Lv. +1, up to a maximum of Lv. 15.`,
 
         image: charEidolon("Nihilux", 3),
 
@@ -5989,7 +5989,7 @@ export const NihiluxEidolons: Eidolon = {
 
         title: "A Joke's Fate Boxed in Black",
 
-        desc: "Character in beta",
+        desc: `The multiplier of the True DMG dealt by Elation Skills increases by 25% of the original multiplier. When Aeon ★ Aha deals Elation DMG, an additional 100% of the cumulative "Certified Banger" stacks possessed by teammates will be taken into account.`,
 
         image: charEidolon("Nihilux", 4),
 
@@ -5999,7 +5999,7 @@ export const NihiluxEidolons: Eidolon = {
 
         title: "Moi Onstage and Me Offstage",
 
-        desc: "Character in beta",
+        desc: `Skill Lv. +2, up to a maximum of Lv. 15. Talent Lv. +2, up to a maximum of Lv. 15. Elation Skill Lv. +1, up to a maximum of Lv. 15.`,
 
         image: charEidolon("Nihilux", 5),
 
@@ -6009,7 +6009,7 @@ export const NihiluxEidolons: Eidolon = {
 
         title: "For THEY Said: You Are Elation",
 
-        desc: "Character in beta",
+        desc: `Enemy targets always have the "Elation Debt" effect that is at least equal to 20% of the target's Max HP. The first time Aeon ★ Aha uses THEIR Ultimate, Aha's action advances by 100%, and Aha gains 100 Punchline(s).`,
 
         image: charEidolon("Nihilux", 6),
 
