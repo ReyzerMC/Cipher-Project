@@ -15559,7 +15559,7 @@ const Nihilux: Character = {
             level: "1/7",
             icon: charIcon("Nihilux", "BasicATK"),
             description: (i) => `
-            <b>Character in beta ${i}</b>
+            Deals ${scaleValue(S.Nihilux.attack.main, i)} Quantum Elation DMG to one designated enemy target.
         `,
         },
         skill: {
