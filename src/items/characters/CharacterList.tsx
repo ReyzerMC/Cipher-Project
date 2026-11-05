@@ -15599,7 +15599,7 @@ const Nihilux: Character = {
         Aeon ★ Aha gains 1 point(s) of "Wishpower" after using Basic ATK, Skill, or Elation Skill. Once allies' Punchline reaches 40 point(s) for the first time, 
         Aeon ★ Aha will immediately gain 1 points of "Wishpower" and increase all allies' CRIT DMG by ${scaleValue(S.NihiluxScalling.talent, i)}, lasting for 3 turn(s). 
         This can be triggered again after Aha's turn ends. <br><br>
-        <b>Talent: The True Story of Aha<b> <br><br>
+        <b>Talent: The True Story of Aha</b> <br><br>
         When Aeon ★ Aha and teammates deal DMG, additionally deal "Elation Debt" effect equal to 25% of DMG to the enemy target. During the enemy target's phase transition, 
         they maintain the "Elation Debt" value, with a maximum not exceeding 10% of the target's Max HP.
       `,
@@ -15614,7 +15614,7 @@ const Nihilux: Character = {
         After using the Technique, creates a Special Dimension around this unit lasting 20 second(s). Enemies within the Special Dimension are inflicted with "Misjudgment." 
         Enemies inflicted with "Misjudgment" cannot detect ally targets. After entering combat, Aha immediately gains 1 extra turn that takes a fixed 20 Punchline into account. 
         Only 1 dimension effect created by allies can exist at the same time. <br><br>
-        <b>Innate Trace: Faces of Elation ★ Ex Nihilo<b> <br><br>
+        <b>Innate Trace: Faces of Elation ★ Ex Nihilo</b> <br><br>
         While possessing the "Faces of Elation" state, Aeon ★ Aha causes allies' Path of Elation to ascend, enhancing Punchline and the "Certified Banger" state into Bliss and the "Party Trick" state. 
         Bliss recovers 10% of the consumed Punchline at the end of the "Aha Instant" turn. During "Faces of Elation," Aeon ★ Aha's CRIT Rate increases by 12%, and the DMG dealt by Aeon ★ Aha ignores 30% of the enemy target's DEF.
       `,
