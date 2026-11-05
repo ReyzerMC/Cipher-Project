@@ -29,4 +29,13 @@ const v4_6: Log = {
     ]
 }
 
-export const changes: Log[] = [v4_6, v4_5_2, v4_5];
+const v4_7b: Log = {
+    version: "4.7-beta",
+    title: "Now, Lay Laughter to All Stars",
+    changes: [
+        `Added Aeon ★ Aha | [Nihilux] Character`,
+        `Added Upon the First Echo of "Aha" Light Cone`
+    ]
+}
+
+export const changes: Log[] = [v4_7b, v4_6, v4_5_2, v4_5];

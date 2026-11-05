@@ -2252,14 +2252,20 @@ export const Texts = {
         const DMG = DMGValue[index];
         const HP = HPValue[index];
 
-        return `Increases the wearer's DEF by ${DEF}%%. When the wearer uses Elation Skill on all allies, increases DMG taken by all enemies by ${DMG}%%, lasting for 3 turn(s). Regenerates a fixed 10 Energy for the wearer, and restores HP equal to ${HP}% of the wearer's DEF for all allies.`;
+        return `Increases the wearer's DEF by ${DEF}%. When the wearer uses Elation Skill on all allies, increases DMG taken by all enemies by ${DMG}%, lasting for 3 turn(s). Regenerates a fixed 10 Energy for the wearer, and restores HP equal to ${HP}% of the wearer's DEF for all allies.`;
     },
 
     UpontheFirstEchoOfAhaENG: (rank: number): string => {
+        const SPDValue = [12, 14, 16, 18, 20];
+        const PunchLineValue = [10, 12, 14, 16, 18];
+        const IgnoreDFValue = [16, 18, 20, 22, 24];
 
         const index = Math.max(0, Math.min(rank - 1, 4));
+        const SPD = SPDValue[index];
+        const PunchLine = PunchLineValue[index];
+        const IgnoreDEF = IgnoreDFValue[index];
 
-        return `Light Cone in Beta ${index}`;
+        return `Increases the wearer's base Speed by ${SPD}. When using a Skill on one other ally, gains ${PunchLine} Punchline. This effect can trigger at most once every interval of 1 turn(s). Then, causes all allies to ignore ${IgnoreDEF}% of the enemy target's DEF when dealing DMG during this combat. This effect cannot be stacked.`;
     },
 
 } as const;
