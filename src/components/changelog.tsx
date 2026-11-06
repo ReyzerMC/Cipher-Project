@@ -47,4 +47,13 @@ const v4_7b_2: Log = {
     ]
 }
 
-export const changes: Log[] = [v4_7b_2, v4_7b, v4_6, v4_5_2, v4_5];
+const v4_7b_3: Log = {
+    version: "4.7-beta-3",
+    title: "Now, Lay Laughter to All Stars",
+    changes: [
+        `Added Jing Yuan's Ex-Eidolon One Quiet Cup of Thunder`,
+        `Added Dan Heng: Imbibitor Lunae's Ex-Eidolon Moonset Stills the Deep`
+    ]
+}
+
+export const changes: Log[] = [v4_7b_3, v4_7b_2, v4_7b, v4_6, v4_5_2, v4_5];

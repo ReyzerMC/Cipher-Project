@@ -1673,7 +1673,7 @@ export const JingYuanEidolons: Eidolons = {
 
         desc: "When Lightning-Lord attacks, the DMG multiplier on enemies adjacent to the target enemy increases by an extra amount equal to 25% of the DMG multiplier against the primary target enemy.",
 
-        image: charEidolon("Jing Yuan", 1),
+        image: charEidolon("JingYuan", 1),
 
     },
 
@@ -1683,7 +1683,7 @@ export const JingYuanEidolons: Eidolons = {
 
         desc: "After Lightning-Lord takes action, DMG dealt by Jing Yuan's Basic ATK, Skill, and Ultimate increases by 20%, lasting for 2 turn(s).",
 
-        image: charEidolon("Jing Yuan", 2),
+        image: charEidolon("JingYuan", 2),
 
     },
 
@@ -1693,7 +1693,7 @@ export const JingYuanEidolons: Eidolons = {
 
         desc: "Ultimate Lv. +2, up to a maximum of Lv. 15. Basic ATK Lv. +1, up to a maximum of Lv. 10.",
 
-        image: charEidolon("Jing Yuan", 3),
+        image: charEidolon("JingYuan", 3),
 
     },
 
@@ -1703,7 +1703,7 @@ export const JingYuanEidolons: Eidolons = {
 
         desc: "For each hit performed by the Lightning-Lord when it takes action, Jing Yuan regenerates 2 Energy.",
 
-        image: charEidolon("Jing Yuan", 4),
+        image: charEidolon("JingYuan", 4),
 
     },
 
@@ -1713,7 +1713,7 @@ export const JingYuanEidolons: Eidolons = {
 
         desc: "Skill Lv. +2, up to a maximum of Lv. 15. Talent Lv. +2, up to a maximum of Lv. 15.",
 
-        image: charEidolon("Jing Yuan", 5),
+        image: charEidolon("JingYuan", 5),
 
     },
 
@@ -1723,9 +1723,21 @@ export const JingYuanEidolons: Eidolons = {
 
         desc: "Each hit performed by the Lightning-Lord when it takes action will make the target enemy Vulnerable. While Vulnerable, enemies receive 12% more DMG until the end of the Lightning-Lord's current turn, stacking up to 3 time(s).",
 
-        image: charEidolon("Jing Yuan", 6),
+        image: charEidolon("JingYuan", 6),
 
     },
+
+    Ex: {
+
+        title: "One Quiet Cup of Thunder",
+
+        desc: `The Max Hits Per Action for "Lightning-Lord" increases by 20. When "Lightning-Lord's" Hits Per Action reach the limit, it immediately takes action. At the start of combat and after every 1 time(s) "Lightning-Lord" takes action, "Lightning-Lord" is enhanced, granting Jing Yuan a 240% DMG Boost. When he uses his Skill/Ultimate, "Lightning-Lord" Hits Per Action increases by an extra 6/12, lasting for 4 turn(s).`,
+
+        icon: getExIcon("JingYuan"),
+
+        image: getExImg("JingYuan"),
+
+    }
 
 };
 
@@ -2302,6 +2314,18 @@ export const DanHengImbibitorLunaeEidolons: Eidolons = {
         image: charEidolon("DanHengImbibitorLunae", 6),
 
     },
+    
+    Ex: {
+
+        title: "Moonset Stills the Deep",
+
+        desc: "Increases the Squama Sacrosancta limit by 1. For every 5 Skill Point(s) consumed by allies, Dan Heng • Imbibitor Lunae launches a Follow-Up ATK, increasing DMG dealt by this unit by 240%, lasting for 3 turns. Then, deals Imaginary DMG equal to 500% of Dan Heng • Imbibitor Lunae's ATK to all enemies, and this unit gains 1 Squama Sacrosancta. When this instance of Follow-Up ATK deals DMG, it is considered as dealing Basic ATK DMG.",
+
+        icon: getExIcon("DanHengImbibitorLunae"),
+
+        image: getExImg("DanHengImbibitorLunae"),
+
+    }
 
 };
 
